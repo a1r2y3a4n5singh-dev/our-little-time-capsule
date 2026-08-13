@@ -305,6 +305,241 @@ textarea {
 
     background: #fffaf8;
 
-    border-left: 5px solid #b86680;
+    border-left: 5px solid #b86680;    padding: 20px;
+    margin: 20px 0;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(90,50,60,0.08);
+}
+
+.memory h3 {
+    color: #914c65;
+    margin-bottom: 8px;
+    font-size: 25px;
+}
+
+.memory p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.memory img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 50px 15px;
+    font-size: 18px;
+    color: #795964;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 24px;
+    }
+
+    header {
+        padding-top: 50px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="floating-heart heart1">♡</div>
+<div class="floating-heart heart2">♡</div>
+<div class="floating-heart heart3">♡</div>
+
+<div class="container">
+
+<header>
+    <div class="small-heart">♡</div>
+
+    <h1>Our Little<br>Time Capsule</h1>
+
+    <p class="subtitle">
+        A little place for all the moments<br>
+        I never want us to forget.
+    </p>
+
+    <div class="divider">♡</div>
+</header>
+
+<section class="card story">
+    <h2>Our Story</h2>
+
+    <p>
+        Some moments become memories.
+        Some memories become stories.
+        And some stories become little pieces of our hearts.
+    </p>
+
+    <br>
+
+    <p>
+        This is our little corner of the internet —
+        a place where we can keep the moments,
+        photographs and words that mean something to us.
+    </p>
+</section>
+
+<section class="card">
+    <h2>♡ Our Memories</h2>
+
+    <p>
+        Every photograph has a story.
+        Every little moment is worth remembering.
+    </p>
+
+    <button onclick="showMemoryForm()">
+        Add a Memory ♡
+    </button>
+
+    <div class="memory-form" id="memoryForm">
+
+        <label>Memory title</label>
+        <input
+            type="text"
+            id="memoryTitle"
+            placeholder="Give this memory a name..."
+        >
+
+        <label>Date</label>
+        <input
+            type="date"
+            id="memoryDate"
+        >
+
+        <label>What happened?</label>
+        <textarea
+            id="memoryText"
+            placeholder="Write something you want to remember..."
+        ></textarea>
+
+        <label>Add a photo</label>
+        <input
+            type="file"
+            id="memoryPhoto"
+            accept="image/*"
+        >
+
+        <button class="save-btn" onclick="saveMemory()">
+            Save this memory ♡
+        </button>
+
+    </div>
+
+    <div class="memories-list" id="memoriesList"></div>
+
+</section>
+
+<section class="card">
+    <h2>A Message For You</h2>
+
+    <p>
+        If you're reading this years from now,
+        I hope we are still smiling at the same memories.
+    </p>
+
+    <br>
+
+    <p>
+        And if life has changed in a hundred different ways,
+        I hope this little capsule reminds us of
+        how beautiful it once was.
+    </p>
+</section>
+
+<footer>
+    Made with love ♡<br>
+    Our little corner of time.
+</footer>
+
+</div>
+
+<script>
+
+function showMemoryForm() {
+    document
+        .getElementById("memoryForm")
+        .classList.toggle("show");
+}
+
+function saveMemory() {
+
+    const title =
+        document.getElementById("memoryTitle").value;
+
+    const date =
+        document.getElementById("memoryDate").value;
+
+    const text =
+        document.getElementById("memoryText").value;
+
+    const photoInput =
+        document.getElementById("memoryPhoto");
+
+    if (!title || !text) {
+        alert("Please add a title and a memory ♡");
+        return;
+    }
+
+    const memory = document.createElement("div");
+    memory.className = "memory";
+
+    let html = `
+        <h3>${title}</h3>
+        ${date ? `<small>${date}</small>` : ""}
+        <p>${text}</p>
+    `;
+
+    if (photoInput.files.length > 0) {
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+
+            html += `
+                <img src="${e.target.result}">
+            `;
+
+            memory.innerHTML = html;
+
+            document
+                .getElementById("memoriesList")
+                .prepend(memory);
+        };
+
+        reader.readAsDataURL(photoInput.files[0]);
+
+    } else {
+
+        memory.innerHTML = html;
+
+        document
+            .getElementById("memoriesList")
+            .prepend(memory);
+    }
+
+    document.getElementById("memoryTitle").value = "";
+    document.getElementById("memoryDate").value = "";
+    document.getElementById("memoryText").value = "";
+    document.getElementById("memoryPhoto").value = "";
+
+    document
+        .getElementById("memoryForm")
+        .classList.remove("show");
+}
+
+</script>
+
+</body>
+</html>
 
    
