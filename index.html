@@ -110,6 +110,11 @@ button:hover {
     opacity: 0.9;
 }
 
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
 input,
 textarea {
     width: 100%;
@@ -161,6 +166,7 @@ label {
 .memory p {
     font-size: 17px;
     line-height: 1.6;
+    white-space: pre-wrap;
 }
 
 .memory img {
@@ -177,15 +183,25 @@ label {
     padding: 20px;
 }
 
+.loading {
+    text-align: center;
+    color: #98737d;
+    padding: 20px;
+}
+
+.status {
+    margin-top: 15px;
+    font-size: 15px;
+    text-align: center;
+    min-height: 22px;
+    color: #86636d;
+}
+
 footer {
     text-align: center;
     margin-top: 50px;
     color: #86636d;
     font-size: 16px;
-}
-
-.hidden {
-    display: none;
 }
 
 @media (max-width: 600px) {
@@ -279,9 +295,14 @@ footer {
         accept="image/*"
     >
 
-    <button onclick="saveMemory()">
+    <button
+        id="saveButton"
+        onclick="saveMemory()"
+    >
         Save Memory ❤️
     </button>
+
+    <div id="status" class="status"></div>
 
 </div>
 
@@ -292,8 +313,8 @@ footer {
 
     <div id="memories" class="memories">
 
-        <div class="empty">
-            Our story begins here... ❤️
+        <div class="loading">
+            Loading our memories... ❤️
         </div>
 
     </div>
@@ -310,176 +331,4 @@ footer {
 
 <script>
 
-let memories = JSON.parse(
-    localStorage.getItem("ourMemories") || "[]"
-);
-
-
-function saveMemory() {
-
-    const title =
-        document.getElementById("title").value.trim();
-
-    const date =
-        document.getElementById("date").value;
-
-    const message =
-        document.getElementById("message").value.trim();
-
-    const photoInput =
-        document.getElementById("photo");
-
-
-    if (!title || !message) {
-
-        alert("Please add a title and message ❤️");
-
-        return;
-    }
-
-
-    const memory = {
-
-        title: title,
-
-        date: date,
-
-        message: message,
-
-        image: null
-
-    };
-
-
-    if (photoInput.files.length > 0) {
-
-        const reader = new FileReader();
-
-
-        reader.onload = function(event) {
-
-            memory.image = event.target.result;
-
-            memories.unshift(memory);
-
-            saveAndDisplay();
-
-        };
-
-
-        reader.readAsDataURL(photoInput.files[0]);
-
-    } else {
-
-        memories.unshift(memory);
-
-        saveAndDisplay();
-
-    }
-
-}
-
-
-function saveAndDisplay() {
-
-    localStorage.setItem(
-        "ourMemories",
-        JSON.stringify(memories)
-    );
-
-    displayMemories();
-
-    document.getElementById("title").value = "";
-
-    document.getElementById("date").value = "";
-
-    document.getElementById("message").value = "";
-
-    document.getElementById("photo").value = "";
-
-}
-
-
-function displayMemories() {
-
-    const container =
-        document.getElementById("memories");
-
-
-    if (memories.length === 0) {
-
-        container.innerHTML =
-            '<div class="empty">Our story begins here... ❤️</div>';
-
-        return;
-
-    }
-
-
-    container.innerHTML = "";
-
-
-    memories.forEach(function(memory) {
-
-        const card =
-            document.createElement("div");
-
-        card.className = "memory";
-
-
-        const title =
-            document.createElement("h3");
-
-        title.textContent =
-            memory.title;
-
-
-        const date =
-            document.createElement("div");
-
-        date.className = "date";
-
-        date.textContent =
-            memory.date || "A beautiful day";
-
-
-        const text =
-            document.createElement("p");
-
-        text.textContent =
-            memory.message;
-
-
-        card.appendChild(title);
-
-        card.appendChild(date);
-
-        card.appendChild(text);
-
-
-        if (memory.image) {
-
-            const image =
-                document.createElement("img");
-
-            image.src =
-                memory.image;
-
-            card.appendChild(image);
-
-        }
-
-
-        container.appendChild(card);
-
-    });
-
-}
-
-
-displayMemories();
-
-</script>
-
-</body>
-</html>
+/* =================================================
