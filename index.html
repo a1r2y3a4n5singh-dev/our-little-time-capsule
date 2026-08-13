@@ -182,10 +182,14 @@ h1 {
 
 
 /* ==========================================
-   MUSIC PLAYER
+   MUSIC CARD
    ========================================== */
 
 .music-card {
+
+    position: relative;
+
+    overflow: visible;
 
     text-align: center;
 
@@ -197,21 +201,164 @@ h1 {
 
     border-radius: 28px;
 
-    padding: 28px 22px;
+    padding:
+        30px 22px;
 
-    margin: 25px 0 30px;
+    margin:
+        25px 0 30px;
 
     box-shadow:
         0 12px 35px
         rgba(90, 50, 60, 0.12);
+
+    backdrop-filter: blur(5px);
 }
+
+
+/* ==========================================
+   MUSIC ICON
+   ========================================== */
 
 .music-icon {
 
     font-size: 40px;
 
     margin-bottom: 5px;
+
+    display: inline-block;
+
+    transition:
+        transform 0.3s ease;
 }
+
+
+/*
+   Gentle music animation
+   while song is playing
+*/
+
+.music-card.playing
+.music-icon {
+
+    animation:
+        musicPulse 1.4s ease-in-out infinite;
+}
+
+
+@keyframes musicPulse {
+
+    0%, 100% {
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+    }
+
+    25% {
+
+        transform:
+            scale(1.12)
+            rotate(-4deg);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.18)
+            rotate(4deg);
+
+    }
+
+    75% {
+
+        transform:
+            scale(1.10)
+            rotate(-2deg);
+
+    }
+
+}
+
+
+/* ==========================================
+   FLOATING HEARTS
+   ========================================== */
+
+.music-card.playing::before,
+.music-card.playing::after {
+
+    content: "❤️";
+
+    position: absolute;
+
+    font-size: 15px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+.music-card.playing::before {
+
+    left: 35%;
+
+    bottom: 30px;
+
+    animation:
+        floatHeart 2.5s ease-out infinite;
+}
+
+
+.music-card.playing::after {
+
+    right: 35%;
+
+    bottom: 30px;
+
+    animation:
+        floatHeart 2.5s ease-out infinite 1.25s;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(15px)
+            scale(0.7);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: 0.8;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-55px)
+            scale(1);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ==========================================
+   MUSIC TITLE
+   ========================================== */
 
 .music-title {
 
@@ -235,7 +382,26 @@ h1 {
 }
 
 
-/* Main music button */
+/* ==========================================
+   AUDIO CONTROLS
+   ========================================== */
+
+#ourSong {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin:
+        10px auto 18px;
+
+    display: block;
+}
+
+
+/* ==========================================
+   MUSIC BUTTON
+   ========================================== */
 
 .music-button {
 
@@ -282,22 +448,9 @@ h1 {
 }
 
 
-/* Real browser audio controls */
-
-#audioControls {
-
-    width: 100%;
-
-    max-width: 500px;
-
-    margin:
-        20px auto 5px;
-
-    display: block;
-}
-
-
-/* Music status */
+/* ==========================================
+   MUSIC STATUS
+   ========================================== */
 
 .music-status {
 
@@ -308,6 +461,9 @@ h1 {
     font-size: 15px;
 
     color: #8a6872;
+
+    transition:
+        opacity 0.3s ease;
 }
 
 
@@ -583,7 +739,8 @@ footer {
 
     .music-card {
 
-        padding: 22px;
+        padding:
+            25px 18px;
 
         border-radius: 22px;
     }
@@ -599,6 +756,7 @@ footer {
 
         max-width: 300px;
     }
+
 }
 
 </style>
@@ -644,15 +802,20 @@ footer {
      MUSIC
      ========================================== -->
 
-<div class="music-card">
+<div
+    class="music-card"
+    id="musicCard">
+
 
     <div class="music-icon">
         🎵
     </div>
 
+
     <div class="music-title">
         Our Song ❤️
     </div>
+
 
     <div class="music-subtitle">
         A little soundtrack to our memories...
@@ -661,8 +824,13 @@ footer {
 
     <!--
         IMPORTANT:
-        This MP3 must be in the SAME GitHub
-        repository folder as index.html.
+
+        This MP3 must be in the SAME
+        GitHub repository folder as index.html.
+
+        Exact filename:
+
+        Until_I_Found_You.mp3
     -->
 
     <audio
@@ -678,9 +846,6 @@ footer {
         Your browser does not support audio.
 
     </audio>
-
-
-    <br>
 
 
     <button
@@ -700,6 +865,7 @@ footer {
         Until I Found You ❤️
 
     </div>
+
 
 </div>
 
@@ -856,19 +1022,31 @@ const TABLE =
    ========================================== */
 
 const ourSong =
-    document.getElementById("ourSong");
+    document.getElementById(
+        "ourSong"
+    );
 
 
 const musicButton =
-    document.getElementById("musicButton");
+    document.getElementById(
+        "musicButton"
+    );
 
 
 const musicStatus =
-    document.getElementById("musicStatus");
+    document.getElementById(
+        "musicStatus"
+    );
+
+
+const musicCard =
+    document.getElementById(
+        "musicCard"
+    );
 
 
 /*
-   Play / Pause button
+   PLAY / PAUSE BUTTON
 */
 
 musicButton.addEventListener(
@@ -880,6 +1058,10 @@ musicButton.addEventListener(
             try {
 
                 await ourSong.play();
+
+                musicCard.classList.add(
+                    "playing"
+                );
 
                 musicButton.textContent =
                     "⏸ Pause Our Song";
@@ -896,8 +1078,15 @@ musicButton.addEventListener(
                     error
                 );
 
+                musicCard.classList.remove(
+                    "playing"
+                );
+
                 musicStatus.textContent =
-                    "Couldn't play the song. Please use the audio controls above.";
+                    "Couldn't play the song. Please check the MP3 file.";
+
+                musicStatus.className =
+                    "music-status error";
 
             }
 
@@ -906,6 +1095,10 @@ musicButton.addEventListener(
         else {
 
             ourSong.pause();
+
+            musicCard.classList.remove(
+                "playing"
+            );
 
             musicButton.textContent =
                 "▶ Play Our Song";
@@ -920,12 +1113,16 @@ musicButton.addEventListener(
 
 
 /*
-   When song starts playing
+   SONG STARTED
 */
 
 ourSong.addEventListener(
     "play",
     function() {
+
+        musicCard.classList.add(
+            "playing"
+        );
 
         musicButton.textContent =
             "⏸ Pause Our Song";
@@ -938,12 +1135,16 @@ ourSong.addEventListener(
 
 
 /*
-   When song is paused
+   SONG PAUSED
 */
 
 ourSong.addEventListener(
     "pause",
     function() {
+
+        musicCard.classList.remove(
+            "playing"
+        );
 
         if (!ourSong.ended) {
 
@@ -957,12 +1158,16 @@ ourSong.addEventListener(
 
 
 /*
-   When song finishes
+   SONG FINISHED
 */
 
 ourSong.addEventListener(
     "ended",
     function() {
+
+        musicCard.classList.remove(
+            "playing"
+        );
 
         musicButton.textContent =
             "▶ Play Our Song";
@@ -975,8 +1180,7 @@ ourSong.addEventListener(
 
 
 /*
-   IMPORTANT:
-   Detect if browser cannot load MP3.
+   AUDIO ERROR
 */
 
 ourSong.addEventListener(
@@ -987,8 +1191,12 @@ ourSong.addEventListener(
             "The MP3 could not be loaded."
         );
 
+        musicCard.classList.remove(
+            "playing"
+        );
+
         musicStatus.textContent =
-            "Song couldn't be loaded. Please check the MP3 file name.";
+            "Song couldn't be loaded. Please check the MP3 filename.";
 
         musicStatus.className =
             "music-status error";
@@ -1093,14 +1301,18 @@ async function loadMemories() {
             );
 
 
-        displayMemories(memories);
+        displayMemories(
+            memories
+        );
 
     }
 
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            error
+        );
 
 
         container.innerHTML = `
@@ -1130,40 +1342,52 @@ async function saveMemory() {
 
     const title =
         document
-            .getElementById("title")
+            .getElementById(
+                "title"
+            )
             .value
             .trim();
 
 
     const date =
         document
-            .getElementById("date")
+            .getElementById(
+                "date"
+            )
             .value;
 
 
     const message =
         document
-            .getElementById("message")
+            .getElementById(
+                "message"
+            )
             .value
             .trim();
 
 
     const photoInput =
         document
-            .getElementById("photo");
+            .getElementById(
+                "photo"
+            );
 
 
     const button =
         document
-            .getElementById("saveButton");
+            .getElementById(
+                "saveButton"
+            );
 
 
     const status =
         document
-            .getElementById("status");
+            .getElementById(
+                "status"
+            );
 
 
-    /* Validation */
+    /* VALIDATION */
 
     if (!title || !message) {
 
@@ -1178,9 +1402,10 @@ async function saveMemory() {
     }
 
 
-    /* Prevent double clicks */
+    /* PREVENT DOUBLE CLICKS */
 
-    button.disabled = true;
+    button.disabled =
+        true;
 
     button.textContent =
         "Saving... ❤️";
@@ -1195,10 +1420,11 @@ async function saveMemory() {
 
     try {
 
-        let image = null;
+        let image =
+            null;
 
 
-        /* Convert selected photo */
+        /* PHOTO */
 
         if (
 
@@ -1211,7 +1437,7 @@ async function saveMemory() {
                 photoInput.files[0];
 
 
-            /* 5 MB limit */
+            /* 5 MB LIMIT */
 
             if (
 
@@ -1230,12 +1456,14 @@ async function saveMemory() {
 
 
             image =
-                await fileToDataURL(file);
+                await fileToDataURL(
+                    file
+                );
 
         }
 
 
-        /* Create memory */
+        /* MEMORY OBJECT */
 
         const memory = {
 
@@ -1254,7 +1482,7 @@ async function saveMemory() {
         };
 
 
-        /* Send to Supabase */
+        /* SAVE TO SUPABASE */
 
         await supabaseRequest(
 
@@ -1262,39 +1490,54 @@ async function saveMemory() {
 
             {
 
-                method: "POST",
+                method:
+                    "POST",
 
                 body:
-                    JSON.stringify(memory)
+                    JSON.stringify(
+                        memory
+                    )
 
             }
 
         );
 
 
-        /* Clear form */
+        /* CLEAR FORM */
 
         document
-            .getElementById("title")
-            .value = "";
-
-
-        document
-            .getElementById("date")
-            .value = "";
+            .getElementById(
+                "title"
+            )
+            .value =
+                "";
 
 
         document
-            .getElementById("message")
-            .value = "";
+            .getElementById(
+                "date"
+            )
+            .value =
+                "";
 
 
         document
-            .getElementById("photo")
-            .value = "";
+            .getElementById(
+                "message"
+            )
+            .value =
+                "";
 
 
-        /* Success */
+        document
+            .getElementById(
+                "photo"
+            )
+            .value =
+                "";
+
+
+        /* SUCCESS */
 
         status.className =
             "status success";
@@ -1304,7 +1547,7 @@ async function saveMemory() {
             "Memory saved forever... ❤️";
 
 
-        /* Reload memories */
+        /* RELOAD */
 
         await loadMemories();
 
@@ -1313,7 +1556,9 @@ async function saveMemory() {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            error
+        );
 
 
         status.className =
@@ -1327,7 +1572,8 @@ async function saveMemory() {
     }
 
 
-    button.disabled = false;
+    button.disabled =
+        false;
 
 
     button.textContent =
@@ -1340,11 +1586,16 @@ async function saveMemory() {
    FILE → DATA URL
    ========================================== */
 
-function fileToDataURL(file) {
+function fileToDataURL(
+    file
+) {
 
     return new Promise(
 
-        function(resolve, reject) {
+        function(
+            resolve,
+            reject
+        ) {
 
             const reader =
                 new FileReader();
@@ -1374,7 +1625,9 @@ function fileToDataURL(file) {
                 };
 
 
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(
+                file
+            );
 
         }
 
@@ -1387,7 +1640,9 @@ function fileToDataURL(file) {
    DISPLAY MEMORIES
    ========================================== */
 
-function displayMemories(memories) {
+function displayMemories(
+    memories
+) {
 
     const container =
         document.getElementById(
@@ -1415,7 +1670,8 @@ function displayMemories(memories) {
     }
 
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
 
     memories.forEach(
@@ -1468,13 +1724,19 @@ function displayMemories(memories) {
                 memory.message;
 
 
-            card.appendChild(title);
+            card.appendChild(
+                title
+            );
 
 
-            card.appendChild(date);
+            card.appendChild(
+                date
+            );
 
 
-            card.appendChild(text);
+            card.appendChild(
+                text
+            );
 
 
             if (memory.image) {
@@ -1493,12 +1755,16 @@ function displayMemories(memories) {
                     "Memory photo";
 
 
-                card.appendChild(image);
+                card.appendChild(
+                    image
+                );
 
             }
 
 
-            container.appendChild(card);
+            container.appendChild(
+                card
+            );
 
         }
 
@@ -1511,7 +1777,9 @@ function displayMemories(memories) {
    FORMAT DATE
    ========================================== */
 
-function formatDate(date) {
+function formatDate(
+    date
+) {
 
     if (!date) {
 
@@ -1524,7 +1792,9 @@ function formatDate(date) {
         date.split("-");
 
 
-    if (parts.length !== 3) {
+    if (
+        parts.length !== 3
+    ) {
 
         return date;
 
@@ -1534,11 +1804,17 @@ function formatDate(date) {
     const formatted =
         new Date(
 
-            Number(parts[0]),
+            Number(
+                parts[0]
+            ),
 
-            Number(parts[1]) - 1,
+            Number(
+                parts[1]
+            ) - 1,
 
-            Number(parts[2])
+            Number(
+                parts[2]
+            )
 
         );
 
@@ -1549,11 +1825,14 @@ function formatDate(date) {
 
         {
 
-            day: "numeric",
+            day:
+                "numeric",
 
-            month: "long",
+            month:
+                "long",
 
-            year: "numeric"
+            year:
+                "numeric"
 
         }
 
@@ -1563,11 +1842,13 @@ function formatDate(date) {
 
 
 /* ==========================================
-   SAVE BUTTON EVENT
+   SAVE BUTTON
    ========================================== */
 
 document
-    .getElementById("saveButton")
+    .getElementById(
+        "saveButton"
+    )
     .addEventListener(
         "click",
         saveMemory
