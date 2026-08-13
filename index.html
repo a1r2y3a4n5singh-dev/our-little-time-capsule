@@ -12,10 +12,6 @@
 
 <style>
 
-/* ==========================================
-   BASIC
-   ========================================== */
-
 * {
     box-sizing: border-box;
 }
@@ -45,35 +41,21 @@ body {
         url("./IMG-20260804-WA0035.jpg");
 
     background-size: cover;
-
     background-position: center;
-
     background-attachment: fixed;
 
     overflow-x: hidden;
 }
 
-
-/* ==========================================
-   MAIN CONTAINER
-   ========================================== */
-
 .container {
 
     width: 92%;
-
     max-width: 800px;
-
     margin: auto;
 
     padding:
         45px 0 70px;
 }
-
-
-/* ==========================================
-   HEADER
-   ========================================== */
 
 header {
 
@@ -127,7 +109,6 @@ h1 {
 .divider {
 
     width: 90px;
-
     height: 2px;
 
     background: #d9aab8;
@@ -135,11 +116,6 @@ h1 {
     margin:
         25px auto;
 }
-
-
-/* ==========================================
-   CARDS
-   ========================================== */
 
 .card {
 
@@ -169,7 +145,6 @@ h1 {
     font-size: 30px;
 
     margin-top: 0;
-
     margin-bottom: 15px;
 }
 
@@ -182,7 +157,56 @@ h1 {
 
 
 /* ==========================================
-   MUSIC CARD
+   LOGIN
+   ========================================== */
+
+.login-card {
+
+    max-width: 500px;
+
+    margin:
+        40px auto;
+
+    text-align: center;
+}
+
+.login-card h2 {
+
+    color: #914c65;
+
+    font-size: 30px;
+
+    margin-top: 0;
+}
+
+.login-subtitle {
+
+    color: #76515d;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+.login-button {
+
+    width: 100%;
+
+    margin-top: 5px;
+}
+
+.login-status {
+
+    min-height: 25px;
+
+    margin-top: 15px;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   MUSIC
    ========================================== */
 
 .music-card {
@@ -214,11 +238,6 @@ h1 {
     backdrop-filter: blur(5px);
 }
 
-
-/* ==========================================
-   MUSIC ICON
-   ========================================== */
-
 .music-icon {
 
     font-size: 40px;
@@ -226,16 +245,7 @@ h1 {
     margin-bottom: 5px;
 
     display: inline-block;
-
-    transition:
-        transform 0.3s ease;
 }
-
-
-/*
-   Gentle music animation
-   while song is playing
-*/
 
 .music-card.playing
 .music-icon {
@@ -244,7 +254,6 @@ h1 {
         musicPulse 1.4s ease-in-out infinite;
 }
 
-
 @keyframes musicPulse {
 
     0%, 100% {
@@ -252,7 +261,6 @@ h1 {
         transform:
             scale(1)
             rotate(0deg);
-
     }
 
     25% {
@@ -260,7 +268,6 @@ h1 {
         transform:
             scale(1.12)
             rotate(-4deg);
-
     }
 
     50% {
@@ -268,7 +275,6 @@ h1 {
         transform:
             scale(1.18)
             rotate(4deg);
-
     }
 
     75% {
@@ -276,15 +282,8 @@ h1 {
         transform:
             scale(1.10)
             rotate(-2deg);
-
     }
-
 }
-
-
-/* ==========================================
-   FLOATING HEARTS
-   ========================================== */
 
 .music-card.playing::before,
 .music-card.playing::after {
@@ -302,28 +301,23 @@ h1 {
     z-index: 5;
 }
 
-
 .music-card.playing::before {
 
     left: 35%;
-
     bottom: 30px;
 
     animation:
         floatHeart 2.5s ease-out infinite;
 }
 
-
 .music-card.playing::after {
 
     right: 35%;
-
     bottom: 30px;
 
     animation:
         floatHeart 2.5s ease-out infinite 1.25s;
 }
-
 
 @keyframes floatHeart {
 
@@ -334,13 +328,11 @@ h1 {
             scale(0.7);
 
         opacity: 0;
-
     }
 
     20% {
 
         opacity: 0.8;
-
     }
 
     100% {
@@ -350,15 +342,8 @@ h1 {
             scale(1);
 
         opacity: 0;
-
     }
-
 }
-
-
-/* ==========================================
-   MUSIC TITLE
-   ========================================== */
 
 .music-title {
 
@@ -381,11 +366,6 @@ h1 {
         8px 0 18px;
 }
 
-
-/* ==========================================
-   AUDIO CONTROLS
-   ========================================== */
-
 #ourSong {
 
     width: 100%;
@@ -397,11 +377,6 @@ h1 {
 
     display: block;
 }
-
-
-/* ==========================================
-   MUSIC BUTTON
-   ========================================== */
 
 .music-button {
 
@@ -427,30 +402,7 @@ h1 {
     box-shadow:
         0 7px 18px
         rgba(150, 70, 100, 0.20);
-
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
 }
-
-.music-button:hover {
-
-    opacity: 0.9;
-
-    transform:
-        translateY(-1px);
-}
-
-.music-button:active {
-
-    transform:
-        scale(0.97);
-}
-
-
-/* ==========================================
-   MUSIC STATUS
-   ========================================== */
 
 .music-status {
 
@@ -461,9 +413,6 @@ h1 {
     font-size: 15px;
 
     color: #8a6872;
-
-    transition:
-        opacity 0.3s ease;
 }
 
 
@@ -478,7 +427,6 @@ label {
     font-size: 17px;
 
     margin-top: 8px;
-
     margin-bottom: 6px;
 }
 
@@ -509,27 +457,12 @@ textarea {
     outline: none;
 }
 
-input:focus,
-textarea:focus {
-
-    border-color: #b66b83;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(182,107,131,0.10);
-}
-
 textarea {
 
     min-height: 140px;
 
     resize: vertical;
 }
-
-
-/* ==========================================
-   BUTTONS
-   ========================================== */
 
 button {
 
@@ -549,24 +482,11 @@ button {
     background: #a65a73;
 
     color: white;
-
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
 }
 
 button:hover {
 
     opacity: 0.9;
-
-    transform:
-        translateY(-1px);
-}
-
-button:active {
-
-    transform:
-        scale(0.97);
 }
 
 button:disabled {
@@ -574,8 +494,6 @@ button:disabled {
     opacity: 0.6;
 
     cursor: not-allowed;
-
-    transform: none;
 }
 
 
@@ -692,6 +610,29 @@ button:disabled {
 
 
 /* ==========================================
+   LOGOUT
+   ========================================== */
+
+.logout-button {
+
+    display: block;
+
+    margin:
+        25px auto 0;
+
+    background:
+        transparent;
+
+    color: #914c65;
+
+    border:
+        1px solid #d6aeba;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
    FOOTER
    ========================================== */
 
@@ -704,6 +645,16 @@ footer {
     color: #86636d;
 
     font-size: 16px;
+}
+
+
+/* ==========================================
+   HIDDEN
+   ========================================== */
+
+.hidden {
+
+    display: none !important;
 }
 
 
@@ -770,10 +721,6 @@ footer {
 <div class="container">
 
 
-<!-- ==========================================
-     HEADER
-     ========================================== -->
-
 <header>
 
     <div class="heart">
@@ -799,39 +746,92 @@ footer {
 
 
 <!-- ==========================================
-     MUSIC
+     LOGIN
      ========================================== -->
+
+<div
+    id="loginSection"
+    class="card login-card">
+
+    <h2>
+        🔐 Our Private Diary
+    </h2>
+
+    <p class="login-subtitle">
+
+        This little place is just for us. ❤️
+
+    </p>
+
+
+    <label>
+        Email
+    </label>
+
+    <input
+        type="email"
+        id="loginEmail"
+        placeholder="Enter your email"
+        autocomplete="email"
+    >
+
+
+    <label>
+        Password
+    </label>
+
+    <input
+        type="password"
+        id="loginPassword"
+        placeholder="Enter your password"
+        autocomplete="current-password"
+    >
+
+
+    <button
+        id="loginButton"
+        class="login-button"
+        type="button">
+
+        Enter Our Diary ❤️
+
+    </button>
+
+
+    <div
+        id="loginStatus"
+        class="login-status">
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     PRIVATE DIARY
+     ========================================== -->
+
+<div
+    id="diarySection"
+    class="hidden">
+
+
+<!-- MUSIC -->
 
 <div
     class="music-card"
     id="musicCard">
 
-
     <div class="music-icon">
         🎵
     </div>
-
 
     <div class="music-title">
         Our Song ❤️
     </div>
 
-
     <div class="music-subtitle">
         A little soundtrack to our memories...
     </div>
-
-
-    <!--
-        IMPORTANT:
-
-        This MP3 must be in the SAME
-        GitHub repository folder as index.html.
-
-        Exact filename:
-
-        Until_I_Found_You.mp3
-    -->
 
     <audio
         id="ourSong"
@@ -847,7 +847,6 @@ footer {
 
     </audio>
 
-
     <button
         class="music-button"
         id="musicButton"
@@ -857,7 +856,6 @@ footer {
 
     </button>
 
-
     <div
         id="musicStatus"
         class="music-status">
@@ -866,13 +864,10 @@ footer {
 
     </div>
 
-
 </div>
 
 
-<!-- ==========================================
-     TO US
-     ========================================== -->
+<!-- TO US -->
 
 <div class="card">
 
@@ -893,9 +888,7 @@ footer {
 </div>
 
 
-<!-- ==========================================
-     ADD MEMORY
-     ========================================== -->
+<!-- ADD MEMORY -->
 
 <div class="card">
 
@@ -963,9 +956,7 @@ footer {
 </div>
 
 
-<!-- ==========================================
-     MEMORIES
-     ========================================== -->
+<!-- MEMORIES -->
 
 <div class="card">
 
@@ -978,12 +969,23 @@ footer {
         class="memories">
 
         <div class="loading">
-
             Loading our memories... ❤️
-
         </div>
 
     </div>
+
+</div>
+
+
+<button
+    id="logoutButton"
+    class="logout-button"
+    type="button">
+
+    Log out
+
+</button>
+
 
 </div>
 
@@ -1000,7 +1002,6 @@ footer {
 
 <script>
 
-
 /* ==========================================
    SUPABASE CONFIGURATION
    ========================================== */
@@ -1008,211 +1009,355 @@ footer {
 const SUPABASE_URL =
     "https://yvemsrkuwbrnzdbgflcu.supabase.co";
 
-
 const SUPABASE_KEY =
     "sb_publishable_3spcyR5MKfTopABgbPVHXw_0ZVVmoES";
-
 
 const TABLE =
     "memories";
 
 
 /* ==========================================
-   MUSIC PLAYER
+   ELEMENTS
    ========================================== */
 
-const ourSong =
+const loginSection =
     document.getElementById(
-        "ourSong"
+        "loginSection"
     );
 
-
-const musicButton =
+const diarySection =
     document.getElementById(
-        "musicButton"
+        "diarySection"
     );
 
-
-const musicStatus =
+const loginEmail =
     document.getElementById(
-        "musicStatus"
+        "loginEmail"
     );
 
-
-const musicCard =
+const loginPassword =
     document.getElementById(
-        "musicCard"
+        "loginPassword"
     );
 
+const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
 
-/*
-   PLAY / PAUSE BUTTON
-*/
+const loginStatus =
+    document.getElementById(
+        "loginStatus"
+    );
 
-musicButton.addEventListener(
-    "click",
-    async function() {
-
-        if (ourSong.paused) {
-
-            try {
-
-                await ourSong.play();
-
-                musicCard.classList.add(
-                    "playing"
-                );
-
-                musicButton.textContent =
-                    "⏸ Pause Our Song";
-
-                musicStatus.textContent =
-                    "Playing Until I Found You ❤️";
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    "Audio playback error:",
-                    error
-                );
-
-                musicCard.classList.remove(
-                    "playing"
-                );
-
-                musicStatus.textContent =
-                    "Couldn't play the song. Please check the MP3 file.";
-
-                musicStatus.className =
-                    "music-status error";
-
-            }
-
-        }
-
-        else {
-
-            ourSong.pause();
-
-            musicCard.classList.remove(
-                "playing"
-            );
-
-            musicButton.textContent =
-                "▶ Play Our Song";
-
-            musicStatus.textContent =
-                "Paused ❤️";
-
-        }
-
-    }
-);
-
-
-/*
-   SONG STARTED
-*/
-
-ourSong.addEventListener(
-    "play",
-    function() {
-
-        musicCard.classList.add(
-            "playing"
-        );
-
-        musicButton.textContent =
-            "⏸ Pause Our Song";
-
-        musicStatus.textContent =
-            "Playing Until I Found You ❤️";
-
-    }
-);
-
-
-/*
-   SONG PAUSED
-*/
-
-ourSong.addEventListener(
-    "pause",
-    function() {
-
-        musicCard.classList.remove(
-            "playing"
-        );
-
-        if (!ourSong.ended) {
-
-            musicButton.textContent =
-                "▶ Play Our Song";
-
-        }
-
-    }
-);
-
-
-/*
-   SONG FINISHED
-*/
-
-ourSong.addEventListener(
-    "ended",
-    function() {
-
-        musicCard.classList.remove(
-            "playing"
-        );
-
-        musicButton.textContent =
-            "▶ Play Our Song";
-
-        musicStatus.textContent =
-            "Until I Found You ❤️";
-
-    }
-);
-
-
-/*
-   AUDIO ERROR
-*/
-
-ourSong.addEventListener(
-    "error",
-    function() {
-
-        console.error(
-            "The MP3 could not be loaded."
-        );
-
-        musicCard.classList.remove(
-            "playing"
-        );
-
-        musicStatus.textContent =
-            "Song couldn't be loaded. Please check the MP3 filename.";
-
-        musicStatus.className =
-            "music-status error";
-
-    }
-);
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
 
 
 /* ==========================================
-   SUPABASE REQUEST HELPER
+   AUTH STORAGE
+   ========================================== */
+
+let accessToken =
+    localStorage.getItem(
+        "timeCapsuleAccessToken"
+    );
+
+let currentUserId =
+    localStorage.getItem(
+        "timeCapsuleUserId"
+    );
+
+
+/* ==========================================
+   SUPABASE AUTH REQUEST
+   ========================================== */
+
+async function authRequest(
+    endpoint,
+    options = {}
+) {
+
+    const response =
+        await fetch(
+
+            SUPABASE_URL +
+            "/auth/v1/" +
+            endpoint,
+
+            {
+
+                ...options,
+
+                headers: {
+
+                    "apikey":
+                        SUPABASE_KEY,
+
+                    "Content-Type":
+                        "application/json",
+
+                    ...(options.headers || {})
+
+                }
+
+            }
+
+        );
+
+
+    const text =
+        await response.text();
+
+
+    let data =
+        null;
+
+
+    try {
+
+        data =
+            text
+                ? JSON.parse(text)
+                : null;
+
+    }
+
+    catch {
+
+        data =
+            null;
+
+    }
+
+
+    if (!response.ok) {
+
+        throw new Error(
+
+            data?.msg ||
+            data?.message ||
+            data?.error_description ||
+            "Login failed."
+
+        );
+
+    }
+
+
+    return data;
+
+}
+
+
+/* ==========================================
+   LOGIN
+   ========================================== */
+
+async function login() {
+
+    const email =
+        loginEmail
+            .value
+            .trim();
+
+
+    const password =
+        loginPassword
+            .value;
+
+
+    if (!email || !password) {
+
+        loginStatus.className =
+            "login-status error";
+
+        loginStatus.textContent =
+            "Please enter your email and password.";
+
+        return;
+
+    }
+
+
+    loginButton.disabled =
+        true;
+
+    loginButton.textContent =
+        "Opening our diary... ❤️";
+
+
+    loginStatus.className =
+        "login-status";
+
+    loginStatus.textContent =
+        "Checking your login...";
+
+
+    try {
+
+        const data =
+            await authRequest(
+
+                "token?grant_type=password",
+
+                {
+
+                    method:
+                        "POST",
+
+                    body:
+                        JSON.stringify({
+
+                            email:
+                                email,
+
+                            password:
+                                password
+
+                        })
+
+                }
+
+            );
+
+
+        accessToken =
+            data.access_token;
+
+
+        currentUserId =
+            data.user.id;
+
+
+        localStorage.setItem(
+            "timeCapsuleAccessToken",
+            accessToken
+        );
+
+
+        localStorage.setItem(
+            "timeCapsuleUserId",
+            currentUserId
+        );
+
+
+        loginPassword.value =
+            "";
+
+
+        showDiary();
+
+    }
+
+
+    catch (error) {
+
+        console.error(error);
+
+
+        loginStatus.className =
+            "login-status error";
+
+        loginStatus.textContent =
+            "Login failed: " +
+            error.message;
+
+    }
+
+
+    finally {
+
+        loginButton.disabled =
+            false;
+
+        loginButton.textContent =
+            "Enter Our Diary ❤️";
+
+    }
+
+}
+
+
+/* ==========================================
+   LOGOUT
+   ========================================== */
+
+function logout() {
+
+    accessToken =
+        null;
+
+    currentUserId =
+        null;
+
+
+    localStorage.removeItem(
+        "timeCapsuleAccessToken"
+    );
+
+
+    localStorage.removeItem(
+        "timeCapsuleUserId"
+    );
+
+
+    diarySection.classList.add(
+        "hidden"
+    );
+
+
+    loginSection.classList.remove(
+        "hidden"
+    );
+
+
+    loginStatus.textContent =
+        "";
+
+}
+
+
+/* ==========================================
+   SHOW DIARY
+   ========================================== */
+
+function showDiary() {
+
+    loginSection.classList.add(
+        "hidden"
+    );
+
+
+    diarySection.classList.remove(
+        "hidden"
+    );
+
+
+    loadMemories();
+
+}
+
+
+/* ==========================================
+   SUPABASE DATABASE REQUEST
    ========================================== */
 
 async function supabaseRequest(
     endpoint,
     options = {}
 ) {
+
+    if (!accessToken) {
+
+        throw new Error(
+            "Please log in first."
+        );
+
+    }
+
 
     const response =
         await fetch(
@@ -1232,7 +1377,7 @@ async function supabaseRequest(
 
                     "Authorization":
                         "Bearer " +
-                        SUPABASE_KEY,
+                        accessToken,
 
                     "Content-Type":
                         "application/json",
@@ -1251,24 +1396,18 @@ async function supabaseRequest(
         );
 
 
+    const text =
+        await response.text();
+
+
     if (!response.ok) {
 
-        const errorText =
-            await response.text();
-
-
         throw new Error(
-
-            errorText ||
-            "Supabase request failed."
-
+            text ||
+            "Database request failed."
         );
 
     }
-
-
-    const text =
-        await response.text();
 
 
     return text
@@ -1288,6 +1427,17 @@ async function loadMemories() {
         document.getElementById(
             "memories"
         );
+
+
+    container.innerHTML = `
+
+        <div class="loading">
+
+            Loading our memories... ❤️
+
+        </div>
+
+    `;
 
 
     try {
@@ -1310,20 +1460,18 @@ async function loadMemories() {
 
     catch (error) {
 
-        console.error(
-            error
-        );
+        console.error(error);
 
 
         container.innerHTML = `
 
             <div class="empty">
 
-                Couldn't load our memories right now. ❤️
+                Couldn't load our memories. ❤️
 
                 <br><br>
 
-                Please check the Supabase connection.
+                ${escapeHtml(error.message)}
 
             </div>
 
@@ -1382,488 +1530,4 @@ async function saveMemory() {
 
     const status =
         document
-            .getElementById(
-                "status"
-            );
-
-
-    /* VALIDATION */
-
-    if (!title || !message) {
-
-        status.className =
-            "status error";
-
-        status.textContent =
-            "Please add a title and message ❤️";
-
-        return;
-
-    }
-
-
-    /* PREVENT DOUBLE CLICKS */
-
-    button.disabled =
-        true;
-
-    button.textContent =
-        "Saving... ❤️";
-
-
-    status.className =
-        "status";
-
-    status.textContent =
-        "Saving your memory...";
-
-
-    try {
-
-        let image =
-            null;
-
-
-        /* PHOTO */
-
-        if (
-
-            photoInput.files &&
-            photoInput.files.length > 0
-
-        ) {
-
-            const file =
-                photoInput.files[0];
-
-
-            /* 5 MB LIMIT */
-
-            if (
-
-                file.size >
-                5 * 1024 * 1024
-
-            ) {
-
-                throw new Error(
-
-                    "Please choose a photo smaller than 5 MB."
-
-                );
-
-            }
-
-
-            image =
-                await fileToDataURL(
-                    file
-                );
-
-        }
-
-
-        /* MEMORY OBJECT */
-
-        const memory = {
-
-            title:
-                title,
-
-            date:
-                date || null,
-
-            message:
-                message,
-
-            image:
-                image
-
-        };
-
-
-        /* SAVE TO SUPABASE */
-
-        await supabaseRequest(
-
-            TABLE,
-
-            {
-
-                method:
-                    "POST",
-
-                body:
-                    JSON.stringify(
-                        memory
-                    )
-
-            }
-
-        );
-
-
-        /* CLEAR FORM */
-
-        document
-            .getElementById(
-                "title"
-            )
-            .value =
-                "";
-
-
-        document
-            .getElementById(
-                "date"
-            )
-            .value =
-                "";
-
-
-        document
-            .getElementById(
-                "message"
-            )
-            .value =
-                "";
-
-
-        document
-            .getElementById(
-                "photo"
-            )
-            .value =
-                "";
-
-
-        /* SUCCESS */
-
-        status.className =
-            "status success";
-
-
-        status.textContent =
-            "Memory saved forever... ❤️";
-
-
-        /* RELOAD */
-
-        await loadMemories();
-
-    }
-
-
-    catch (error) {
-
-        console.error(
-            error
-        );
-
-
-        status.className =
-            "status error";
-
-
-        status.textContent =
-            "Couldn't save the memory. " +
-            error.message;
-
-    }
-
-
-    button.disabled =
-        false;
-
-
-    button.textContent =
-        "Save Memory ❤️";
-
-}
-
-
-/* ==========================================
-   FILE → DATA URL
-   ========================================== */
-
-function fileToDataURL(
-    file
-) {
-
-    return new Promise(
-
-        function(
-            resolve,
-            reject
-        ) {
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(event) {
-
-                    resolve(
-                        event.target.result
-                    );
-
-                };
-
-
-            reader.onerror =
-                function() {
-
-                    reject(
-
-                        new Error(
-                            "Could not read the photo."
-                        )
-
-                    );
-
-                };
-
-
-            reader.readAsDataURL(
-                file
-            );
-
-        }
-
-    );
-
-}
-
-
-/* ==========================================
-   DISPLAY MEMORIES
-   ========================================== */
-
-function displayMemories(
-    memories
-) {
-
-    const container =
-        document.getElementById(
-            "memories"
-        );
-
-
-    if (
-        !memories ||
-        memories.length === 0
-    ) {
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Our story begins here... ❤️
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        "";
-
-
-    memories.forEach(
-
-        function(memory) {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "memory";
-
-
-            const title =
-                document.createElement(
-                    "h3"
-                );
-
-
-            title.textContent =
-                memory.title;
-
-
-            const date =
-                document.createElement(
-                    "div"
-                );
-
-
-            date.className =
-                "date";
-
-
-            date.textContent =
-                formatDate(
-                    memory.date
-                );
-
-
-            const text =
-                document.createElement(
-                    "p"
-                );
-
-
-            text.textContent =
-                memory.message;
-
-
-            card.appendChild(
-                title
-            );
-
-
-            card.appendChild(
-                date
-            );
-
-
-            card.appendChild(
-                text
-            );
-
-
-            if (memory.image) {
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.src =
-                    memory.image;
-
-
-                image.alt =
-                    "Memory photo";
-
-
-                card.appendChild(
-                    image
-                );
-
-            }
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-
-    );
-
-}
-
-
-/* ==========================================
-   FORMAT DATE
-   ========================================== */
-
-function formatDate(
-    date
-) {
-
-    if (!date) {
-
-        return "A beautiful day";
-
-    }
-
-
-    const parts =
-        date.split("-");
-
-
-    if (
-        parts.length !== 3
-    ) {
-
-        return date;
-
-    }
-
-
-    const formatted =
-        new Date(
-
-            Number(
-                parts[0]
-            ),
-
-            Number(
-                parts[1]
-            ) - 1,
-
-            Number(
-                parts[2]
-            )
-
-        );
-
-
-    return formatted.toLocaleDateString(
-
-        undefined,
-
-        {
-
-            day:
-                "numeric",
-
-            month:
-                "long",
-
-            year:
-                "numeric"
-
-        }
-
-    );
-
-}
-
-
-/* ==========================================
-   SAVE BUTTON
-   ========================================== */
-
-document
-    .getElementById(
-        "saveButton"
-    )
-    .addEventListener(
-        "click",
-        saveMemory
-    );
-
-
-/* ==========================================
-   START WEBSITE
-   ========================================== */
-
-loadMemories();
-
-</script>
-
-
-</body>
-
-</html>
+            .getE
