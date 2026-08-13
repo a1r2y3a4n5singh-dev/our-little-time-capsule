@@ -1,1318 +1,926 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-      content="#a65a73">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Our Little Time Capsule ❤️</title>
 
-
 <style>
-
-/* =========================================================
-   RESET / BASIC
-   ========================================================= */
-
-* {
-    box-sizing: border-box;
+:root{
+    --rose:#a65a73;
+    --deep:#914c65;
+    --soft:#d9aab8;
+    --text:#5b3d45;
+    --muted:#80616a;
+    --cream:#fffaf7;
+    --white:#fffdfb;
+    --pink:#ffe8ef;
 }
 
-html {
-    scroll-behavior: smooth;
+*{
+    box-sizing:border-box;
 }
 
-body {
+html{
+    scroll-behavior:smooth;
+}
 
-    margin: 0;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    color: #5b3d45;
-
-    min-height: 100vh;
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Georgia,"Times New Roman",serif;
+    color:var(--text);
+    overflow-x:hidden;
 
     background:
         linear-gradient(
-            rgba(255, 244, 246, 0.78),
-            rgba(255, 248, 242, 0.84)
+            rgba(255,244,246,.76),
+            rgba(255,248,242,.84)
         ),
         url("./IMG-20260804-WA0035.jpg");
 
-    background-size: cover;
-
-    background-position: center;
-
-    background-attachment: fixed;
-
-    overflow-x: hidden;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 }
 
-button,
-input,
-textarea {
-    font-family: inherit;
+/* =====================================================
+   FLOATING BACKGROUND
+   ===================================================== */
+
+.sky{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
 }
 
-
-/* =========================================================
-   FLOATING BACKGROUND HEARTS
-   ========================================================= */
-
-.floating-heart {
-
-    position: fixed;
-
-    bottom: -40px;
-
-    font-size: 20px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 0;
-
-    animation:
-        backgroundHeart 8s linear infinite;
+.float{
+    position:absolute;
+    bottom:-50px;
+    opacity:0;
+    animation:floatUp linear infinite;
 }
 
-.floating-heart:nth-child(1) {
-    left: 8%;
-    animation-delay: 0s;
-}
+.f1{left:8%;font-size:20px;animation-duration:10s;animation-delay:1s}
+.f2{left:22%;font-size:14px;animation-duration:13s;animation-delay:4s}
+.f3{left:43%;font-size:18px;animation-duration:11s;animation-delay:2s}
+.f4{left:65%;font-size:15px;animation-duration:14s;animation-delay:6s}
+.f5{left:84%;font-size:21px;animation-duration:12s;animation-delay:3s}
 
-.floating-heart:nth-child(2) {
-    left: 25%;
-    animation-delay: 2s;
-    font-size: 15px;
-}
-
-.floating-heart:nth-child(3) {
-    left: 48%;
-    animation-delay: 4s;
-    font-size: 22px;
-}
-
-.floating-heart:nth-child(4) {
-    left: 70%;
-    animation-delay: 1s;
-    font-size: 17px;
-}
-
-.floating-heart:nth-child(5) {
-    left: 88%;
-    animation-delay: 5s;
-    font-size: 14px;
-}
-
-@keyframes backgroundHeart {
-
-    0% {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 0;
-
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg) scale(.7);
+        opacity:0;
     }
-
-    15% {
-        opacity: 0.25;
-    }
-
-    70% {
-        opacity: 0.18;
-    }
-
-    100% {
-
-        transform:
-            translateY(-110vh)
-            rotate(25deg);
-
-        opacity: 0;
-
+    15%{opacity:.55}
+    75%{opacity:.3}
+    100%{
+        transform:translateY(-115vh) rotate(30deg) scale(1.15);
+        opacity:0;
     }
 }
 
-
-/* =========================================================
-   MAIN CONTAINER
-   ========================================================= */
-
-.container {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: 92%;
-
-    max-width: 800px;
-
-    margin: auto;
-
-    padding:
-        30px 0 70px;
+.sparkle{
+    position:absolute;
+    animation:twinkle 3s ease-in-out infinite;
 }
 
+.s1{top:15%;left:7%;animation-delay:0s}
+.s2{top:31%;right:8%;animation-delay:1s}
+.s3{top:55%;left:5%;animation-delay:2s}
+.s4{top:73%;right:10%;animation-delay:.5s}
+.s5{top:87%;left:18%;animation-delay:1.5s}
 
-/* =========================================================
+@keyframes twinkle{
+    0%,100%{
+        opacity:.2;
+        transform:scale(.7) rotate(0deg);
+    }
+    50%{
+        opacity:.9;
+        transform:scale(1.3) rotate(20deg);
+    }
+}
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:92%;
+    max-width:820px;
+    margin:auto;
+    padding:20px 0 80px;
+}
+
+/* =====================================================
    HEADER
-   ========================================================= */
+   ===================================================== */
 
-header {
-
-    text-align: center;
-
-    padding:
-        25px 10px 20px;
+header{
+    text-align:center;
+    padding:25px 10px 20px;
 }
 
-.heart {
-
-    font-size: 45px;
-
-    animation:
-        heartbeat 1.5s infinite;
+.bears{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:14px;
+    height:75px;
 }
 
-@keyframes heartbeat {
+.bear{
+    font-size:50px;
+    display:inline-block;
+    filter:drop-shadow(0 6px 7px rgba(80,40,50,.13));
+    animation:bounceBear 2.8s ease-in-out infinite;
+}
 
-    0%, 100% {
-        transform: scale(1);
+.bear.right{
+    animation-delay:.35s;
+}
+
+.bear-heart{
+    font-size:24px;
+    animation:heartBeat 1.4s ease-in-out infinite;
+}
+
+@keyframes bounceBear{
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
     }
-
-    50% {
-        transform: scale(1.15);
+    50%{
+        transform:translateY(-10px) rotate(3deg);
     }
 }
 
-h1 {
-
-    font-size:
-        clamp(38px, 9vw, 70px);
-
-    margin:
-        15px 0 10px;
-
-    color: #914c65;
-
-    line-height: 1;
-
-    text-shadow:
-        0 3px 12px
-        rgba(145, 76, 101, 0.12);
+@keyframes heartBeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.3)}
 }
 
-.subtitle {
-
-    font-size: 20px;
-
-    line-height: 1.6;
-
-    color: #76515d;
+.main-heart{
+    font-size:40px;
+    margin-top:8px;
+    animation:heartBeat 1.5s infinite;
 }
 
-.divider {
-
-    width: 90px;
-
-    height: 2px;
-
-    background: #d9aab8;
-
-    margin:
-        25px auto;
+h1{
+    font-size:clamp(38px,9vw,70px);
+    line-height:1;
+    color:var(--deep);
+    margin:14px 0 12px;
+    text-shadow:0 4px 15px rgba(145,76,101,.12);
 }
 
-
-/* =========================================================
-   GENERAL CARDS
-   ========================================================= */
-
-.card {
-
-    background:
-        rgba(255, 252, 250, 0.92);
-
-    border:
-        1px solid rgba(160, 91, 111, 0.18);
-
-    border-radius: 28px;
-
-    padding: 30px;
-
-    margin: 30px 0;
-
-    box-shadow:
-        0 15px 45px
-        rgba(90, 50, 60, 0.12);
-
-    backdrop-filter: blur(5px);
-
-    -webkit-backdrop-filter: blur(5px);
+.subtitle{
+    font-size:20px;
+    line-height:1.6;
+    color:var(--muted);
 }
 
-.card h2 {
-
-    color: #914c65;
-
-    font-size: 30px;
-
-    margin-top: 0;
-
-    margin-bottom: 15px;
+.divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin:23px auto;
 }
 
-.card p {
-
-    font-size: 19px;
-
-    line-height: 1.7;
+.divider:before,
+.divider:after{
+    content:"";
+    width:75px;
+    height:1px;
+    background:linear-gradient(to right,transparent,var(--soft));
 }
 
+.divider:after{
+    background:linear-gradient(to left,transparent,var(--soft));
+}
 
-/* =========================================================
+/* =====================================================
+   CARDS
+   ===================================================== */
+
+.card,
+.music-card,
+.counter-card{
+    position:relative;
+    background:rgba(255,252,250,.94);
+    border:1px solid rgba(160,91,111,.18);
+    border-radius:28px;
+    padding:30px;
+    margin:30px 0;
+    box-shadow:0 15px 45px rgba(90,50,60,.12);
+    backdrop-filter:blur(7px);
+}
+
+.card:before,
+.music-card:before,
+.counter-card:before{
+    content:"";
+    position:absolute;
+    inset:7px;
+    border:1px dashed rgba(182,107,131,.25);
+    border-radius:22px;
+    pointer-events:none;
+}
+
+.card:after{
+    content:"♡";
+    position:absolute;
+    right:18px;
+    top:12px;
+    font-size:25px;
+    color:rgba(166,90,115,.22);
+    transform:rotate(12deg);
+}
+
+.card h2{
+    position:relative;
+    color:var(--deep);
+    font-size:30px;
+    margin:0 0 15px;
+}
+
+.card p{
+    position:relative;
+    font-size:19px;
+    line-height:1.7;
+}
+
+/* =====================================================
+   LOVE COUNTER
+   ===================================================== */
+
+.counter-card{
+    text-align:center;
+    overflow:hidden;
+}
+
+.counter-card h2{
+    position:relative;
+    z-index:2;
+    color:var(--deep);
+    font-size:30px;
+    margin:0 0 8px;
+}
+
+.counter-subtitle{
+    position:relative;
+    z-index:2;
+    color:var(--muted);
+    font-size:16px;
+    font-style:italic;
+    margin-bottom:22px;
+}
+
+.counter-heart{
+    position:relative;
+    z-index:2;
+    font-size:40px;
+    display:inline-block;
+    animation:heartBeat 1.5s infinite;
+    margin-bottom:12px;
+}
+
+.counter{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    max-width:650px;
+    margin:auto;
+}
+
+.time-box{
+    background:linear-gradient(145deg,#fff8fa,#fffdfb);
+    border:1px solid rgba(166,90,115,.16);
+    border-radius:18px;
+    padding:15px 8px;
+    box-shadow:0 8px 20px rgba(90,50,60,.07);
+}
+
+.time-number{
+    color:var(--deep);
+    font-size:30px;
+    font-weight:bold;
+    line-height:1.1;
+}
+
+.time-label{
+    color:#9a737e;
+    font-size:12px;
+    margin-top:5px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.since{
+    position:relative;
+    z-index:2;
+    margin-top:20px;
+    color:#96707b;
+    font-size:14px;
+}
+
+.counter-decoration{
+    position:absolute;
+    font-size:24px;
+    opacity:.25;
+}
+
+.cd1{left:18px;top:20px}
+.cd2{right:18px;top:22px}
+.cd3{left:35px;bottom:18px}
+.cd4{right:35px;bottom:18px}
+
+/* =====================================================
    LOGIN
-   ========================================================= */
+   ===================================================== */
 
-#loginSection {
-
-    max-width: 430px;
-
-    margin:
-        25px auto 40px;
-
-    text-align: center;
+#loginSection{
+    max-width:440px;
+    margin:25px auto 40px;
+    text-align:center;
 }
 
-.login-title {
-
-    color: #914c65;
-
-    font-size: 28px;
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
+.login-title{
+    color:var(--deep);
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-.login-subtitle {
-
-    color: #76515d;
-
-    font-size: 17px;
-
-    margin-bottom: 25px;
+.login-subtitle{
+    color:var(--muted);
+    font-size:17px;
+    margin-bottom:25px;
 }
 
-.login-button {
-
-    width: 100%;
-
-    background: #a65a73;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 25px;
-
-    padding: 14px;
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 7px 18px
-        rgba(150, 70, 100, 0.18);
-
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
-}
-
-.login-button:hover {
-
-    opacity: 0.9;
-
-    transform:
-        translateY(-1px);
-}
-
-.login-button:active {
-
-    transform:
-        scale(0.98);
-}
-
-.login-button:disabled {
-
-    opacity: 0.6;
-
-    cursor: not-allowed;
-
-    transform: none;
-}
-
-
-/* =========================================================
-   DIARY
-   ========================================================= */
-
-#diarySection {
-
-    display: none;
-}
-
-#diarySection.visible {
-
-    display: block;
-
-    animation:
-        diaryAppear 0.6s ease;
-}
-
-@keyframes diaryAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-    }
-}
-
-
-/* =========================================================
-   TOP BAR
-   ========================================================= */
-
-.diary-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 20px;
-
-    padding:
-        5px 3px;
-}
-
-.diary-welcome {
-
-    color: #914c65;
-
-    font-size: 17px;
-
-    font-weight: bold;
-}
-
-.logout-button {
-
-    background: rgba(255,255,255,0.75);
-
-    color: #914c65;
-
-    border:
-        1px solid #c88ca0;
-
-    padding:
-        8px 15px;
-
-    border-radius: 20px;
-
-    cursor: pointer;
-
-    transition:
-        0.2s;
-}
-
-.logout-button:hover {
-
-    background: #fff0f4;
-
-    transform:
-        translateY(-1px);
-}
-
-
-/* =========================================================
-   TOGETHERNESS COUNTER
-   ========================================================= */
-
-.together-card {
-
-    position: relative;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 250, 252, 0.97),
-            rgba(255, 246, 241, 0.97)
-        );
-
-    border:
-        1px solid rgba(166, 90, 115, 0.25);
-
-    border-radius: 30px;
-
-    padding:
-        32px 18px;
-
-    margin:
-        25px 0 30px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(90, 50, 60, 0.13);
-}
-
-.together-card::before,
-.together-card::after {
-
-    content: "♡";
-
-    position: absolute;
-
-    color: #d88ca4;
-
-    font-size: 90px;
-
-    opacity: 0.10;
-
-    pointer-events: none;
-}
-
-.together-card::before {
-
-    left: -15px;
-
-    top: -30px;
-}
-
-.together-card::after {
-
-    right: -15px;
-
-    bottom: -45px;
-}
-
-.together-heart {
-
-    font-size: 40px;
-
-    display: inline-block;
-
-    animation:
-        togetherHeartbeat 1.8s ease-in-out infinite;
-}
-
-@keyframes togetherHeartbeat {
-
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    15% {
-        transform: scale(1.15);
-    }
-
-    30% {
-        transform: scale(1);
-    }
-
-    45% {
-        transform: scale(1.12);
-    }
-
-    60% {
-        transform: scale(1);
-    }
-}
-
-.together-title {
-
-    color: #914c65;
-
-    font-size: 29px;
-
-    font-weight: bold;
-
-    margin-top: 8px;
-}
-
-.together-since {
-
-    color: #8a6872;
-
-    font-size: 16px;
-
-    font-style: italic;
-
-    margin:
-        8px 0 20px;
-}
-
-.together-counter {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-}
-
-.time-box {
-
-    min-width: 75px;
-
-    padding:
-        12px 8px;
-
-    border-radius: 18px;
-
-    background:
-        rgba(255, 255, 255, 0.78);
-
-    border:
-        1px solid rgba(166, 90, 115, 0.18);
-
-    box-shadow:
-        0 5px 15px
-        rgba(90, 50, 60, 0.07);
-
-    transition:
-        transform 0.2s ease;
-}
-
-.time-box:hover {
-
-    transform:
-        translateY(-3px);
-}
-
-.time-number {
-
-    display: block;
-
-    color: #914c65;
-
-    font-size: 25px;
-
-    font-weight: bold;
-
-    line-height: 1.2;
-}
-
-.time-label {
-
-    display: block;
-
-    color: #98737d;
-
-    font-size: 11px;
-
-    margin-top: 4px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.5px;
-}
-
-.together-message {
-
-    color: #76515d;
-
-    font-size: 16px;
-
-    margin-top: 20px;
-
-    font-style: italic;
-}
-
-
-/* =========================================================
-   MUSIC
-   ========================================================= */
-
-.music-card {
-
-    position: relative;
-
-    overflow: visible;
-
-    text-align: center;
-
-    background:
-        rgba(255, 252, 250, 0.95);
-
-    border:
-        1px solid rgba(160, 91, 111, 0.18);
-
-    border-radius: 28px;
-
-    padding:
-        30px 22px;
-
-    margin:
-        25px 0 30px;
-
-    box-shadow:
-        0 12px 35px
-        rgba(90, 50, 60, 0.12);
-
-    backdrop-filter: blur(5px);
-
-    -webkit-backdrop-filter: blur(5px);
-}
-
-.music-icon {
-
-    font-size: 40px;
-
-    margin-bottom: 5px;
-
-    display: inline-block;
-
-    transition:
-        transform 0.3s ease;
-}
-
-.music-card.playing .music-icon {
-
-    animation:
-        musicPulse 1.4s ease-in-out infinite;
-}
-
-@keyframes musicPulse {
-
-    0%, 100% {
-
-        transform:
-            scale(1)
-            rotate(0deg);
-
-    }
-
-    25% {
-
-        transform:
-            scale(1.12)
-            rotate(-4deg);
-
-    }
-
-    50% {
-
-        transform:
-            scale(1.18)
-            rotate(4deg);
-
-    }
-
-    75% {
-
-        transform:
-            scale(1.10)
-            rotate(-2deg);
-
-    }
-}
-
-.music-card.playing::before,
-.music-card.playing::after {
-
-    content: "❤️";
-
-    position: absolute;
-
-    font-size: 15px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 5;
-}
-
-.music-card.playing::before {
-
-    left: 35%;
-
-    bottom: 30px;
-
-    animation:
-        floatHeart 2.5s ease-out infinite;
-}
-
-.music-card.playing::after {
-
-    right: 35%;
-
-    bottom: 30px;
-
-    animation:
-        floatHeart 2.5s ease-out infinite 1.25s;
-}
-
-@keyframes floatHeart {
-
-    0% {
-
-        transform:
-            translateY(15px)
-            scale(0.7);
-
-        opacity: 0;
-
-    }
-
-    20% {
-
-        opacity: 0.8;
-
-    }
-
-    100% {
-
-        transform:
-            translateY(-55px)
-            scale(1);
-
-        opacity: 0;
-
-    }
-}
-
-.music-title {
-
-    color: #914c65;
-
-    font-size: 30px;
-
-    font-weight: bold;
-}
-
-.music-subtitle {
-
-    color: #76515d;
-
-    font-size: 17px;
-
-    font-style: italic;
-
-    margin:
-        8px 0 18px;
-}
-
-#ourSong {
-
-    width: 100%;
-
-    max-width: 500px;
-
-    margin:
-        10px auto 18px;
-
-    display: block;
-}
-
-.music-button {
-
-    min-width: 220px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    padding:
-        14px 25px;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-    background: #a65a73;
-
-    color: white;
-
-    box-shadow:
-        0 7px 18px
-        rgba(150, 70, 100, 0.20);
-
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
-}
-
-.music-button:hover {
-
-    opacity: 0.9;
-
-    transform:
-        translateY(-1px);
-}
-
-.music-button:active {
-
-    transform:
-        scale(0.97);
-}
-
-.music-status {
-
-    min-height: 24px;
-
-    margin-top: 12px;
-
-    font-size: 15px;
-
-    color: #8a6872;
-}
-
-
-/* =========================================================
-   FORM
-   ========================================================= */
-
-label {
-
-    display: block;
-
-    font-size: 17px;
-
-    margin-top: 8px;
-
-    margin-bottom: 6px;
+label{
+    display:block;
+    text-align:left;
+    font-size:17px;
+    margin:8px 0 6px;
 }
 
 input,
-textarea {
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin:
-        8px 0 15px;
-
-    border:
-        1px solid #d6aeba;
-
-    border-radius: 15px;
-
-    background:
-        rgba(255,255,255,0.9);
-
-    color: #5b3d45;
-
-    font-size: 17px;
-
-    outline: none;
+textarea{
+    width:100%;
+    padding:14px;
+    margin:8px 0 15px;
+    border:1px solid #d6aeba;
+    border-radius:15px;
+    background:rgba(255,255,255,.94);
+    color:var(--text);
+    font-family:inherit;
+    font-size:17px;
+    outline:none;
+    transition:.2s;
 }
 
 input:focus,
-textarea:focus {
-
-    border-color: #b66b83;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(182,107,131,0.10);
+textarea:focus{
+    border-color:#b66b83;
+    box-shadow:0 0 0 3px rgba(182,107,131,.10);
+    transform:translateY(-1px);
 }
 
-textarea {
-
-    min-height: 140px;
-
-    resize: vertical;
+textarea{
+    min-height:140px;
+    resize:vertical;
 }
 
-
-/* =========================================================
-   SAVE BUTTON
-   ========================================================= */
-
-.save-button {
-
-    border: none;
-
-    border-radius: 25px;
-
-    padding:
-        13px 22px;
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    background: #a65a73;
-
-    color: white;
-
-    box-shadow:
-        0 7px 18px
-        rgba(150, 70, 100, 0.16);
-
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
+input[type=file]{
+    padding:10px;
 }
 
-.save-button:hover {
-
-    opacity: 0.9;
-
-    transform:
-        translateY(-1px);
+.login-button,
+.save-button,
+.music-button{
+    border:0;
+    border-radius:28px;
+    padding:14px 24px;
+    font-family:inherit;
+    font-size:17px;
+    cursor:pointer;
+    background:var(--rose);
+    color:white;
+    box-shadow:0 8px 20px rgba(150,70,100,.18);
+    transition:.2s;
 }
 
-.save-button:active {
-
-    transform:
-        scale(0.97);
+.login-button{
+    width:100%;
 }
 
-.save-button:disabled {
-
-    opacity: 0.6;
-
-    cursor: not-allowed;
-
-    transform: none;
+.login-button:hover,
+.save-button:hover,
+.music-button:hover{
+    transform:translateY(-2px);
+    opacity:.92;
 }
 
-
-/* =========================================================
-   STATUS
-   ========================================================= */
-
-.status {
-
-    margin-top: 15px;
-
-    text-align: center;
-
-    font-size: 16px;
-
-    min-height: 24px;
+.login-button:active,
+.save-button:active,
+.music-button:active{
+    transform:scale(.97);
 }
 
-.success {
-
-    color: #5d8a65;
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none!important;
 }
 
-.error {
-
-    color: #b04b5b;
+.status{
+    min-height:24px;
+    margin-top:15px;
+    text-align:center;
+    font-size:16px;
+    line-height:1.5;
 }
 
+.success{color:#5d8a65}
+.error{color:#b04b5b}
 
-/* =========================================================
+/* =====================================================
+   DIARY
+   ===================================================== */
+
+#diarySection{
+    display:none;
+}
+
+.diary-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.diary-welcome{
+    color:var(--deep);
+    font-size:17px;
+    overflow-wrap:anywhere;
+}
+
+.logout-button{
+    flex-shrink:0;
+    background:rgba(255,255,255,.75);
+    color:var(--deep);
+    border:1px solid #c88ca0;
+    padding:8px 15px;
+    border-radius:20px;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+/* =====================================================
+   MUSIC
+   ===================================================== */
+
+.music-card{
+    text-align:center;
+    overflow:visible;
+}
+
+.music-icon{
+    position:relative;
+    z-index:3;
+    font-size:43px;
+    display:inline-block;
+    margin-bottom:5px;
+}
+
+.music-card.playing .music-icon{
+    animation:musicPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes musicPulse{
+    0%,100%{
+        transform:scale(1) rotate(0deg);
+    }
+    25%{
+        transform:scale(1.15) rotate(-5deg);
+    }
+    50%{
+        transform:scale(1.25) rotate(5deg);
+    }
+    75%{
+        transform:scale(1.12) rotate(-3deg);
+    }
+}
+
+.music-card.playing .music-icon:after{
+    content:"✨";
+    position:absolute;
+    top:-18px;
+    right:-22px;
+    font-size:18px;
+    animation:twinkle 1s infinite;
+}
+
+.music-title{
+    position:relative;
+    z-index:3;
+    color:var(--deep);
+    font-size:30px;
+    font-weight:bold;
+}
+
+.music-subtitle{
+    position:relative;
+    z-index:3;
+    color:var(--muted);
+    font-size:17px;
+    font-style:italic;
+    margin:8px 0 18px;
+}
+
+#ourSong{
+    width:100%;
+    max-width:500px;
+    margin:10px auto 18px;
+    display:block;
+    position:relative;
+    z-index:3;
+}
+
+.music-button{
+    min-width:220px;
+    position:relative;
+    z-index:3;
+}
+
+.music-status{
+    position:relative;
+    z-index:3;
+    min-height:24px;
+    margin-top:12px;
+    color:#8a6872;
+    font-size:15px;
+}
+
+.music-card.playing:after{
+    content:"💕";
+    position:absolute;
+    left:20%;
+    bottom:20px;
+    font-size:18px;
+    animation:floatMusicHeart 2.5s ease-out infinite;
+    pointer-events:none;
+}
+
+@keyframes floatMusicHeart{
+    0%{
+        transform:translateY(10px) scale(.7);
+        opacity:0;
+    }
+    20%{opacity:.8}
+    100%{
+        transform:translateY(-70px) scale(1.1);
+        opacity:0;
+    }
+}
+
+/* =====================================================
    MEMORIES
-   ========================================================= */
+   ===================================================== */
 
-.memories {
-
-    margin-top: 30px;
+.memories{
+    margin-top:30px;
 }
 
-.memory {
-
-    position: relative;
-
-    background: #fffaf8;
-
-    border-left:
-        5px solid #b86680;
-
-    border-radius: 18px;
-
-    padding: 22px;
-
-    margin: 20px 0;
-
-    box-shadow:
-        0 8px 25px
-        rgba(90, 50, 60, 0.07);
-
-    animation:
-        memoryAppear 0.5s ease;
+.memory{
+    position:relative;
+    background:linear-gradient(145deg,#fffdfb,#fff7f3);
+    border:1px solid rgba(160,91,111,.14);
+    border-radius:20px;
+    padding:25px;
+    margin:25px 0;
+    box-shadow:0 12px 30px rgba(90,50,60,.09);
+    transform:rotate(-.4deg);
+    transition:.3s;
 }
 
-@keyframes memoryAppear {
+.memory:nth-child(even){
+    transform:rotate(.5deg);
+}
 
-    from {
+.memory:hover{
+    transform:translateY(-4px) rotate(0);
+    box-shadow:0 18px 35px rgba(90,50,60,.13);
+}
 
-        opacity: 0;
+.memory:before{
+    content:"💗";
+    position:absolute;
+    right:18px;
+    top:14px;
+    opacity:.5;
+}
 
-        transform:
-            translateY(10px);
+.memory h3{
+    margin-top:0;
+    padding-right:30px;
+    color:var(--deep);
+    font-size:25px;
+}
 
+.memory .date{
+    display:inline-block;
+    font-size:14px;
+    color:#a27682;
+    background:#fff0f4;
+    border-radius:15px;
+    padding:5px 10px;
+    margin-bottom:12px;
+}
+
+.memory p{
+    font-size:17px;
+    line-height:1.6;
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+}
+
+.memory img{
+    width:100%;
+    max-height:500px;
+    object-fit:cover;
+    border-radius:5px;
+    margin-top:15px;
+    padding:9px 9px 28px;
+    background:white;
+    box-shadow:0 6px 18px rgba(50,30,35,.13);
+    transform:rotate(-1deg);
+}
+
+.empty,
+.loading{
+    text-align:center;
+    color:#98737d;
+    padding:25px;
+    line-height:1.6;
+}
+
+/* =====================================================
+   TEDDY
+   ===================================================== */
+
+.teddy{
+    position:fixed;
+    right:16px;
+    bottom:15px;
+    z-index:10;
+    font-size:46px;
+    pointer-events:none;
+    filter:drop-shadow(0 6px 10px rgba(80,40,50,.15));
+    animation:teddyFloat 3s ease-in-out infinite;
+}
+
+.teddy .heart{
+    position:absolute;
+    top:-15px;
+    left:50%;
+    font-size:18px;
+    transform:translateX(-50%);
+    animation:teddyHeart 1.5s ease-in-out infinite;
+}
+
+@keyframes teddyFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
     }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
+    50%{
+        transform:translateY(-10px) rotate(3deg);
     }
 }
 
-.memory h3 {
-
-    margin-top: 0;
-
-    color: #914c65;
-
-    font-size: 25px;
+@keyframes teddyHeart{
+    0%,100%{
+        transform:translateX(-50%) scale(.8);
+        opacity:.5;
+    }
+    50%{
+        transform:translateX(-50%) scale(1.2);
+        opacity:1;
+    }
 }
 
-.memory .date {
+/* =====================================================
+   SAVE CELEBRATION
+   ===================================================== */
 
-    font-size: 14px;
-
-    color: #a27682;
-
-    margin-bottom: 12px;
+.celebration{
+    position:fixed;
+    z-index:100;
+    pointer-events:none;
+    font-size:24px;
+    animation:celebrate 1.4s ease-out forwards;
 }
 
-.memory p {
-
-    font-size: 17px;
-
-    line-height: 1.6;
-
-    white-space: pre-wrap;
+@keyframes celebrate{
+    0%{
+        transform:translate(0,0) scale(.4);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:
+            translate(var(--x),var(--y))
+            scale(1.2)
+            rotate(25deg);
+        opacity:0;
+    }
 }
 
-.memory img {
-
-    width: 100%;
-
-    max-height: 500px;
-
-    object-fit: cover;
-
-    border-radius: 15px;
-
-    margin-top: 15px;
-
-    display: block;
-}
-
-.empty {
-
-    text-align: center;
-
-    color: #98737d;
-
-    padding: 20px;
-}
-
-.loading {
-
-    text-align: center;
-
-    color: #98737d;
-
-    padding: 25px;
-}
-
-
-/* =========================================================
+/* =====================================================
    FOOTER
-   ========================================================= */
+   ===================================================== */
 
-footer {
-
-    text-align: center;
-
-    margin-top: 50px;
-
-    color: #86636d;
-
-    font-size: 16px;
+footer{
+    text-align:center;
+    margin-top:55px;
+    color:#86636d;
+    font-size:16px;
+    padding-bottom:20px;
 }
 
+.footer-heart{
+    font-size:21px;
+    animation:heartBeat 2s infinite;
+}
 
-/* =========================================================
+/* =====================================================
    MOBILE
-   ========================================================= */
+   ===================================================== */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    .container {
-
-        width: 94%;
-
-        padding-top: 20px;
+    .container{
+        width:94%;
+        padding-top:12px;
     }
 
-    .card {
-
-        padding: 22px;
-
-        border-radius: 22px;
+    .card,
+    .music-card,
+    .counter-card{
+        padding:23px 19px;
+        border-radius:22px;
     }
 
-    h1 {
-
-        font-size: 43px;
+    .card:before,
+    .music-card:before,
+    .counter-card:before{
+        inset:6px;
+        border-radius:17px;
     }
 
-    .subtitle {
-
-        font-size: 18px;
+    h1{
+        font-size:43px;
     }
 
-    .music-card {
-
-        padding:
-            25px 18px;
-
-        border-radius: 22px;
+    .subtitle{
+        font-size:18px;
     }
 
-    .music-title {
-
-        font-size: 26px;
+    .bear{
+        font-size:40px;
     }
 
-    .music-button {
-
-        width: 90%;
-
-        max-width: 300px;
+    .bears{
+        gap:7px;
     }
 
-    .diary-top {
-
-        align-items: flex-start;
-
-        flex-direction: column;
+    .counter{
+        gap:6px;
     }
 
-    .logout-button {
-
-        align-self: flex-end;
+    .time-box{
+        padding:12px 5px;
+        border-radius:14px;
     }
 
-    .together-card {
-
-        padding:
-            27px 10px;
+    .time-number{
+        font-size:23px;
     }
 
-    .together-title {
-
-        font-size: 25px;
+    .time-label{
+        font-size:10px;
+        letter-spacing:.5px;
     }
 
-    .time-box {
-
-        min-width: 68px;
-
-        padding:
-            10px 6px;
+    .music-title{
+        font-size:26px;
     }
 
-    .time-number {
-
-        font-size: 21px;
+    .music-button{
+        width:90%;
+        max-width:300px;
     }
 
-    .time-label {
-
-        font-size: 9px;
+    .diary-top{
+        align-items:flex-start;
+        flex-direction:column;
     }
 
+    .logout-button{
+        align-self:flex-end;
+    }
+
+    .teddy{
+        right:7px;
+        bottom:7px;
+        font-size:38px;
+    }
+
+    .memory{
+        padding:20px;
+    }
 }
 
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *:before,
+    *:after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        scroll-behavior:auto!important;
+    }
+}
 </style>
-
 </head>
-
 
 <body>
 
+<!-- =====================================================
+     BACKGROUND DECORATION
+     ===================================================== -->
 
-<!-- =========================================================
-     BACKGROUND HEARTS
-     ========================================================= -->
+<div class="sky">
 
-<div class="floating-heart">❤️</div>
-<div class="floating-heart">♡</div>
-<div class="floating-heart">❤️</div>
-<div class="floating-heart">♡</div>
-<div class="floating-heart">❤️</div>
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s2">✧</div>
+    <div class="sparkle s3">✦</div>
+    <div class="sparkle s4">✧</div>
+    <div class="sparkle s5">✦</div>
+
+    <div class="float f1">❤️</div>
+    <div class="float f2">♡</div>
+    <div class="float f3">💕</div>
+    <div class="float f4">♡</div>
+    <div class="float f5">❤️</div>
+
+</div>
 
 
 <div class="container">
 
-
-<!-- =========================================================
+<!-- =====================================================
      HEADER
-     ========================================================= -->
+     ===================================================== -->
 
 <header>
 
-    <div class="heart">
-        ❤️
+    <div class="bears">
+
+        <span class="bear left">🧸</span>
+
+        <span class="bear-heart">❤️</span>
+
+        <span class="bear right">🧸</span>
+
     </div>
+
+    <div class="main-heart">❤️</div>
 
     <h1>
         Our Little Time Capsule
     </h1>
 
-    <div class="divider"></div>
+    <div class="divider">
+        <span>♡</span>
+    </div>
 
     <p class="subtitle">
 
         A little place for our memories,
         <br>
-
         our moments, and everything in between.
 
     </p>
@@ -1320,9 +928,87 @@ footer {
 </header>
 
 
-<!-- =========================================================
-     LOGIN SECTION
-     ========================================================= -->
+<!-- =====================================================
+     LOVE COUNTER
+     ===================================================== -->
+
+<div class="counter-card">
+
+    <span class="counter-decoration cd1">♡</span>
+    <span class="counter-decoration cd2">✦</span>
+    <span class="counter-decoration cd3">♡</span>
+    <span class="counter-decoration cd4">✧</span>
+
+    <div class="counter-heart">
+        ❤️
+    </div>
+
+    <h2>
+        Our Time Together
+    </h2>
+
+    <div class="counter-subtitle">
+        And the clock keeps counting... forever. 🧸
+    </div>
+
+    <div class="counter">
+
+        <div class="time-box">
+            <div
+                class="time-number"
+                id="days">
+                0
+            </div>
+            <div class="time-label">
+                Days
+            </div>
+        </div>
+
+        <div class="time-box">
+            <div
+                class="time-number"
+                id="hours">
+                0
+            </div>
+            <div class="time-label">
+                Hours
+            </div>
+        </div>
+
+        <div class="time-box">
+            <div
+                class="time-number"
+                id="minutes">
+                0
+            </div>
+            <div class="time-label">
+                Minutes
+            </div>
+        </div>
+
+        <div class="time-box">
+            <div
+                class="time-number"
+                id="seconds">
+                0
+            </div>
+            <div class="time-label">
+                Seconds
+            </div>
+        </div>
+
+    </div>
+
+    <div class="since">
+        Since December 6, 2025 ❤️
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LOGIN
+     ===================================================== -->
 
 <div
     class="card"
@@ -1333,11 +1019,8 @@ footer {
     </div>
 
     <div class="login-subtitle">
-
         This little place is just for us. ❤️
-
     </div>
-
 
     <label for="loginEmail">
         Email
@@ -1350,7 +1033,6 @@ footer {
         autocomplete="email"
     >
 
-
     <label for="loginPassword">
         Password
     </label>
@@ -1362,7 +1044,6 @@ footer {
         autocomplete="current-password"
     >
 
-
     <button
         class="login-button"
         id="loginButton"
@@ -1372,7 +1053,6 @@ footer {
 
     </button>
 
-
     <div
         id="loginStatus"
         class="status">
@@ -1381,337 +1061,196 @@ footer {
 </div>
 
 
-<!-- =========================================================
-     DIARY SECTION
-     ========================================================= -->
+<!-- =====================================================
+     DIARY
+     ===================================================== -->
 
 <div id="diarySection">
 
+    <div class="diary-top">
 
-<!-- =========================================================
-     DIARY TOP
-     ========================================================= -->
+        <div
+            class="diary-welcome"
+            id="diaryWelcome">
 
-<div class="diary-top">
+            Welcome back ❤️
+
+        </div>
+
+        <button
+            class="logout-button"
+            id="logoutButton"
+            type="button">
+
+            Logout
+
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         MUSIC
+         ================================================= -->
 
     <div
-        class="diary-welcome"
-        id="diaryWelcome">
+        class="music-card"
+        id="musicCard">
 
-        Welcome back ❤️
+        <div class="music-icon">
+            🎵
+        </div>
 
-    </div>
+        <div class="music-title">
+            Our Song ❤️
+        </div>
 
+        <div class="music-subtitle">
+            A little soundtrack to our memories...
+        </div>
 
-    <button
-        class="logout-button"
-        id="logoutButton"
-        type="button">
+        <audio
+            id="ourSong"
+            preload="auto"
+            controls
+            playsinline>
 
-        Logout
+            <source
+                src="./Until_I_Found_You.mp3"
+                type="audio/mpeg">
 
-    </button>
+            Your browser does not support audio.
 
-</div>
+        </audio>
 
+        <button
+            class="music-button"
+            id="musicButton"
+            type="button">
 
-<!-- =========================================================
-     TOGETHERNESS COUNTER
-     ========================================================= -->
+            ▶ Play Our Song
 
-<div class="together-card">
+        </button>
 
-    <div class="together-heart">
-        ❤️
-    </div>
+        <div
+            id="musicStatus"
+            class="music-status">
 
-    <div class="together-title">
-        Our Time Together
-    </div>
-
-    <div class="together-since">
-        Since December 6, 2025
-    </div>
-
-
-    <div class="together-counter">
-
-
-        <div class="time-box">
-
-            <span
-                class="time-number"
-                id="loveYears">
-                0
-            </span>
-
-            <span class="time-label">
-                Years
-            </span>
+            Until I Found You ❤️
 
         </div>
 
+    </div>
 
-        <div class="time-box">
 
-            <span
-                class="time-number"
-                id="loveMonths">
-                0
-            </span>
+    <!-- =================================================
+         TO US
+         ================================================= -->
 
-            <span class="time-label">
-                Months
-            </span>
+    <div class="card">
 
+        <h2>
+            To Us 🌷
+        </h2>
+
+        <p>
+            Some moments are too beautiful to be forgotten.
+
+            So this little corner of the internet is for us —
+            a place where we can leave pieces of our story
+            and come back to them someday.
+
+            <br><br>
+
+            One memory at a time. One photo at a time.
+            One little chapter at a time. ❤️
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         ADD MEMORY
+         ================================================= -->
+
+    <div class="card">
+
+        <h2>
+            ✨ Add a Memory
+        </h2>
+
+        <label for="title">
+            Memory title
+        </label>
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Our first date..."
+        >
+
+        <label for="date">
+            Date
+        </label>
+
+        <input
+            type="date"
+            id="date"
+        >
+
+        <label for="message">
+            What happened?
+        </label>
+
+        <textarea
+            id="message"
+            placeholder="Write about this memory..."
+        ></textarea>
+
+        <label for="photo">
+            Add a photo 📷
+        </label>
+
+        <input
+            type="file"
+            id="photo"
+            accept="image/*"
+        >
+
+        <button
+            class="save-button"
+            id="saveButton"
+            type="button">
+
+            Save Memory ❤️
+
+        </button>
+
+        <div
+            id="status"
+            class="status">
         </div>
 
-
-        <div class="time-box">
-
-            <span
-                class="time-number"
-                id="loveDays">
-                0
-            </span>
-
-            <span class="time-label">
-                Days
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <span
-                class="time-number"
-                id="loveHours">
-                0
-            </span>
-
-            <span class="time-label">
-                Hours
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <span
-                class="time-number"
-                id="loveMinutes">
-                0
-            </span>
-
-            <span class="time-label">
-                Minutes
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <span
-                class="time-number"
-                id="loveSeconds">
-                0
-            </span>
-
-            <span class="time-label">
-                Seconds
-            </span>
-
-        </div>
-
-
     </div>
 
 
-    <div class="together-message">
-
-        Every second with you is a memory worth keeping. ♾️
-
-    </div>
-
-</div>
-
-
-<!-- =========================================================
-     MUSIC
-     ========================================================= -->
-
-<div
-    class="music-card"
-    id="musicCard">
-
-
-    <div class="music-icon">
-        🎵
-    </div>
-
-
-    <div class="music-title">
-        Our Song ❤️
-    </div>
-
-
-    <div class="music-subtitle">
-        A little soundtrack to our memories...
-    </div>
-
-
-    <audio
-        id="ourSong"
-        preload="auto"
-        controls
-        playsinline>
-
-        <source
-            src="./Until_I_Found_You.mp3"
-            type="audio/mpeg">
-
-        Your browser does not support audio.
-
-    </audio>
-
-
-    <button
-        class="music-button"
-        id="musicButton"
-        type="button">
-
-        ▶ Play Our Song
-
-    </button>
-
-
-    <div
-        id="musicStatus"
-        class="music-status">
-
-        Until I Found You ❤️
-
-    </div>
-
-
-</div>
-
-
-<!-- =========================================================
-     TO US
-     ========================================================= -->
-
-<div class="card">
-
-    <h2>
-        To Us 🌷
-    </h2>
-
-    <p>
-
-        Some moments are too beautiful to be forgotten.
-
-        So this little corner of the internet is for us —
-        a place where we can leave pieces of our story
-        and come back to them someday.
-
-    </p>
-
-</div>
-
-
-<!-- =========================================================
-     ADD MEMORY
-     ========================================================= -->
-
-<div class="card">
-
-    <h2>
-        ✨ Add a Memory
-    </h2>
-
-
-    <label for="title">
-        Memory title
-    </label>
-
-    <input
-        type="text"
-        id="title"
-        placeholder="Our first date..."
-    >
-
-
-    <label for="date">
-        Date
-    </label>
-
-    <input
-        type="date"
-        id="date"
-    >
-
-
-    <label for="message">
-        What happened?
-    </label>
-
-    <textarea
-        id="message"
-        placeholder="Write about this memory..."
-    ></textarea>
-
-
-    <label for="photo">
-        Add a photo 📷
-    </label>
-
-    <input
-        type="file"
-        id="photo"
-        accept="image/*"
-    >
-
-
-    <button
-        class="save-button"
-        id="saveButton"
-        type="button">
-
-        Save Memory ❤️
-
-    </button>
-
-
-    <div
-        id="status"
-        class="status">
-    </div>
-
-</div>
-
-
-<!-- =========================================================
-     MEMORIES
-     ========================================================= -->
-
-<div class="card">
-
-    <h2>
-        📖 Our Memories
-    </h2>
-
-
-    <div
-        id="memories"
-        class="memories">
-
-        <div class="loading">
-
-            Loading our memories... ❤️
+    <!-- =================================================
+         MEMORIES
+         ================================================= -->
+
+    <div class="card">
+
+        <h2>
+            📖 Our Memories
+        </h2>
+
+        <div
+            id="memories"
+            class="memories">
+
+            <div class="loading">
+                Loading our memories... ❤️
+            </div>
 
         </div>
 
@@ -1719,20 +1258,37 @@ footer {
 
 </div>
 
-
-</div>
-
-
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
 
 <footer>
 
+    <div class="footer-heart">
+        ❤️ 🧸 ❤️
+    </div>
+
     Made with love, for the two of us. ❤️
+
+    <br>
+
+    <small>
+        Our story keeps going...
+    </small>
 
 </footer>
 
+</div>
+
+
+<!-- =====================================================
+     TEDDY
+     ===================================================== -->
+
+<div class="teddy">
+
+    🧸
+
+    <span class="heart">
+        ❤️
+    </span>
 
 </div>
 
@@ -1746,17 +1302,91 @@ footer {
 const SUPABASE_URL =
     "https://yvemsrkuwbrnzdbgflcu.supabase.co";
 
-
 const SUPABASE_KEY =
     "sb_publishable_3spcyR5MKfTopABgbPVHXw_0ZVVmoES";
-
 
 const TABLE =
     "memories";
 
 
 /* =========================================================
-   SESSION VARIABLES
+   IMPORTANT:
+   YOUR TOGETHERNESS START DATE
+
+   December 6, 2025
+   ========================================================= */
+
+const TOGETHER_SINCE =
+    new Date("2025-12-06T00:00:00");
+
+
+/* =========================================================
+   LIVE TOGETHERNESS COUNTER
+   ========================================================= */
+
+function updateCounter(){
+
+    const now =
+        new Date();
+
+    let difference =
+        now.getTime() -
+        TOGETHER_SINCE.getTime();
+
+    if(difference < 0){
+        difference = 0;
+    }
+
+    const totalSeconds =
+        Math.floor(
+            difference / 1000
+        );
+
+    const days =
+        Math.floor(
+            totalSeconds / 86400
+        );
+
+    const hours =
+        Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+    const seconds =
+        totalSeconds % 60;
+
+    document.getElementById("days")
+        .textContent =
+        days.toLocaleString();
+
+    document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2,"0");
+}
+
+updateCounter();
+
+setInterval(
+    updateCounter,
+    1000
+);
+
+
+/* =========================================================
+   SESSION
    ========================================================= */
 
 let accessToken =
@@ -1764,66 +1394,9 @@ let accessToken =
         "timeCapsuleAccessToken"
     );
 
-
 let refreshToken =
     localStorage.getItem(
         "timeCapsuleRefreshToken"
-    );
-
-
-let currentUser =
-    null;
-
-
-/* =========================================================
-   ELEMENTS
-   ========================================================= */
-
-const loginSection =
-    document.getElementById(
-        "loginSection"
-    );
-
-
-const diarySection =
-    document.getElementById(
-        "diarySection"
-    );
-
-
-const loginEmail =
-    document.getElementById(
-        "loginEmail"
-    );
-
-
-const loginPassword =
-    document.getElementById(
-        "loginPassword"
-    );
-
-
-const loginButton =
-    document.getElementById(
-        "loginButton"
-    );
-
-
-const loginStatus =
-    document.getElementById(
-        "loginStatus"
-    );
-
-
-const logoutButton =
-    document.getElementById(
-        "logoutButton"
-    );
-
-
-const diaryWelcome =
-    document.getElementById(
-        "diaryWelcome"
     );
 
 
@@ -1831,15 +1404,12 @@ const diaryWelcome =
    SESSION STORAGE
    ========================================================= */
 
-function setSession(session) {
+function setSession(session){
 
-    if (!session) {
+    if(!session){
 
         accessToken = null;
-
         refreshToken = null;
-
-        currentUser = null;
 
         localStorage.removeItem(
             "timeCapsuleAccessToken"
@@ -1852,20 +1422,13 @@ function setSession(session) {
         return;
     }
 
-
     accessToken =
         session.access_token || null;
-
 
     refreshToken =
         session.refresh_token || null;
 
-
-    currentUser =
-        session.user || currentUser;
-
-
-    if (accessToken) {
+    if(accessToken){
 
         localStorage.setItem(
             "timeCapsuleAccessToken",
@@ -1874,8 +1437,7 @@ function setSession(session) {
 
     }
 
-
-    if (refreshToken) {
+    if(refreshToken){
 
         localStorage.setItem(
             "timeCapsuleRefreshToken",
@@ -1883,7 +1445,6 @@ function setSession(session) {
         );
 
     }
-
 }
 
 
@@ -1894,195 +1455,55 @@ function setSession(session) {
 async function supabaseAuthRequest(
     endpoint,
     body
-) {
+){
 
     const response =
         await fetch(
-
             SUPABASE_URL +
             "/auth/v1/" +
             endpoint,
-
             {
+                method:"POST",
 
-                method:
-                    "POST",
-
-                headers: {
-
+                headers:{
                     "apikey":
                         SUPABASE_KEY,
 
                     "Content-Type":
                         "application/json"
-
                 },
 
                 body:
                     JSON.stringify(body)
-
             }
-
         );
-
 
     const text =
         await response.text();
 
+    let data = null;
 
-    let data =
-        null;
-
-
-    try {
-
+    try{
         data =
             text
                 ? JSON.parse(text)
                 : null;
-
     }
-
-    catch {
-
+    catch{
         data = null;
-
     }
 
-
-    if (!response.ok) {
+    if(!response.ok){
 
         throw new Error(
-
             data?.msg ||
             data?.message ||
             data?.error_description ||
-            data?.error ||
             "Authentication failed."
-
         );
-
     }
-
 
     return data;
-
-}
-
-
-/* =========================================================
-   GET CURRENT USER
-   ========================================================= */
-
-async function getCurrentUser() {
-
-    if (!accessToken) {
-
-        return null;
-
-    }
-
-
-    const response =
-        await fetch(
-
-            SUPABASE_URL +
-            "/auth/v1/user",
-
-            {
-
-                method:
-                    "GET",
-
-                headers: {
-
-                    "apikey":
-                        SUPABASE_KEY,
-
-                    "Authorization":
-                        "Bearer " +
-                        accessToken
-
-                }
-
-            }
-
-        );
-
-
-    if (!response.ok) {
-
-        return null;
-
-    }
-
-
-    const data =
-        await response.json();
-
-
-    return data;
-
-}
-
-
-/* =========================================================
-   REFRESH SESSION
-   ========================================================= */
-
-async function refreshSession() {
-
-    if (!refreshToken) {
-
-        return false;
-
-    }
-
-
-    try {
-
-        const data =
-            await supabaseAuthRequest(
-
-                "token?grant_type=refresh_token",
-
-                {
-
-                    refresh_token:
-                        refreshToken
-
-                }
-
-            );
-
-
-        if (
-            data &&
-            data.access_token
-        ) {
-
-            setSession(data);
-
-            return true;
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Session refresh failed:",
-            error
-        );
-
-    }
-
-
-    setSession(null);
-
-    return false;
-
 }
 
 
@@ -2092,43 +1513,39 @@ async function refreshSession() {
 
 async function supabaseRequest(
     endpoint,
-    options = {}
-) {
-
-    if (!accessToken) {
-
-        throw new Error(
-            "You are not logged in."
-        );
-
-    }
-
+    options={}
+){
 
     const headers = {
 
         "apikey":
             SUPABASE_KEY,
 
-        "Authorization":
-            "Bearer " +
-            accessToken,
-
         "Content-Type":
             "application/json"
-
     };
 
+    if(accessToken){
 
-    if (
-        options.method ===
-        "POST"
-    ) {
+        headers["Authorization"] =
+            "Bearer " +
+            accessToken;
+
+    }
+    else{
+
+        headers["Authorization"] =
+            "Bearer " +
+            SUPABASE_KEY;
+
+    }
+
+    if(options.method === "POST"){
 
         headers["Prefer"] =
             "return=representation";
 
     }
-
 
     const response =
         await fetch(
@@ -2138,121 +1555,71 @@ async function supabaseRequest(
             endpoint,
 
             {
-
                 ...options,
 
-                headers: {
-
+                headers:{
                     ...headers,
-
                     ...(options.headers || {})
-
                 }
-
             }
 
         );
 
-
     const text =
         await response.text();
 
-
-    if (!response.ok) {
+    if(!response.ok){
 
         throw new Error(
-
             text ||
             "Supabase request failed."
-
         );
 
     }
 
-
-    if (!text) {
-
-        return null;
-
-    }
-
-
-    try {
-
-        return JSON.parse(text);
-
-    }
-
-    catch {
-
-        return text;
-
-    }
-
+    return text
+        ? JSON.parse(text)
+        : null;
 }
 
 
 /* =========================================================
-   SHOW LOGIN
+   REFRESH SESSION
    ========================================================= */
 
-function showLogin() {
+async function refreshSession(){
 
-    loginSection.style.display =
-        "block";
-
-
-    diarySection.classList.remove(
-        "visible"
-    );
-
-    diarySection.style.display =
-        "none";
-
-}
-
-
-/* =========================================================
-   SHOW DIARY
-   ========================================================= */
-
-async function showDiary() {
-
-    loginSection.style.display =
-        "none";
-
-
-    diarySection.style.display =
-        "block";
-
-
-    diarySection.classList.add(
-        "visible"
-    );
-
-
-    if (
-        currentUser &&
-        currentUser.email
-    ) {
-
-        diaryWelcome.textContent =
-            "Welcome back, " +
-            currentUser.email +
-            " ❤️";
-
+    if(!refreshToken){
+        return false;
     }
 
-    else {
+    try{
 
-        diaryWelcome.textContent =
-            "Welcome back ❤️";
+        const data =
+            await supabaseAuthRequest(
+                "token?grant_type=refresh_token",
+                {
+                    refresh_token:
+                        refreshToken
+                }
+            );
+
+        setSession(data);
+
+        return true;
 
     }
+    catch(error){
 
+        console.error(
+            "Session refresh failed:",
+            error
+        );
 
-    await loadMemories();
+        setSession(null);
 
+        return false;
+    }
 }
 
 
@@ -2260,144 +1627,169 @@ async function showDiary() {
    LOGIN
    ========================================================= */
 
-async function login() {
+async function login(){
 
     const email =
-        loginEmail.value.trim();
-
+        document
+            .getElementById("loginEmail")
+            .value
+            .trim();
 
     const password =
-        loginPassword.value;
+        document
+            .getElementById("loginPassword")
+            .value;
+
+    const button =
+        document
+            .getElementById("loginButton");
+
+    const status =
+        document
+            .getElementById("loginStatus");
 
 
-    if (
-        !email ||
-        !password
-    ) {
+    if(!email || !password){
 
-        loginStatus.className =
+        status.className =
             "status error";
 
-        loginStatus.textContent =
-            "Please enter both email and password ❤️";
+        status.textContent =
+            "Please enter your email and password ❤️";
 
         return;
-
     }
 
 
-    loginButton.disabled =
-        true;
+    button.disabled = true;
 
+    button.textContent =
+        "Opening our diary... ❤️";
 
-    loginButton.textContent =
-        "Entering... ❤️";
-
-
-    loginStatus.className =
+    status.className =
         "status";
 
+    status.textContent =
+        "Checking your private diary...";
 
-    loginStatus.textContent =
-        "Opening our diary...";
 
-
-    try {
+    try{
 
         const data =
             await supabaseAuthRequest(
-
                 "token?grant_type=password",
-
                 {
-
-                    email:
-                        email,
-
-                    password:
-                        password
-
+                    email:email,
+                    password:password
                 }
-
             );
-
-
-        if (
-            !data ||
-            !data.access_token
-        ) {
-
-            throw new Error(
-                "Login did not return a valid session."
-            );
-
-        }
-
 
         setSession(data);
 
+        status.textContent = "";
 
-        loginPassword.value =
-            "";
-
-
-        loginStatus.textContent =
-            "";
-
-
-        await showDiary();
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "LOGIN ERROR:",
-            error
+        showDiary(
+            data.user
         );
 
+        await loadMemories();
 
-        loginStatus.className =
+    }
+    catch(error){
+
+        console.error(error);
+
+        status.className =
             "status error";
 
+        status.textContent =
+            friendlyAuthError(
+                error.message
+            );
 
-        let message =
-            error.message ||
-            "Could not open the diary.";
+    }
+    finally{
 
+        button.disabled = false;
 
-        /*
-           Make Supabase's common
-           login error easier to understand.
-        */
-
-        if (
-            message
-                .toLowerCase()
-                .includes(
-                    "invalid login credentials"
-                )
-        ) {
-
-            message =
-                "Email or password is incorrect. ❤️";
-
-        }
-
-
-        loginStatus.textContent =
-            message;
-
-
-        loginButton.disabled =
-            false;
-
-
-        loginButton.textContent =
+        button.textContent =
             "Enter Our Diary ❤️";
 
     }
+}
 
+
+/* =========================================================
+   FRIENDLY LOGIN ERRORS
+   ========================================================= */
+
+function friendlyAuthError(message){
+
+    const text =
+        String(message || "")
+            .toLowerCase();
+
+    if(
+        text.includes("invalid login") ||
+        text.includes("invalid credentials")
+    ){
+
+        return "Email or password is incorrect. ❤️";
+
+    }
+
+    if(
+        text.includes("email not confirmed")
+    ){
+
+        return "Please confirm the email connected to this account. ❤️";
+
+    }
+
+    return (
+        message ||
+        "Couldn't open the diary right now. ❤️"
+    );
+}
+
+
+/* =========================================================
+   SHOW DIARY
+   ========================================================= */
+
+function showDiary(user){
+
+    document.getElementById(
+        "loginSection"
+    ).style.display =
+        "none";
+
+    document.getElementById(
+        "diarySection"
+    ).style.display =
+        "block";
+
+
+    const welcome =
+        document.getElementById(
+            "diaryWelcome"
+        );
+
+
+    if(user && user.email){
+
+        welcome.textContent =
+            "Welcome back, " +
+            user.email +
+            " ❤️";
+
+    }
+    else{
+
+        welcome.textContent =
+            "Welcome back ❤️";
+
+    }
 }
 
 
@@ -2405,97 +1797,203 @@ async function login() {
    LOGOUT
    ========================================================= */
 
-async function logout() {
+async function logout(){
 
-    try {
+    try{
 
-        if (accessToken) {
+        if(accessToken){
 
             await fetch(
-
                 SUPABASE_URL +
                 "/auth/v1/logout",
-
                 {
+                    method:"POST",
 
-                    method:
-                        "POST",
-
-                    headers: {
-
+                    headers:{
                         "apikey":
                             SUPABASE_KEY,
 
                         "Authorization":
                             "Bearer " +
                             accessToken
-
                     }
-
                 }
-
             );
 
         }
 
     }
+    catch(error){
 
-    catch (error) {
-
-        console.error(
-            "Logout error:",
-            error
-        );
+        console.error(error);
 
     }
 
-
     setSession(null);
 
+    document.getElementById(
+        "diarySection"
+    ).style.display =
+        "none";
 
-    loginEmail.value =
-        "";
+    document.getElementById(
+        "loginSection"
+    ).style.display =
+        "block";
 
-    loginPassword.value =
-        "";
+    document.getElementById(
+        "loginPassword"
+    ).value = "";
 
-
-    loginStatus.className =
-        "status";
-
-
-    loginStatus.textContent =
-        "";
-
-
-    loginButton.disabled =
-        false;
-
-
-    loginButton.textContent =
-        "Enter Our Diary ❤️";
-
-
-    showLogin();
-
+    document.getElementById(
+        "loginStatus"
+    ).textContent = "";
 }
 
 
 /* =========================================================
-   FILE TO DATA URL
+   MUSIC PLAYER
    ========================================================= */
 
-function fileToDataURL(file) {
+const ourSong =
+    document.getElementById(
+        "ourSong"
+    );
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+const musicStatus =
+    document.getElementById(
+        "musicStatus"
+    );
+
+const musicCard =
+    document.getElementById(
+        "musicCard"
+    );
+
+
+musicButton.addEventListener(
+    "click",
+    async function(){
+
+        if(ourSong.paused){
+
+            try{
+
+                await ourSong.play();
+
+            }
+            catch(error){
+
+                console.error(error);
+
+                musicStatus.textContent =
+                    "Couldn't play the song. Please check that Until_I_Found_You.mp3 is in the repository.";
+
+            }
+
+        }
+        else{
+
+            ourSong.pause();
+
+        }
+
+    }
+);
+
+
+ourSong.addEventListener(
+    "play",
+    function(){
+
+        musicCard.classList.add(
+            "playing"
+        );
+
+        musicButton.textContent =
+            "⏸ Pause Our Song";
+
+        musicStatus.textContent =
+            "Playing Until I Found You ❤️";
+
+    }
+);
+
+
+ourSong.addEventListener(
+    "pause",
+    function(){
+
+        musicCard.classList.remove(
+            "playing"
+        );
+
+        if(!ourSong.ended){
+
+            musicButton.textContent =
+                "▶ Play Our Song";
+
+            musicStatus.textContent =
+                "Paused ❤️";
+
+        }
+
+    }
+);
+
+
+ourSong.addEventListener(
+    "ended",
+    function(){
+
+        musicCard.classList.remove(
+            "playing"
+        );
+
+        musicButton.textContent =
+            "▶ Play Our Song";
+
+        musicStatus.textContent =
+            "Until I Found You ❤️";
+
+    }
+);
+
+
+ourSong.addEventListener(
+    "error",
+    function(){
+
+        musicCard.classList.remove(
+            "playing"
+        );
+
+        musicStatus.textContent =
+            "Song couldn't be loaded. Check the MP3 filename. ❤️";
+
+    }
+);
+
+
+/* =========================================================
+   FILE → DATA URL
+   ========================================================= */
+
+function fileToDataURL(file){
 
     return new Promise(
-        function(resolve, reject) {
+        function(resolve,reject){
 
             const reader =
                 new FileReader();
 
-
             reader.onload =
-                function() {
+                function(){
 
                     resolve(
                         reader.result
@@ -2503,18 +2001,16 @@ function fileToDataURL(file) {
 
                 };
 
-
             reader.onerror =
-                function() {
+                function(){
 
                     reject(
                         new Error(
-                            "Could not read the photo."
+                            "Couldn't read the photo."
                         )
                     );
 
                 };
-
 
             reader.readAsDataURL(
                 file
@@ -2522,7 +2018,267 @@ function fileToDataURL(file) {
 
         }
     );
+}
 
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+}
+
+
+/* =========================================================
+   FORMAT DATE
+   ========================================================= */
+
+function formatDate(value){
+
+    if(!value){
+        return "";
+    }
+
+    const date =
+        new Date(
+            value +
+            (
+                value.length === 10
+                    ? "T00:00:00"
+                    : ""
+            )
+        );
+
+    if(Number.isNaN(date.getTime())){
+
+        return escapeHTML(
+            value
+        );
+
+    }
+
+    return date.toLocaleDateString(
+        undefined,
+        {
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
+}
+
+
+/* =========================================================
+   DISPLAY MEMORIES
+   ========================================================= */
+
+function displayMemories(memories){
+
+    const container =
+        document.getElementById(
+            "memories"
+        );
+
+    if(
+        !memories ||
+        memories.length === 0
+    ){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                No memories here yet... ❤️
+
+                <br>
+
+                Let's make the first one.
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        memories
+            .map(
+                function(memory){
+
+                    const title =
+                        escapeHTML(
+                            memory.title
+                        );
+
+                    const message =
+                        escapeHTML(
+                            memory.message
+                        );
+
+                    const date =
+                        formatDate(
+                            memory.date
+                        );
+
+                    const image =
+                        memory.image
+                            ? `
+                                <img
+                                    src="${escapeHTML(memory.image)}"
+                                    alt="Memory photo"
+                                    loading="lazy"
+                                >
+                              `
+                            : "";
+
+                    return `
+
+                        <article class="memory">
+
+                            <h3>
+                                ${title}
+                            </h3>
+
+                            ${
+                                date
+                                    ? `
+                                        <div class="date">
+                                            ${date}
+                                        </div>
+                                      `
+                                    : ""
+                            }
+
+                            <p>
+                                ${message}
+                            </p>
+
+                            ${image}
+
+                        </article>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+
+    container.innerHTML += `
+
+        <div class="memory-decoration">
+            ♡ ✦ ❤️ ✦ ♡
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   LOAD MEMORIES
+   ========================================================= */
+
+async function loadMemories(){
+
+    const container =
+        document.getElementById(
+            "memories"
+        );
+
+    container.innerHTML = `
+
+        <div class="loading">
+            Opening our memory box... ❤️
+        </div>
+
+    `;
+
+
+    try{
+
+        let memories;
+
+        try{
+
+            memories =
+                await supabaseRequest(
+                    TABLE +
+                    "?select=*&order=created_at.desc"
+                );
+
+        }
+        catch(firstError){
+
+            /*
+                If the access token expired,
+                refresh it once and retry.
+            */
+
+            const refreshed =
+                await refreshSession();
+
+            if(!refreshed){
+                throw firstError;
+            }
+
+            memories =
+                await supabaseRequest(
+                    TABLE +
+                    "?select=*&order=created_at.desc"
+                );
+
+        }
+
+        displayMemories(
+            memories
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                Couldn't load our memories right now. ❤️
+
+                <br><br>
+
+                Please check the Supabase table/RLS settings.
+
+            </div>
+
+        `;
+
+    }
 }
 
 
@@ -2530,109 +2286,82 @@ function fileToDataURL(file) {
    SAVE MEMORY
    ========================================================= */
 
-async function saveMemory() {
+async function saveMemory(){
 
     const title =
         document
-            .getElementById(
-                "title"
-            )
+            .getElementById("title")
             .value
             .trim();
-
 
     const date =
         document
-            .getElementById(
-                "date"
-            )
+            .getElementById("date")
             .value;
-
 
     const message =
         document
-            .getElementById(
-                "message"
-            )
+            .getElementById("message")
             .value
             .trim();
 
-
     const photoInput =
         document
-            .getElementById(
-                "photo"
-            );
-
+            .getElementById("photo");
 
     const button =
         document
-            .getElementById(
-                "saveButton"
-            );
-
+            .getElementById("saveButton");
 
     const status =
         document
-            .getElementById(
-                "status"
-            );
+            .getElementById("status");
 
 
-    if (
-        !title ||
-        !message
-    ) {
+    if(!title || !message){
 
         status.className =
             "status error";
 
-
         status.textContent =
             "Please add a title and message ❤️";
-
 
         return;
 
     }
 
 
-    button.disabled =
-        true;
-
+    button.disabled = true;
 
     button.textContent =
-        "Saving... ❤️";
-
+        "Saving our memory... ❤️";
 
     status.className =
         "status";
 
-
     status.textContent =
-        "Saving your memory...";
+        "Putting this little moment into our time capsule...";
 
 
-    try {
+    try{
 
-        let image =
-            null;
+        let image = null;
 
 
-        if (
+        if(
             photoInput.files &&
             photoInput.files.length > 0
-        ) {
+        ){
 
             const file =
                 photoInput.files[0];
 
 
-            if (
+            if(
                 !file.type.startsWith(
                     "image/"
                 )
-            ) {
+            ){
 
                 throw new Error(
                     "Please choose an image file."
@@ -2641,10 +2370,10 @@ async function saveMemory() {
             }
 
 
-            if (
+            if(
                 file.size >
                 5 * 1024 * 1024
-            ) {
+            ){
 
                 throw new Error(
                     "Please choose a photo smaller than 5 MB."
@@ -2661,13 +2390,6 @@ async function saveMemory() {
         }
 
 
-        /*
-           The user_id is important if
-           your Supabase RLS policy uses:
-
-           auth.uid() = user_id
-        */
-
         const memory = {
 
             title:
@@ -2680,1061 +2402,374 @@ async function saveMemory() {
                 message,
 
             image:
-                image,
-
-            user_id:
-                currentUser
-                    ? currentUser.id
-                    : null
+                image
 
         };
 
 
-        await supabaseRequest(
+        try{
 
-            TABLE,
+            await supabaseRequest(
+                TABLE,
+                {
+                    method:"POST",
 
-            {
+                    body:
+                        JSON.stringify(
+                            memory
+                        )
+                }
+            );
 
-                method:
-                    "POST",
+        }
+        catch(firstError){
 
-                body:
-                    JSON.stringify(
-                        memory
-                    )
+            const refreshed =
+                await refreshSession();
+
+            if(!refreshed){
+
+                throw firstError;
 
             }
 
-        );
+            await supabaseRequest(
+                TABLE,
+                {
+                    method:"POST",
+
+                    body:
+                        JSON.stringify(
+                            memory
+                        )
+                }
+            );
+
+        }
 
 
         status.className =
             "status success";
 
-
         status.textContent =
-            "Memory saved successfully. ❤️";
+            "Memory saved forever in our little diary. ❤️";
 
 
-        document
-            .getElementById(
-                "title"
-            )
-            .value =
-            "";
+        document.getElementById(
+            "title"
+        ).value = "";
+
+        document.getElementById(
+            "date"
+        ).value = "";
+
+        document.getElementById(
+            "message"
+        ).value = "";
+
+        photoInput.value = "";
 
 
-        document
-            .getElementById(
-                "date"
-            )
-            .value =
-            "";
-
-
-        document
-            .getElementById(
-                "message"
-            )
-            .value =
-            "";
-
-
-        photoInput.value =
-            "";
+        createCelebration();
 
 
         await loadMemories();
 
     }
-
-    catch (error) {
+    catch(error){
 
         console.error(
-            "SAVE MEMORY ERROR:",
+            "Save error:",
             error
         );
-
 
         status.className =
             "status error";
 
-
         status.textContent =
-            "Couldn't save the memory: " +
-            (
-                error.message ||
-                "Unknown error."
-            );
+            error.message ||
+            "Couldn't save this memory. ❤️";
 
     }
+    finally{
 
-    finally {
-
-        button.disabled =
-            false;
-
+        button.disabled = false;
 
         button.textContent =
             "Save Memory ❤️";
 
     }
-
 }
 
 
 /* =========================================================
-   LOAD MEMORIES
+   CELEBRATION
    ========================================================= */
 
-async function loadMemories() {
+function createCelebration(){
 
-    const container =
-        document.getElementById(
-            "memories"
-        );
+    const symbols = [
+        "❤️",
+        "💕",
+        "💗",
+        "✨",
+        "♡"
+    ];
 
+    for(
+        let i = 0;
+        i < 12;
+        i++
+    ){
 
-    container.innerHTML = `
-
-        <div class="loading">
-            Loading our memories... ❤️
-        </div>
-
-    `;
-
-
-    try {
-
-        const memories =
-            await supabaseRequest(
-
-                TABLE +
-                "?select=*&order=created_at.desc"
-
+        const heart =
+            document.createElement(
+                "div"
             );
 
+        heart.className =
+            "celebration";
 
-        displayMemories(
-            Array.isArray(
-                memories
-            )
-                ? memories
-                : []
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "LOAD MEMORIES ERROR:",
-            error
-        );
-
-
-        /*
-           If access token expired,
-           try refreshing once.
-        */
-
-        if (
-            error.message &&
-            (
-                error.message.includes(
-                    "JWT"
-                ) ||
-                error.message.includes(
-                    "401"
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
                 )
-            )
-        ) {
+            ];
 
-            const refreshed =
-                await refreshSession();
+        heart.style.left =
+            (
+                35 +
+                Math.random() * 30
+            ) +
+            "%";
 
+        heart.style.top =
+            (
+                45 +
+                Math.random() * 15
+            ) +
+            "%";
 
-            if (refreshed) {
+        heart.style.setProperty(
+            "--x",
+            (
+                (Math.random() - .5) *
+                300
+            ) +
+            "px"
+        );
 
-                try {
+        heart.style.setProperty(
+            "--y",
+            (
+                -80 -
+                Math.random() * 180
+            ) +
+            "px"
+        );
 
-                    const memories =
-                        await supabaseRequest(
+        document.body.appendChild(
+            heart
+        );
 
-                            TABLE +
-                            "?select=*&order=created_at.desc"
-
-                        );
-
-
-                    displayMemories(
-                        Array.isArray(
-                            memories
-                        )
-                            ? memories
-                            : []
-                    );
-
-
-                    return;
-
-                }
-
-                catch (
-                    retryError
-                ) {
-
-                    console.error(
-                        retryError
-                    );
-
-                }
-
-            }
-
-        }
-
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Couldn't load our memories right now. ❤️
-
-                <br><br>
-
-                Please check the Supabase connection.
-
-            </div>
-
-        `;
+        setTimeout(
+            function(){
+                heart.remove();
+            },
+            1500
+        );
 
     }
-
 }
 
 
 /* =========================================================
-   DISPLAY MEMORIES
+   EVENT LISTENERS
    ========================================================= */
 
-function displayMemories(
-    memories
-) {
-
-    const container =
-        document.getElementById(
-            "memories"
-        );
-
-
-    container.innerHTML =
-        "";
-
-
-    if (
-        !memories ||
-        memories.length === 0
-    ) {
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                No memories yet. ❤️
-
-                <br>
-
-                Add your first one above.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    memories.forEach(
-        function(memory) {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "memory";
-
-
-            const title =
-                document.createElement(
-                    "h3"
-                );
-
-
-            title.textContent =
-                memory.title ||
-                "A beautiful memory ❤️";
-
-
-            card.appendChild(
-                title
-            );
-
-
-            if (memory.date) {
-
-                const date =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                date.className =
-                    "date";
-
-
-                date.textContent =
-                    formatDate(
-                        memory.date
-                    );
-
-
-                card.appendChild(
-                    date
-                );
-
-            }
-
-
-            const message =
-                document.createElement(
-                    "p"
-                );
-
-
-            message.textContent =
-                memory.message ||
-                "";
-
-
-            card.appendChild(
-                message
-            );
-
-
-            if (memory.image) {
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.src =
-                    memory.image;
-
-
-                image.alt =
-                    "Memory photo";
-
-
-                image.loading =
-                    "lazy";
-
-
-                card.appendChild(
-                    image
-                );
-
-            }
-
-
-            container.appendChild(
-                card
-            );
-
-        }
+document
+    .getElementById("loginButton")
+    .addEventListener(
+        "click",
+        login
     );
-
-}
-
-
-/* =========================================================
-   FORMAT DATE
-   ========================================================= */
-
-function formatDate(
-    value
-) {
-
-    try {
-
-        const date =
-            new Date(
-                value +
-                "T00:00:00"
-            );
-
-
-        return date.toLocaleDateString(
-            undefined,
-            {
-
-                day:
-                    "numeric",
-
-                month:
-                    "long",
-
-                year:
-                    "numeric"
-
-            }
-        );
-
-    }
-
-    catch {
-
-        return value;
-
-    }
-
-}
-
-
-/* =========================================================
-   TOGETHERNESS COUNTER
-   ========================================================= */
-
-/*
-   IMPORTANT:
-
-   06/12/2025 is interpreted as:
-
-   6 December 2025
-
-*/
-
-const relationshipStart =
-    new Date(
-        "2025-12-06T00:00:00"
-    );
-
-
-function updateTogetherness() {
-
-    const now =
-        new Date();
-
-
-    /*
-       If the start date is somehow
-       in the future, show zeros.
-    */
-
-    if (
-        now <
-        relationshipStart
-    ) {
-
-        setCounterValues(
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        );
-
-        return;
-
-    }
-
-
-    let years =
-        now.getFullYear() -
-        relationshipStart.getFullYear();
-
-
-    let months =
-        now.getMonth() -
-        relationshipStart.getMonth();
-
-
-    let days =
-        now.getDate() -
-        relationshipStart.getDate();
-
-
-    let hours =
-        now.getHours() -
-        relationshipStart.getHours();
-
-
-    let minutes =
-        now.getMinutes() -
-        relationshipStart.getMinutes();
-
-
-    let seconds =
-        now.getSeconds() -
-        relationshipStart.getSeconds();
-
-
-    /*
-       Fix seconds.
-    */
-
-    if (
-        seconds < 0
-    ) {
-
-        seconds += 60;
-
-        minutes--;
-
-    }
-
-
-    /*
-       Fix minutes.
-    */
-
-    if (
-        minutes < 0
-    ) {
-
-        minutes += 60;
-
-        hours--;
-
-    }
-
-
-    /*
-       Fix hours.
-    */
-
-    if (
-        hours < 0
-    ) {
-
-        hours += 24;
-
-        days--;
-
-    }
-
-
-    /*
-       Fix days.
-
-       Number of days in the previous
-       calendar month.
-    */
-
-    if (
-        days < 0
-    ) {
-
-        const daysInPreviousMonth =
-            new Date(
-                now.getFullYear(),
-                now.getMonth(),
-                0
-            ).getDate();
-
-
-        days +=
-            daysInPreviousMonth;
-
-
-        months--;
-
-    }
-
-
-    /*
-       Fix months.
-    */
-
-    if (
-        months < 0
-    ) {
-
-        months += 12;
-
-        years--;
-
-    }
-
-
-    setCounterValues(
-        years,
-        months,
-        days,
-        hours,
-        minutes,
-        seconds
-    );
-
-}
-
-
-/* =========================================================
-   SET COUNTER VALUES
-   ========================================================= */
-
-function setCounterValues(
-    years,
-    months,
-    days,
-    hours,
-    minutes,
-    seconds
-) {
-
-    const yearsElement =
-        document.getElementById(
-            "loveYears"
-        );
-
-
-    const monthsElement =
-        document.getElementById(
-            "loveMonths"
-        );
-
-
-    const daysElement =
-        document.getElementById(
-            "loveDays"
-        );
-
-
-    const hoursElement =
-        document.getElementById(
-            "loveHours"
-        );
-
-
-    const minutesElement =
-        document.getElementById(
-            "loveMinutes"
-        );
-
-
-    const secondsElement =
-        document.getElementById(
-            "loveSeconds"
-        );
-
-
-    if (yearsElement) {
-
-        yearsElement.textContent =
-            years;
-
-    }
-
-
-    if (monthsElement) {
-
-        monthsElement.textContent =
-            months;
-
-    }
-
-
-    if (daysElement) {
-
-        daysElement.textContent =
-            days;
-
-    }
-
-
-    if (hoursElement) {
-
-        hoursElement.textContent =
-            hours;
-
-    }
-
-
-    if (minutesElement) {
-
-        minutesElement.textContent =
-            minutes;
-
-    }
-
-
-    if (secondsElement) {
-
-        secondsElement.textContent =
-            seconds;
-
-    }
-
-}
-
-
-/* =========================================================
-   START COUNTER
-   ========================================================= */
-
-updateTogetherness();
-
-
-setInterval(
-    updateTogetherness,
-    1000
-);
-
-
-/* =========================================================
-   MUSIC PLAYER
-   ========================================================= */
-
-const ourSong =
-    document.getElementById(
-        "ourSong"
-    );
-
-
-const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
-
-
-const musicStatus =
-    document.getElementById(
-        "musicStatus"
-    );
-
-
-const musicCard =
-    document.getElementById(
-        "musicCard"
-    );
-
-
-musicButton.addEventListener(
-    "click",
-    async function() {
-
-        if (
-            ourSong.paused
-        ) {
-
-            try {
-
-                await ourSong.play();
-
-
-                musicCard.classList.add(
-                    "playing"
-                );
-
-
-                musicButton.textContent =
-                    "⏸ Pause Our Song";
-
-
-                musicStatus.textContent =
-                    "Playing Until I Found You ❤️";
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    "Audio playback error:",
-                    error
-                );
-
-
-                musicCard.classList.remove(
-                    "playing"
-                );
-
-
-                musicStatus.textContent =
-                    "Couldn't play the song. Please check the MP3 file.";
-
-            }
-
-        }
-
-        else {
-
-            ourSong.pause();
-
-
-            musicCard.classList.remove(
-                "playing"
-            );
-
-
-            musicButton.textContent =
-                "▶ Play Our Song";
-
-
-            musicStatus.textContent =
-                "Paused ❤️";
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   MUSIC EVENTS
-   ========================================================= */
-
-ourSong.addEventListener(
-    "play",
-    function() {
-
-        musicCard.classList.add(
-            "playing"
-        );
-
-
-        musicButton.textContent =
-            "⏸ Pause Our Song";
-
-
-        musicStatus.textContent =
-            "Playing Until I Found You ❤️";
-
-    }
-);
-
-
-ourSong.addEventListener(
-    "pause",
-    function() {
-
-        musicCard.classList.remove(
-            "playing"
-        );
-
-
-        if (
-            !ourSong.ended
-        ) {
-
-            musicButton.textContent =
-                "▶ Play Our Song";
-
-        }
-
-    }
-);
-
-
-ourSong.addEventListener(
-    "ended",
-    function() {
-
-        musicCard.classList.remove(
-            "playing"
-        );
-
-
-        musicButton.textContent =
-            "▶ Play Our Song";
-
-
-        musicStatus.textContent =
-            "Until I Found You ❤️";
-
-    }
-);
-
-
-ourSong.addEventListener(
-    "error",
-    function() {
-
-        console.error(
-            "The MP3 could not be loaded."
-        );
-
-
-        musicCard.classList.remove(
-            "playing"
-        );
-
-
-        musicStatus.textContent =
-            "Song couldn't be loaded. Please check the MP3 filename.";
-
-    }
-);
-
-
-/* =========================================================
-   BUTTON EVENTS
-   ========================================================= */
-
-loginButton.addEventListener(
-    "click",
-    login
-);
-
-
-logoutButton.addEventListener(
-    "click",
-    logout
-);
 
 
 document
-    .getElementById(
-        "saveButton"
-    )
+    .getElementById("logoutButton")
+    .addEventListener(
+        "click",
+        logout
+    );
+
+
+document
+    .getElementById("saveButton")
     .addEventListener(
         "click",
         saveMemory
     );
 
 
-/* =========================================================
-   ENTER KEY LOGIN
-   ========================================================= */
+/*
+    Allow Enter key to login
+*/
 
-loginPassword.addEventListener(
-    "keydown",
-    function(event) {
+document
+    .getElementById("loginPassword")
+    .addEventListener(
+        "keydown",
+        function(event){
 
-        if (
-            event.key ===
-            "Enter"
-        ) {
+            if(
+                event.key === "Enter"
+            ){
 
-            event.preventDefault();
+                login();
 
-            login();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   CHECK EXISTING SESSION
-   ========================================================= */
-
-async function checkSession() {
-
-    if (!accessToken) {
-
-        showLogin();
-
-        return;
-
-    }
-
-
-    try {
-
-        const user =
-            await getCurrentUser();
-
-
-        if (user) {
-
-            currentUser =
-                user;
-
-
-            await showDiary();
-
-
-            return;
+            }
 
         }
+    );
 
 
-        /*
-           Access token may have expired.
-           Try refresh token.
-        */
+/* =========================================================
+   STARTUP
+   ========================================================= */
 
-        const refreshed =
-            await refreshSession();
+async function startup(){
+
+    /*
+        If an old access token exists,
+        try it first.
+    */
+
+    if(accessToken){
+
+        try{
+
+            const response =
+                await fetch(
+                    SUPABASE_URL +
+                    "/auth/v1/user",
+                    {
+                        headers:{
+                            "apikey":
+                                SUPABASE_KEY,
+
+                            "Authorization":
+                                "Bearer " +
+                                accessToken
+                        }
+                    }
+                );
 
 
-        if (
-            refreshed
-        ) {
+            if(response.ok){
 
-            const refreshedUser =
-                await getCurrentUser();
+                const user =
+                    await response.json();
 
+                showDiary(
+                    user
+                );
 
-            if (
-                refreshedUser
-            ) {
-
-                currentUser =
-                    refreshedUser;
-
-
-                await showDiary();
-
+                await loadMemories();
 
                 return;
 
             }
 
         }
+        catch(error){
 
+            console.error(error);
 
-        setSession(null);
-
-        showLogin();
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "SESSION ERROR:",
-            error
-        );
-
-
-        setSession(null);
-
-        showLogin();
+        }
 
     }
 
+
+    /*
+        If access token failed,
+        try refreshing it.
+    */
+
+    if(refreshToken){
+
+        const refreshed =
+            await refreshSession();
+
+        if(refreshed){
+
+            try{
+
+                const response =
+                    await fetch(
+                        SUPABASE_URL +
+                        "/auth/v1/user",
+                        {
+                            headers:{
+                                "apikey":
+                                    SUPABASE_KEY,
+
+                                "Authorization":
+                                    "Bearer " +
+                                    accessToken
+                            }
+                        }
+                    );
+
+
+                if(response.ok){
+
+                    const user =
+                        await response.json();
+
+                    showDiary(
+                        user
+                    );
+
+                    await loadMemories();
+
+                    return;
+
+                }
+
+            }
+            catch(error){
+
+                console.error(error);
+
+            }
+
+        }
+
+    }
+
+
+    /*
+        No valid session.
+        Keep login visible.
+    */
+
+    document.getElementById(
+        "loginSection"
+    ).style.display =
+        "block";
+
+    document.getElementById(
+        "diarySection"
+    ).style.display =
+        "none";
 }
 
 
-/* =========================================================
-   START APPLICATION
-   ========================================================= */
-
-checkSession();
+startup();
 
 </script>
 
-
 </body>
-
 </html>
