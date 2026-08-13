@@ -4,31 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Our Little Time Capsule ♡</title>
+<title>Our Little Time Capsule ❤️</title>
 
 <style>
-
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
     font-family: Georgia, "Times New Roman", serif;
-    color: #624650;
+    color: #5b3d45;
     min-height: 100vh;
 
     background:
         linear-gradient(
-            rgba(255, 244, 246, 0.88),
-            rgba(255, 248, 242, 0.94)
+            rgba(255, 244, 246, 0.78),
+            rgba(255, 248, 242, 0.84)
         ),
-        url("./IMG-20260804-WA0035.jpg");
+        url("IMG-20260804-WA0035.jpg");
 
     background-size: cover;
     background-position: center;
@@ -36,152 +30,97 @@ body {
 }
 
 .container {
-    width: min(900px, 92%);
+    width: 92%;
+    max-width: 800px;
     margin: auto;
     padding: 45px 0 70px;
 }
 
-/* HEADER */
-
 header {
     text-align: center;
-    padding: 45px 20px 35px;
+    padding: 35px 10px 25px;
 }
 
 .heart {
-    font-size: 42px;
-    color: #b86680;
-    margin-bottom: 15px;
+    font-size: 45px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
 h1 {
-    font-size: clamp(42px, 9vw, 78px);
-    line-height: 0.95;
+    font-size: clamp(38px, 9vw, 70px);
+    margin: 15px 0 10px;
     color: #914c65;
-    margin-bottom: 22px;
 }
 
 .subtitle {
-    font-size: clamp(18px, 4vw, 23px);
+    font-size: 20px;
     line-height: 1.6;
-    color: #795964;
+    color: #76515d;
 }
 
 .divider {
-    margin: 28px auto;
-    color: #b86680;
-    font-size: 25px;
-}
-
-.divider::before,
-.divider::after {
-    content: "";
-    display: inline-block;
-    width: 65px;
-    height: 1px;
+    width: 90px;
+    height: 2px;
     background: #d9aab8;
-    vertical-align: middle;
-    margin: 0 12px;
+    margin: 25px auto;
 }
-
-/* CARDS */
 
 .card {
-    background: rgba(255, 252, 250, 0.94);
+    background: rgba(255, 252, 250, 0.92);
     border: 1px solid rgba(160, 91, 111, 0.18);
     border-radius: 28px;
-    padding: clamp(25px, 6vw, 45px);
-    margin: 28px 0;
-
-    box-shadow:
-        0 15px 45px rgba(90, 50, 60, 0.12);
-
-    backdrop-filter: blur(8px);
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 15px 45px rgba(90, 50, 60, 0.12);
 }
 
 .card h2 {
     color: #914c65;
-    font-size: clamp(28px, 6vw, 40px);
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-top: 0;
 }
 
 .card p {
-    font-size: clamp(17px, 4vw, 21px);
-    line-height: 1.75;
+    font-size: 19px;
+    line-height: 1.7;
 }
 
-/* BUTTON */
-
 button {
-    display: block;
-    width: 100%;
-    margin-top: 25px;
-    padding: 16px 22px;
-
     border: none;
-    border-radius: 50px;
-
-    background: #a95f78;
-    color: white;
-
-    font-family: Georgia, serif;
-    font-size: 18px;
-
+    border-radius: 25px;
+    padding: 13px 22px;
+    font-family: inherit;
+    font-size: 17px;
     cursor: pointer;
-
-    transition: 0.25s;
+    background: #a65a73;
+    color: white;
 }
 
 button:hover {
-    transform: translateY(-2px);
-}
-
-/* MEMORY FORM */
-
-#memoryForm {
-    display: none;
-    margin-top: 25px;
-    padding: 25px;
-
-    background: rgba(255, 247, 246, 0.9);
-    border-radius: 20px;
-}
-
-#memoryForm.show {
-    display: block;
-}
-
-label {
-    display: block;
-    margin-top: 18px;
-    margin-bottom: 8px;
-
-    font-size: 17px;
-    color: #79505f;
+    opacity: 0.9;
 }
 
 input,
 textarea {
     width: 100%;
-
-    border: 1px solid #d9aab8;
-    border-radius: 14px;
-
     padding: 14px;
-
-    background: rgba(255,255,255,0.8);
-    color: #5e414a;
-
-    font-family: Georgia, serif;
+    margin: 8px 0 15px;
+    border: 1px solid #d6aeba;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.9);
+    color: #5b3d45;
+    font-family: inherit;
     font-size: 17px;
-
-    outline: none;
-}
-
-input:focus,
-textarea:focus {
-    border-color: #a95f78;
-    box-shadow: 0 0 0 3px rgba(169,95,120,0.1);
 }
 
 textarea {
@@ -189,288 +128,192 @@ textarea {
     resize: vertical;
 }
 
-.save-btn {
-    background: #914c65;
+label {
+    display: block;
+    font-size: 17px;
+    margin-top: 8px;
 }
 
-/* MEMORIES */
-
-#memories {
-    margin-top: 25px;
+.memories {
+    margin-top: 30px;
 }
 
 .memory {
-    margin-top: 25px;
-    padding: 25px;
-
     background: #fffaf8;
-
     border-left: 5px solid #b86680;
     border-radius: 18px;
-
-    box-shadow:
-        0 8px 25px rgba(90,50,60,0.08);
+    padding: 22px;
+    margin: 20px 0;
 }
 
 .memory h3 {
+    margin-top: 0;
     color: #914c65;
-    font-size: 27px;
-    margin-bottom: 8px;
+    font-size: 25px;
 }
 
-.memory-date {
-    display: block;
-    color: #98717c;
-    margin-bottom: 14px;
+.memory .date {
+    font-size: 14px;
+    color: #a27682;
+    margin-bottom: 12px;
 }
 
 .memory p {
-    font-size: 18px;
-    line-height: 1.65;
+    font-size: 17px;
+    line-height: 1.6;
 }
 
 .memory img {
-    display: block;
-
     width: 100%;
-    max-height: 450px;
-
+    max-height: 500px;
     object-fit: cover;
-
     border-radius: 15px;
-
-    margin-top: 18px;
+    margin-top: 15px;
 }
 
-/* MESSAGE */
-
-.message {
+.empty {
     text-align: center;
+    color: #98737d;
+    padding: 20px;
 }
-
-.message p {
-    font-style: italic;
-}
-
-/* FOOTER */
 
 footer {
     text-align: center;
-    padding: 35px 15px;
-
-    color: #795964;
-    font-size: 18px;
-    line-height: 1.7;
+    margin-top: 50px;
+    color: #86636d;
+    font-size: 16px;
 }
 
-/* MOBILE */
+.hidden {
+    display: none;
+}
 
 @media (max-width: 600px) {
 
-    body {
-        background-attachment: scroll;
-    }
-
     .container {
         width: 94%;
-        padding-top: 15px;
-    }
-
-    header {
-        padding-top: 35px;
+        padding-top: 20px;
     }
 
     .card {
+        padding: 22px;
         border-radius: 22px;
     }
 
-    .divider::before,
-    .divider::after {
-        width: 35px;
+    h1 {
+        font-size: 43px;
+    }
+
+    .subtitle {
+        font-size: 18px;
     }
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="container">
 
-    <!-- HEADER -->
+<header>
 
-    <header>
+    <div class="heart">❤️</div>
 
-        <div class="heart">♡</div>
+    <h1>Our Little Time Capsule</h1>
 
-        <h1>
-            Our Little<br>
-            Time Capsule
-        </h1>
+    <div class="divider"></div>
 
-        <p class="subtitle">
-            A little place for all the moments<br>
-            I never want us to forget.
-        </p>
+    <p class="subtitle">
+        A little place for our memories,<br>
+        our moments, and everything in between.
+    </p>
 
-        <div class="divider">♡</div>
-
-    </header>
+</header>
 
 
-    <!-- STORY -->
+<div class="card">
 
-    <section class="card">
+    <h2>To Us 🌷</h2>
 
-        <h2>Our Story</h2>
+    <p>
+        Some moments are too beautiful to be forgotten.
+        So this little corner of the internet is for us —
+        a place where we can leave pieces of our story
+        and come back to them someday.
+    </p>
 
-        <p>
-            Some moments become memories.
-            Some memories become stories.
-            And some stories become little pieces
-            of our hearts.
-        </p>
-
-        <br>
-
-        <p>
-            This is our little corner of the internet —
-            a place where we can keep the photographs,
-            words, silly moments and beautiful memories
-            that make our story ours.
-        </p>
-
-    </section>
+</div>
 
 
-    <!-- MEMORIES -->
+<div class="card">
 
-    <section class="card">
+    <h2>✨ Add a Memory</h2>
 
-        <h2>♡ Our Memories</h2>
+    <label>Memory title</label>
 
-        <p>
-            Every photograph has a story.
-            Every little moment is worth remembering.
-        </p>
+    <input
+        type="text"
+        id="title"
+        placeholder="Our first date..."
+    >
 
-        <button onclick="toggleForm()">
-            Add a Memory ♡
-        </button>
+    <label>Date</label>
 
+    <input
+        type="date"
+        id="date"
+    >
 
-        <!-- FORM -->
+    <label>What happened?</label>
 
-        <div id="memoryForm">
+    <textarea
+        id="message"
+        placeholder="Write about this memory..."
+    ></textarea>
 
-            <label for="title">
-                Memory title
-            </label>
+    <label>Add a photo 📷</label>
 
-            <input
-                id="title"
-                type="text"
-                placeholder="Give this memory a name..."
-            >
+    <input
+        type="file"
+        id="photo"
+        accept="image/*"
+    >
 
+    <button onclick="saveMemory()">
+        Save Memory ❤️
+    </button>
 
-            <label for="date">
-                Date
-            </label>
-
-            <input
-                id="date"
-                type="date"
-            >
-
-
-            <label for="message">
-                What happened?
-            </label>
-
-            <textarea
-                id="message"
-                placeholder="Write something you never want to forget..."
-            ></textarea>
+</div>
 
 
-            <label for="photo">
-                Add a photo
-            </label>
+<div class="card">
 
-            <input
-                id="photo"
-                type="file"
-                accept="image/*"
-            >
+    <h2>📖 Our Memories</h2>
 
+    <div id="memories" class="memories">
 
-            <button
-                class="save-btn"
-                onclick="saveMemory()"
-            >
-                Save This Memory ♡
-            </button>
-
+        <div class="empty">
+            Our story begins here... ❤️
         </div>
 
+    </div>
 
-        <!-- SAVED MEMORIES -->
-
-        <div id="memories"></div>
-
-    </section>
+</div>
 
 
-    <!-- MESSAGE -->
-
-    <section class="card message">
-
-        <h2>A Message For You ♡</h2>
-
-        <p>
-            If you're reading this years from now,
-            I hope we're still smiling at the same memories.
-        </p>
-
-        <br>
-
-        <p>
-            And if life has changed in a hundred different ways,
-            I hope this little capsule reminds us
-            how beautiful it all once was.
-        </p>
-
-    </section>
-
-
-    <footer>
-
-        Made with love ♡<br>
-
-        Our little corner of time.
-
-    </footer>
+<footer>
+    Made with love, for the two of us. ❤️
+</footer>
 
 </div>
 
 
 <script>
 
-/* SHOW / HIDE FORM */
+let memories = JSON.parse(
+    localStorage.getItem("ourMemories") || "[]"
+);
 
-function toggleForm() {
-
-    const form =
-        document.getElementById("memoryForm");
-
-    form.classList.toggle("show");
-
-}
-
-
-/* SAVE MEMORY */
 
 function saveMemory() {
 
@@ -483,15 +326,13 @@ function saveMemory() {
     const message =
         document.getElementById("message").value.trim();
 
-    const photo =
+    const photoInput =
         document.getElementById("photo");
 
 
     if (!title || !message) {
 
-        alert(
-            "Please add a title and write something about the memory ♡"
-        );
+        alert("Please add a title and message ❤️");
 
         return;
     }
@@ -510,59 +351,43 @@ function saveMemory() {
     };
 
 
-    /*
-       If a photo was selected,
-       convert it into a small browser-stored image.
-    */
+    if (photoInput.files.length > 0) {
 
-    if (photo.files.length > 0) {
+        const reader = new FileReader();
 
-        const reader =
-            new FileReader();
 
         reader.onload = function(event) {
 
-            memory.image =
-                event.target.result;
+            memory.image = event.target.result;
 
-            saveToStorage(memory);
+            memories.unshift(memory);
+
+            saveAndDisplay();
 
         };
 
-        reader.readAsDataURL(photo.files[0]);
 
-    }
+        reader.readAsDataURL(photoInput.files[0]);
 
-    else {
+    } else {
 
-        saveToStorage(memory);
+        memories.unshift(memory);
+
+        saveAndDisplay();
 
     }
 
 }
 
 
-/* STORE MEMORY */
-
-function saveToStorage(memory) {
-
-    let memories =
-        JSON.parse(
-            localStorage.getItem("ourMemories")
-        ) || [];
-
-
-    memories.unshift(memory);
-
+function saveAndDisplay() {
 
     localStorage.setItem(
         "ourMemories",
         JSON.stringify(memories)
     );
 
-
     displayMemories();
-
 
     document.getElementById("title").value = "";
 
@@ -572,14 +397,8 @@ function saveToStorage(memory) {
 
     document.getElementById("photo").value = "";
 
-    document
-        .getElementById("memoryForm")
-        .classList.remove("show");
-
 }
 
-
-/* DISPLAY MEMORIES */
 
 function displayMemories() {
 
@@ -587,10 +406,14 @@ function displayMemories() {
         document.getElementById("memories");
 
 
-    const memories =
-        JSON.parse(
-            localStorage.getItem("ourMemories")
-        ) || [];
+    if (memories.length === 0) {
+
+        container.innerHTML =
+            '<div class="empty">Our story begins here... ❤️</div>';
+
+        return;
+
+    }
 
 
     container.innerHTML = "";
@@ -611,23 +434,13 @@ function displayMemories() {
             memory.title;
 
 
-        card.appendChild(title);
+        const date =
+            document.createElement("div");
 
+        date.className = "date";
 
-        if (memory.date) {
-
-            const date =
-                document.createElement("span");
-
-            date.className =
-                "memory-date";
-
-            date.textContent =
-                memory.date;
-
-            card.appendChild(date);
-
-        }
+        date.textContent =
+            memory.date || "A beautiful day";
 
 
         const text =
@@ -635,6 +448,11 @@ function displayMemories() {
 
         text.textContent =
             memory.message;
+
+
+        card.appendChild(title);
+
+        card.appendChild(date);
 
         card.appendChild(text);
 
@@ -658,8 +476,6 @@ function displayMemories() {
 
 }
 
-
-/* LOAD SAVED MEMORIES */
 
 displayMemories();
 
