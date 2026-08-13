@@ -10,10 +10,13 @@
 
 <title>Our Little Time Capsule ❤️</title>
 
+<!-- Supabase JavaScript client -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 
 /* =========================================================
-   BASIC
+   RESET
    ========================================================= */
 
 * {
@@ -28,14 +31,14 @@ body {
 
     margin: 0;
 
+    min-height: 100vh;
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     color: #5b3d45;
-
-    min-height: 100vh;
 
     background:
         linear-gradient(
@@ -64,7 +67,7 @@ body {
 
     max-width: 800px;
 
-    margin: auto;
+    margin: 0 auto;
 
     padding: 30px 0 70px;
 }
@@ -78,8 +81,7 @@ header {
 
     text-align: center;
 
-    padding:
-        25px 10px 20px;
+    padding: 25px 10px 20px;
 }
 
 .heart {
@@ -92,7 +94,8 @@ header {
 
 @keyframes heartbeat {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
 
@@ -131,8 +134,7 @@ h1 {
 
     background: #d9aab8;
 
-    margin:
-        25px auto;
+    margin: 25px auto;
 }
 
 
@@ -143,7 +145,7 @@ h1 {
 .card {
 
     background:
-        rgba(255, 252, 250, 0.92);
+        rgba(255, 252, 250, 0.94);
 
     border:
         1px solid rgba(160, 91, 111, 0.18);
@@ -186,7 +188,7 @@ h1 {
 
 #loginSection {
 
-    max-width: 430px;
+    max-width: 440px;
 
     margin:
         25px auto 40px;
@@ -218,21 +220,37 @@ h1 {
 
     width: 100%;
 
-    background: #a65a73;
-
-    color: white;
-
     border: none;
 
     border-radius: 25px;
 
-    padding: 14px;
+    padding: 14px 20px;
 
     font-family: inherit;
 
     font-size: 17px;
 
     cursor: pointer;
+
+    background: #a65a73;
+
+    color: white;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+.login-button:hover {
+
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+.login-button:active {
+
+    transform: scale(0.98);
 }
 
 .login-button:disabled {
@@ -240,6 +258,8 @@ h1 {
     opacity: 0.6;
 
     cursor: not-allowed;
+
+    transform: none;
 }
 
 
@@ -275,9 +295,13 @@ h1 {
     color: #914c65;
 
     font-size: 17px;
+
+    overflow-wrap: anywhere;
 }
 
 .logout-button {
+
+    flex-shrink: 0;
 
     background: transparent;
 
@@ -294,6 +318,8 @@ h1 {
     font-family: inherit;
 
     cursor: pointer;
+
+    transition: background 0.2s;
 }
 
 .logout-button:hover {
@@ -303,7 +329,7 @@ h1 {
 
 
 /* =========================================================
-   MUSIC
+   MUSIC CARD
    ========================================================= */
 
 .music-card {
@@ -352,12 +378,12 @@ h1 {
 
 @keyframes musicPulse {
 
-    0%, 100% {
+    0%,
+    100% {
 
         transform:
             scale(1)
             rotate(0deg);
-
     }
 
     25% {
@@ -365,7 +391,6 @@ h1 {
         transform:
             scale(1.12)
             rotate(-4deg);
-
     }
 
     50% {
@@ -373,7 +398,6 @@ h1 {
         transform:
             scale(1.18)
             rotate(4deg);
-
     }
 
     75% {
@@ -381,7 +405,6 @@ h1 {
         transform:
             scale(1.10)
             rotate(-2deg);
-
     }
 }
 
@@ -428,13 +451,11 @@ h1 {
             scale(0.7);
 
         opacity: 0;
-
     }
 
     20% {
 
         opacity: 0.8;
-
     }
 
     100% {
@@ -444,7 +465,6 @@ h1 {
             scale(1);
 
         opacity: 0;
-
     }
 }
 
@@ -501,6 +521,22 @@ h1 {
     background: #a65a73;
 
     color: white;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+.music-button:hover {
+
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+.music-button:active {
+
+    transform: scale(0.97);
 }
 
 .music-status {
@@ -546,7 +582,7 @@ textarea {
     border-radius: 15px;
 
     background:
-        rgba(255,255,255,0.9);
+        rgba(255,255,255,0.92);
 
     color: #5b3d45;
 
@@ -576,13 +612,8 @@ textarea {
 
 
 /* =========================================================
-   BUTTONS
+   SAVE BUTTON
    ========================================================= */
-
-button {
-
-    font-family: inherit;
-}
 
 .save-button {
 
@@ -593,6 +624,8 @@ button {
     padding:
         13px 22px;
 
+    font-family: inherit;
+
     font-size: 17px;
 
     cursor: pointer;
@@ -600,6 +633,22 @@ button {
     background: #a65a73;
 
     color: white;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+.save-button:hover {
+
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+.save-button:active {
+
+    transform: scale(0.97);
 }
 
 .save-button:disabled {
@@ -607,6 +656,8 @@ button {
     opacity: 0.6;
 
     cursor: not-allowed;
+
+    transform: none;
 }
 
 
@@ -623,6 +674,8 @@ button {
     font-size: 16px;
 
     min-height: 24px;
+
+    line-height: 1.5;
 }
 
 .success {
@@ -688,6 +741,8 @@ button {
     line-height: 1.6;
 
     white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
 }
 
 .memory img {
@@ -710,6 +765,8 @@ button {
     color: #98737d;
 
     padding: 20px;
+
+    line-height: 1.6;
 }
 
 .loading {
@@ -813,9 +870,9 @@ footer {
 <div class="container">
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-     ===================================================== -->
+     ========================================================= -->
 
 <header>
 
@@ -841,9 +898,9 @@ footer {
 </header>
 
 
-<!-- =====================================================
-     LOGIN SECTION
-     ===================================================== -->
+<!-- =========================================================
+     LOGIN
+     ========================================================= -->
 
 <div
     class="card"
@@ -902,16 +959,13 @@ footer {
 </div>
 
 
-<!-- =====================================================
-     DIARY SECTION
-     ===================================================== -->
+<!-- =========================================================
+     DIARY
+     ========================================================= -->
 
-<div id="diarySection">
+<div
+    id="diarySection">
 
-
-    <!-- =================================================
-         LOGIN INFO
-         ================================================= -->
 
     <div class="diary-top">
 
@@ -922,6 +976,7 @@ footer {
             Welcome back ❤️
 
         </div>
+
 
         <button
             class="logout-button"
@@ -935,9 +990,9 @@ footer {
     </div>
 
 
-    <!-- =================================================
+    <!-- =====================================================
          MUSIC
-         ================================================= -->
+         ===================================================== -->
 
     <div
         class="music-card"
@@ -996,9 +1051,9 @@ footer {
     </div>
 
 
-    <!-- =================================================
+    <!-- =====================================================
          TO US
-         ================================================= -->
+         ===================================================== -->
 
     <div class="card">
 
@@ -1019,9 +1074,9 @@ footer {
     </div>
 
 
-    <!-- =================================================
+    <!-- =====================================================
          ADD MEMORY
-         ================================================= -->
+         ===================================================== -->
 
     <div class="card">
 
@@ -1090,15 +1145,16 @@ footer {
     </div>
 
 
-    <!-- =================================================
+    <!-- =====================================================
          MEMORIES
-         ================================================= -->
+         ===================================================== -->
 
     <div class="card">
 
         <h2>
             📖 Our Memories
         </h2>
+
 
         <div
             id="memories"
@@ -1118,10 +1174,6 @@ footer {
 </div>
 
 
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
 <footer>
 
     Made with love, for the two of us. ❤️
@@ -1134,9 +1186,8 @@ footer {
 
 <script>
 
-
 /* =========================================================
-   SUPABASE CONFIGURATION
+   SUPABASE CONFIG
    ========================================================= */
 
 const SUPABASE_URL =
@@ -1150,248 +1201,154 @@ const TABLE =
 
 
 /* =========================================================
-   SESSION
+   CREATE SUPABASE CLIENT
    ========================================================= */
 
-let accessToken =
-    localStorage.getItem(
-        "timeCapsuleAccessToken"
-    );
-
-let refreshToken =
-    localStorage.getItem(
-        "timeCapsuleRefreshToken"
-    );
-
-
-/* =========================================================
-   BASIC HELPERS
-   ========================================================= */
-
-function setSession(
-    session
-) {
-
-    if (!session) {
-
-        accessToken = null;
-
-        refreshToken = null;
-
-        localStorage.removeItem(
-            "timeCapsuleAccessToken"
-        );
-
-        localStorage.removeItem(
-            "timeCapsuleRefreshToken"
-        );
-
-        return;
-    }
-
-
-    accessToken =
-        session.access_token;
-
-    refreshToken =
-        session.refresh_token || null;
-
-
-    localStorage.setItem(
-        "timeCapsuleAccessToken",
-        accessToken
-    );
-
-
-    if (refreshToken) {
-
-        localStorage.setItem(
-            "timeCapsuleRefreshToken",
-            refreshToken
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   SUPABASE AUTH REQUEST
-   ========================================================= */
-
-async function supabaseAuthRequest(
-    endpoint,
-    body
-) {
-
-    const response =
-        await fetch(
-
-            SUPABASE_URL +
-            "/auth/v1/" +
-            endpoint,
-
-            {
-
-                method: "POST",
-
-                headers: {
-
-                    "apikey":
-                        SUPABASE_KEY,
-
-                    "Content-Type":
-                        "application/json"
-
-                },
-
-                body:
-                    JSON.stringify(body)
-
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY,
+        {
+            auth: {
+                persistSession: true,
+                autoRefreshToken: true,
+                detectSessionInUrl: true
             }
-
-        );
-
-
-    const text =
-        await response.text();
+        }
+    );
 
 
-    let data = null;
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const loginSection =
+    document.getElementById(
+        "loginSection"
+    );
+
+const diarySection =
+    document.getElementById(
+        "diarySection"
+    );
+
+const loginEmail =
+    document.getElementById(
+        "loginEmail"
+    );
+
+const loginPassword =
+    document.getElementById(
+        "loginPassword"
+    );
+
+const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
+
+const loginStatus =
+    document.getElementById(
+        "loginStatus"
+    );
+
+const diaryWelcome =
+    document.getElementById(
+        "diaryWelcome"
+    );
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+const saveButton =
+    document.getElementById(
+        "saveButton"
+    );
+
+const statusBox =
+    document.getElementById(
+        "status"
+    );
+
+const memoriesBox =
+    document.getElementById(
+        "memories"
+    );
+
+const titleInput =
+    document.getElementById(
+        "title"
+    );
+
+const dateInput =
+    document.getElementById(
+        "date"
+    );
+
+const messageInput =
+    document.getElementById(
+        "message"
+    );
+
+const photoInput =
+    document.getElementById(
+        "photo"
+    );
 
 
-    try {
+/* =========================================================
+   SHOW LOGIN
+   ========================================================= */
 
-        data =
-            text
-                ? JSON.parse(text)
-                : null;
+function showLogin() {
 
-    }
+    loginSection.style.display =
+        "block";
 
-    catch {
-
-        data = null;
-
-    }
-
-
-    if (!response.ok) {
-
-        throw new Error(
-
-            data?.msg ||
-            data?.message ||
-            data?.error_description ||
-            "Authentication failed."
-
-        );
-
-    }
-
-
-    return data;
+    diarySection.style.display =
+        "none";
 
 }
 
 
 /* =========================================================
-   SUPABASE DATABASE REQUEST
+   SHOW DIARY
    ========================================================= */
 
-async function supabaseRequest(
-    endpoint,
-    options = {}
+async function showDiary(
+    user
 ) {
 
-    const headers = {
+    loginSection.style.display =
+        "none";
 
-        "apikey":
-            SUPABASE_KEY,
-
-        "Content-Type":
-            "application/json"
-
-    };
+    diarySection.style.display =
+        "block";
 
 
-    /*
-       IMPORTANT:
+    if (
+        user &&
+        user.email
+    ) {
 
-       If logged in, use the user's access token.
-
-       This is what makes auth.uid()
-       work inside your RLS policy.
-    */
-
-    if (accessToken) {
-
-        headers["Authorization"] =
-            "Bearer " +
-            accessToken;
+        diaryWelcome.textContent =
+            "Welcome, " +
+            user.email +
+            " ❤️";
 
     }
 
     else {
 
-        headers["Authorization"] =
-            "Bearer " +
-            SUPABASE_KEY;
+        diaryWelcome.textContent =
+            "Welcome back ❤️";
 
     }
 
 
-    if (options.method === "POST") {
-
-        headers["Prefer"] =
-            "return=representation";
-
-    }
-
-
-    const response =
-        await fetch(
-
-            SUPABASE_URL +
-            "/rest/v1/" +
-            endpoint,
-
-            {
-
-                ...options,
-
-                headers: {
-
-                    ...headers,
-
-                    ...(options.headers || {})
-
-                }
-
-            }
-
-        );
-
-
-    const text =
-        await response.text();
-
-
-    if (!response.ok) {
-
-        throw new Error(
-
-            text ||
-            "Supabase request failed."
-
-        );
-
-    }
-
-
-    return text
-        ? JSON.parse(text)
-        : null;
+    await loadMemories();
 
 }
 
@@ -1403,40 +1360,1215 @@ async function supabaseRequest(
 async function login() {
 
     const email =
-        document
-            .getElementById(
-                "loginEmail"
-            )
+        loginEmail
+            .value
+            .trim();
+
+    const password =
+        loginPassword
+            .value;
+
+
+    /* -----------------------------------------
+       VALIDATION
+       ----------------------------------------- */
+
+    if (
+        !email ||
+        !password
+    ) {
+
+        loginStatus.className =
+            "status error";
+
+        loginStatus.textContent =
+            "Please enter your email and password ❤️";
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------
+       BUTTON STATE
+       ----------------------------------------- */
+
+    loginButton.disabled =
+        true;
+
+    loginButton.textContent =
+        "Entering... ❤️";
+
+    loginStatus.className =
+        "status";
+
+    loginStatus.textContent =
+        "Opening our diary...";
+
+
+    try {
+
+        /* -------------------------------------
+           SUPABASE LOGIN
+           ------------------------------------- */
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.auth.signInWithPassword({
+
+                email:
+                    email,
+
+                password:
+                    password
+
+            });
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        if (
+            !data ||
+            !data.user ||
+            !data.session
+        ) {
+
+            throw new Error(
+                "Login completed but no active session was created."
+            );
+
+        }
+
+
+        loginStatus.className =
+            "status success";
+
+        loginStatus.textContent =
+            "Welcome back ❤️";
+
+
+        /* -------------------------------------
+           OPEN DIARY
+           ------------------------------------- */
+
+        await showDiary(
+            data.user
+        );
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "LOGIN ERROR:",
+            error
+        );
+
+
+        loginStatus.className =
+            "status error";
+
+
+        loginStatus.textContent =
+            getFriendlyAuthError(
+                error
+            );
+
+    }
+
+
+    finally {
+
+        loginButton.disabled =
+            false;
+
+        loginButton.textContent =
+            "Enter Our Diary ❤️";
+
+    }
+
+}
+
+
+/* =========================================================
+   FRIENDLY LOGIN ERRORS
+   ========================================================= */
+
+function getFriendlyAuthError(
+    error
+) {
+
+    const message =
+        String(
+            error?.message ||
+            ""
+        );
+
+
+    const lower =
+        message.toLowerCase();
+
+
+    if (
+        lower.includes(
+            "invalid login credentials"
+        )
+    ) {
+
+        return "Email or password is incorrect. ❤️";
+
+    }
+
+
+    if (
+        lower.includes(
+            "email not confirmed"
+        )
+    ) {
+
+        return "Please confirm the email address first. ❤️";
+
+    }
+
+
+    if (
+        lower.includes(
+            "failed to fetch"
+        )
+    ) {
+
+        return "Couldn't connect to Supabase. Check your internet connection. ❤️";
+
+    }
+
+
+    return (
+        message ||
+        "Login failed. Please try again. ❤️"
+    );
+
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+async function logout() {
+
+    logoutButton.disabled =
+        true;
+
+
+    try {
+
+        const {
+            error
+        } =
+            await supabaseClient.auth.signOut();
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        showLogin();
+
+        loginPassword.value =
+            "";
+
+        loginStatus.className =
+            "status";
+
+        loginStatus.textContent =
+            "";
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "LOGOUT ERROR:",
+            error
+        );
+
+    }
+
+
+    finally {
+
+        logoutButton.disabled =
+            false;
+
+    }
+
+}
+
+
+/* =========================================================
+   FILE TO DATA URL
+   ========================================================= */
+
+function fileToDataURL(
+    file
+) {
+
+    return new Promise(
+        function(
+            resolve,
+            reject
+        ) {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function() {
+
+                    resolve(
+                        reader.result
+                    );
+
+                };
+
+
+            reader.onerror =
+                function() {
+
+                    reject(
+                        new Error(
+                            "Could not read the selected image."
+                        )
+                    );
+
+                };
+
+
+            reader.readAsDataURL(
+                file
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SAVE MEMORY
+   ========================================================= */
+
+async function saveMemory() {
+
+    const title =
+        titleInput
+            .value
+            .trim();
+
+    const date =
+        dateInput
+            .value;
+
+    const message =
+        messageInput
             .value
             .trim();
 
 
-    const password =
-        document
-            .getElementById(
-                "loginPassword"
-            )
-            .value;
+    /* -----------------------------------------
+       VALIDATION
+       ----------------------------------------- */
 
+    if (
+        !title ||
+        !message
+    ) {
 
-    const button =
-        document
-            .getElementById(
-                "loginButton"
-            );
-
-
-    const status =
-        document
-            .getElementById(
-                "loginStatus"
-            );
-
-
-    if (!email || !password) {
-
-        status.className =
+        statusBox.className =
             "status error";
 
-        status.textContent =
-     
+        statusBox.textContent =
+            "Please add a title and message ❤️";
+
+        return;
+
+    }
+
+
+    saveButton.disabled =
+        true;
+
+    saveButton.textContent =
+        "Saving... ❤️";
+
+    statusBox.className =
+        "status";
+
+    statusBox.textContent =
+        "Saving your memory...";
+
+
+    try {
+
+        /* -------------------------------------
+           GET CURRENT USER
+           ------------------------------------- */
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.auth.getUser();
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        const user =
+            data?.user;
+
+
+        if (!user) {
+
+            throw new Error(
+                "Your session has expired. Please log in again."
+            );
+
+        }
+
+
+        /* -------------------------------------
+           IMAGE
+           ------------------------------------- */
+
+        let image =
+            null;
+
+
+        if (
+            photoInput.files &&
+            photoInput.files.length > 0
+        ) {
+
+            const file =
+                photoInput.files[0];
+
+
+            if (
+                file.size >
+                5 * 1024 * 1024
+            ) {
+
+                throw new Error(
+                    "Please choose a photo smaller than 5 MB."
+                );
+
+            }
+
+
+            if (
+                !file.type.startsWith(
+                    "image/"
+                )
+            ) {
+
+                throw new Error(
+                    "Please choose a valid image."
+                );
+
+            }
+
+
+            image =
+                await fileToDataURL(
+                    file
+                );
+
+        }
+
+
+        /* -------------------------------------
+           MEMORY OBJECT
+
+           user_id is VERY IMPORTANT.
+
+           Your RLS policy should compare:
+
+           auth.uid() = user_id
+           ------------------------------------- */
+
+        const memory = {
+
+            user_id:
+                user.id,
+
+            title:
+                title,
+
+            date:
+                date || null,
+
+            message:
+                message,
+
+            image:
+                image
+
+        };
+
+
+        /* -------------------------------------
+           INSERT
+           ------------------------------------- */
+
+        const {
+            error:
+                insertError
+        } =
+            await supabaseClient
+                .from(TABLE)
+                .insert(
+                    memory
+                );
+
+
+        if (insertError) {
+
+            throw insertError;
+
+        }
+
+
+        /* -------------------------------------
+           SUCCESS
+           ------------------------------------- */
+
+        statusBox.className =
+            "status success";
+
+        statusBox.textContent =
+            "Memory saved successfully ❤️";
+
+
+        titleInput.value =
+            "";
+
+        dateInput.value =
+            "";
+
+        messageInput.value =
+            "";
+
+        photoInput.value =
+            "";
+
+
+        /* -------------------------------------
+           REFRESH MEMORIES
+           ------------------------------------- */
+
+        await loadMemories();
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "SAVE MEMORY ERROR:",
+            error
+        );
+
+
+        statusBox.className =
+            "status error";
+
+        statusBox.textContent =
+            "Couldn't save the memory: " +
+            (
+                error?.message ||
+                "Unknown error."
+            );
+
+    }
+
+
+    finally {
+
+        saveButton.disabled =
+            false;
+
+        saveButton.textContent =
+            "Save Memory ❤️";
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD MEMORIES
+   ========================================================= */
+
+async function loadMemories() {
+
+    memoriesBox.innerHTML = `
+
+        <div class="loading">
+
+            Loading our memories... ❤️
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from(TABLE)
+                .select("*")
+                .order(
+                    "created_at",
+                    {
+                        ascending:
+                            false
+                    }
+                );
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        displayMemories(
+            data || []
+        );
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "LOAD MEMORIES ERROR:",
+            error
+        );
+
+
+        memoriesBox.innerHTML = `
+
+            <div class="empty">
+
+                Couldn't load our memories right now. ❤️
+
+                <br><br>
+
+                ${escapeHTML(
+                    error?.message ||
+                    "Unknown error."
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   DISPLAY MEMORIES
+   ========================================================= */
+
+function displayMemories(
+    memories
+) {
+
+    memoriesBox.innerHTML =
+        "";
+
+
+    if (
+        !memories ||
+        memories.length === 0
+    ) {
+
+        memoriesBox.innerHTML = `
+
+            <div class="empty">
+
+                Our story begins here... ❤️
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    memories.forEach(
+        function(memory) {
+
+            const article =
+                document.createElement(
+                    "article"
+                );
+
+
+            article.className =
+                "memory";
+
+
+            /* ---------------------------------
+               TITLE
+               --------------------------------- */
+
+            const heading =
+                document.createElement(
+                    "h3"
+                );
+
+
+            heading.textContent =
+                memory.title ||
+                "A beautiful memory ❤️";
+
+
+            article.appendChild(
+                heading
+            );
+
+
+            /* ---------------------------------
+               DATE
+               --------------------------------- */
+
+            if (
+                memory.date
+            ) {
+
+                const date =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                date.className =
+                    "date";
+
+
+                date.textContent =
+                    formatDate(
+                        memory.date
+                    );
+
+
+                article.appendChild(
+                    date
+                );
+
+            }
+
+
+            /* ---------------------------------
+               MESSAGE
+               --------------------------------- */
+
+            const paragraph =
+                document.createElement(
+                    "p"
+                );
+
+
+            paragraph.textContent =
+                memory.message ||
+                "";
+
+
+            article.appendChild(
+                paragraph
+            );
+
+
+            /* ---------------------------------
+               IMAGE
+               --------------------------------- */
+
+            if (
+                memory.image
+            ) {
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    memory.image;
+
+                image.alt =
+                    "Memory photo";
+
+                image.loading =
+                    "lazy";
+
+
+                article.appendChild(
+                    image
+                );
+
+            }
+
+
+            memoriesBox.appendChild(
+                article
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FORMAT DATE
+   ========================================================= */
+
+function formatDate(
+    value
+) {
+
+    if (!value) {
+
+        return "";
+
+    }
+
+
+    try {
+
+        const date =
+            new Date(
+                value +
+                "T00:00:00"
+            );
+
+
+        return date.toLocaleDateString(
+            undefined,
+            {
+                day:
+                    "numeric",
+
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+            }
+        );
+
+    }
+
+
+    catch {
+
+        return value;
+
+    }
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(
+    value
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        String(
+            value || ""
+        );
+
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================================================
+   MUSIC
+   ========================================================= */
+
+const ourSong =
+    document.getElementById(
+        "ourSong"
+    );
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+const musicStatus =
+    document.getElementById(
+        "musicStatus"
+    );
+
+const musicCard =
+    document.getElementById(
+        "musicCard"
+    );
+
+
+/* ---------------------------------------------------------
+   PLAY / PAUSE
+   --------------------------------------------------------- */
+
+musicButton.addEventListener(
+    "click",
+    async function() {
+
+        if (
+            ourSong.paused
+        ) {
+
+            try {
+
+                await ourSong.play();
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "MUSIC ERROR:",
+                    error
+                );
+
+
+                musicStatus.textContent =
+                    "Couldn't play the song. Check the MP3 filename.";
+
+            }
+
+        }
+
+        else {
+
+            ourSong.pause();
+
+        }
+
+    }
+);
+
+
+/* ---------------------------------------------------------
+   PLAY EVENT
+   --------------------------------------------------------- */
+
+ourSong.addEventListener(
+    "play",
+    function() {
+
+        musicCard.classList.add(
+            "playing"
+        );
+
+        musicButton.textContent =
+            "⏸ Pause Our Song";
+
+        musicStatus.textContent =
+            "Playing Until I Found You ❤️";
+
+    }
+);
+
+
+/* ---------------------------------------------------------
+   PAUSE EVENT
+   --------------------------------------------------------- */
+
+ourSong.addEventListener(
+    "pause",
+    function() {
+
+        musicCard.classList.remove(
+            "playing"
+        );
+
+
+        if (
+            !ourSong.ended
+        ) {
+
+            musicButton.textContent =
+                "▶ Play Our Song";
+
+            musicStatus.textContent =
+                "Paused ❤️";
+
+        }
+
+    }
+);
+
+
+/* ---------------------------------------------------------
+   END EVENT
+   --------------------------------------------------------- */
+
+ourSong.addEventListener(
+    "ended",
+    function() {
+
+        musicCard.classList.remove(
+            "playing"
+        );
+
+        musicButton.textContent =
+            "▶ Play Our Song";
+
+        musicStatus.textContent =
+            "Until I Found You ❤️";
+
+    }
+);
+
+
+/* ---------------------------------------------------------
+   AUDIO ERROR
+   --------------------------------------------------------- */
+
+ourSong.addEventListener(
+    "error",
+    function() {
+
+        musicCard.classList.remove(
+            "playing"
+        );
+
+        musicStatus.textContent =
+            "Song couldn't be loaded. Check Until_I_Found_You.mp3";
+
+    }
+);
+
+
+/* =========================================================
+   BUTTON EVENTS
+   ========================================================= */
+
+loginButton.addEventListener(
+    "click",
+    login
+);
+
+
+logoutButton.addEventListener(
+    "click",
+    logout
+);
+
+
+saveButton.addEventListener(
+    "click",
+    saveMemory
+);
+
+
+/* =========================================================
+   ENTER KEY LOGIN
+   ========================================================= */
+
+loginEmail.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            login();
+
+        }
+
+    }
+);
+
+
+loginPassword.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            login();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CHECK EXISTING SESSION
+   ========================================================= */
+
+async function checkSession() {
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.auth.getSession();
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        const session =
+            data?.session;
+
+
+        if (
+            session &&
+            session.user
+        ) {
+
+            await showDiary(
+                session.user
+            );
+
+        }
+
+        else {
+
+            showLogin();
+
+        }
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "SESSION ERROR:",
+            error
+        );
+
+
+        showLogin();
+
+    }
+
+}
+
+
+/* =========================================================
+   AUTH STATE LISTENER
+   ========================================================= */
+
+supabaseClient.auth.onAuthStateChange(
+    function(
+        event,
+        session
+    ) {
+
+        if (
+            event ===
+                "SIGNED_OUT"
+        ) {
+
+            showLogin();
+
+            return;
+
+        }
+
+
+        if (
+            event ===
+                "SIGNED_IN" &&
+            session &&
+            session.user
+        ) {
+
+            /*
+             * Do not call showDiary here.
+             *
+             * login() already handles the transition.
+             *
+             * This listener mainly keeps the UI
+             * synchronized if Supabase changes the
+             * session elsewhere.
+             */
+
+            return;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START APPLICATION
+   ========================================================= */
+
+checkSession();
+
+</script>
+
+</body>
+
+</html>
