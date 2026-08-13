@@ -12,6 +12,10 @@
 
 <style>
 
+/* =========================================================
+   BASIC
+   ========================================================= */
+
 * {
     box-sizing: border-box;
 }
@@ -41,28 +45,41 @@ body {
         url("./IMG-20260804-WA0035.jpg");
 
     background-size: cover;
+
     background-position: center;
+
     background-attachment: fixed;
 
     overflow-x: hidden;
 }
 
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
 .container {
 
     width: 92%;
+
     max-width: 800px;
+
     margin: auto;
 
-    padding:
-        45px 0 70px;
+    padding: 30px 0 70px;
 }
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header {
 
     text-align: center;
 
     padding:
-        35px 10px 25px;
+        25px 10px 20px;
 }
 
 .heart {
@@ -109,6 +126,7 @@ h1 {
 .divider {
 
     width: 90px;
+
     height: 2px;
 
     background: #d9aab8;
@@ -116,6 +134,11 @@ h1 {
     margin:
         25px auto;
 }
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
 
 .card {
 
@@ -145,6 +168,7 @@ h1 {
     font-size: 30px;
 
     margin-top: 0;
+
     margin-bottom: 15px;
 }
 
@@ -156,27 +180,29 @@ h1 {
 }
 
 
-/* ==========================================
+/* =========================================================
    LOGIN
-   ========================================== */
+   ========================================================= */
 
-.login-card {
+#loginSection {
 
-    max-width: 500px;
+    max-width: 430px;
 
     margin:
-        40px auto;
+        25px auto 40px;
 
     text-align: center;
 }
 
-.login-card h2 {
+.login-title {
 
     color: #914c65;
 
-    font-size: 30px;
+    font-size: 28px;
 
-    margin-top: 0;
+    font-weight: bold;
+
+    margin-bottom: 10px;
 }
 
 .login-subtitle {
@@ -185,29 +211,100 @@ h1 {
 
     font-size: 17px;
 
-    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .login-button {
 
     width: 100%;
 
-    margin-top: 5px;
+    background: #a65a73;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 14px;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    cursor: pointer;
 }
 
-.login-status {
+.login-button:disabled {
 
-    min-height: 25px;
+    opacity: 0.6;
 
-    margin-top: 15px;
-
-    font-size: 15px;
+    cursor: not-allowed;
 }
 
 
-/* ==========================================
+/* =========================================================
+   DIARY
+   ========================================================= */
+
+#diarySection {
+
+    display: none;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.diary-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.diary-welcome {
+
+    color: #914c65;
+
+    font-size: 17px;
+}
+
+.logout-button {
+
+    background: transparent;
+
+    color: #914c65;
+
+    border:
+        1px solid #c88ca0;
+
+    padding:
+        8px 15px;
+
+    border-radius: 20px;
+
+    font-family: inherit;
+
+    cursor: pointer;
+}
+
+.logout-button:hover {
+
+    background: #fff0f4;
+}
+
+
+/* =========================================================
    MUSIC
-   ========================================== */
+   ========================================================= */
 
 .music-card {
 
@@ -247,8 +344,7 @@ h1 {
     display: inline-block;
 }
 
-.music-card.playing
-.music-icon {
+.music-card.playing .music-icon {
 
     animation:
         musicPulse 1.4s ease-in-out infinite;
@@ -261,6 +357,7 @@ h1 {
         transform:
             scale(1)
             rotate(0deg);
+
     }
 
     25% {
@@ -268,6 +365,7 @@ h1 {
         transform:
             scale(1.12)
             rotate(-4deg);
+
     }
 
     50% {
@@ -275,6 +373,7 @@ h1 {
         transform:
             scale(1.18)
             rotate(4deg);
+
     }
 
     75% {
@@ -282,6 +381,7 @@ h1 {
         transform:
             scale(1.10)
             rotate(-2deg);
+
     }
 }
 
@@ -297,13 +397,12 @@ h1 {
     opacity: 0;
 
     pointer-events: none;
-
-    z-index: 5;
 }
 
 .music-card.playing::before {
 
     left: 35%;
+
     bottom: 30px;
 
     animation:
@@ -313,6 +412,7 @@ h1 {
 .music-card.playing::after {
 
     right: 35%;
+
     bottom: 30px;
 
     animation:
@@ -328,11 +428,13 @@ h1 {
             scale(0.7);
 
         opacity: 0;
+
     }
 
     20% {
 
         opacity: 0.8;
+
     }
 
     100% {
@@ -342,6 +444,7 @@ h1 {
             scale(1);
 
         opacity: 0;
+
     }
 }
 
@@ -398,10 +501,6 @@ h1 {
     background: #a65a73;
 
     color: white;
-
-    box-shadow:
-        0 7px 18px
-        rgba(150, 70, 100, 0.20);
 }
 
 .music-status {
@@ -416,9 +515,9 @@ h1 {
 }
 
 
-/* ==========================================
+/* =========================================================
    FORM
-   ========================================== */
+   ========================================================= */
 
 label {
 
@@ -427,6 +526,7 @@ label {
     font-size: 17px;
 
     margin-top: 8px;
+
     margin-bottom: 6px;
 }
 
@@ -457,6 +557,16 @@ textarea {
     outline: none;
 }
 
+input:focus,
+textarea:focus {
+
+    border-color: #b66b83;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(182,107,131,0.10);
+}
+
 textarea {
 
     min-height: 140px;
@@ -464,7 +574,17 @@ textarea {
     resize: vertical;
 }
 
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 button {
+
+    font-family: inherit;
+}
+
+.save-button {
 
     border: none;
 
@@ -472,8 +592,6 @@ button {
 
     padding:
         13px 22px;
-
-    font-family: inherit;
 
     font-size: 17px;
 
@@ -484,12 +602,7 @@ button {
     color: white;
 }
 
-button:hover {
-
-    opacity: 0.9;
-}
-
-button:disabled {
+.save-button:disabled {
 
     opacity: 0.6;
 
@@ -497,9 +610,9 @@ button:disabled {
 }
 
 
-/* ==========================================
+/* =========================================================
    STATUS
-   ========================================== */
+   ========================================================= */
 
 .status {
 
@@ -523,9 +636,9 @@ button:disabled {
 }
 
 
-/* ==========================================
+/* =========================================================
    MEMORIES
-   ========================================== */
+   ========================================================= */
 
 .memories {
 
@@ -609,32 +722,9 @@ button:disabled {
 }
 
 
-/* ==========================================
-   LOGOUT
-   ========================================== */
-
-.logout-button {
-
-    display: block;
-
-    margin:
-        25px auto 0;
-
-    background:
-        transparent;
-
-    color: #914c65;
-
-    border:
-        1px solid #d6aeba;
-
-    font-size: 15px;
-}
-
-
-/* ==========================================
+/* =========================================================
    FOOTER
-   ========================================== */
+   ========================================================= */
 
 footer {
 
@@ -648,19 +738,9 @@ footer {
 }
 
 
-/* ==========================================
-   HIDDEN
-   ========================================== */
-
-.hidden {
-
-    display: none !important;
-}
-
-
-/* ==========================================
+/* =========================================================
    MOBILE
-   ========================================== */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -708,6 +788,18 @@ footer {
         max-width: 300px;
     }
 
+    .diary-top {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .logout-button {
+
+        align-self: flex-end;
+    }
+
 }
 
 </style>
@@ -720,6 +812,10 @@ footer {
 
 <div class="container">
 
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
 
 <header>
 
@@ -745,26 +841,26 @@ footer {
 </header>
 
 
-<!-- ==========================================
-     LOGIN
-     ========================================== -->
+<!-- =====================================================
+     LOGIN SECTION
+     ===================================================== -->
 
 <div
-    id="loginSection"
-    class="card login-card">
+    class="card"
+    id="loginSection">
 
-    <h2>
+    <div class="login-title">
         🔐 Our Private Diary
-    </h2>
+    </div>
 
-    <p class="login-subtitle">
+    <div class="login-subtitle">
 
         This little place is just for us. ❤️
 
-    </p>
+    </div>
 
 
-    <label>
+    <label for="loginEmail">
         Email
     </label>
 
@@ -776,7 +872,7 @@ footer {
     >
 
 
-    <label>
+    <label for="loginPassword">
         Password
     </label>
 
@@ -789,8 +885,8 @@ footer {
 
 
     <button
-        id="loginButton"
         class="login-button"
+        id="loginButton"
         type="button">
 
         Enter Our Diary ❤️
@@ -800,195 +896,231 @@ footer {
 
     <div
         id="loginStatus"
-        class="login-status">
-    </div>
-
-</div>
-
-
-<!-- ==========================================
-     PRIVATE DIARY
-     ========================================== -->
-
-<div
-    id="diarySection"
-    class="hidden">
-
-
-<!-- MUSIC -->
-
-<div
-    class="music-card"
-    id="musicCard">
-
-    <div class="music-icon">
-        🎵
-    </div>
-
-    <div class="music-title">
-        Our Song ❤️
-    </div>
-
-    <div class="music-subtitle">
-        A little soundtrack to our memories...
-    </div>
-
-    <audio
-        id="ourSong"
-        preload="auto"
-        controls
-        playsinline>
-
-        <source
-            src="./Until_I_Found_You.mp3"
-            type="audio/mpeg">
-
-        Your browser does not support audio.
-
-    </audio>
-
-    <button
-        class="music-button"
-        id="musicButton"
-        type="button">
-
-        ▶ Play Our Song
-
-    </button>
-
-    <div
-        id="musicStatus"
-        class="music-status">
-
-        Until I Found You ❤️
-
-    </div>
-
-</div>
-
-
-<!-- TO US -->
-
-<div class="card">
-
-    <h2>
-        To Us 🌷
-    </h2>
-
-    <p>
-
-        Some moments are too beautiful to be forgotten.
-
-        So this little corner of the internet is for us —
-        a place where we can leave pieces of our story
-        and come back to them someday.
-
-    </p>
-
-</div>
-
-
-<!-- ADD MEMORY -->
-
-<div class="card">
-
-    <h2>
-        ✨ Add a Memory
-    </h2>
-
-
-    <label>
-        Memory title
-    </label>
-
-    <input
-        type="text"
-        id="title"
-        placeholder="Our first date..."
-    >
-
-
-    <label>
-        Date
-    </label>
-
-    <input
-        type="date"
-        id="date"
-    >
-
-
-    <label>
-        What happened?
-    </label>
-
-    <textarea
-        id="message"
-        placeholder="Write about this memory..."
-    ></textarea>
-
-
-    <label>
-        Add a photo 📷
-    </label>
-
-    <input
-        type="file"
-        id="photo"
-        accept="image/*"
-    >
-
-
-    <button
-        id="saveButton"
-        type="button">
-
-        Save Memory ❤️
-
-    </button>
-
-
-    <div
-        id="status"
         class="status">
     </div>
 
 </div>
 
 
-<!-- MEMORIES -->
+<!-- =====================================================
+     DIARY SECTION
+     ===================================================== -->
 
-<div class="card">
+<div id="diarySection">
 
-    <h2>
-        📖 Our Memories
-    </h2>
+
+    <!-- =================================================
+         LOGIN INFO
+         ================================================= -->
+
+    <div class="diary-top">
+
+        <div
+            class="diary-welcome"
+            id="diaryWelcome">
+
+            Welcome back ❤️
+
+        </div>
+
+        <button
+            class="logout-button"
+            id="logoutButton"
+            type="button">
+
+            Logout
+
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         MUSIC
+         ================================================= -->
 
     <div
-        id="memories"
-        class="memories">
+        class="music-card"
+        id="musicCard">
 
-        <div class="loading">
-            Loading our memories... ❤️
+
+        <div class="music-icon">
+            🎵
+        </div>
+
+
+        <div class="music-title">
+            Our Song ❤️
+        </div>
+
+
+        <div class="music-subtitle">
+            A little soundtrack to our memories...
+        </div>
+
+
+        <audio
+            id="ourSong"
+            preload="auto"
+            controls
+            playsinline>
+
+            <source
+                src="./Until_I_Found_You.mp3"
+                type="audio/mpeg">
+
+            Your browser does not support audio.
+
+        </audio>
+
+
+        <button
+            class="music-button"
+            id="musicButton"
+            type="button">
+
+            ▶ Play Our Song
+
+        </button>
+
+
+        <div
+            id="musicStatus"
+            class="music-status">
+
+            Until I Found You ❤️
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         TO US
+         ================================================= -->
+
+    <div class="card">
+
+        <h2>
+            To Us 🌷
+        </h2>
+
+        <p>
+
+            Some moments are too beautiful to be forgotten.
+
+            So this little corner of the internet is for us —
+            a place where we can leave pieces of our story
+            and come back to them someday.
+
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         ADD MEMORY
+         ================================================= -->
+
+    <div class="card">
+
+        <h2>
+            ✨ Add a Memory
+        </h2>
+
+
+        <label for="title">
+            Memory title
+        </label>
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Our first date..."
+        >
+
+
+        <label for="date">
+            Date
+        </label>
+
+        <input
+            type="date"
+            id="date"
+        >
+
+
+        <label for="message">
+            What happened?
+        </label>
+
+        <textarea
+            id="message"
+            placeholder="Write about this memory..."
+        ></textarea>
+
+
+        <label for="photo">
+            Add a photo 📷
+        </label>
+
+        <input
+            type="file"
+            id="photo"
+            accept="image/*"
+        >
+
+
+        <button
+            class="save-button"
+            id="saveButton"
+            type="button">
+
+            Save Memory ❤️
+
+        </button>
+
+
+        <div
+            id="status"
+            class="status">
         </div>
 
     </div>
 
+
+    <!-- =================================================
+         MEMORIES
+         ================================================= -->
+
+    <div class="card">
+
+        <h2>
+            📖 Our Memories
+        </h2>
+
+        <div
+            id="memories"
+            class="memories">
+
+            <div class="loading">
+
+                Loading our memories... ❤️
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 </div>
 
 
-<button
-    id="logoutButton"
-    class="logout-button"
-    type="button">
-
-    Log out
-
-</button>
-
-
-</div>
-
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer>
 
@@ -1002,9 +1134,10 @@ footer {
 
 <script>
 
-/* ==========================================
+
+/* =========================================================
    SUPABASE CONFIGURATION
-   ========================================== */
+   ========================================================= */
 
 const SUPABASE_URL =
     "https://yvemsrkuwbrnzdbgflcu.supabase.co";
@@ -1016,68 +1149,79 @@ const TABLE =
     "memories";
 
 
-/* ==========================================
-   ELEMENTS
-   ========================================== */
-
-const loginSection =
-    document.getElementById(
-        "loginSection"
-    );
-
-const diarySection =
-    document.getElementById(
-        "diarySection"
-    );
-
-const loginEmail =
-    document.getElementById(
-        "loginEmail"
-    );
-
-const loginPassword =
-    document.getElementById(
-        "loginPassword"
-    );
-
-const loginButton =
-    document.getElementById(
-        "loginButton"
-    );
-
-const loginStatus =
-    document.getElementById(
-        "loginStatus"
-    );
-
-const logoutButton =
-    document.getElementById(
-        "logoutButton"
-    );
-
-
-/* ==========================================
-   AUTH STORAGE
-   ========================================== */
+/* =========================================================
+   SESSION
+   ========================================================= */
 
 let accessToken =
     localStorage.getItem(
         "timeCapsuleAccessToken"
     );
 
-let currentUserId =
+let refreshToken =
     localStorage.getItem(
-        "timeCapsuleUserId"
+        "timeCapsuleRefreshToken"
     );
 
 
-/* ==========================================
-   SUPABASE AUTH REQUEST
-   ========================================== */
+/* =========================================================
+   BASIC HELPERS
+   ========================================================= */
 
-async function authRequest(
+function setSession(
+    session
+) {
+
+    if (!session) {
+
+        accessToken = null;
+
+        refreshToken = null;
+
+        localStorage.removeItem(
+            "timeCapsuleAccessToken"
+        );
+
+        localStorage.removeItem(
+            "timeCapsuleRefreshToken"
+        );
+
+        return;
+    }
+
+
+    accessToken =
+        session.access_token;
+
+    refreshToken =
+        session.refresh_token || null;
+
+
+    localStorage.setItem(
+        "timeCapsuleAccessToken",
+        accessToken
+    );
+
+
+    if (refreshToken) {
+
+        localStorage.setItem(
+            "timeCapsuleRefreshToken",
+            refreshToken
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SUPABASE AUTH REQUEST
+   ========================================================= */
+
+async function supabaseAuthRequest(
     endpoint,
-    options = {}
+    body
 ) {
 
     const response =
@@ -1089,7 +1233,7 @@ async function authRequest(
 
             {
 
-                ...options,
+                method: "POST",
 
                 headers: {
 
@@ -1097,11 +1241,12 @@ async function authRequest(
                         SUPABASE_KEY,
 
                     "Content-Type":
-                        "application/json",
+                        "application/json"
 
-                    ...(options.headers || {})
+                },
 
-                }
+                body:
+                    JSON.stringify(body)
 
             }
 
@@ -1112,8 +1257,7 @@ async function authRequest(
         await response.text();
 
 
-    let data =
-        null;
+    let data = null;
 
 
     try {
@@ -1127,8 +1271,7 @@ async function authRequest(
 
     catch {
 
-        data =
-            null;
+        data = null;
 
     }
 
@@ -1140,7 +1283,7 @@ async function authRequest(
             data?.msg ||
             data?.message ||
             data?.error_description ||
-            "Login failed."
+            "Authentication failed."
 
         );
 
@@ -1152,209 +1295,56 @@ async function authRequest(
 }
 
 
-/* ==========================================
-   LOGIN
-   ========================================== */
-
-async function login() {
-
-    const email =
-        loginEmail
-            .value
-            .trim();
-
-
-    const password =
-        loginPassword
-            .value;
-
-
-    if (!email || !password) {
-
-        loginStatus.className =
-            "login-status error";
-
-        loginStatus.textContent =
-            "Please enter your email and password.";
-
-        return;
-
-    }
-
-
-    loginButton.disabled =
-        true;
-
-    loginButton.textContent =
-        "Opening our diary... ❤️";
-
-
-    loginStatus.className =
-        "login-status";
-
-    loginStatus.textContent =
-        "Checking your login...";
-
-
-    try {
-
-        const data =
-            await authRequest(
-
-                "token?grant_type=password",
-
-                {
-
-                    method:
-                        "POST",
-
-                    body:
-                        JSON.stringify({
-
-                            email:
-                                email,
-
-                            password:
-                                password
-
-                        })
-
-                }
-
-            );
-
-
-        accessToken =
-            data.access_token;
-
-
-        currentUserId =
-            data.user.id;
-
-
-        localStorage.setItem(
-            "timeCapsuleAccessToken",
-            accessToken
-        );
-
-
-        localStorage.setItem(
-            "timeCapsuleUserId",
-            currentUserId
-        );
-
-
-        loginPassword.value =
-            "";
-
-
-        showDiary();
-
-    }
-
-
-    catch (error) {
-
-        console.error(error);
-
-
-        loginStatus.className =
-            "login-status error";
-
-        loginStatus.textContent =
-            "Login failed: " +
-            error.message;
-
-    }
-
-
-    finally {
-
-        loginButton.disabled =
-            false;
-
-        loginButton.textContent =
-            "Enter Our Diary ❤️";
-
-    }
-
-}
-
-
-/* ==========================================
-   LOGOUT
-   ========================================== */
-
-function logout() {
-
-    accessToken =
-        null;
-
-    currentUserId =
-        null;
-
-
-    localStorage.removeItem(
-        "timeCapsuleAccessToken"
-    );
-
-
-    localStorage.removeItem(
-        "timeCapsuleUserId"
-    );
-
-
-    diarySection.classList.add(
-        "hidden"
-    );
-
-
-    loginSection.classList.remove(
-        "hidden"
-    );
-
-
-    loginStatus.textContent =
-        "";
-
-}
-
-
-/* ==========================================
-   SHOW DIARY
-   ========================================== */
-
-function showDiary() {
-
-    loginSection.classList.add(
-        "hidden"
-    );
-
-
-    diarySection.classList.remove(
-        "hidden"
-    );
-
-
-    loadMemories();
-
-}
-
-
-/* ==========================================
+/* =========================================================
    SUPABASE DATABASE REQUEST
-   ========================================== */
+   ========================================================= */
 
 async function supabaseRequest(
     endpoint,
     options = {}
 ) {
 
-    if (!accessToken) {
+    const headers = {
 
-        throw new Error(
-            "Please log in first."
-        );
+        "apikey":
+            SUPABASE_KEY,
+
+        "Content-Type":
+            "application/json"
+
+    };
+
+
+    /*
+       IMPORTANT:
+
+       If logged in, use the user's access token.
+
+       This is what makes auth.uid()
+       work inside your RLS policy.
+    */
+
+    if (accessToken) {
+
+        headers["Authorization"] =
+            "Bearer " +
+            accessToken;
+
+    }
+
+    else {
+
+        headers["Authorization"] =
+            "Bearer " +
+            SUPABASE_KEY;
+
+    }
+
+
+    if (options.method === "POST") {
+
+        headers["Prefer"] =
+            "return=representation";
 
     }
 
@@ -1372,20 +1362,7 @@ async function supabaseRequest(
 
                 headers: {
 
-                    "apikey":
-                        SUPABASE_KEY,
-
-                    "Authorization":
-                        "Bearer " +
-                        accessToken,
-
-                    "Content-Type":
-                        "application/json",
-
-                    "Prefer":
-                        options.method === "POST"
-                            ? "return=representation"
-                            : "return=minimal",
+                    ...headers,
 
                     ...(options.headers || {})
 
@@ -1403,8 +1380,10 @@ async function supabaseRequest(
     if (!response.ok) {
 
         throw new Error(
+
             text ||
-            "Database request failed."
+            "Supabase request failed."
+
         );
 
     }
@@ -1417,117 +1396,47 @@ async function supabaseRequest(
 }
 
 
-/* ==========================================
-   LOAD MEMORIES
-   ========================================== */
+/* =========================================================
+   LOGIN
+   ========================================================= */
 
-async function loadMemories() {
+async function login() {
 
-    const container =
-        document.getElementById(
-            "memories"
-        );
-
-
-    container.innerHTML = `
-
-        <div class="loading">
-
-            Loading our memories... ❤️
-
-        </div>
-
-    `;
-
-
-    try {
-
-        const memories =
-            await supabaseRequest(
-
-                TABLE +
-                "?select=*&order=created_at.desc"
-
-            );
-
-
-        displayMemories(
-            memories
-        );
-
-    }
-
-
-    catch (error) {
-
-        console.error(error);
-
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Couldn't load our memories. ❤️
-
-                <br><br>
-
-                ${escapeHtml(error.message)}
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* ==========================================
-   SAVE MEMORY
-   ========================================== */
-
-async function saveMemory() {
-
-    const title =
+    const email =
         document
             .getElementById(
-                "title"
+                "loginEmail"
             )
             .value
             .trim();
 
 
-    const date =
+    const password =
         document
             .getElementById(
-                "date"
+                "loginPassword"
             )
             .value;
-
-
-    const message =
-        document
-            .getElementById(
-                "message"
-            )
-            .value
-            .trim();
-
-
-    const photoInput =
-        document
-            .getElementById(
-                "photo"
-            );
 
 
     const button =
         document
             .getElementById(
-                "saveButton"
+                "loginButton"
             );
 
 
     const status =
         document
-            .getE
+            .getElementById(
+                "loginStatus"
+            );
+
+
+    if (!email || !password) {
+
+        status.className =
+            "status error";
+
+        status.textContent =
+     
