@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Our Little Time Capsule ❤️</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     color: #5b3d45;
+
     min-height: 100vh;
 
     background:
@@ -32,21 +42,29 @@ body {
 .container {
     width: 92%;
     max-width: 800px;
+
     margin: auto;
-    padding: 45px 0 70px;
+
+    padding:
+        45px 0 70px;
 }
 
 header {
     text-align: center;
-    padding: 35px 10px 25px;
+
+    padding:
+        35px 10px 25px;
 }
 
 .heart {
     font-size: 45px;
-    animation: heartbeat 1.5s infinite;
+
+    animation:
+        heartbeat 1.5s infinite;
 }
 
 @keyframes heartbeat {
+
     0%, 100% {
         transform: scale(1);
     }
@@ -57,86 +75,161 @@ header {
 }
 
 h1 {
-    font-size: clamp(38px, 9vw, 70px);
-    margin: 15px 0 10px;
+    font-size:
+        clamp(38px, 9vw, 70px);
+
+    margin:
+        15px 0 10px;
+
     color: #914c65;
 }
 
 .subtitle {
     font-size: 20px;
+
     line-height: 1.6;
+
     color: #76515d;
 }
 
 .divider {
     width: 90px;
+
     height: 2px;
+
     background: #d9aab8;
-    margin: 25px auto;
+
+    margin:
+        25px auto;
 }
 
 .card {
-    background: rgba(255, 252, 250, 0.92);
-    border: 1px solid rgba(160, 91, 111, 0.18);
+    background:
+        rgba(255, 252, 250, 0.92);
+
+    border:
+        1px solid rgba(160, 91, 111, 0.18);
+
     border-radius: 28px;
+
     padding: 30px;
+
     margin: 30px 0;
-    box-shadow: 0 15px 45px rgba(90, 50, 60, 0.12);
+
+    box-shadow:
+        0 15px 45px
+        rgba(90, 50, 60, 0.12);
 }
 
 .card h2 {
     color: #914c65;
+
     font-size: 30px;
+
     margin-top: 0;
 }
 
 .card p {
     font-size: 19px;
+
     line-height: 1.7;
 }
 
-button {
-    border: none;
-    border-radius: 25px;
-    padding: 13px 22px;
-    font-family: inherit;
+label {
+    display: block;
+
     font-size: 17px;
-    cursor: pointer;
-    background: #a65a73;
-    color: white;
-}
 
-button:hover {
-    opacity: 0.9;
-}
-
-button:disabled {
-    opacity: 0.6;
-    cursor: wait;
+    margin-top: 8px;
 }
 
 input,
 textarea {
+
     width: 100%;
+
     padding: 14px;
-    margin: 8px 0 15px;
-    border: 1px solid #d6aeba;
+
+    margin:
+        8px 0 15px;
+
+    border:
+        1px solid #d6aeba;
+
     border-radius: 15px;
-    background: rgba(255,255,255,0.9);
+
+    background:
+        rgba(255,255,255,0.9);
+
     color: #5b3d45;
+
     font-family: inherit;
+
     font-size: 17px;
 }
 
 textarea {
     min-height: 140px;
+
     resize: vertical;
 }
 
-label {
-    display: block;
+button {
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding:
+        13px 22px;
+
+    font-family: inherit;
+
     font-size: 17px;
-    margin-top: 8px;
+
+    cursor: pointer;
+
+    background: #a65a73;
+
+    color: white;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+
+    transform:
+        translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.status {
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    min-height: 24px;
+}
+
+.success {
+    color: #5d8a65;
+}
+
+.error {
+    color: #b04b5b;
 }
 
 .memories {
@@ -144,128 +237,184 @@ label {
 }
 
 .memory {
+
     background: #fffaf8;
-    border-left: 5px solid #b86680;
+
+    border-left:
+        5px solid #b86680;
+
     border-radius: 18px;
+
     padding: 22px;
+
     margin: 20px 0;
+
+    box-shadow:
+        0 8px 25px
+        rgba(90, 50, 60, 0.07);
 }
 
 .memory h3 {
+
     margin-top: 0;
+
     color: #914c65;
+
     font-size: 25px;
 }
 
 .memory .date {
+
     font-size: 14px;
+
     color: #a27682;
+
     margin-bottom: 12px;
 }
 
 .memory p {
+
     font-size: 17px;
+
     line-height: 1.6;
+
     white-space: pre-wrap;
 }
 
 .memory img {
+
     width: 100%;
+
     max-height: 500px;
+
     object-fit: cover;
+
     border-radius: 15px;
+
     margin-top: 15px;
 }
 
 .empty {
+
     text-align: center;
+
     color: #98737d;
+
     padding: 20px;
 }
 
 .loading {
-    text-align: center;
-    color: #98737d;
-    padding: 20px;
-}
 
-.status {
-    margin-top: 15px;
-    font-size: 15px;
     text-align: center;
-    min-height: 22px;
-    color: #86636d;
+
+    color: #98737d;
+
+    padding: 25px;
 }
 
 footer {
+
     text-align: center;
+
     margin-top: 50px;
+
     color: #86636d;
+
     font-size: 16px;
 }
 
 @media (max-width: 600px) {
 
     .container {
+
         width: 94%;
+
         padding-top: 20px;
     }
 
     .card {
+
         padding: 22px;
+
         border-radius: 22px;
     }
 
     h1 {
+
         font-size: 43px;
     }
 
     .subtitle {
+
         font-size: 18px;
     }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
+
 
 <header>
 
-    <div class="heart">❤️</div>
+    <div class="heart">
+        ❤️
+    </div>
 
-    <h1>Our Little Time Capsule</h1>
+    <h1>
+        Our Little Time Capsule
+    </h1>
 
     <div class="divider"></div>
 
     <p class="subtitle">
-        A little place for our memories,<br>
+
+        A little place for our memories,
+        <br>
         our moments, and everything in between.
+
     </p>
 
 </header>
 
 
+
 <div class="card">
 
-    <h2>To Us 🌷</h2>
+    <h2>
+        To Us 🌷
+    </h2>
 
     <p>
+
         Some moments are too beautiful to be forgotten.
+
         So this little corner of the internet is for us —
         a place where we can leave pieces of our story
         and come back to them someday.
+
     </p>
 
 </div>
 
 
+
 <div class="card">
 
-    <h2>✨ Add a Memory</h2>
+    <h2>
+        ✨ Add a Memory
+    </h2>
 
-    <label>Memory title</label>
+
+    <label>
+        Memory title
+    </label>
 
     <input
         type="text"
@@ -273,27 +422,37 @@ footer {
         placeholder="Our first date..."
     >
 
-    <label>Date</label>
+
+    <label>
+        Date
+    </label>
 
     <input
         type="date"
         id="date"
     >
 
-    <label>What happened?</label>
+
+    <label>
+        What happened?
+    </label>
 
     <textarea
         id="message"
         placeholder="Write about this memory..."
     ></textarea>
 
-    <label>Add a photo 📷</label>
+
+    <label>
+        Add a photo 📷
+    </label>
 
     <input
         type="file"
         id="photo"
         accept="image/*"
     >
+
 
     <button
         id="saveButton"
@@ -302,16 +461,27 @@ footer {
         Save Memory ❤️
     </button>
 
-    <div id="status" class="status"></div>
+
+    <div
+        id="status"
+        class="status"
+    ></div>
 
 </div>
 
 
+
 <div class="card">
 
-    <h2>📖 Our Memories</h2>
+    <h2>
+        📖 Our Memories
+    </h2>
 
-    <div id="memories" class="memories">
+
+    <div
+        id="memories"
+        class="memories"
+    >
 
         <div class="loading">
             Loading our memories... ❤️
@@ -322,13 +492,584 @@ footer {
 </div>
 
 
+
 <footer>
+
     Made with love, for the two of us. ❤️
+
 </footer>
+
 
 </div>
 
 
+
 <script>
 
-/* =================================================
+/* ==========================================
+   SUPABASE CONFIGURATION
+   ========================================== */
+
+const SUPABASE_URL =
+    "https://yvemsrkuwbrnzdbgflcu.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_3spcyR5MKfTopABgbPVHXw_0ZVVmoES";
+
+const TABLE =
+    "memories";
+
+
+/* ==========================================
+   SUPABASE REQUEST HELPER
+   ========================================== */
+
+async function supabaseRequest(
+    endpoint,
+    options = {}
+) {
+
+    const response =
+        await fetch(
+            SUPABASE_URL +
+            "/rest/v1/" +
+            endpoint,
+            {
+
+                ...options,
+
+                headers: {
+
+                    "apikey":
+                        SUPABASE_KEY,
+
+                    "Authorization":
+                        "Bearer " +
+                        SUPABASE_KEY,
+
+                    "Content-Type":
+                        "application/json",
+
+                    "Prefer":
+                        options.method === "POST"
+                            ? "return=representation"
+                            : "return=minimal",
+
+                    ...(options.headers || {})
+
+                }
+
+            }
+        );
+
+
+    if (!response.ok) {
+
+        const errorText =
+            await response.text();
+
+        throw new Error(
+            errorText ||
+            "Supabase request failed."
+        );
+
+    }
+
+
+    const text =
+        await response.text();
+
+
+    return text
+        ? JSON.parse(text)
+        : null;
+
+}
+
+
+
+/* ==========================================
+   LOAD MEMORIES
+   ========================================== */
+
+async function loadMemories() {
+
+    const container =
+        document.getElementById(
+            "memories"
+        );
+
+
+    try {
+
+        const memories =
+            await supabaseRequest(
+                TABLE +
+                "?select=*&order=created_at.desc"
+            );
+
+
+        displayMemories(memories);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                Couldn't load our memories right now. ❤️
+
+                <br><br>
+
+                Please check the Supabase connection.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SAVE MEMORY
+   ========================================== */
+
+async function saveMemory() {
+
+    const title =
+        document
+            .getElementById("title")
+            .value
+            .trim();
+
+
+    const date =
+        document
+            .getElementById("date")
+            .value;
+
+
+    const message =
+        document
+            .getElementById("message")
+            .value
+            .trim();
+
+
+    const photoInput =
+        document
+            .getElementById("photo");
+
+
+    const button =
+        document
+            .getElementById("saveButton");
+
+
+    const status =
+        document
+            .getElementById("status");
+
+
+    /* Validation */
+
+    if (!title || !message) {
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "Please add a title and message ❤️";
+
+        return;
+
+    }
+
+
+    /* Prevent double clicks */
+
+    button.disabled = true;
+
+    button.textContent =
+        "Saving... ❤️";
+
+
+    status.className =
+        "status";
+
+    status.textContent =
+        "Saving your memory...";
+
+
+    try {
+
+        let image = null;
+
+
+        /* Convert selected photo to data URL */
+
+        if (
+            photoInput.files &&
+            photoInput.files.length > 0
+        ) {
+
+            const file =
+                photoInput.files[0];
+
+
+            /* Keep photos reasonably small */
+
+            if (
+                file.size >
+                5 * 1024 * 1024
+            ) {
+
+                throw new Error(
+                    "Please choose a photo smaller than 5 MB."
+                );
+
+            }
+
+
+            image =
+                await fileToDataURL(file);
+
+        }
+
+
+        /* Create memory */
+
+        const memory = {
+
+            title:
+                title,
+
+            date:
+                date || null,
+
+            message:
+                message,
+
+            image:
+                image
+
+        };
+
+
+        /* Send to Supabase */
+
+        await supabaseRequest(
+            TABLE,
+            {
+
+                method: "POST",
+
+                body:
+                    JSON.stringify(memory)
+
+            }
+        );
+
+
+        /* Clear form */
+
+        document
+            .getElementById("title")
+            .value = "";
+
+
+        document
+            .getElementById("date")
+            .value = "";
+
+
+        document
+            .getElementById("message")
+            .value = "";
+
+
+        document
+            .getElementById("photo")
+            .value = "";
+
+
+        status.className =
+            "status success";
+
+
+        status.textContent =
+            "Memory saved forever... ❤️";
+
+
+        /* Reload memories */
+
+        await loadMemories();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        status.className =
+            "status error";
+
+
+        status.textContent =
+            "Couldn't save the memory. " +
+            error.message;
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent =
+        "Save Memory ❤️";
+
+}
+
+
+
+/* ==========================================
+   FILE → DATA URL
+   ========================================== */
+
+function fileToDataURL(file) {
+
+    return new Promise(
+        function(resolve, reject) {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(event) {
+
+                    resolve(
+                        event.target.result
+                    );
+
+                };
+
+
+            reader.onerror =
+                function() {
+
+                    reject(
+                        new Error(
+                            "Could not read the photo."
+                        )
+                    );
+
+                };
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================
+   DISPLAY MEMORIES
+   ========================================== */
+
+function displayMemories(memories) {
+
+    const container =
+        document.getElementById(
+            "memories"
+        );
+
+
+    if (
+        !memories ||
+        memories.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                Our story begins here... ❤️
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    memories.forEach(
+        function(memory) {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "memory";
+
+
+            const title =
+                document.createElement(
+                    "h3"
+                );
+
+
+            title.textContent =
+                memory.title;
+
+
+            const date =
+                document.createElement(
+                    "div"
+                );
+
+
+            date.className =
+                "date";
+
+
+            date.textContent =
+                formatDate(
+                    memory.date
+                );
+
+
+            const text =
+                document.createElement(
+                    "p"
+                );
+
+
+            text.textContent =
+                memory.message;
+
+
+            card.appendChild(
+                title
+            );
+
+
+            card.appendChild(
+                date
+            );
+
+
+            card.appendChild(
+                text
+            );
+
+
+            if (memory.image) {
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    memory.image;
+
+
+                image.alt =
+                    "Memory photo";
+
+
+                card.appendChild(
+                    image
+                );
+
+            }
+
+
+            container.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================
+   FORMAT DATE
+   ========================================== */
+
+function formatDate(date) {
+
+    if (!date) {
+
+        return "A beautiful day";
+
+    }
+
+
+    const parts =
+        date.split("-");
+
+
+    if (parts.length !== 3) {
+
+        return date;
+
+    }
+
+
+    const formatted =
+        new Date(
+            Number(parts[0]),
+            Number(parts[1]) - 1,
+            Number(parts[2])
+        );
+
+
+    return formatted.toLocaleDateString(
+        undefined,
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+
+/* ==========================================
+   START
+   ========================================== */
+
+loadMemories();
+
+</script>
+
+
+</body>
+
+</html>
