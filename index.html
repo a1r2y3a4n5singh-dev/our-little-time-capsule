@@ -1,469 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Little Time Capsule ♡</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<title>Our Little Time Capsule ♡</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Quicksand:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #624650;
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(255, 244, 246, 0.72),
+            rgba(255, 247, 242, 0.78)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+/* Soft fallback if background image isn't uploaded */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(circle at 20% 20%, #fbdde6 0, transparent 28%),
+        radial-gradient(circle at 80% 30%, #e8e4f4 0, transparent 25%),
+        radial-gradient(circle at 50% 90%, #f8e6c9 0, transparent 30%);
+
+    opacity: 0.8;
+}
+
+/* Floating hearts */
+
+.floating-heart {
+    position: fixed;
+    color: rgba(157, 78, 102, 0.25);
+    font-size: 22px;
+    pointer-events: none;
+    animation: float 7s linear infinite;
+    z-index: -1;
+}
+
+.heart1 {
+    left: 8%;
+    bottom: -30px;
+    animation-delay: 0s;
+}
+
+.heart2 {
+    left: 82%;
+    bottom: -30px;
+    animation-delay: 2s;
+}
+
+.heart3 {
+    left: 48%;
+    bottom: -30px;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
     }
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #fff8f5;
-      color: #4a3035;
-      min-height: 100vh;
+    20% {
+        opacity: 0.6;
     }
 
-    header {
-      text-align: center;
-      padding: 55px 20px 40px;
-      background: linear-gradient(180deg, #f9dfe3, #fff8f5);
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Main container */
+
+.container {
+    width: 92%;
+    max-width: 850px;
+    margin: auto;
+}
+
+/* Header */
+
+header {
+    text-align: center;
+    padding: 70px 15px 45px;
+}
+
+.small-heart {
+    font-size: 48px;
+    margin-bottom: 12px;
+    animation: heartbeat 2.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
     }
 
-    .heart {
-      font-size: 42px;
-      margin-bottom: 15px;
+    50% {
+        transform: scale(1.12);
     }
+}
+
+header h1 {
+    font-size: clamp(42px, 10vw, 76px);
+    line-height: 0.95;
+    color: #934d66;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: clamp(21px, 5vw, 28px);
+    font-style: italic;
+    color: #795964;
+}
+
+/* Decorative line */
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0;
+    color: #a65a73;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    width: 70px;
+    background: #d9aab8;
+}
+
+/* Cards */
+
+.card {
+    background: rgba(255, 252, 250, 0.91);
+    border: 1px solid rgba(160, 91, 111, 0.18);
+    border-radius: 28px;
+    padding: 34px;
+    margin: 30px 0;
+
+    box-shadow:
+        0 15px 45px rgba(90, 50, 60, 0.10);
+
+    backdrop-filter: blur(5px);
+}
+
+.card h2 {
+    color: #914c65;
+    font-size: clamp(30px, 7vw, 43px);
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 21px;
+    line-height: 1.7;
+}
+
+/* Story */
+
+.story {
+    position: relative;
+}
+
+.story::after {
+    content: "♡";
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 50px;
+    color: #e1a7b8;
+}
+
+/* Buttons */
+
+button {
+    border: none;
+    background: #a95370;
+    color: white;
+
+    padding: 14px 23px;
+    border-radius: 40px;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 7px 18px rgba(150, 70, 100, 0.20);
+
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #91465f;
+}
 
-    h1 {
-      font-size: 38px;
-      font-weight: normal;
-      color: #8d4355;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-size: 17px;
-      font-style: italic;
-      color: #87666c;
-    }
-
-    .container {
-      width: min(900px, 92%);
-      margin: auto;
-      padding-bottom: 60px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.85);
-      border: 1px solid #efd4d8;
-      border-radius: 18px;
-      padding: 28px;
-      margin: 22px 0;
-      box-shadow: 0 8px 25px rgba(120,70,80,0.08);
-    }
-
-    .card h2 {
-      color: #91485a;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      line-height: 1.7;
-      color: #72585d;
-    }
-
-    .memory {
-      border-left: 4px solid #d98b9c;
-      padding-left: 18px;
-      margin-top: 20px;
-    }
-
-    .memory h3 {
-      color: #8d4355;
-      margin-bottom: 5px;
-    }
-
-    button {
-      border: none;
-      background: #9d5063;
-      color: white;
-      padding: 13px 22px;
-      border-radius: 30px;
-      font-size: 15px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    button:hover {
-      background: #7f3d4e;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #e5c5ca;
-      border-radius: 12px;
-      background: #fffafa;
-      color: #4a3035;
-      font-family: inherit;
-      font-size: 15px;
-      margin-top: 8px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      color: #754b54;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .photo {
-      background: #fff;
-      border: 1px solid #efd4d8;
-      border-radius: 14px;
-      padding: 8px;
-    }
-
-    .photo img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 10px;
-      display: block;
-    }
-
-    .photo p {
-      padding: 8px 3px 3px;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    .future {
-      text-align: center;
-      background: #f9e8ea;
-    }
-
-    .future .big {
-      font-size: 30px;
-      color: #9d5063;
-      margin: 15px 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      color: #9a777d;
-      font-size: 14px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 30px;
-      }
-
-      .card {
-        padding: 22px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <div class="heart">♡</div>
-    <h1>Our Little Time Capsule</h1>
-    <p class="subtitle">
-      A tiny place for all the moments we never want to forget.
-    </p>
-  </header>
-
-  <main class="container">
-
-    <section class="card">
-      <h2>Our Story</h2>
-      <p>
-        Some moments are too precious to leave only in our memories.
-        So this little corner of the internet is for us —
-        our memories, our photographs, our words, and everything
-        we still have ahead of us.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>♡ Our Memories</h2>
-
-      <div id="memories"></div>
-
-      <button onclick="showMemoryForm()">
-        + Add a memory
-      </button>
-
-      <div id="memoryForm" class="hidden">
-        <label>Memory title</label>
-        <input id="memoryTitle" placeholder="The day we...">
-
-        <label>Date</label>
-        <input id="memoryDate" type="date">
-
-        <label>What happened?</label>
-        <textarea id="memoryText"
-          placeholder="Write everything you want to remember..."></textarea>
-
-        <button onclick="saveMemory()">Save memory ♡</button>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>📷 Our Little Gallery</h2>
-
-      <p>
-        Photographs of the moments that became memories.
-      </p>
-
-      <input
-        type="file"
-        id="photoInput"
-        accept="image/*"
-        multiple
-        onchange="addPhotos(event)"
-      >
-
-      <div id="gallery" class="gallery"></div>
-    </section>
-
-    <section class="card">
-      <h2>💌 A Letter For You</h2>
-
-      <p>
-        For the days when words feel difficult,
-        here's a place to leave something behind.
-      </p>
-
-      <textarea
-        id="letter"
-        placeholder="Write something for her..."
-        oninput="saveLetter()"
-      ></textarea>
-    </section>
-
-    <section class="card future">
-      <h2>For Our Future Selves</h2>
-
-      <div class="big">♡</div>
+button:active {
+    transform: scale(0.97);
+}
 
-      <p>
-        One day we'll come back here and look at this little
-        collection of us.
-      </p>
+/* Memory section */
 
-      <p style="margin-top:15px;">
-        And hopefully we'll smile at how far we've come.
-      </p>
-    </section>
+.memory-form {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
 
-  </main>
+    background: rgba(255, 245, 247, 0.8);
+    border-radius: 22px;
+    border: 1px dashed #d9a1b3;
+}
 
-  <footer>
-    Made with love ♡
-  </footer>
+.memory-form.show {
+    display: block;
+}
 
+label {
+    display: block;
+    font-size: 20px;
+    margin: 17px 0 7px;
+    color: #754957;
+}
 
-  <script>
+input,
+textarea {
+    width: 100%;
 
-    /* -----------------------------
-       MEMORY SYSTEM
-    ----------------------------- */
+    border: 1px solid #dfc0c9;
+    border-radius: 17px;
 
-    let memories =
-      JSON.parse(localStorage.getItem("memories")) || [];
+    padding: 15px;
 
-    function showMemoryForm() {
-      document
-        .getElementById("memoryForm")
-        .classList.remove("hidden");
-    }
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
 
-    function saveMemory() {
+    background: rgba(255,255,255,0.75);
+    color: #5e414a;
 
-      const title =
-        document.getElementById("memoryTitle").value;
+    outline: none;
+}
 
-      const date =
-        document.getElementById("memoryDate").value;
+input:focus,
+textarea:focus {
+    border-color: #b66b83;
+    box-shadow: 0 0 0 3px rgba(182,107,131,0.10);
+}
 
-      const text =
-        document.getElementById("memoryText").value;
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
 
-      if (!title || !text) {
-        alert("Please write a title and your memory ♡");
-        return;
-      }
+.save-btn {
+    margin-top: 20px;
+}
 
-      memories.push({
-        title: title,
-        date: date,
-        text: text
-      });
+/* Memories displayed */
 
-      localStorage.setItem(
-        "memories",
-        JSON.stringify(memories)
-      );
+.memories-list {
+    margin-top: 30px;
+}
 
-      document.getElementById("memoryTitle").value = "";
-      document.getElementById("memoryDate").value = "";
-      document.getElementById("memoryText").value = "";
+.memory {
+    position: relative;
 
-      renderMemories();
-    }
+    background: #fffaf8;
 
-    function renderMemories() {
+    border-left: 5px solid #b86680;
 
-      const container =
-        document.getElementById("memories");
-
-      container.innerHTML = "";
-
-      memories.forEach(memory => {
-
-        const div = document.createElement("div");
-
-        div.className = "memory";
-
-        div.innerHTML = `
-          <h3>${escapeHTML(memory.title)}</h3>
-          <small>${memory.date || ""}</small>
-          <p>${escapeHTML(memory.text)}</p>
-        `;
-
-        container.appendChild(div);
-      });
-    }
-
-
-    /* -----------------------------
-       PHOTO SYSTEM
-    ----------------------------- */
-
-    let photos =
-      JSON.parse(localStorage.getItem("photos")) || [];
-
-    function addPhotos(event) {
-
-      const files = event.target.files;
-
-      for (const file of files) {
-
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-
-          photos.push({
-            src: e.target.result,
-            name: file.name
-          });
-
-          localStorage.setItem(
-            "photos",
-            JSON.stringify(photos)
-          );
-
-          renderPhotos();
-        };
-
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function renderPhotos() {
-
-      const gallery =
-        document.getElementById("gallery");
-
-      gallery.innerHTML = "";
-
-      photos.forEach(photo => {
-
-        const div =
-          document.createElement("div");
-
-        div.className = "photo";
-
-        div.innerHTML = `
-          <img src="${photo.src}" alt="Our memory">
-          <p>${escapeHTML(photo.name)}</p>
-        `;
-
-        gallery.appendChild(div);
-      });
-    }
-
-
-    /* -----------------------------
-       LETTER
-    ----------------------------- */
-
-    function saveLetter() {
-
-      const letter =
-        document.getElementById("letter").value;
-
-      localStorage.setItem(
-        "letter",
-        letter
-      );
-    }
-
-    function loadLetter() {
-
-      const letter =
-        localStorage.getItem("letter");
-
-      if (letter) {
-        document.getElementById("letter").value =
-          letter;
-      }
-    }
-
-
-    /* -----------------------------
-       SECURITY HELPER
-    ----------------------------- */
-
-    function escapeHTML(text) {
-
-      const div =
-        document.createElement("div");
-
-      div.textContent = text;
-
-      return div.innerHTML;
-    }
-
-
-    /* -----------------------------
-       START
-    ----------------------------- */
-
-    renderMemories();
-    renderPhotos();
-    loadLetter();
-
-  </script>
-
-</body>
-</html>
+   
