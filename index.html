@@ -2,20 +2,30 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>Our Little Time Capsule ❤️</title>
 
 <style>
 
+/* =====================================================
+   BASIC RESET
+===================================================== */
+
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+
     margin: 0;
 
     font-family:
@@ -28,71 +38,111 @@ body {
     min-height: 100vh;
 
     background:
+
         linear-gradient(
-            rgba(255, 244, 246, 0.78),
-            rgba(255, 248, 242, 0.84)
+            rgba(255,244,246,0.78),
+            rgba(255,248,242,0.86)
         ),
+
         url("IMG-20260804-WA0035.jpg");
 
     background-size: cover;
+
     background-position: center;
+
     background-attachment: fixed;
+
 }
 
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
 .container {
+
     width: 92%;
+
     max-width: 800px;
 
     margin: auto;
 
     padding:
-        45px 0 70px;
+        35px
+        0
+        70px;
+
 }
 
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 header {
+
     text-align: center;
 
     padding:
-        35px 10px 25px;
+        30px
+        10px
+        20px;
+
 }
 
 .heart {
+
     font-size: 45px;
 
     animation:
         heartbeat 1.5s infinite;
+
 }
 
 @keyframes heartbeat {
 
-    0%, 100% {
+    0%,100% {
         transform: scale(1);
     }
 
     50% {
         transform: scale(1.15);
     }
+
 }
 
 h1 {
+
     font-size:
-        clamp(38px, 9vw, 70px);
+        clamp(
+            38px,
+            9vw,
+            70px
+        );
 
     margin:
-        15px 0 10px;
+        15px
+        0
+        10px;
 
     color: #914c65;
+
+    line-height: 1.1;
+
 }
 
 .subtitle {
+
     font-size: 20px;
 
     line-height: 1.6;
 
     color: #76515d;
+
 }
 
 .divider {
+
     width: 90px;
 
     height: 2px;
@@ -100,15 +150,34 @@ h1 {
     background: #d9aab8;
 
     margin:
-        25px auto;
+        25px
+        auto;
+
 }
 
+
+/* =====================================================
+   CARDS
+===================================================== */
+
 .card {
+
     background:
-        rgba(255, 252, 250, 0.92);
+        rgba(
+            255,
+            252,
+            250,
+            0.93
+        );
 
     border:
-        1px solid rgba(160, 91, 111, 0.18);
+        1px solid
+        rgba(
+            160,
+            91,
+            111,
+            0.18
+        );
 
     border-radius: 28px;
 
@@ -118,29 +187,119 @@ h1 {
 
     box-shadow:
         0 15px 45px
-        rgba(90, 50, 60, 0.12);
+        rgba(
+            90,
+            50,
+            60,
+            0.12
+        );
+
+    backdrop-filter:
+        blur(3px);
+
 }
 
 .card h2 {
+
     color: #914c65;
 
     font-size: 30px;
 
     margin-top: 0;
+
 }
 
 .card p {
+
     font-size: 19px;
 
     line-height: 1.7;
+
 }
 
+
+/* =====================================================
+   MUSIC PLAYER
+===================================================== */
+
+.music-box {
+
+    text-align: center;
+
+    margin:
+        10px
+        0
+        25px;
+
+}
+
+.music-button {
+
+    background: #a65a73;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 30px;
+
+    padding:
+        13px
+        24px;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 20px
+        rgba(
+            120,
+            60,
+            80,
+            0.18
+        );
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+
+}
+
+.music-button:hover {
+
+    opacity: 0.9;
+
+    transform:
+        translateY(-2px);
+
+}
+
+.music-note {
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    color: #98737d;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
 label {
+
     display: block;
 
     font-size: 17px;
 
-    margin-top: 8px;
+    margin-top: 12px;
+
 }
 
 input,
@@ -151,27 +310,44 @@ textarea {
     padding: 14px;
 
     margin:
-        8px 0 15px;
+        8px
+        0
+        15px;
 
     border:
-        1px solid #d6aeba;
+        1px solid
+        #d6aeba;
 
     border-radius: 15px;
 
     background:
-        rgba(255,255,255,0.9);
+        rgba(
+            255,
+            255,
+            255,
+            0.92
+        );
 
     color: #5b3d45;
 
     font-family: inherit;
 
     font-size: 17px;
+
 }
 
 textarea {
+
     min-height: 140px;
 
     resize: vertical;
+
+}
+
+input[type="file"] {
+
+    padding: 10px;
+
 }
 
 button {
@@ -181,7 +357,8 @@ button {
     border-radius: 25px;
 
     padding:
-        13px 22px;
+        13px
+        22px;
 
     font-family: inherit;
 
@@ -193,55 +370,62 @@ button {
 
     color: white;
 
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
 }
 
 button:hover {
+
     opacity: 0.9;
 
-    transform:
-        translateY(-1px);
 }
 
-button:disabled {
-    opacity: 0.6;
 
-    cursor: not-allowed;
-
-    transform: none;
-}
+/* =====================================================
+   STATUS MESSAGE
+===================================================== */
 
 .status {
 
-    margin-top: 15px;
-
     text-align: center;
 
-    font-size: 16px;
+    min-height: 28px;
 
-    min-height: 24px;
+    margin-top: 15px;
+
+    font-size: 17px;
+
 }
 
-.success {
-    color: #5d8a65;
+.status.success {
+
+    color: #62836a;
+
 }
 
-.error {
-    color: #b04b5b;
+.status.error {
+
+    color: #a34d5c;
+
 }
+
+
+/* =====================================================
+   MEMORIES
+===================================================== */
 
 .memories {
+
     margin-top: 30px;
+
 }
 
 .memory {
 
-    background: #fffaf8;
+    background:
+        #fffaf8;
 
     border-left:
-        5px solid #b86680;
+        5px solid
+        #b86680;
 
     border-radius: 18px;
 
@@ -251,7 +435,13 @@ button:disabled {
 
     box-shadow:
         0 8px 25px
-        rgba(90, 50, 60, 0.07);
+        rgba(
+            90,
+            50,
+            60,
+            0.07
+        );
+
 }
 
 .memory h3 {
@@ -261,6 +451,7 @@ button:disabled {
     color: #914c65;
 
     font-size: 25px;
+
 }
 
 .memory .date {
@@ -270,6 +461,7 @@ button:disabled {
     color: #a27682;
 
     margin-bottom: 12px;
+
 }
 
 .memory p {
@@ -279,6 +471,7 @@ button:disabled {
     line-height: 1.6;
 
     white-space: pre-wrap;
+
 }
 
 .memory img {
@@ -292,6 +485,7 @@ button:disabled {
     border-radius: 15px;
 
     margin-top: 15px;
+
 }
 
 .empty {
@@ -301,6 +495,7 @@ button:disabled {
     color: #98737d;
 
     padding: 20px;
+
 }
 
 .loading {
@@ -310,7 +505,13 @@ button:disabled {
     color: #98737d;
 
     padding: 25px;
+
 }
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
 
@@ -321,7 +522,13 @@ footer {
     color: #86636d;
 
     font-size: 16px;
+
 }
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -330,6 +537,7 @@ footer {
         width: 94%;
 
         padding-top: 20px;
+
     }
 
     .card {
@@ -337,17 +545,61 @@ footer {
         padding: 22px;
 
         border-radius: 22px;
+
     }
 
     h1 {
 
         font-size: 43px;
+
     }
 
     .subtitle {
 
         font-size: 18px;
+
     }
+
+    .card h2 {
+
+        font-size: 27px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL FADE ANIMATION
+===================================================== */
+
+.memory {
+
+    animation:
+        fadeIn 0.5s ease;
+
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 </style>
@@ -360,6 +612,10 @@ footer {
 
 <div class="container">
 
+
+<!-- =================================================
+     HEADER
+================================================= -->
 
 <header>
 
@@ -385,6 +641,55 @@ footer {
 
 
 
+<!-- =================================================
+     MUSIC
+================================================= -->
+
+<div class="card music-box">
+
+    <h2>
+        🎵 Our Song
+    </h2>
+
+    <button
+        id="musicButton"
+        class="music-button"
+        onclick="toggleMusic()"
+    >
+
+        ▶️ Play Our Song
+
+    </button>
+
+    <div class="music-note">
+
+        Until I Found You ❤️
+
+    </div>
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="Until_I_Found_You.mp3"
+            type="audio/mpeg"
+        >
+
+        Your browser does not support audio.
+
+    </audio>
+
+</div>
+
+
+
+<!-- =================================================
+     TO US
+================================================= -->
+
 <div class="card">
 
     <h2>
@@ -405,6 +710,10 @@ footer {
 
 
 
+<!-- =================================================
+     ADD MEMORY
+================================================= -->
+
 <div class="card">
 
     <h2>
@@ -412,7 +721,7 @@ footer {
     </h2>
 
 
-    <label>
+    <label for="title">
         Memory title
     </label>
 
@@ -423,7 +732,7 @@ footer {
     >
 
 
-    <label>
+    <label for="date">
         Date
     </label>
 
@@ -433,7 +742,7 @@ footer {
     >
 
 
-    <label>
+    <label for="message">
         What happened?
     </label>
 
@@ -443,7 +752,7 @@ footer {
     ></textarea>
 
 
-    <label>
+    <label for="photo">
         Add a photo 📷
     </label>
 
@@ -455,10 +764,11 @@ footer {
 
 
     <button
-        id="saveButton"
         onclick="saveMemory()"
     >
+
         Save Memory ❤️
+
     </button>
 
 
@@ -471,12 +781,15 @@ footer {
 
 
 
+<!-- =================================================
+     MEMORIES
+================================================= -->
+
 <div class="card">
 
     <h2>
         📖 Our Memories
     </h2>
-
 
     <div
         id="memories"
@@ -484,7 +797,9 @@ footer {
     >
 
         <div class="loading">
+
             Loading our memories... ❤️
+
         </div>
 
     </div>
@@ -506,9 +821,9 @@ footer {
 
 <script>
 
-/* ==========================================
+/* =====================================================
    SUPABASE CONFIGURATION
-   ========================================== */
+===================================================== */
 
 const SUPABASE_URL =
     "https://yvemsrkuwbrnzdbgflcu.supabase.co";
@@ -516,333 +831,338 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
     "sb_publishable_3spcyR5MKfTopABgbPVHXw_0ZVVmoES";
 
-const TABLE =
-    "memories";
+
+/* =====================================================
+   SUPABASE REST API
+===================================================== */
+
+const TABLE_URL =
+    SUPABASE_URL +
+    "/rest/v1/memories";
 
 
-/* ==========================================
-   SUPABASE REQUEST HELPER
-   ========================================== */
+const headers = {
 
-async function supabaseRequest(
-    endpoint,
-    options = {}
-) {
+    "apikey":
+        SUPABASE_KEY,
 
-    const response =
-        await fetch(
-            SUPABASE_URL +
-            "/rest/v1/" +
-            endpoint,
-            {
+    "Authorization":
+        "Bearer " + SUPABASE_KEY,
 
-                ...options,
+    "Content-Type":
+        "application/json",
 
-                headers: {
+    "Prefer":
+        "return=representation"
 
-                    "apikey":
-                        SUPABASE_KEY,
-
-                    "Authorization":
-                        "Bearer " +
-                        SUPABASE_KEY,
-
-                    "Content-Type":
-                        "application/json",
-
-                    "Prefer":
-                        options.method === "POST"
-                            ? "return=representation"
-                            : "return=minimal",
-
-                    ...(options.headers || {})
-
-                }
-
-            }
-        );
-
-
-    if (!response.ok) {
-
-        const errorText =
-            await response.text();
-
-        throw new Error(
-            errorText ||
-            "Supabase request failed."
-        );
-
-    }
-
-
-    const text =
-        await response.text();
-
-
-    return text
-        ? JSON.parse(text)
-        : null;
-
-}
+};
 
 
 
-/* ==========================================
-   LOAD MEMORIES
-   ========================================== */
+/* =====================================================
+   MUSIC
+===================================================== */
 
-async function loadMemories() {
+const music =
+    document.getElementById(
+        "backgroundMusic"
+    );
 
-    const container =
-        document.getElementById(
-            "memories"
-        );
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
 
 
-    try {
+let musicPlaying = false;
 
-        const memories =
-            await supabaseRequest(
-                TABLE +
-                "?select=*&order=created_at.desc"
+
+function toggleMusic() {
+
+    if (!musicPlaying) {
+
+        music.play()
+        .then(function() {
+
+            musicPlaying = true;
+
+            musicButton.innerHTML =
+                "⏸️ Pause Our Song";
+
+        })
+        .catch(function(error) {
+
+            console.log(
+                "Music could not start:",
+                error
             );
 
+        });
 
-        displayMemories(memories);
+    }
 
+    else {
 
-    } catch (error) {
+        music.pause();
 
-        console.error(error);
+        musicPlaying = false;
 
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Couldn't load our memories right now. ❤️
-
-                <br><br>
-
-                Please check the Supabase connection.
-
-            </div>
-
-        `;
+        musicButton.innerHTML =
+            "▶️ Play Our Song";
 
     }
 
 }
 
 
+/* =====================================================
+   STATUS
+===================================================== */
 
-/* ==========================================
+function showStatus(
+    message,
+    type
+) {
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+    status.textContent =
+        message;
+
+    status.className =
+        "status " + type;
+
+}
+
+
+/* =====================================================
    SAVE MEMORY
-   ========================================== */
+===================================================== */
 
 async function saveMemory() {
 
     const title =
         document
-            .getElementById("title")
-            .value
-            .trim();
+        .getElementById("title")
+        .value
+        .trim();
 
 
     const date =
         document
-            .getElementById("date")
-            .value;
+        .getElementById("date")
+        .value;
 
 
     const message =
         document
-            .getElementById("message")
-            .value
-            .trim();
+        .getElementById("message")
+        .value
+        .trim();
 
 
     const photoInput =
         document
-            .getElementById("photo");
+        .getElementById("photo");
 
 
-    const button =
-        document
-            .getElementById("saveButton");
-
-
-    const status =
-        document
-            .getElementById("status");
-
-
-    /* Validation */
+    /* -----------------------------------------------
+       VALIDATION
+    ------------------------------------------------ */
 
     if (!title || !message) {
 
-        status.className =
-            "status error";
-
-        status.textContent =
-            "Please add a title and message ❤️";
+        showStatus(
+            "Please add a title and message ❤️",
+            "error"
+        );
 
         return;
 
     }
 
 
-    /* Prevent double clicks */
+    /* -----------------------------------------------
+       PREVENT DOUBLE CLICK
+    ------------------------------------------------ */
 
-    button.disabled = true;
-
-    button.textContent =
-        "Saving... ❤️";
-
-
-    status.className =
-        "status";
-
-    status.textContent =
-        "Saving your memory...";
+    showStatus(
+        "Saving your memory... ❤️",
+        "success"
+    );
 
 
-    try {
+    /* -----------------------------------------------
+       PHOTO
+    ------------------------------------------------ */
 
-        let image = null;
+    let image = null;
 
 
-        /* Convert selected photo to data URL */
+    if (
+        photoInput.files &&
+        photoInput.files.length > 0
+    ) {
+
+        const file =
+            photoInput.files[0];
+
+
+        /* -------------------------------------------
+           BASIC SIZE LIMIT
+        -------------------------------------------- */
 
         if (
-            photoInput.files &&
-            photoInput.files.length > 0
+            file.size >
+            8 * 1024 * 1024
         ) {
 
-            const file =
-                photoInput.files[0];
+            showStatus(
+                "Please choose a photo smaller than 8 MB.",
+                "error"
+            );
 
-
-            /* Keep photos reasonably small */
-
-            if (
-                file.size >
-                5 * 1024 * 1024
-            ) {
-
-                throw new Error(
-                    "Please choose a photo smaller than 5 MB."
-                );
-
-            }
-
-
-            image =
-                await fileToDataURL(file);
+            return;
 
         }
 
 
-        /* Create memory */
-
-        const memory = {
-
-            title:
-                title,
-
-            date:
-                date || null,
-
-            message:
-                message,
-
-            image:
-                image
-
-        };
-
-
-        /* Send to Supabase */
-
-        await supabaseRequest(
-            TABLE,
-            {
-
-                method: "POST",
-
-                body:
-                    JSON.stringify(memory)
-
-            }
-        );
-
-
-        /* Clear form */
-
-        document
-            .getElementById("title")
-            .value = "";
-
-
-        document
-            .getElementById("date")
-            .value = "";
-
-
-        document
-            .getElementById("message")
-            .value = "";
-
-
-        document
-            .getElementById("photo")
-            .value = "";
-
-
-        status.className =
-            "status success";
-
-
-        status.textContent =
-            "Memory saved forever... ❤️";
-
-
-        /* Reload memories */
-
-        await loadMemories();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-
-        status.className =
-            "status error";
-
-
-        status.textContent =
-            "Couldn't save the memory. " +
-            error.message;
+        image =
+            await convertImageToDataURL(
+                file
+            );
 
     }
 
 
-    button.disabled = false;
+    /* -----------------------------------------------
+       MEMORY OBJECT
+    ------------------------------------------------ */
 
-    button.textContent =
-        "Save Memory ❤️";
+    const memory = {
+
+        title:
+            title,
+
+        date:
+            date || null,
+
+        message:
+            message,
+
+        image:
+            image
+
+    };
+
+
+    /* -----------------------------------------------
+       SEND TO SUPABASE
+    ------------------------------------------------ */
+
+    try {
+
+        const response =
+            await fetch(
+                TABLE_URL,
+                {
+
+                    method:
+                        "POST",
+
+                    headers:
+                        headers,
+
+                    body:
+                        JSON.stringify(
+                            memory
+                        )
+
+                }
+            );
+
+
+        if (!response.ok) {
+
+            const errorText =
+                await response.text();
+
+            console.error(
+                "Supabase error:",
+                errorText
+            );
+
+            throw new Error(
+                "Could not save memory."
+            );
+
+        }
+
+
+        /* -------------------------------------------
+           CLEAR FORM
+        -------------------------------------------- */
+
+        document
+        .getElementById("title")
+        .value = "";
+
+
+        document
+        .getElementById("date")
+        .value = "";
+
+
+        document
+        .getElementById("message")
+        .value = "";
+
+
+        document
+        .getElementById("photo")
+        .value = "";
+
+
+        showStatus(
+            "Memory saved forever... ❤️",
+            "success"
+        );
+
+
+        /* -------------------------------------------
+           LOAD AGAIN
+        -------------------------------------------- */
+
+        await loadMemories();
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+        showStatus(
+            "Something went wrong while saving. Please try again. ❤️",
+            "error"
+        );
+
+    }
 
 }
 
 
 
-/* ==========================================
-   FILE → DATA URL
-   ========================================== */
+/* =====================================================
+   CONVERT PHOTO TO DATA URL
+===================================================== */
 
-function fileToDataURL(file) {
+function convertImageToDataURL(file) {
 
     return new Promise(
         function(resolve, reject) {
@@ -862,18 +1182,16 @@ function fileToDataURL(file) {
 
 
             reader.onerror =
-                function() {
+                function(error) {
 
-                    reject(
-                        new Error(
-                            "Could not read the photo."
-                        )
-                    );
+                    reject(error);
 
                 };
 
 
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(
+                file
+            );
 
         }
     );
@@ -882,11 +1200,109 @@ function fileToDataURL(file) {
 
 
 
-/* ==========================================
-   DISPLAY MEMORIES
-   ========================================== */
+/* =====================================================
+   LOAD MEMORIES
+===================================================== */
 
-function displayMemories(memories) {
+async function loadMemories() {
+
+    const container =
+        document.getElementById(
+            "memories"
+        );
+
+
+    container.innerHTML =
+        '<div class="loading">Loading our memories... ❤️</div>';
+
+
+    try {
+
+        const response =
+            await fetch(
+                TABLE_URL +
+                "?select=*&order=id.desc",
+                {
+
+                    method:
+                        "GET",
+
+                    headers:
+                        {
+
+                            "apikey":
+                                SUPABASE_KEY,
+
+                            "Authorization":
+                                "Bearer " +
+                                SUPABASE_KEY
+
+                        }
+
+                }
+            );
+
+
+        if (!response.ok) {
+
+            const errorText =
+                await response.text();
+
+            console.error(
+                "Supabase load error:",
+                errorText
+            );
+
+            throw new Error(
+                "Could not load memories."
+            );
+
+        }
+
+
+        const memories =
+            await response.json();
+
+
+        displayMemories(
+            memories
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                Couldn't load the memories right now. ❤️
+                <br><br>
+                Please refresh the page.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   DISPLAY MEMORIES
+===================================================== */
+
+function displayMemories(
+    memories
+) {
 
     const container =
         document.getElementById(
@@ -920,7 +1336,6 @@ function displayMemories(memories) {
     memories.forEach(
         function(memory) {
 
-
             const card =
                 document.createElement(
                     "div"
@@ -931,6 +1346,10 @@ function displayMemories(memories) {
                 "memory";
 
 
+            /* ---------------------------------------
+               TITLE
+            ---------------------------------------- */
+
             const title =
                 document.createElement(
                     "h3"
@@ -938,8 +1357,13 @@ function displayMemories(memories) {
 
 
             title.textContent =
-                memory.title;
+                memory.title ||
+                "A beautiful memory";
 
+
+            /* ---------------------------------------
+               DATE
+            ---------------------------------------- */
 
             const date =
                 document.createElement(
@@ -957,6 +1381,10 @@ function displayMemories(memories) {
                 );
 
 
+            /* ---------------------------------------
+               MESSAGE
+            ---------------------------------------- */
+
             const text =
                 document.createElement(
                     "p"
@@ -964,112 +1392,25 @@ function displayMemories(memories) {
 
 
             text.textContent =
-                memory.message;
+                memory.message ||
+                "";
 
+
+            /* ---------------------------------------
+               APPEND TEXT
+            ---------------------------------------- */
 
             card.appendChild(
                 title
             );
 
-
             card.appendChild(
                 date
             );
-
 
             card.appendChild(
                 text
             );
 
 
-            if (memory.image) {
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.src =
-                    memory.image;
-
-
-                image.alt =
-                    "Memory photo";
-
-
-                card.appendChild(
-                    image
-                );
-
-            }
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-
-/* ==========================================
-   FORMAT DATE
-   ========================================== */
-
-function formatDate(date) {
-
-    if (!date) {
-
-        return "A beautiful day";
-
-    }
-
-
-    const parts =
-        date.split("-");
-
-
-    if (parts.length !== 3) {
-
-        return date;
-
-    }
-
-
-    const formatted =
-        new Date(
-            Number(parts[0]),
-            Number(parts[1]) - 1,
-            Number(parts[2])
-        );
-
-
-    return formatted.toLocaleDateString(
-        undefined,
-        {
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        }
-    );
-
-}
-
-
-
-/* ==========================================
-   START
-   ========================================== */
-
-loadMemories();
-
-</script>
-
-
-</body>
-
-</html>
+            /* ------------
