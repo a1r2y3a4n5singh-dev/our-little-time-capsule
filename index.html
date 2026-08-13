@@ -8,8 +8,6 @@
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Quicksand:wght@400;500;600&display=swap');
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,525 +19,651 @@ html {
 }
 
 body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
     color: #624650;
     min-height: 100vh;
 
     background:
         linear-gradient(
-            rgba(255, 244, 246, 0.72),
-            rgba(255, 247, 242, 0.78)
+            rgba(255, 244, 246, 0.88),
+            rgba(255, 248, 242, 0.94)
         ),
-     url("IMG-20260804-WA0035.jpg");
+        url("./IMG-20260804-WA0035.jpg");
 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
-    overflow-x: hidden;
 }
-
-/* Soft fallback if background image isn't uploaded */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-
-    background:
-        radial-gradient(circle at 20% 20%, #fbdde6 0, transparent 28%),
-        radial-gradient(circle at 80% 30%, #e8e4f4 0, transparent 25%),
-        radial-gradient(circle at 50% 90%, #f8e6c9 0, transparent 30%);
-
-    opacity: 0.8;
-}
-
-/* Floating hearts */
-
-.floating-heart {
-    position: fixed;
-    color: rgba(157, 78, 102, 0.25);
-    font-size: 22px;
-    pointer-events: none;
-    animation: float 7s linear infinite;
-    z-index: -1;
-}
-
-.heart1 {
-    left: 8%;
-    bottom: -30px;
-    animation-delay: 0s;
-}
-
-.heart2 {
-    left: 82%;
-    bottom: -30px;
-    animation-delay: 2s;
-}
-
-.heart3 {
-    left: 48%;
-    bottom: -30px;
-    animation-delay: 4s;
-}
-
-@keyframes float {
-
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 0.6;
-    }
-
-    100% {
-        transform: translateY(-110vh) rotate(25deg);
-        opacity: 0;
-    }
-}
-
-/* Main container */
 
 .container {
-    width: 92%;
-    max-width: 850px;
+    width: min(900px, 92%);
     margin: auto;
+    padding: 45px 0 70px;
 }
 
-/* Header */
+/* HEADER */
 
 header {
     text-align: center;
-    padding: 70px 15px 45px;
+    padding: 45px 20px 35px;
 }
 
-.small-heart {
-    font-size: 48px;
-    margin-bottom: 12px;
-    animation: heartbeat 2.5s infinite;
+.heart {
+    font-size: 42px;
+    color: #b86680;
+    margin-bottom: 15px;
 }
 
-@keyframes heartbeat {
-
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.12);
-    }
-}
-
-header h1 {
-    font-size: clamp(42px, 10vw, 76px);
+h1 {
+    font-size: clamp(42px, 9vw, 78px);
     line-height: 0.95;
-    color: #934d66;
-    font-weight: 600;
-    letter-spacing: 1px;
+    color: #914c65;
+    margin-bottom: 22px;
 }
 
 .subtitle {
-    margin-top: 20px;
-    font-size: clamp(21px, 5vw, 28px);
-    font-style: italic;
+    font-size: clamp(18px, 4vw, 23px);
+    line-height: 1.6;
     color: #795964;
 }
 
-/* Decorative line */
-
 .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin: 25px 0;
-    color: #a65a73;
+    margin: 28px auto;
+    color: #b86680;
+    font-size: 25px;
 }
 
 .divider::before,
 .divider::after {
     content: "";
+    display: inline-block;
+    width: 65px;
     height: 1px;
-    width: 70px;
     background: #d9aab8;
+    vertical-align: middle;
+    margin: 0 12px;
 }
 
-/* Cards */
+/* CARDS */
 
 .card {
-    background: rgba(255, 252, 250, 0.91);
+    background: rgba(255, 252, 250, 0.94);
     border: 1px solid rgba(160, 91, 111, 0.18);
     border-radius: 28px;
-    padding: 34px;
-    margin: 30px 0;
+    padding: clamp(25px, 6vw, 45px);
+    margin: 28px 0;
 
     box-shadow:
-        0 15px 45px rgba(90, 50, 60, 0.10);
+        0 15px 45px rgba(90, 50, 60, 0.12);
 
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
 }
 
 .card h2 {
     color: #914c65;
-    font-size: clamp(30px, 7vw, 43px);
-    margin-bottom: 15px;
+    font-size: clamp(28px, 6vw, 40px);
+    margin-bottom: 20px;
 }
 
 .card p {
-    font-size: 21px;
-    line-height: 1.7;
+    font-size: clamp(17px, 4vw, 21px);
+    line-height: 1.75;
 }
 
-/* Story */
-
-.story {
-    position: relative;
-}
-
-.story::after {
-    content: "♡";
-    position: absolute;
-    right: 25px;
-    top: 20px;
-    font-size: 50px;
-    color: #e1a7b8;
-}
-
-/* Buttons */
+/* BUTTON */
 
 button {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px 22px;
+
     border: none;
-    background: #a95370;
+    border-radius: 50px;
+
+    background: #a95f78;
     color: white;
 
-    padding: 14px 23px;
-    border-radius: 40px;
-
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
+    font-family: Georgia, serif;
+    font-size: 18px;
 
     cursor: pointer;
-
-    box-shadow: 0 7px 18px rgba(150, 70, 100, 0.20);
 
     transition: 0.25s;
 }
 
 button:hover {
     transform: translateY(-2px);
-    background: #91465f;
 }
 
-button:active {
-    transform: scale(0.97);
-}
+/* MEMORY FORM */
 
-/* Memory section */
-
-.memory-form {
+#memoryForm {
     display: none;
     margin-top: 25px;
     padding: 25px;
 
-    background: rgba(255, 245, 247, 0.8);
-    border-radius: 22px;
-    border: 1px dashed #d9a1b3;
+    background: rgba(255, 247, 246, 0.9);
+    border-radius: 20px;
 }
 
-.memory-form.show {
+#memoryForm.show {
     display: block;
 }
 
 label {
     display: block;
-    font-size: 20px;
-    margin: 17px 0 7px;
-    color: #754957;
+    margin-top: 18px;
+    margin-bottom: 8px;
+
+    font-size: 17px;
+    color: #79505f;
 }
 
 input,
 textarea {
     width: 100%;
 
-    border: 1px solid #dfc0c9;
-    border-radius: 17px;
+    border: 1px solid #d9aab8;
+    border-radius: 14px;
 
-    padding: 15px;
+    padding: 14px;
 
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 19px;
-
-    background: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.8);
     color: #5e414a;
+
+    font-family: Georgia, serif;
+    font-size: 17px;
 
     outline: none;
 }
 
 input:focus,
 textarea:focus {
-    border-color: #b66b83;
-    box-shadow: 0 0 0 3px rgba(182,107,131,0.10);
+    border-color: #a95f78;
+    box-shadow: 0 0 0 3px rgba(169,95,120,0.1);
 }
 
 textarea {
-    min-height: 130px;
+    min-height: 140px;
     resize: vertical;
 }
 
 .save-btn {
-    margin-top: 20px;
+    background: #914c65;
 }
 
-/* Memories displayed */
+/* MEMORIES */
 
-.memories-list {
-    margin-top: 30px;
+#memories {
+    margin-top: 25px;
 }
 
 .memory {
-    position: relative;
+    margin-top: 25px;
+    padding: 25px;
 
     background: #fffaf8;
 
-    border-left: 5px solid #b86680;    padding: 20px;
-    margin: 20px 0;
+    border-left: 5px solid #b86680;
     border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(90,50,60,0.08);
+
+    box-shadow:
+        0 8px 25px rgba(90,50,60,0.08);
 }
 
 .memory h3 {
     color: #914c65;
+    font-size: 27px;
     margin-bottom: 8px;
-    font-size: 25px;
+}
+
+.memory-date {
+    display: block;
+    color: #98717c;
+    margin-bottom: 14px;
 }
 
 .memory p {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .memory img {
+    display: block;
+
     width: 100%;
-    max-height: 400px;
+    max-height: 450px;
+
     object-fit: cover;
+
     border-radius: 15px;
-    margin-top: 15px;
+
+    margin-top: 18px;
 }
+
+/* MESSAGE */
+
+.message {
+    text-align: center;
+}
+
+.message p {
+    font-style: italic;
+}
+
+/* FOOTER */
 
 footer {
     text-align: center;
-    padding: 50px 15px;
-    font-size: 18px;
+    padding: 35px 15px;
+
     color: #795964;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
+/* MOBILE */
+
 @media (max-width: 600px) {
-    .card {
-        padding: 24px;
+
+    body {
+        background-attachment: scroll;
+    }
+
+    .container {
+        width: 94%;
+        padding-top: 15px;
     }
 
     header {
-        padding-top: 50px;
+        padding-top: 35px;
+    }
+
+    .card {
+        border-radius: 22px;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 35px;
     }
 }
 
 </style>
 </head>
 
-<body>
 
-<div class="floating-heart heart1">♡</div>
-<div class="floating-heart heart2">♡</div>
-<div class="floating-heart heart3">♡</div>
+<body>
 
 <div class="container">
 
-<header>
-    <div class="small-heart">♡</div>
+    <!-- HEADER -->
 
-    <h1>Our Little<br>Time Capsule</h1>
+    <header>
 
-    <p class="subtitle">
-        A little place for all the moments<br>
-        I never want us to forget.
-    </p>
+        <div class="heart">♡</div>
 
-    <div class="divider">♡</div>
-</header>
+        <h1>
+            Our Little<br>
+            Time Capsule
+        </h1>
 
-<section class="card story">
-    <h2>Our Story</h2>
+        <p class="subtitle">
+            A little place for all the moments<br>
+            I never want us to forget.
+        </p>
 
-    <p>
-        Some moments become memories.
-        Some memories become stories.
-        And some stories become little pieces of our hearts.
-    </p>
+        <div class="divider">♡</div>
 
-    <br>
+    </header>
 
-    <p>
-        This is our little corner of the internet —
-        a place where we can keep the moments,
-        photographs and words that mean something to us.
-    </p>
-</section>
 
-<section class="card">
-    <h2>♡ Our Memories</h2>
+    <!-- STORY -->
 
-    <p>
-        Every photograph has a story.
-        Every little moment is worth remembering.
-    </p>
+    <section class="card">
 
-    <button onclick="showMemoryForm()">
-        Add a Memory ♡
-    </button>
+        <h2>Our Story</h2>
 
-    <div class="memory-form" id="memoryForm">
+        <p>
+            Some moments become memories.
+            Some memories become stories.
+            And some stories become little pieces
+            of our hearts.
+        </p>
 
-        <label>Memory title</label>
-        <input
-            type="text"
-            id="memoryTitle"
-            placeholder="Give this memory a name..."
-        >
+        <br>
 
-        <label>Date</label>
-        <input
-            type="date"
-            id="memoryDate"
-        >
+        <p>
+            This is our little corner of the internet —
+            a place where we can keep the photographs,
+            words, silly moments and beautiful memories
+            that make our story ours.
+        </p>
 
-        <label>What happened?</label>
-        <textarea
-            id="memoryText"
-            placeholder="Write something you want to remember..."
-        ></textarea>
+    </section>
 
-        <label>Add a photo</label>
-        <input
-            type="file"
-            id="memoryPhoto"
-            accept="image/*"
-        >
 
-        <button class="save-btn" onclick="saveMemory()">
-            Save this memory ♡
+    <!-- MEMORIES -->
+
+    <section class="card">
+
+        <h2>♡ Our Memories</h2>
+
+        <p>
+            Every photograph has a story.
+            Every little moment is worth remembering.
+        </p>
+
+        <button onclick="toggleForm()">
+            Add a Memory ♡
         </button>
 
-    </div>
 
-    <div class="memories-list" id="memoriesList"></div>
+        <!-- FORM -->
 
-</section>
+        <div id="memoryForm">
 
-<section class="card">
-    <h2>A Message For You</h2>
+            <label for="title">
+                Memory title
+            </label>
 
-    <p>
-        If you're reading this years from now,
-        I hope we are still smiling at the same memories.
-    </p>
+            <input
+                id="title"
+                type="text"
+                placeholder="Give this memory a name..."
+            >
 
-    <br>
 
-    <p>
-        And if life has changed in a hundred different ways,
-        I hope this little capsule reminds us of
-        how beautiful it once was.
-    </p>
-</section>
+            <label for="date">
+                Date
+            </label>
 
-<footer>
-    Made with love ♡<br>
-    Our little corner of time.
-</footer>
+            <input
+                id="date"
+                type="date"
+            >
+
+
+            <label for="message">
+                What happened?
+            </label>
+
+            <textarea
+                id="message"
+                placeholder="Write something you never want to forget..."
+            ></textarea>
+
+
+            <label for="photo">
+                Add a photo
+            </label>
+
+            <input
+                id="photo"
+                type="file"
+                accept="image/*"
+            >
+
+
+            <button
+                class="save-btn"
+                onclick="saveMemory()"
+            >
+                Save This Memory ♡
+            </button>
+
+        </div>
+
+
+        <!-- SAVED MEMORIES -->
+
+        <div id="memories"></div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    <section class="card message">
+
+        <h2>A Message For You ♡</h2>
+
+        <p>
+            If you're reading this years from now,
+            I hope we're still smiling at the same memories.
+        </p>
+
+        <br>
+
+        <p>
+            And if life has changed in a hundred different ways,
+            I hope this little capsule reminds us
+            how beautiful it all once was.
+        </p>
+
+    </section>
+
+
+    <footer>
+
+        Made with love ♡<br>
+
+        Our little corner of time.
+
+    </footer>
 
 </div>
 
+
 <script>
 
-function showMemoryForm() {
-    document
-        .getElementById("memoryForm")
-        .classList.toggle("show");
+/* SHOW / HIDE FORM */
+
+function toggleForm() {
+
+    const form =
+        document.getElementById("memoryForm");
+
+    form.classList.toggle("show");
+
 }
+
+
+/* SAVE MEMORY */
 
 function saveMemory() {
 
     const title =
-        document.getElementById("memoryTitle").value;
+        document.getElementById("title").value.trim();
 
     const date =
-        document.getElementById("memoryDate").value;
+        document.getElementById("date").value;
 
-    const text =
-        document.getElementById("memoryText").value;
+    const message =
+        document.getElementById("message").value.trim();
 
-    const photoInput =
-        document.getElementById("memoryPhoto");
+    const photo =
+        document.getElementById("photo");
 
-    if (!title || !text) {
-        alert("Please add a title and a memory ♡");
+
+    if (!title || !message) {
+
+        alert(
+            "Please add a title and write something about the memory ♡"
+        );
+
         return;
     }
 
-    const memory = document.createElement("div");
-    memory.className = "memory";
 
-    let html = `
-        <h3>${title}</h3>
-        ${date ? `<small>${date}</small>` : ""}
-        <p>${text}</p>
-    `;
+    const memory = {
 
-    if (photoInput.files.length > 0) {
+        title: title,
 
-        const reader = new FileReader();
+        date: date,
 
-        reader.onload = function(e) {
+        message: message,
 
-            html += `
-                <img src="${e.target.result}">
-            `;
+        image: null
 
-            memory.innerHTML = html;
+    };
 
-            document
-                .getElementById("memoriesList")
-                .prepend(memory);
+
+    /*
+       If a photo was selected,
+       convert it into a small browser-stored image.
+    */
+
+    if (photo.files.length > 0) {
+
+        const reader =
+            new FileReader();
+
+        reader.onload = function(event) {
+
+            memory.image =
+                event.target.result;
+
+            saveToStorage(memory);
+
         };
 
-        reader.readAsDataURL(photoInput.files[0]);
+        reader.readAsDataURL(photo.files[0]);
 
-    } else {
-
-        memory.innerHTML = html;
-
-        document
-            .getElementById("memoriesList")
-            .prepend(memory);
     }
 
-    document.getElementById("memoryTitle").value = "";
-    document.getElementById("memoryDate").value = "";
-    document.getElementById("memoryText").value = "";
-    document.getElementById("memoryPhoto").value = "";
+    else {
+
+        saveToStorage(memory);
+
+    }
+
+}
+
+
+/* STORE MEMORY */
+
+function saveToStorage(memory) {
+
+    let memories =
+        JSON.parse(
+            localStorage.getItem("ourMemories")
+        ) || [];
+
+
+    memories.unshift(memory);
+
+
+    localStorage.setItem(
+        "ourMemories",
+        JSON.stringify(memories)
+    );
+
+
+    displayMemories();
+
+
+    document.getElementById("title").value = "";
+
+    document.getElementById("date").value = "";
+
+    document.getElementById("message").value = "";
+
+    document.getElementById("photo").value = "";
 
     document
         .getElementById("memoryForm")
         .classList.remove("show");
+
 }
+
+
+/* DISPLAY MEMORIES */
+
+function displayMemories() {
+
+    const container =
+        document.getElementById("memories");
+
+
+    const memories =
+        JSON.parse(
+            localStorage.getItem("ourMemories")
+        ) || [];
+
+
+    container.innerHTML = "";
+
+
+    memories.forEach(function(memory) {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "memory";
+
+
+        const title =
+            document.createElement("h3");
+
+        title.textContent =
+            memory.title;
+
+
+        card.appendChild(title);
+
+
+        if (memory.date) {
+
+            const date =
+                document.createElement("span");
+
+            date.className =
+                "memory-date";
+
+            date.textContent =
+                memory.date;
+
+            card.appendChild(date);
+
+        }
+
+
+        const text =
+            document.createElement("p");
+
+        text.textContent =
+            memory.message;
+
+        card.appendChild(text);
+
+
+        if (memory.image) {
+
+            const image =
+                document.createElement("img");
+
+            image.src =
+                memory.image;
+
+            card.appendChild(image);
+
+        }
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* LOAD SAVED MEMORIES */
+
+displayMemories();
 
 </script>
 
 </body>
 </html>
-
-   
