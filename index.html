@@ -10,17 +10,17 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<meta
-    name="theme-color"
-    content="#fff4f7"
->
-
-<title>Our Little Time Capsule ❤️</title>
+<title>Our Little World 🧸♡</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
 <style>
+
+/* =========================================================
+   OUR LITTLE WORLD
+   Cute Couple Diary — Complete Single File
+   ========================================================= */
+
 
 /* =========================================================
    ROOT
@@ -28,24 +28,22 @@
 
 :root {
 
-    --rose: #a95773;
-    --deep-rose: #843f5a;
-    --soft-rose: #d99bad;
-    --pink: #ffdfe9;
-    --light-pink: #fff0f4;
+    --pink: #f4a9bd;
+    --pink-dark: #b85c78;
+    --pink-deep: #91435f;
 
-    --cream: #fffaf7;
+    --cream: #fffaf6;
     --paper: #fffdfb;
 
-    --brown: #76505a;
-    --muted: #8e6d76;
+    --brown: #6d4b52;
+    --brown-light: #8d6b72;
 
-    --bear: #c98b69;
-    --bear-dark: #a96d52;
-    --bear-light: #f1c6aa;
+    --lavender: #d9c9ec;
+    --peach: #ffd8c7;
+    --yellow: #ffe7a8;
 
     --shadow:
-        rgba(104, 56, 72, 0.14);
+        rgba(108, 63, 78, 0.13);
 
 }
 
@@ -72,27 +70,39 @@ body {
 
     min-height: 100vh;
 
+    color: var(--brown);
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    color: var(--brown);
-
     background:
 
-        linear-gradient(
-            rgba(255,245,247,.80),
-            rgba(255,249,243,.91)
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255,255,255,.9),
+            transparent 25%
         ),
 
-        url("./IMG-20260804-WA0035.jpg");
+        radial-gradient(
+            circle at 90% 25%,
+            rgba(255,211,224,.55),
+            transparent 28%
+        ),
 
-    background-size: cover;
+        radial-gradient(
+            circle at 20% 85%,
+            rgba(218,204,239,.35),
+            transparent 30%
+        ),
 
-    background-position: center;
-
-    background-attachment: fixed;
+        linear-gradient(
+            135deg,
+            #fff8f4,
+            #fff1f5 50%,
+            #fff9f5
+        );
 
     overflow-x: hidden;
 
@@ -100,7 +110,7 @@ body {
 
 
 /* =========================================================
-   SOFT LIGHT
+   SOFT PAPER TEXTURE
    ========================================================= */
 
 body::before {
@@ -113,58 +123,27 @@ body::before {
 
     pointer-events: none;
 
-    z-index: 0;
+    z-index: -2;
 
-    background:
+    opacity: .35;
 
-        radial-gradient(
-            circle at 12% 12%,
-            rgba(255,255,255,.75),
-            transparent 27%
-        ),
+    background-image:
 
         radial-gradient(
-            circle at 88% 25%,
-            rgba(255,210,226,.32),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255,230,215,.38),
-            transparent 30%
+            rgba(145,67,95,.08) 1px,
+            transparent 1px
         );
 
-}
-
-
-/* =========================================================
-   PAGE
-   ========================================================= */
-
-.container {
-
-    position: relative;
-
-    z-index: 5;
-
-    width: 92%;
-
-    max-width: 850px;
-
-    margin: auto;
-
-    padding:
-        20px 0 80px;
+    background-size: 19px 19px;
 
 }
 
 
 /* =========================================================
-   BACKGROUND STICKERS
+   FLOATING STICKERS
    ========================================================= */
 
-.background-stickers {
+.sticker-layer {
 
     position: fixed;
 
@@ -178,69 +157,68 @@ body::before {
 
 }
 
-.float-heart {
+.float-sticker {
 
     position: absolute;
 
-    bottom: -60px;
+    bottom: -80px;
 
     opacity: 0;
 
     animation:
-        floatHeart
+        stickerRise
         11s linear infinite;
 
 }
 
-.float-heart:nth-child(1) {
+.float-sticker:nth-child(1) {
 
-    left: 8%;
-    font-size: 18px;
+    left: 5%;
+    font-size: 24px;
     animation-delay: 0s;
 
 }
 
-.float-heart:nth-child(2) {
+.float-sticker:nth-child(2) {
 
-    left: 24%;
-    font-size: 13px;
+    left: 20%;
+    font-size: 17px;
     animation-delay: 3s;
 
 }
 
-.float-heart:nth-child(3) {
+.float-sticker:nth-child(3) {
 
-    left: 46%;
-    font-size: 20px;
-    animation-delay: 6s;
+    left: 43%;
+    font-size: 23px;
+    animation-delay: 7s;
 
 }
 
-.float-heart:nth-child(4) {
+.float-sticker:nth-child(4) {
 
-    left: 70%;
-    font-size: 15px;
+    left: 68%;
+    font-size: 18px;
     animation-delay: 2s;
 
 }
 
-.float-heart:nth-child(5) {
+.float-sticker:nth-child(5) {
 
-    left: 90%;
-    font-size: 18px;
+    left: 88%;
+    font-size: 25px;
     animation-delay: 5s;
 
 }
 
-
-@keyframes floatHeart {
+@keyframes stickerRise {
 
     0% {
 
         transform:
             translateY(0)
-            rotate(0deg)
-            scale(.6);
+            rotate(-8deg)
+            scale(.65);
 
         opacity: 0;
 
@@ -248,7 +226,7 @@ body::before {
 
     15% {
 
-        opacity: .65;
+        opacity: .7;
 
     }
 
@@ -257,7 +235,7 @@ body::before {
         transform:
             translateY(-50vh)
             translateX(25px)
-            rotate(18deg)
+            rotate(12deg)
             scale(1);
 
         opacity: .45;
@@ -268,8 +246,8 @@ body::before {
 
         transform:
             translateY(-115vh)
-            translateX(-20px)
-            rotate(-18deg)
+            translateX(-25px)
+            rotate(-15deg)
             scale(1.15);
 
         opacity: 0;
@@ -287,49 +265,51 @@ body::before {
 
     position: absolute;
 
-    color:
-        rgba(169,82,113,.48);
+    color: #d78da6;
+
+    opacity: .45;
 
     animation:
-        sparkleAnimation
+        sparklePop
         3s ease-in-out infinite;
 
 }
 
 .sparkle:nth-child(6) {
 
-    top: 14%;
+    top: 12%;
     left: 9%;
-    animation-delay: .3s;
 
 }
 
 .sparkle:nth-child(7) {
 
-    top: 30%;
-    right: 8%;
-    animation-delay: 1.2s;
+    top: 29%;
+    right: 7%;
+
+    animation-delay: .8s;
 
 }
 
 .sparkle:nth-child(8) {
 
     top: 58%;
-    left: 6%;
-    animation-delay: 2s;
+    left: 5%;
+
+    animation-delay: 1.5s;
 
 }
 
 .sparkle:nth-child(9) {
 
-    top: 80%;
-    right: 7%;
-    animation-delay: .8s;
+    top: 78%;
+    right: 9%;
+
+    animation-delay: 2s;
 
 }
 
-
-@keyframes sparkleAnimation {
+@keyframes sparklePop {
 
     0%,
     100% {
@@ -338,17 +318,17 @@ body::before {
             scale(.5)
             rotate(0deg);
 
-        opacity: .2;
+        opacity: .15;
 
     }
 
     50% {
 
         transform:
-            scale(1.45)
+            scale(1.5)
             rotate(35deg);
 
-        opacity: .9;
+        opacity: .85;
 
     }
 
@@ -356,15 +336,38 @@ body::before {
 
 
 /* =========================================================
-   HEADER
+   APP CONTAINER
    ========================================================= */
 
-header {
+.app {
+
+    width: min(
+        94%,
+        860px
+    );
+
+    margin: auto;
+
+    padding:
+        18px 0 70px;
+
+    position: relative;
+
+    z-index: 5;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
 
     text-align: center;
 
     padding:
-        25px 5px 10px;
+        15px 5px 20px;
 
 }
 
@@ -373,9 +376,9 @@ header {
    CHIBI BEAR COUPLE
    ========================================================= */
 
-.bear-couple {
+.bear-stage {
 
-    position: relative;
+    height: 205px;
 
     display: flex;
 
@@ -383,9 +386,7 @@ header {
 
     align-items: flex-end;
 
-    gap: 14px;
-
-    height: 170px;
+    position: relative;
 
     margin-bottom: 5px;
 
@@ -400,76 +401,26 @@ header {
 
     position: relative;
 
-    width: 115px;
+    width: 130px;
 
-    height: 150px;
+    height: 180px;
 
     animation:
-        bearFloat
-        3.2s
-        ease-in-out
-        infinite;
+        bearBob
+        3.2s ease-in-out infinite;
 
-    transform-origin:
-        bottom center;
+    filter:
+        drop-shadow(
+            0 12px 10px
+            rgba(91,55,65,.12)
+        );
 
 }
 
-.bear.girl {
+.bear:nth-child(2) {
 
     animation-delay:
-        .45s;
-
-}
-
-
-/* =========================================================
-   BEAR EARS
-   ========================================================= */
-
-.bear-ear {
-
-    position: absolute;
-
-    top: 4px;
-
-    width: 34px;
-
-    height: 34px;
-
-    background:
-        var(--bear-dark);
-
-    border-radius: 50%;
-
-    z-index: 1;
-
-}
-
-.bear-ear::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 7px;
-
-    background:
-        #efb3a0;
-
-    border-radius: 50%;
-
-}
-
-.bear-ear.left {
-
-    left: 8px;
-
-}
-
-.bear-ear.right {
-
-    right: 8px;
+        .35s;
 
 }
 
@@ -482,21 +433,13 @@ header {
 
     position: absolute;
 
-    top: 14px;
+    top: 17px;
 
-    left: 12px;
+    left: 18px;
 
-    width: 91px;
+    width: 94px;
 
-    height: 78px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #dca27d,
-            #b97757
-        );
+    height: 86px;
 
     border-radius:
         47%
@@ -504,49 +447,102 @@ header {
         44%
         44%;
 
+    background:
+        linear-gradient(
+            145deg,
+            #e8b38c,
+            #c98361
+        );
+
     box-shadow:
+        inset -8px -9px
+        rgba(101,55,40,.08);
 
-        inset -7px -8px
-        rgba(105,57,40,.08),
-
-        0 8px 15px
-        rgba(80,45,35,.14);
-
-    z-index: 2;
+    z-index: 4;
 
 }
 
 
 /* =========================================================
-   FACE
+   EARS
+   ========================================================= */
+
+.bear-ear {
+
+    position: absolute;
+
+    top: -15px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background:
+        #c98261;
+
+    z-index: -1;
+
+}
+
+.bear-ear::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    background:
+        #f0b7a6;
+
+}
+
+.bear-ear.left {
+
+    left: 2px;
+
+}
+
+.bear-ear.right {
+
+    right: 2px;
+
+}
+
+
+/* =========================================================
+   EYES
    ========================================================= */
 
 .bear-eye {
 
     position: absolute;
 
-    top: 30px;
+    top: 35px;
 
-    width: 8px;
+    width: 9px;
 
-    height: 10px;
-
-    background:
-        #4b3034;
+    height: 11px;
 
     border-radius: 50%;
+
+    background: #4d3438;
 
 }
 
 .bear-eye.left {
 
-    left: 25px;
+    left: 27px;
 
 }
 
 .bear-eye.right {
 
-    right: 25px;
+    right: 27px;
 
 }
 
@@ -556,6 +552,10 @@ header {
 
     position: absolute;
 
+    top: 2px;
+
+    left: 2px;
+
     width: 3px;
 
     height: 3px;
@@ -563,10 +563,6 @@ header {
     background: white;
 
     border-radius: 50%;
-
-    top: 2px;
-
-    left: 2px;
 
 }
 
@@ -579,31 +575,28 @@ header {
 
     position: absolute;
 
-    top: 47px;
+    top: 55px;
 
     width: 15px;
 
     height: 8px;
 
-    background:
-        rgba(255,145,160,.55);
-
     border-radius: 50%;
 
-    filter:
-        blur(.4px);
+    background:
+        rgba(255,130,145,.38);
 
 }
 
 .blush.left {
 
-    left: 11px;
+    left: 13px;
 
 }
 
 .blush.right {
 
-    right: 11px;
+    right: 13px;
 
 }
 
@@ -616,18 +609,18 @@ header {
 
     position: absolute;
 
-    left: 31px;
+    left: 30px;
 
-    top: 40px;
+    top: 46px;
 
-    width: 30px;
+    width: 35px;
 
-    height: 23px;
-
-    background:
-        var(--bear-light);
+    height: 26px;
 
     border-radius: 50%;
+
+    background:
+        #f2c8ad;
 
 }
 
@@ -635,19 +628,19 @@ header {
 
     position: absolute;
 
+    left: 13px;
+
     top: 5px;
 
-    left: 11px;
-
-    width: 9px;
+    width: 10px;
 
     height: 7px;
 
-    background:
-        #56353b;
-
     border-radius:
         50%;
+
+    background:
+        #55363c;
 
 }
 
@@ -655,17 +648,17 @@ header {
 
     position: absolute;
 
+    left: 15px;
+
     top: 11px;
 
-    left: 13px;
+    width: 7px;
 
-    width: 5px;
-
-    height: 5px;
+    height: 6px;
 
     border-bottom:
         2px solid
-        #56353b;
+        #55363c;
 
     border-radius: 50%;
 
@@ -680,31 +673,26 @@ header {
 
     position: absolute;
 
-    left: 25px;
+    left: 27px;
 
-    top: 84px;
+    top: 92px;
 
-    width: 65px;
+    width: 76px;
 
-    height: 61px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #dca27d,
-            #b97757
-        );
+    height: 72px;
 
     border-radius:
-        45%
-        45%
-        35%
-        35%;
+        48%
+        48%
+        38%
+        38%;
 
-    box-shadow:
-        0 7px 12px
-        rgba(80,45,35,.10);
+    background:
+        linear-gradient(
+            145deg,
+            #e2a77f,
+            #bd7657
+        );
 
 }
 
@@ -717,18 +705,18 @@ header {
 
     position: absolute;
 
-    top: 13px;
+    left: 21px;
 
-    left: 17px;
+    top: 18px;
 
-    width: 32px;
+    width: 34px;
 
-    height: 29px;
-
-    background:
-        #edc2a5;
+    height: 30px;
 
     border-radius: 50%;
+
+    background:
+        #efc4a3;
 
 }
 
@@ -741,24 +729,24 @@ header {
 
     position: absolute;
 
-    top: 91px;
+    top: 98px;
 
-    width: 25px;
+    width: 28px;
 
-    height: 47px;
-
-    background:
-        var(--bear-dark);
+    height: 54px;
 
     border-radius: 50%;
 
-    z-index: 4;
+    background:
+        #c47e5e;
+
+    z-index: 5;
 
 }
 
 .bear-arm.left {
 
-    left: 11px;
+    left: 10px;
 
     transform:
         rotate(25deg);
@@ -767,7 +755,7 @@ header {
 
 .bear-arm.right {
 
-    right: 11px;
+    right: 10px;
 
     transform:
         rotate(-25deg);
@@ -783,18 +771,16 @@ header {
 
     position: absolute;
 
-    top: 130px;
+    top: 145px;
 
-    width: 29px;
+    width: 34px;
 
-    height: 21px;
-
-    background:
-        var(--bear-dark);
+    height: 26px;
 
     border-radius: 50%;
 
-    z-index: 5;
+    background:
+        #b97355;
 
 }
 
@@ -812,28 +798,61 @@ header {
 
 
 /* =========================================================
-   GIRL BEAR COLORS
+   BEAR HEART
    ========================================================= */
 
-.bear.girl .bear-head,
-.bear.girl .bear-body {
+.bear-heart {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 104px;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 28px;
+
+    z-index: 8;
+
+    animation:
+        tinyHeart
+        1.5s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   SECOND BEAR
+   ========================================================= */
+
+.bear.girl .bear-head {
 
     background:
-
         linear-gradient(
             145deg,
-            #e0aa91,
-            #bd7c6a
+            #e7b2a3,
+            #c98272
         );
 
 }
 
-.bear.girl .bear-ear,
-.bear.girl .bear-arm,
-.bear.girl .bear-foot {
+.bear.girl .bear-body {
 
     background:
-        #bd7c6a;
+        linear-gradient(
+            145deg,
+            #e2a394,
+            #bd7468
+        );
+
+}
+
+.bear.girl .bear-ear {
+
+    background:
+        #ca8375;
 
 }
 
@@ -846,72 +865,38 @@ header {
 
     position: absolute;
 
-    top: 3px;
+    right: 9px;
 
-    right: 2px;
+    top: 0;
 
-    z-index: 10;
-
-    font-size: 29px;
-
-    transform:
-        rotate(13deg);
-
-}
-
-
-/* =========================================================
-   HEART BETWEEN BEARS
-   ========================================================= */
-
-.couple-heart {
-
-    position: absolute;
-
-    top: 60px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    font-size: 29px;
+    font-size: 35px;
 
     z-index: 15;
 
-    animation:
-        coupleHeart
-        1.6s
-        ease-in-out
-        infinite;
+    transform:
+        rotate(12deg);
 
-    filter:
-        drop-shadow(
-            0 4px 8px
-            rgba(180,70,100,.20)
-        );
+    animation:
+        bowWiggle
+        2.5s ease-in-out infinite;
 
 }
 
-
-@keyframes coupleHeart {
+@keyframes bowWiggle {
 
     0%,
     100% {
 
         transform:
-            translateX(-50%)
-            translateY(0)
-            scale(1);
+            rotate(10deg);
 
     }
 
     50% {
 
         transform:
-            translateX(-50%)
-            translateY(-8px)
-            scale(1.18);
+            rotate(-5deg)
+            translateY(-2px);
 
     }
 
@@ -919,10 +904,56 @@ header {
 
 
 /* =========================================================
-   BEAR FLOAT
+   FLOATING MINI HEART
    ========================================================= */
 
-@keyframes bearFloat {
+.mini-love {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: -25px;
+
+    font-size: 23px;
+
+    animation:
+        miniLove
+        2.2s ease-in-out infinite;
+
+}
+
+@keyframes miniLove {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(4px)
+            scale(.8);
+
+        opacity: .45;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px)
+            scale(1.15);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   BEAR ANIMATION
+   ========================================================= */
+
+@keyframes bearBob {
 
     0%,
     100% {
@@ -945,67 +976,29 @@ header {
 
 
 /* =========================================================
-   LITTLE STICKER LABEL
-   ========================================================= */
-
-.sticker-label {
-
-    display: inline-block;
-
-    margin-top: -3px;
-
-    padding:
-        6px 14px;
-
-    background:
-        #fff;
-
-    border:
-        1px solid
-        #f0c4d0;
-
-    border-radius:
-        999px;
-
-    font-size: 14px;
-
-    color:
-        var(--rose);
-
-    transform:
-        rotate(-2deg);
-
-    box-shadow:
-        0 5px 15px
-        rgba(100,50,70,.08);
-
-}
-
-
-/* =========================================================
    TITLE
    ========================================================= */
 
-h1 {
+.hero h1 {
+
+    margin:
+        4px 0 10px;
 
     font-size:
         clamp(
-            38px,
+            42px,
             9vw,
-            70px
+            72px
         );
 
-    margin:
-        13px 0 8px;
+    line-height: .95;
 
     color:
-        var(--deep-rose);
-
-    line-height: 1;
+        var(--pink-deep);
 
     text-shadow:
-        0 5px 16px
-        rgba(132,63,90,.12);
+        0 5px 15px
+        rgba(145,67,95,.10);
 
 }
 
@@ -1014,63 +1007,72 @@ h1 {
    SUBTITLE
    ========================================================= */
 
-.subtitle {
+.hero-subtitle {
 
-    font-size: 20px;
+    max-width: 600px;
 
-    line-height: 1.6;
+    margin:
+        0 auto;
+
+    font-size: 19px;
+
+    line-height: 1.65;
 
     color:
-        var(--muted);
+        var(--brown-light);
 
 }
 
 
 /* =========================================================
-   DIVIDER
+   STICKER BADGES
    ========================================================= */
 
-.divider {
+.badges {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: center;
 
-    gap: 12px;
+    flex-wrap: wrap;
+
+    gap: 10px;
 
     margin:
-        22px auto;
+        18px auto;
 
 }
 
-.divider::before,
-.divider::after {
+.badge {
 
-    content: "";
+    padding:
+        8px 14px;
 
-    width: 65px;
+    border-radius:
+        100px;
 
-    height: 1px;
+    font-size: 14px;
 
     background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--soft-rose)
-        );
+        white;
+
+    border:
+        2px solid
+        rgba(184,92,120,.16);
+
+    box-shadow:
+        0 6px 14px
+        rgba(100,50,70,.07);
+
+    transform:
+        rotate(-2deg);
 
 }
 
-.divider::after {
+.badge:nth-child(even) {
 
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            var(--soft-rose)
-        );
+    transform:
+        rotate(2deg);
 
 }
 
@@ -1079,82 +1081,93 @@ h1 {
    LOVE COUNTER
    ========================================================= */
 
-.love-counter {
+.counter {
 
     position: relative;
 
-    text-align: center;
-
     margin:
-        25px 0 35px;
+        25px 0 30px;
 
     padding:
-        32px 18px;
+        30px 18px;
+
+    text-align: center;
+
+    border-radius:
+        34px;
 
     background:
-        rgba(255,252,250,.95);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.96),
+            rgba(255,241,246,.96)
+        );
 
     border:
-        1px solid
-        rgba(160,91,111,.18);
-
-    border-radius: 30px;
+        2px solid
+        rgba(184,92,120,.16);
 
     box-shadow:
-        0 18px 45px
+        0 20px 50px
         var(--shadow);
-
-    backdrop-filter:
-        blur(9px);
 
     overflow: hidden;
 
 }
 
 
-/* =========================================================
-   COUNTER BORDER
-   ========================================================= */
+/* Tape */
 
-.love-counter::before {
+.counter::before {
 
-    content: "";
+    content: "♡  OUR LITTLE TIMER  ♡";
 
     position: absolute;
 
-    inset: 8px;
+    top: -12px;
 
-    border:
-        1px dashed
-        rgba(166,90,115,.28);
+    left: 50%;
 
-    border-radius: 23px;
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
 
-    pointer-events: none;
+    padding:
+        8px 18px;
+
+    border-radius:
+        7px;
+
+    background:
+        #ffe2a8;
+
+    color:
+        #805e55;
+
+    font-size: 12px;
+
+    box-shadow:
+        0 4px 8px
+        rgba(90,50,40,.08);
 
 }
 
 
-/* =========================================================
-   COUNTER HEART
-   ========================================================= */
+/* Counter heart */
 
 .counter-heart {
 
-    position: relative;
+    margin-top: 8px;
+
+    font-size: 39px;
 
     display: inline-block;
 
-    font-size: 38px;
-
     animation:
         counterBeat
-        1.5s
-        ease-in-out
-        infinite;
+        1.5s ease-in-out infinite;
 
 }
-
 
 @keyframes counterBeat {
 
@@ -1169,60 +1182,43 @@ h1 {
     50% {
 
         transform:
-            scale(1.18);
-
-        filter:
-            drop-shadow(
-                0 0 13px
-                rgba(255,90,130,.35)
-            );
+            scale(1.2);
 
     }
 
 }
 
 
-/* =========================================================
-   COUNTER TEXT
-   ========================================================= */
+/* Counter heading */
 
-.counter-title {
+.counter h2 {
 
-    position: relative;
-
-    font-size: 25px;
-
-    font-weight: bold;
+    margin:
+        7px 0 3px;
 
     color:
-        var(--deep-rose);
+        var(--pink-deep);
 
-    margin-top: 6px;
+    font-size: 26px;
 
 }
 
-.counter-date {
+.counter p {
 
-    position: relative;
+    margin:
+        0 0 20px;
 
     color:
-        var(--muted);
+        var(--brown-light);
 
     font-size: 15px;
 
-    margin:
-        7px 0 20px;
-
 }
 
 
-/* =========================================================
-   COUNTER GRID
-   ========================================================= */
+/* Counter grid */
 
 .counter-grid {
-
-    position: relative;
 
     display: grid;
 
@@ -1237,226 +1233,109 @@ h1 {
 
 }
 
-
-.counter-box {
+.counter-unit {
 
     padding:
-        15px 4px;
+        14px 5px;
+
+    border-radius:
+        19px;
+
+    background:
+        white;
 
     border:
         1px solid
-        rgba(166,90,115,.14);
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff8fa,
-            #fffdfb
-        );
+        rgba(184,92,120,.12);
 
     box-shadow:
-        0 6px 18px
-        rgba(90,50,60,.07);
+        0 7px 16px
+        rgba(90,50,60,.06);
 
 }
-
 
 .counter-number {
 
     color:
-        var(--deep-rose);
+        var(--pink-deep);
 
     font-size:
         clamp(
-            22px,
+            21px,
             5vw,
-            35px
+            34px
         );
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     font-variant-numeric:
         tabular-nums;
 
 }
 
-
 .counter-label {
 
-    color:
-        #a27682;
-
-    font-size: 11px;
-
     margin-top: 4px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
 
     text-transform:
         uppercase;
 
-    letter-spacing: .7px;
-
-}
-
-
-.counter-line {
-
-    position: relative;
-
-    width: 135px;
-
-    height: 3px;
-
-    margin:
-        20px auto 0;
-
-    border-radius: 10px;
-
-    background:
-        #f1d9e1;
-
-    overflow: hidden;
-
-}
-
-
-.counter-line::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: -55px;
-
-    width: 48px;
-
-    height: 100%;
-
-    background:
-        var(--rose);
-
-    border-radius: 10px;
-
-    animation:
-        counterLine
-        2.3s
-        linear
-        infinite;
-
-}
-
-
-@keyframes counterLine {
-
-    to {
-
-        left: 145px;
-
-    }
+    color:
+        #a27883;
 
 }
 
 
 /* =========================================================
-   CARDS
+   GENERIC STICKER CARD
    ========================================================= */
 
-.card,
-.music-card {
+.paper {
 
     position: relative;
 
     margin:
-        30px 0;
+        28px 0;
 
-    padding: 30px;
+    padding:
+        30px 25px;
 
     background:
-        rgba(255,252,250,.95);
+        rgba(255,253,251,.95);
 
     border:
-        1px solid
-        rgba(160,91,111,.18);
+        2px solid
+        rgba(184,92,120,.13);
 
-    border-radius: 28px;
+    border-radius:
+        30px;
 
     box-shadow:
-        0 15px 45px
+        0 18px 45px
         var(--shadow);
 
-    backdrop-filter:
-        blur(8px);
-
 }
 
 
-.card::before,
-.music-card::before {
+/* Corner sticker */
 
-    content: "";
-
-    position: absolute;
-
-    inset: 7px;
-
-    border:
-        1px dashed
-        rgba(182,107,131,.25);
-
-    border-radius: 22px;
-
-    pointer-events: none;
-
-}
-
-
-.card::after {
-
-    content:
-        "♡";
+.paper-sticker {
 
     position: absolute;
 
-    right: 18px;
+    right: 15px;
 
-    top: 10px;
+    top: 12px;
 
-    font-size: 28px;
-
-    color:
-        rgba(166,90,115,.25);
+    font-size: 25px;
 
     transform:
         rotate(12deg);
-
-}
-
-
-/* =========================================================
-   CARD TEXT
-   ========================================================= */
-
-.card h2 {
-
-    position: relative;
-
-    color:
-        var(--deep-rose);
-
-    font-size: 30px;
-
-    margin-top: 0;
-
-}
-
-.card p {
-
-    position: relative;
-
-    font-size: 19px;
-
-    line-height: 1.7;
 
 }
 
@@ -1467,87 +1346,95 @@ h1 {
 
 #loginSection {
 
-    max-width: 450px;
+    max-width: 500px;
 
     margin:
-        25px auto 40px;
+        25px auto 35px;
+
+}
+
+.login-sticker {
 
     text-align: center;
 
-}
+    font-size: 48px;
 
-.login-title {
-
-    position: relative;
-
-    color:
-        var(--deep-rose);
-
-    font-size: 28px;
-
-    font-weight: bold;
+    animation:
+        tinyHeart
+        1.7s ease-in-out infinite;
 
 }
 
-.login-subtitle {
-
-    position: relative;
-
-    color:
-        var(--muted);
-
-    font-size: 17px;
+.section-title {
 
     margin:
-        10px 0 25px;
+        5px 0 10px;
+
+    text-align: center;
+
+    color:
+        var(--pink-deep);
+
+    font-size: 30px;
+
+}
+
+.section-subtitle {
+
+    text-align: center;
+
+    color:
+        var(--brown-light);
+
+    line-height: 1.6;
+
+    margin-bottom:
+        22px;
 
 }
 
 
 /* =========================================================
-   FORM
+   LABELS / INPUTS
    ========================================================= */
 
 label {
 
-    position: relative;
-
     display: block;
 
-    text-align: left;
-
-    font-size: 17px;
-
     margin:
-        10px 0 6px;
+        12px 0 6px;
+
+    font-size: 16px;
+
+    color:
+        var(--brown);
 
 }
 
 input,
 textarea {
 
-    position: relative;
-
     width: 100%;
 
-    padding: 14px;
-
-    margin:
-        7px 0 14px;
-
     border:
-        1px solid
-        #d6aeba;
+        2px solid
+        #e5c3ce;
 
-    border-radius: 15px;
+    border-radius:
+        19px;
+
+    padding:
+        14px 16px;
 
     background:
-        rgba(255,255,255,.95);
+        rgba(255,255,255,.92);
 
     color:
         var(--brown);
 
-    font-family: inherit;
+    font-family:
+        inherit;
 
     font-size: 17px;
 
@@ -1562,11 +1449,11 @@ input:focus,
 textarea:focus {
 
     border-color:
-        #b66b83;
+        var(--pink);
 
     box-shadow:
-        0 0 0 3px
-        rgba(182,107,131,.10);
+        0 0 0 4px
+        rgba(244,169,189,.12);
 
     transform:
         translateY(-1px);
@@ -1575,101 +1462,97 @@ textarea:focus {
 
 textarea {
 
-    min-height: 145px;
+    min-height:
+        150px;
 
-    resize: vertical;
+    resize:
+        vertical;
 
 }
 
 input[type="file"] {
 
-    padding: 11px;
+    padding:
+        10px;
 
 }
 
 
 /* =========================================================
-   BUTTONS
+   BUTTON
    ========================================================= */
 
-button {
+.cute-button {
 
-    font-family: inherit;
+    width: 100%;
 
-}
+    border:
+        none;
 
-
-.login-button,
-.save-button,
-.music-button {
-
-    position: relative;
-
-    border: none;
-
-    border-radius: 28px;
+    border-radius:
+        22px;
 
     padding:
-        14px 24px;
+        15px 20px;
+
+    margin-top:
+        8px;
 
     background:
         linear-gradient(
             135deg,
-            #b35d7a,
-            #914b67
+            #c86c88,
+            #a94f70
         );
 
-    color: white;
+    color:
+        white;
 
-    font-size: 17px;
+    font-family:
+        inherit;
 
-    cursor: pointer;
+    font-size: 18px;
+
+    cursor:
+        pointer;
 
     box-shadow:
-        0 8px 20px
-        rgba(150,70,100,.20);
+        0 10px 22px
+        rgba(169,79,112,.22);
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        opacity .2s ease;
+        .2s ease;
 
 }
 
-.login-button {
-
-    width: 100%;
-
-}
-
-.login-button:hover,
-.save-button:hover,
-.music-button:hover {
+.cute-button:hover {
 
     transform:
-        translateY(-2px);
+        translateY(-3px);
 
     box-shadow:
-        0 13px 27px
-        rgba(150,70,100,.25);
+        0 14px 28px
+        rgba(169,79,112,.27);
 
 }
 
-.login-button:active,
-.save-button:active,
-.music-button:active {
+.cute-button:active {
 
     transform:
         scale(.98);
 
 }
 
-button:disabled {
+.cute-button:disabled {
 
-    opacity: .6;
+    opacity:
+        .55;
 
     cursor:
         not-allowed;
+
+    transform:
+        none;
 
 }
 
@@ -1680,29 +1563,31 @@ button:disabled {
 
 .status {
 
-    min-height: 25px;
+    min-height:
+        24px;
 
-    margin-top: 14px;
+    text-align:
+        center;
 
-    text-align: center;
+    margin-top:
+        13px;
 
-    font-size: 16px;
-
-    line-height: 1.5;
+    line-height:
+        1.5;
 
 }
 
 .success {
 
     color:
-        #5d8a65;
+        #568262;
 
 }
 
 .error {
 
     color:
-        #b04b5b;
+        #b04e63;
 
 }
 
@@ -1713,14 +1598,20 @@ button:disabled {
 
 #diarySection {
 
-    display: none;
+    display:
+        none;
 
 }
 
 
-.diary-top {
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
-    display: flex;
+.diary-bar {
+
+    display:
+        flex;
 
     justify-content:
         space-between;
@@ -1728,229 +1619,301 @@ button:disabled {
     align-items:
         center;
 
-    gap: 15px;
+    gap:
+        12px;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        18px;
 
 }
 
-
-.diary-welcome {
+.welcome {
 
     color:
-        var(--deep-rose);
+        var(--pink-deep);
 
-    font-size: 17px;
+    font-size:
+        16px;
 
     overflow-wrap:
         anywhere;
 
 }
 
-
-.logout-button {
-
-    flex-shrink: 0;
-
-    padding:
-        8px 15px;
+.logout {
 
     border:
         1px solid
-        #c88ca0;
-
-    border-radius:
-        20px;
+        #d59caf;
 
     background:
-        rgba(255,255,255,.78);
+        white;
 
     color:
-        var(--deep-rose);
+        var(--pink-deep);
 
-    font-family: inherit;
+    border-radius:
+        100px;
 
-    cursor: pointer;
+    padding:
+        8px 14px;
+
+    font-family:
+        inherit;
+
+    cursor:
+        pointer;
 
 }
 
 
 /* =========================================================
-   MUSIC
+   LOVE LETTER
    ========================================================= */
 
-.music-card {
+.letter {
 
-    text-align: center;
+    background:
+        linear-gradient(
+            135deg,
+            #fff7df,
+            #fffdf5
+        );
 
-    overflow: visible;
+    transform:
+        rotate(-.5deg);
+
+}
+
+.letter h2 {
+
+    margin-top:
+        0;
+
+    color:
+        #a56557;
+
+    font-size:
+        28px;
+
+}
+
+.letter p {
+
+    font-size:
+        18px;
+
+    line-height:
+        1.8;
+
+    white-space:
+        pre-line;
 
 }
 
 
-.music-icon {
+/* =========================================================
+   MUSIC PLAYER
+   ========================================================= */
 
-    position: relative;
+.music {
 
-    display: inline-block;
+    text-align:
+        center;
 
-    font-size: 44px;
+    overflow:
+        hidden;
 
 }
 
+.music-cassette {
 
-.music-card.playing .music-icon {
+    width:
+        170px;
+
+    height:
+        105px;
+
+    margin:
+        5px auto 15px;
+
+    padding:
+        20px;
+
+    border-radius:
+        17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d994aa,
+            #b96584
+        );
+
+    box-shadow:
+        0 10px 20px
+        rgba(100,50,70,.18);
+
+    position:
+        relative;
 
     animation:
-        musicPulse
-        1.2s
-        ease-in-out
-        infinite;
+        cassetteFloat
+        3s ease-in-out infinite;
 
 }
 
+.cassette-label {
 
-@keyframes musicPulse {
+    height:
+        40px;
+
+    border-radius:
+        7px;
+
+    background:
+        #ffe9ef;
+
+    color:
+        #8e5267;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-size:
+        14px;
+
+}
+
+.cassette-hole {
+
+    position:
+        absolute;
+
+    bottom:
+        14px;
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    border-radius:
+        50%;
+
+    background:
+        #6f4552;
+
+}
+
+.cassette-hole.left {
+
+    left:
+        38px;
+
+}
+
+.cassette-hole.right {
+
+    right:
+        38px;
+
+}
+
+@keyframes cassetteFloat {
 
     0%,
     100% {
 
         transform:
-            scale(1)
-            rotate(0deg);
+            rotate(-2deg)
+            translateY(0);
 
     }
 
     50% {
 
         transform:
-            scale(1.22)
-            rotate(5deg);
+            rotate(2deg)
+            translateY(-5px);
 
     }
 
 }
 
-
-.music-title {
-
-    position: relative;
+.music h2 {
 
     color:
-        var(--deep-rose);
-
-    font-size: 30px;
-
-    font-weight: bold;
+        var(--pink-deep);
 
 }
 
-
-.music-subtitle {
-
-    position: relative;
+.music p {
 
     color:
-        var(--muted);
-
-    font-size: 17px;
-
-    font-style: italic;
-
-    margin:
-        8px 0 18px;
+        var(--brown-light);
 
 }
-
 
 #ourSong {
 
-    width: 100%;
+    width:
+        100%;
 
-    max-width: 500px;
+    max-width:
+        500px;
 
     margin:
-        10px auto 18px;
-
-    display: block;
+        15px auto;
 
 }
 
+.music-button {
 
-.music-status {
+    width:
+        auto;
 
-    position: relative;
-
-    min-height: 24px;
-
-    margin-top: 10px;
-
-    color:
-        #8a6872;
-
-    font-size: 15px;
+    min-width:
+        220px;
 
 }
 
-
-/* =========================================================
-   MUSIC HEARTS
-   ========================================================= */
-
-.music-card.playing::after {
-
-    content:
-        "💕  ✨  💗";
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 20px;
-
-    transform:
-        translateX(-50%);
-
-    white-space:
-        nowrap;
-
-    pointer-events:
-        none;
+.music.playing .music-cassette {
 
     animation:
-        musicHearts
-        2.5s
-        ease-out
-        infinite;
+        cassetteSpin
+        1.3s linear infinite;
 
 }
 
-
-@keyframes musicHearts {
+@keyframes cassetteSpin {
 
     0% {
 
         transform:
-            translate(-50%,10px)
-            scale(.7);
-
-        opacity: 0;
+            rotate(-2deg);
 
     }
 
-    20% {
+    50% {
 
-        opacity: .8;
+        transform:
+            rotate(2deg)
+            translateY(-5px);
 
     }
 
     100% {
 
         transform:
-            translate(-50%,-70px)
-            scale(1.1);
-
-        opacity: 0;
+            rotate(-2deg);
 
     }
 
@@ -1958,135 +1921,234 @@ button:disabled {
 
 
 /* =========================================================
-   MEMORIES
+   MEMORY SECTION
    ========================================================= */
 
-.memories {
+.memories-title {
 
-    margin-top: 25px;
+    text-align:
+        center;
+
+    color:
+        var(--pink-deep);
+
+    font-size:
+        32px;
+
+    margin-top:
+        0;
 
 }
 
 
+/* =========================================================
+   MEMORY GRID
+   ========================================================= */
+
+.memory-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:
+        22px;
+
+    margin-top:
+        20px;
+
+}
+
+
+/* =========================================================
+   POLAROID MEMORY
+   ========================================================= */
+
 .memory {
 
-    position: relative;
-
-    padding: 25px;
-
-    margin:
-        25px 0;
+    position:
+        relative;
 
     background:
-        linear-gradient(
-            145deg,
-            #fffdfb,
-            #fff7f3
-        );
+        white;
 
-    border:
-        1px solid
-        rgba(160,91,111,.14);
+    padding:
+        12px 12px 20px;
 
-    border-radius: 22px;
+    border-radius:
+        7px;
 
     box-shadow:
-        0 12px 30px
-        rgba(90,50,60,.09);
+        0 12px 28px
+        rgba(70,40,50,.13);
 
     transform:
-        rotate(-.35deg);
+        rotate(-2deg);
 
     transition:
         .3s ease;
 
 }
 
-
 .memory:nth-child(even) {
 
     transform:
-        rotate(.4deg);
+        rotate(2deg);
 
 }
-
 
 .memory:hover {
 
     transform:
-        translateY(-5px)
+        translateY(-7px)
         rotate(0deg);
 
     box-shadow:
-        0 18px 38px
-        rgba(90,50,60,.14);
+        0 20px 38px
+        rgba(70,40,50,.18);
 
 }
-
 
 .memory::before {
 
     content:
-        "💗";
+        "♡";
 
     position:
         absolute;
 
-    right: 18px;
+    top:
+        -12px;
 
-    top: 13px;
+    right:
+        15px;
 
-    font-size: 20px;
+    font-size:
+        28px;
+
+    z-index:
+        3;
+
+    transform:
+        rotate(15deg);
 
 }
 
+.memory-image-wrap {
+
+    width:
+        100%;
+
+    min-height:
+        170px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff0f4,
+            #f8edf8
+        );
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        4px;
+
+}
+
+.memory img {
+
+    width:
+        100%;
+
+    height:
+        230px;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+}
+
+.no-photo {
+
+    font-size:
+        55px;
+
+    opacity:
+        .6;
+
+}
+
+.memory-content {
+
+    padding:
+        12px 7px 0;
+
+}
 
 .memory h3 {
 
-    position: relative;
-
-    margin-top: 0;
-
-    padding-right: 30px;
+    margin:
+        0 0 6px;
 
     color:
-        var(--deep-rose);
+        var(--pink-deep);
 
-    font-size: 25px;
+    font-size:
+        23px;
 
 }
 
-
-.memory .date {
+.memory-date {
 
     display:
         inline-block;
+
+    padding:
+        5px 9px;
+
+    border-radius:
+        100px;
 
     background:
         #fff0f4;
 
     color:
-        #a27682;
+        #9d7180;
 
-    border-radius:
-        15px;
-
-    padding:
-        5px 10px;
-
-    font-size: 14px;
+    font-size:
+        12px;
 
     margin-bottom:
-        12px;
+        8px;
 
 }
 
-
 .memory p {
 
-    font-size: 17px;
+    margin:
+        4px 0 0;
 
-    line-height: 1.65;
+    font-size:
+        16px;
+
+    line-height:
+        1.55;
 
     white-space:
         pre-wrap;
@@ -2097,43 +2159,31 @@ button:disabled {
 }
 
 
-.memory img {
+/* =========================================================
+   MEMORY EMPTY
+   ========================================================= */
 
-    display: block;
+.empty {
 
-    width: 100%;
-
-    max-height: 500px;
-
-    object-fit: cover;
-
-    margin-top: 15px;
+    text-align:
+        center;
 
     padding:
-        9px 9px 28px;
+        35px 15px;
 
-    background: white;
-
-    border-radius: 6px;
-
-    box-shadow:
-        0 7px 20px
-        rgba(50,30,35,.13);
-
-    transform:
-        rotate(-1deg);
-
-    transition:
-        .3s ease;
+    color:
+        #98727d;
 
 }
 
+.empty-bear {
 
-.memory img:hover {
+    font-size:
+        65px;
 
-    transform:
-        rotate(0deg)
-        scale(1.01);
+    animation:
+        bearBob
+        3s ease-in-out infinite;
 
 }
 
@@ -2142,143 +2192,47 @@ button:disabled {
    LOADING
    ========================================================= */
 
-.empty,
 .loading {
 
-    text-align: center;
+    text-align:
+        center;
+
+    padding:
+        35px;
 
     color:
-        #98737d;
-
-    padding: 25px;
-
-    line-height: 1.6;
+        #98727d;
 
 }
 
+.loading-bears {
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+    font-size:
+        40px;
 
-footer {
-
-    text-align: center;
-
-    margin-top: 55px;
-
-    color:
-        #86636d;
-
-    font-size: 16px;
-
-}
-
-
-.footer-bear {
-
-    display: inline-block;
-
-    font-size: 42px;
+    display:
+        inline-block;
 
     animation:
-        footerBounce
-        2.8s
-        ease-in-out
-        infinite;
+        loadingBounce
+        1s ease-in-out infinite;
 
 }
 
-
-@keyframes footerBounce {
+@keyframes loadingBounce {
 
     0%,
     100% {
 
         transform:
-            translateY(0)
-            rotate(-3deg);
+            translateY(0);
 
     }
 
     50% {
 
         transform:
-            translateY(-9px)
-            rotate(3deg);
-
-    }
-
-}
-
-
-/* =========================================================
-   PEEKING BEAR
-   ========================================================= */
-
-.peek-bear {
-
-    position: fixed;
-
-    right: 10px;
-
-    bottom: 12px;
-
-    z-index: 20;
-
-    font-size: 55px;
-
-    filter:
-        drop-shadow(
-            0 7px 12px
-            rgba(70,40,40,.15)
-        );
-
-    animation:
-        peekBear
-        5s
-        ease-in-out
-        infinite;
-
-    pointer-events:
-        none;
-
-}
-
-
-@keyframes peekBear {
-
-    0%,
-    65%,
-    100% {
-
-        transform:
-            translateY(12px)
-            rotate(-3deg);
-
-    }
-
-    72% {
-
-        transform:
-            translateY(-8px)
-            rotate(4deg);
-
-    }
-
-    78% {
-
-        transform:
-            translateY(0)
-            rotate(-4deg);
-
-    }
-
-    85% {
-
-        transform:
-            translateY(-5px)
-            rotate(2deg);
+            translateY(-12px);
 
     }
 
@@ -2291,39 +2245,43 @@ footer {
 
 .celebration {
 
-    position: fixed;
-
-    z-index: 100;
+    position:
+        fixed;
 
     pointer-events:
         none;
 
-    font-size: 25px;
+    z-index:
+        999;
+
+    font-size:
+        25px;
 
     animation:
-        celebrationFly
-        1.5s
-        ease-out
+        celebrate
+        1.5s ease-out
         forwards;
 
 }
 
-
-@keyframes celebrationFly {
+@keyframes celebrate {
 
     0% {
 
         transform:
             translate(0,0)
-            scale(.4);
+            scale(.4)
+            rotate(0);
 
-        opacity: 0;
+        opacity:
+            0;
 
     }
 
-    20% {
+    15% {
 
-        opacity: 1;
+        opacity:
+            1;
 
     }
 
@@ -2337,7 +2295,8 @@ footer {
             scale(1.2)
             rotate(25deg);
 
-        opacity: 0;
+        opacity:
+            0;
 
     }
 
@@ -2345,105 +2304,163 @@ footer {
 
 
 /* =========================================================
-   MOBILE
+   FOOTER
    ========================================================= */
 
-@media (max-width:600px) {
+footer {
 
-    .container {
+    text-align:
+        center;
 
-        width: 94%;
+    padding:
+        30px 0 10px;
 
-        padding-top: 12px;
+    color:
+        #9a737e;
+
+}
+
+.footer-bears {
+
+    font-size:
+        38px;
+
+    margin-bottom:
+        7px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (
+    max-width: 650px
+) {
+
+    .app {
+
+        width:
+            94%;
 
     }
 
-    .bear-couple {
+    .bear-stage {
 
         transform:
-            scale(.82);
-
-        transform-origin:
-            center bottom;
+            scale(.78);
 
         margin-bottom:
-            -12px;
+            -30px;
 
     }
 
-    h1 {
+    .hero h1 {
 
-        font-size: 43px;
-
-    }
-
-    .subtitle {
-
-        font-size: 18px;
+        font-size:
+            43px;
 
     }
 
-    .card,
-    .music-card,
-    .love-counter {
+    .hero-subtitle {
+
+        font-size:
+            17px;
+
+    }
+
+    .counter {
 
         padding:
-            24px 19px;
-
-        border-radius:
-            23px;
+            30px 12px 22px;
 
     }
 
     .counter-grid {
 
-        gap: 6px;
+        gap:
+            5px;
 
     }
 
-    .counter-box {
+    .counter-unit {
 
         padding:
-            12px 3px;
+            12px 2px;
 
     }
 
     .counter-number {
 
-        font-size: 23px;
+        font-size:
+            21px;
 
     }
 
     .counter-label {
 
-        font-size: 9px;
+        font-size:
+            8px;
+
+        letter-spacing:
+            .5px;
 
     }
 
-    .diary-top {
+    .paper {
 
-        flex-direction:
-            column;
+        padding:
+            25px 18px;
+
+    }
+
+    .memory-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .diary-bar {
 
         align-items:
             flex-start;
 
     }
 
-    .logout-button {
+}
 
-        align-self:
-            flex-end;
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (
+    max-width: 390px
+) {
+
+    .bear-stage {
+
+        transform:
+            scale(.68);
+
+        margin-bottom:
+            -50px;
 
     }
 
-    .peek-bear {
+    .hero h1 {
 
-        font-size: 42px;
+        font-size:
+            39px;
 
-        right: 4px;
+    }
 
-        bottom: 5px;
+    .counter-number {
+
+        font-size:
+            18px;
 
     }
 
@@ -2454,7 +2471,9 @@ footer {
    REDUCED MOTION
    ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (
+    prefers-reduced-motion: reduce
+) {
 
     *,
     *::before,
@@ -2482,16 +2501,16 @@ footer {
 
 
 <!-- =======================================================
-     BACKGROUND
+     FLOATING STICKERS
      ======================================================= -->
 
-<div class="background-stickers">
+<div class="sticker-layer">
 
-    <div class="float-heart">❤️</div>
-    <div class="float-heart">💕</div>
-    <div class="float-heart">💗</div>
-    <div class="float-heart">💖</div>
-    <div class="float-heart">❤️</div>
+    <div class="float-sticker">💗</div>
+    <div class="float-sticker">✨</div>
+    <div class="float-sticker">💕</div>
+    <div class="float-sticker">🌸</div>
+    <div class="float-sticker">💖</div>
 
     <div class="sparkle">✦</div>
     <div class="sparkle">✧</div>
@@ -2502,35 +2521,31 @@ footer {
 
 
 <!-- =======================================================
-     PEEKING BEAR
+     APP
      ======================================================= -->
 
-<div class="peek-bear">
-    🧸💕
-</div>
-
-
-<div class="container">
+<main class="app">
 
 
 <!-- =======================================================
-     HEADER
+     HERO
      ======================================================= -->
 
-<header>
+<section class="hero">
 
 
-    <div class="bear-couple">
+    <div class="bear-stage">
 
 
         <!-- BOY BEAR -->
 
-        <div class="bear boy">
+        <div class="bear">
 
-            <div class="bear-ear left"></div>
-            <div class="bear-ear right"></div>
 
             <div class="bear-head">
+
+                <div class="bear-ear left"></div>
+                <div class="bear-ear right"></div>
 
                 <div class="bear-eye left"></div>
                 <div class="bear-eye right"></div>
@@ -2541,11 +2556,13 @@ footer {
                 <div class="bear-muzzle">
 
                     <div class="bear-nose"></div>
+
                     <div class="bear-mouth"></div>
 
                 </div>
 
             </div>
+
 
             <div class="bear-body">
 
@@ -2553,19 +2570,18 @@ footer {
 
             </div>
 
+
             <div class="bear-arm left"></div>
             <div class="bear-arm right"></div>
 
             <div class="bear-foot left"></div>
             <div class="bear-foot right"></div>
 
-        </div>
 
+            <div class="bear-heart">
+                ❤️
+            </div>
 
-        <!-- HEART -->
-
-        <div class="couple-heart">
-            💗
         </div>
 
 
@@ -2573,14 +2589,16 @@ footer {
 
         <div class="bear girl">
 
+
             <div class="bow">
                 🎀
             </div>
 
-            <div class="bear-ear left"></div>
-            <div class="bear-ear right"></div>
 
             <div class="bear-head">
+
+                <div class="bear-ear left"></div>
+                <div class="bear-ear right"></div>
 
                 <div class="bear-eye left"></div>
                 <div class="bear-eye right"></div>
@@ -2591,11 +2609,13 @@ footer {
                 <div class="bear-muzzle">
 
                     <div class="bear-nose"></div>
+
                     <div class="bear-mouth"></div>
 
                 </div>
 
             </div>
+
 
             <div class="bear-body">
 
@@ -2603,11 +2623,22 @@ footer {
 
             </div>
 
+
             <div class="bear-arm left"></div>
             <div class="bear-arm right"></div>
 
             <div class="bear-foot left"></div>
             <div class="bear-foot right"></div>
+
+
+            <div class="bear-heart">
+                💗
+            </div>
+
+
+            <div class="mini-love">
+                💕
+            </div>
 
         </div>
 
@@ -2615,38 +2646,49 @@ footer {
     </div>
 
 
-    <div class="sticker-label">
-        just us two ♡
-    </div>
-
-
     <h1>
-        Our Little Time Capsule
+        Our Little World
     </h1>
 
 
-    <div class="divider">
-        <span>♡</span>
+    <div class="badges">
+
+        <div class="badge">
+            🧸 just us
+        </div>
+
+        <div class="badge">
+            💌 our memories
+        </div>
+
+        <div class="badge">
+            ♾️ forever
+        </div>
+
     </div>
 
 
-    <p class="subtitle">
+    <p class="hero-subtitle">
 
-        A little place for our memories,
+        A tiny corner of the internet
+        where our little moments get to stay. ♡
+
         <br>
-        our moments, and everything in between. ❤️
+
+        Photos, stories, silly things,
+        and everything we'll want to remember.
 
     </p>
 
 
-</header>
+</section>
 
 
 <!-- =======================================================
      LOVE COUNTER
      ======================================================= -->
 
-<div class="love-counter">
+<section class="counter">
 
 
     <div class="counter-heart">
@@ -2654,24 +2696,20 @@ footer {
     </div>
 
 
-    <div class="counter-title">
-        Our Time Together
-    </div>
+    <h2>
+        We've Been Us For...
+    </h2>
 
 
-    <div class="counter-date">
-
-        Since 6 December 2025 ·
-        still counting ·
-        forever ♾️
-
-    </div>
+    <p>
+        Since 6 December 2025 · and counting ♾️
+    </p>
 
 
     <div class="counter-grid">
 
 
-        <div class="counter-box">
+        <div class="counter-unit">
 
             <div
                 class="counter-number"
@@ -2687,7 +2725,7 @@ footer {
         </div>
 
 
-        <div class="counter-box">
+        <div class="counter-unit">
 
             <div
                 class="counter-number"
@@ -2703,7 +2741,7 @@ footer {
         </div>
 
 
-        <div class="counter-box">
+        <div class="counter-unit">
 
             <div
                 class="counter-number"
@@ -2719,7 +2757,7 @@ footer {
         </div>
 
 
-        <div class="counter-box">
+        <div class="counter-unit">
 
             <div
                 class="counter-number"
@@ -2738,32 +2776,41 @@ footer {
     </div>
 
 
-    <div class="counter-line"></div>
-
-
-</div>
+</section>
 
 
 <!-- =======================================================
      LOGIN
      ======================================================= -->
 
-<div
-    class="card"
+<section
+    class="paper"
     id="loginSection"
 >
 
 
-    <div class="login-title">
-        🔐 Our Private Diary
+    <div class="paper-sticker">
+        🔐
     </div>
 
 
-    <div class="login-subtitle">
-
-        This little place is just for us. ❤️
-
+    <div class="login-sticker">
+        💌
     </div>
+
+
+    <h2 class="section-title">
+        Our Private Little Place
+    </h2>
+
+
+    <p class="section-subtitle">
+
+        Two people.
+        One tiny diary.
+        A ridiculous amount of memories. 🧸❤️
+
+    </p>
 
 
     <label for="loginEmail">
@@ -2774,7 +2821,7 @@ footer {
     <input
         type="email"
         id="loginEmail"
-        placeholder="Enter your email"
+        placeholder="Our diary email"
         autocomplete="email"
     >
 
@@ -2787,17 +2834,19 @@ footer {
     <input
         type="password"
         id="loginPassword"
-        placeholder="Enter your password"
+        placeholder="Our secret password"
         autocomplete="current-password"
     >
 
 
     <button
-        class="login-button"
+        class="cute-button"
         id="loginButton"
         type="button"
     >
-        Enter Our Diary ❤️
+
+        Open Our Little World 🧸♡
+
     </button>
 
 
@@ -2807,33 +2856,39 @@ footer {
     ></div>
 
 
-</div>
+</section>
 
 
 <!-- =======================================================
      DIARY
      ======================================================= -->
 
-<div id="diarySection">
+<section
+    id="diarySection"
+>
 
 
-    <div class="diary-top">
+    <!-- TOP BAR -->
+
+    <div class="diary-bar">
 
 
         <div
-            class="diary-welcome"
+            class="welcome"
             id="diaryWelcome"
         >
-            Welcome back ❤️
+            Welcome back, love. ♡
         </div>
 
 
         <button
-            class="logout-button"
+            class="logout"
             id="logoutButton"
             type="button"
         >
-            Logout
+
+            Lock diary 🔐
+
         </button>
 
 
@@ -2841,36 +2896,86 @@ footer {
 
 
     <!-- ===================================================
+         LOVE LETTER
+         =================================================== -->
+
+    <article class="paper letter">
+
+
+        <div class="paper-sticker">
+            💗
+        </div>
+
+
+        <h2>
+            💌 A Little Note For Us
+        </h2>
+
+
+        <p>
+
+Some things deserve a place where they don't disappear.
+
+This is ours.
+
+Every photo.
+Every stupid little story.
+Every day that made us laugh.
+Every tiny thing that one day we'll almost forget.
+
+We'll put them here...
+
+and years from now,
+we can open this little world
+and remember what it felt like to be us. 🧸❤️
+
+        </p>
+
+
+    </article>
+
+
+    <!-- ===================================================
          MUSIC
          =================================================== -->
 
-    <div
-        class="music-card"
+    <article
+        class="paper music"
         id="musicCard"
     >
 
 
-        <div class="music-icon">
-            🎵
+        <div class="music-cassette">
+
+            <div class="cassette-label">
+                OUR SONG ♡
+            </div>
+
+            <div
+                class="cassette-hole left"
+            ></div>
+
+            <div
+                class="cassette-hole right"
+            ></div>
+
         </div>
 
 
-        <div class="music-title">
-            Our Song ❤️
-        </div>
+        <h2>
+            🎵 Our Little Soundtrack
+        </h2>
 
 
-        <div class="music-subtitle">
-
-            A little soundtrack to our memories...
-
-        </div>
+        <p>
+            Put the song on while we look through our memories.
+        </p>
 
 
         <audio
             id="ourSong"
-            preload="auto"
             controls
+            preload="metadata"
             playsinline
         >
 
@@ -2879,85 +2984,71 @@ footer {
                 type="audio/mpeg"
             >
 
-            Your browser does not support audio.
-
         </audio>
 
 
         <button
-            class="music-button"
+            class="cute-button music-button"
             id="musicButton"
             type="button"
         >
+
             ▶ Play Our Song
+
         </button>
 
 
         <div
             id="musicStatus"
-            class="music-status"
+            class="status"
         >
+
             Until I Found You ❤️
+
         </div>
 
 
-    </div>
-
-
-    <!-- ===================================================
-         TO US
-         =================================================== -->
-
-    <div class="card">
-
-
-        <h2>
-            To Us 🌷
-        </h2>
-
-
-        <p>
-
-            Some moments are too beautiful to be forgotten.
-
-            So this little corner of the internet is for us —
-            a place where we can leave pieces of our story,
-            our silly moments, our photographs,
-            and all the little things we never want to lose. ❤️
-
-        </p>
-
-
-    </div>
+    </article>
 
 
     <!-- ===================================================
          ADD MEMORY
          =================================================== -->
 
-    <div class="card">
+    <article class="paper">
 
 
-        <h2>
-            ✨ Add a Memory
+        <div class="paper-sticker">
+            📸
+        </div>
+
+
+        <h2 class="section-title">
+            ✨ Add A Little Memory
         </h2>
 
 
+        <p class="section-subtitle">
+
+            Give today's moment a tiny home here.
+
+        </p>
+
+
         <label for="title">
-            Memory title
+            What should we call it? 💭
         </label>
 
 
         <input
             type="text"
             id="title"
-            placeholder="Our first date..."
-            maxlength="200"
+            placeholder="The day we..."
         >
 
 
         <label for="date">
-            Date
+            When was it? 📅
         </label>
 
 
@@ -2968,35 +3059,36 @@ footer {
 
 
         <label for="message">
-            What happened?
+            Tell our future selves... 💌
         </label>
 
 
         <textarea
             id="message"
-            placeholder="Write about this memory..."
-            maxlength="10000"
+            placeholder="Write everything you don't want us to forget..."
         ></textarea>
 
 
         <label for="photo">
-            Add a photo 📷
+            Add the photo 📷
         </label>
 
 
         <input
             type="file"
             id="photo"
-            accept="image/png,image/jpeg,image/webp,image/gif"
+            accept="image/jpeg,image/png,image/webp,image/gif"
         >
 
 
         <button
-            class="save-button"
+            class="cute-button"
             id="saveButton"
             type="button"
         >
-            Save Memory ❤️
+
+            🧸 Save This Little Moment ♡
+
         </button>
 
 
@@ -3006,49 +3098,60 @@ footer {
         ></div>
 
 
-    </div>
+    </article>
 
 
     <!-- ===================================================
          MEMORIES
          =================================================== -->
 
-    <div class="card">
+    <article class="paper">
 
 
-        <h2>
-            📖 Our Memories
+        <div class="paper-sticker">
+            📖
+        </div>
+
+
+        <h2 class="memories-title">
+            📖 Our Memory Wall
         </h2>
+
+
+        <p class="section-subtitle">
+
+            Little pieces of us,
+            kept safe in one place. ♡
+
+        </p>
 
 
         <div
             id="memories"
-            class="memories"
+            class="memory-grid"
         >
+
 
             <div class="loading">
-                Loading our memories... ❤️
+
+                <div class="loading-bears">
+                    🧸🧸
+                </div>
+
+                <br>
+
+                Bringing our memories...
+
             </div>
 
+
         </div>
 
 
-        <div
-            style="
-                text-align:center;
-                margin-top:35px;
-                opacity:.7;
-                letter-spacing:5px;
-            "
-        >
-            ♡ · · · ❤️ · · · ♡
-        </div>
+    </article>
 
 
-    </div>
-
-
-</div>
+</section>
 
 
 <!-- =======================================================
@@ -3057,33 +3160,31 @@ footer {
 
 <footer>
 
-    <div class="footer-bear">
-        🧸
+    <div class="footer-bears">
+        🧸♡🧸
     </div>
 
-    <br>
-
-    Made with love, for the two of us. ❤️
+    Our little world.
+    Our little memories.
+    Our forever scrapbook. ❤️
 
 </footer>
 
 
-</div>
+</main>
 
 
 <script>
 
 /* =========================================================
-   SUPABASE CONFIG
+   SUPABASE CONFIGURATION
    ========================================================= */
 
 const SUPABASE_URL =
     "https://yvemsrkuwbrnzdbgflcu.supabase.co";
 
-
 const SUPABASE_KEY =
     "sb_publishable_3spcyR5MKfTopABgbPVHXw_0ZVVmoES";
-
 
 const TABLE =
     "memories";
@@ -3098,6 +3199,8 @@ const supabaseClient =
 
 /* =========================================================
    LOVE COUNTER
+   START:
+   6 DECEMBER 2025
    ========================================================= */
 
 const relationshipStart =
@@ -3111,14 +3214,14 @@ function updateLoveCounter() {
     const now =
         new Date();
 
-
     let difference =
         now.getTime()
         -
         relationshipStart.getTime();
 
-
-    if (difference < 0) {
+    if (
+        difference < 0
+    ) {
 
         difference = 0;
 
@@ -3139,13 +3242,15 @@ function updateLoveCounter() {
 
     const hours =
         Math.floor(
-            (totalSeconds % 86400) / 3600
+            (totalSeconds % 86400)
+            / 3600
         );
 
 
     const minutes =
         Math.floor(
-            (totalSeconds % 3600) / 60
+            (totalSeconds % 3600)
+            / 60
         );
 
 
@@ -3153,31 +3258,40 @@ function updateLoveCounter() {
         totalSeconds % 60;
 
 
-    document
-        .getElementById("days")
-        .textContent =
-            days.toLocaleString();
+    document.getElementById(
+        "days"
+    ).textContent =
+        days.toLocaleString();
 
 
-    document
-        .getElementById("hours")
-        .textContent =
-            String(hours)
-            .padStart(2,"0");
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours)
+            .padStart(
+                2,
+                "0"
+            );
 
 
-    document
-        .getElementById("minutes")
-        .textContent =
-            String(minutes)
-            .padStart(2,"0");
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes)
+            .padStart(
+                2,
+                "0"
+            );
 
 
-    document
-        .getElementById("seconds")
-        .textContent =
-            String(seconds)
-            .padStart(2,"0");
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds)
+            .padStart(
+                2,
+                "0"
+            );
 
 }
 
@@ -3192,7 +3306,7 @@ setInterval(
 
 
 /* =========================================================
-   ELEMENTS
+   DOM ELEMENTS
    ========================================================= */
 
 const loginSection =
@@ -3268,7 +3382,9 @@ function showLogin() {
    SHOW DIARY
    ========================================================= */
 
-function showDiary(user) {
+function showDiary(
+    user
+) {
 
     loginSection.style.display =
         "none";
@@ -3277,10 +3393,23 @@ function showDiary(user) {
         "block";
 
 
-    diaryWelcome.textContent =
-        user && user.email
-            ? "Welcome back ❤️ " + user.email
-            : "Welcome back ❤️";
+    if (
+        user &&
+        user.email
+    ) {
+
+        diaryWelcome.textContent =
+            "Welcome back ❤️ " +
+            user.email;
+
+    }
+
+    else {
+
+        diaryWelcome.textContent =
+            "Welcome back ❤️";
+
+    }
 
 
     loadMemories();
@@ -3293,6 +3422,7 @@ function showDiary(user) {
    ========================================================= */
 
 async function login() {
+
 
     const email =
         document
@@ -3311,7 +3441,10 @@ async function login() {
             .value;
 
 
-    if (!email || !password) {
+    if (
+        !email ||
+        !password
+    ) {
 
         loginStatus.className =
             "status error";
@@ -3327,18 +3460,21 @@ async function login() {
     loginButton.disabled =
         true;
 
+
     loginButton.textContent =
-        "Opening our diary... ❤️";
+        "Opening our little world... 🧸";
 
 
     loginStatus.className =
         "status";
 
+
     loginStatus.textContent =
-        "Checking your private diary...";
+        "Checking our private diary...";
 
 
     try {
+
 
         const {
             data,
@@ -3357,17 +3493,23 @@ async function login() {
                 });
 
 
-        if (error) {
+        if (
+            error
+        ) {
 
             throw error;
 
         }
 
 
-        if (!data.session) {
+        if (
+            !data ||
+            !data.session ||
+            !data.user
+        ) {
 
             throw new Error(
-                "Login session could not be created."
+                "No login session was created."
             );
 
         }
@@ -3376,7 +3518,6 @@ async function login() {
         loginStatus.textContent =
             "";
 
-
         showDiary(
             data.user
         );
@@ -3384,10 +3525,13 @@ async function login() {
 
     }
 
-    catch (error) {
+
+    catch (
+        error
+    ) {
 
         console.error(
-            "Login error:",
+            "LOGIN ERROR:",
             error
         );
 
@@ -3398,9 +3542,10 @@ async function login() {
 
         loginStatus.textContent =
             error.message ||
-            "Couldn't log in. Please check your details.";
+            "Couldn't open the diary.";
 
     }
+
 
     finally {
 
@@ -3408,7 +3553,7 @@ async function login() {
             false;
 
         loginButton.textContent =
-            "Enter Our Diary ❤️";
+            "Open Our Little World 🧸♡";
 
     }
 
@@ -3423,16 +3568,29 @@ async function logout() {
 
     try {
 
-        await supabaseClient
-            .auth
-            .signOut();
+        const {
+            error
+        } =
+            await supabaseClient
+                .auth
+                .signOut();
+
+        if (
+            error
+        ) {
+
+            throw error;
+
+        }
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
-            "Logout error:",
+            "LOGOUT ERROR:",
             error
         );
 
@@ -3444,8 +3602,9 @@ async function logout() {
     loginStatus.className =
         "status";
 
+
     loginStatus.textContent =
-        "Logged out ❤️";
+        "Diary locked again 🔐❤️";
 
 }
 
@@ -3457,10 +3616,10 @@ async function logout() {
 supabaseClient
     .auth
     .onAuthStateChange(
-        function(
+        (
             event,
             session
-        ) {
+        ) => {
 
             if (
                 session &&
@@ -3484,7 +3643,7 @@ supabaseClient
 
 
 /* =========================================================
-   SESSION CHECK
+   INITIAL SESSION
    ========================================================= */
 
 async function checkSession() {
@@ -3500,7 +3659,9 @@ async function checkSession() {
                 .getSession();
 
 
-        if (error) {
+        if (
+            error
+        ) {
 
             throw error;
 
@@ -3508,6 +3669,7 @@ async function checkSession() {
 
 
         if (
+            data &&
             data.session &&
             data.session.user
         ) {
@@ -3526,10 +3688,12 @@ async function checkSession() {
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
-            "Session error:",
+            "SESSION ERROR:",
             error
         );
 
@@ -3544,132 +3708,35 @@ checkSession();
 
 
 /* =========================================================
-   IMAGE COMPRESSION
+   FILE TO DATA URL
    ========================================================= */
 
-/*
-   PNG/JPG/WEBP files are accepted.
-
-   The browser converts large images to a smaller JPEG
-   before saving. This prevents huge base64 strings from
-   unnecessarily filling the database.
-*/
-
-function compressImage(file) {
+function fileToDataURL(
+    file
+) {
 
     return new Promise(
-        function(
+        (
             resolve,
             reject
-        ) {
+        ) => {
 
             const reader =
                 new FileReader();
 
 
             reader.onload =
-                function(event) {
+                () => {
 
-                    const img =
-                        new Image();
-
-
-                    img.onload =
-                        function() {
-
-                            const maxWidth =
-                                1400;
-
-
-                            let width =
-                                img.width;
-
-
-                            let height =
-                                img.height;
-
-
-                            if (
-                                width >
-                                maxWidth
-                            ) {
-
-                                height =
-                                    Math.round(
-                                        height *
-                                        maxWidth /
-                                        width
-                                    );
-
-                                width =
-                                    maxWidth;
-
-                            }
-
-
-                            const canvas =
-                                document.createElement(
-                                    "canvas"
-                                );
-
-
-                            canvas.width =
-                                width;
-
-
-                            canvas.height =
-                                height;
-
-
-                            const ctx =
-                                canvas.getContext(
-                                    "2d"
-                                );
-
-
-                            ctx.drawImage(
-                                img,
-                                0,
-                                0,
-                                width,
-                                height
-                            );
-
-
-                            const result =
-                                canvas.toDataURL(
-                                    "image/jpeg",
-                                    .78
-                                );
-
-
-                            resolve(
-                                result
-                            );
-
-                        };
-
-
-                    img.onerror =
-                        function() {
-
-                            reject(
-                                new Error(
-                                    "Could not process the photo."
-                                )
-                            );
-
-                        };
-
-
-                    img.src =
-                        event.target.result;
+                    resolve(
+                        reader.result
+                    );
 
                 };
 
 
             reader.onerror =
-                function() {
+                () => {
 
                     reject(
                         new Error(
@@ -3694,7 +3761,9 @@ function compressImage(file) {
    ESCAPE HTML
    ========================================================= */
 
-function escapeHTML(value) {
+function escapeHTML(
+    value
+) {
 
     if (
         value === null ||
@@ -3742,11 +3811,18 @@ function escapeHTML(value) {
 
 async function loadMemories() {
 
+
     memoriesContainer.innerHTML = `
 
         <div class="loading">
 
-            Loading our memories... ❤️
+            <div class="loading-bears">
+                🧸🧸
+            </div>
+
+            <br>
+
+            Bringing our memories...
 
         </div>
 
@@ -3755,18 +3831,49 @@ async function loadMemories() {
 
     try {
 
+
+        /*
+           IMPORTANT:
+
+           We get the current authenticated
+           user first.
+
+           This makes the query compatible
+           with the user_id RLS policy.
+        */
+
+        const {
+            data: {
+                user
+            }
+        } =
+            await supabaseClient
+                .auth
+                .getUser();
+
+
+        if (
+            !user
+        ) {
+
+            throw new Error(
+                "You are not logged in."
+            );
+
+        }
+
+
         const {
             data,
             error
         } =
             await supabaseClient
-
                 .from(TABLE)
-
-                .select(
-                    "id,title,date,message,image,created_at,user_id"
+                .select("*")
+                .eq(
+                    "user_id",
+                    user.id
                 )
-
                 .order(
                     "created_at",
                     {
@@ -3776,7 +3883,9 @@ async function loadMemories() {
                 );
 
 
-        if (error) {
+        if (
+            error
+        ) {
 
             throw error;
 
@@ -3787,12 +3896,15 @@ async function loadMemories() {
             data || []
         );
 
+
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
-            "Load memories error:",
+            "LOAD MEMORIES ERROR:",
             error
         );
 
@@ -3801,12 +3913,18 @@ async function loadMemories() {
 
             <div class="empty">
 
-                Couldn't load our memories right now. ❤️
+                <div class="empty-bear">
+                    🧸
+                </div>
+
+                Couldn't bring the memories right now. ❤️
 
                 <br><br>
 
-                Check that the SELECT RLS policy
-                uses <b>auth.uid() = user_id</b>.
+                ${escapeHTML(
+                    error.message ||
+                    "Please try again."
+                )}
 
             </div>
 
@@ -3825,6 +3943,7 @@ function displayMemories(
     memories
 ) {
 
+
     if (
         !memories ||
         memories.length === 0
@@ -3832,13 +3951,22 @@ function displayMemories(
 
         memoriesContainer.innerHTML = `
 
-            <div class="empty">
+            <div
+                class="empty"
+                style="grid-column:1/-1;"
+            >
 
-                No memories yet... ❤️
+                <div class="empty-bear">
+                    🧸💗🧸
+                </div>
 
                 <br>
 
-                Let's make the first one.
+                Our memory wall is waiting...
+
+                <br>
+
+                Let's put our first little moment here. ♡
 
             </div>
 
@@ -3854,7 +3982,10 @@ function displayMemories(
 
 
     memories.forEach(
-        function(memory) {
+        (
+            memory
+        ) => {
+
 
             const article =
                 document.createElement(
@@ -3882,7 +4013,9 @@ function displayMemories(
                 "";
 
 
-            if (memory.date) {
+            if (
+                memory.date
+            ) {
 
                 const dateObject =
                     new Date(
@@ -3892,25 +4025,27 @@ function displayMemories(
 
 
                 const formattedDate =
-                    dateObject.toLocaleDateString(
-                        undefined,
-                        {
-                            day:
-                                "numeric",
+                    dateObject
+                        .toLocaleDateString(
+                            undefined,
+                            {
+                                day:
+                                    "numeric",
 
-                            month:
-                                "long",
+                                month:
+                                    "short",
 
-                            year:
-                                "numeric"
-                        }
-                    );
+                                year:
+                                    "numeric"
+                            }
+                        );
 
 
                 dateHTML = `
 
-                    <div class="date">
+                    <div class="memory-date">
 
+                        📅
                         ${escapeHTML(
                             formattedDate
                         )}
@@ -3923,7 +4058,17 @@ function displayMemories(
 
 
             let imageHTML =
-                "";
+                `
+
+                <div class="memory-image-wrap">
+
+                    <div class="no-photo">
+                        🧸♡
+                    </div>
+
+                </div>
+
+            `;
 
 
             if (
@@ -3932,13 +4077,17 @@ function displayMemories(
 
                 imageHTML = `
 
-                    <img
-                        src="${escapeHTML(
-                            memory.image
-                        )}"
-                        alt="Our memory"
-                        loading="lazy"
-                    >
+                    <div class="memory-image-wrap">
+
+                        <img
+                            src="${escapeHTML(
+                                memory.image
+                            )}"
+                            alt="Our memory"
+                            loading="lazy"
+                        >
+
+                    </div>
 
                 `;
 
@@ -3947,17 +4096,21 @@ function displayMemories(
 
             article.innerHTML = `
 
-                <h3>
-                    ${title}
-                </h3>
-
-                ${dateHTML}
-
-                <p>
-                    ${message}
-                </p>
-
                 ${imageHTML}
+
+                <div class="memory-content">
+
+                    <h3>
+                        ${title}
+                    </h3>
+
+                    ${dateHTML}
+
+                    <p>
+                        ${message}
+                    </p>
+
+                </div>
 
             `;
 
@@ -3977,6 +4130,7 @@ function displayMemories(
    ========================================================= */
 
 async function saveMemory() {
+
 
     const title =
         document
@@ -4011,10 +4165,6 @@ async function saveMemory() {
             );
 
 
-    /* =============================================
-       VALIDATION
-       ============================================= */
-
     if (
         !title ||
         !message
@@ -4024,7 +4174,7 @@ async function saveMemory() {
             "status error";
 
         status.textContent =
-            "Please add a title and message ❤️";
+            "Give this little memory a title and a story ❤️";
 
         return;
 
@@ -4034,47 +4184,42 @@ async function saveMemory() {
     saveButton.disabled =
         true;
 
+
     saveButton.textContent =
-        "Saving our memory... ❤️";
+        "Saving our little moment... 🧸";
 
 
     status.className =
         "status";
 
+
     status.textContent =
-        "Saving...";
+        "Putting it safely in our diary...";
 
 
     try {
+
 
         /* =============================================
            GET AUTHENTICATED USER
            ============================================= */
 
         const {
-            data: userData,
-            error: userError
+            data: {
+                user
+            }
         } =
             await supabaseClient
                 .auth
                 .getUser();
 
 
-        if (userError) {
-
-            throw userError;
-
-        }
-
-
-        const user =
-            userData?.user;
-
-
-        if (!user) {
+        if (
+            !user
+        ) {
 
             throw new Error(
-                "Your diary session has expired. Please log in again. ❤️"
+                "Your login session has expired. Please log in again."
             );
 
         }
@@ -4093,17 +4238,18 @@ async function saveMemory() {
             photoInput.files.length > 0
         ) {
 
+
             const file =
                 photoInput.files[0];
 
 
             if (
                 file.size >
-                15 * 1024 * 1024
+                5 * 1024 * 1024
             ) {
 
                 throw new Error(
-                    "That photo is over 15 MB. Please choose a smaller one."
+                    "That photo is bigger than 5 MB. Please choose a smaller one."
                 );
 
             }
@@ -4116,18 +4262,14 @@ async function saveMemory() {
             ) {
 
                 throw new Error(
-                    "Please choose an image file."
+                    "Please choose a photo file."
                 );
 
             }
 
 
-            status.textContent =
-                "Preparing the photo... 📸";
-
-
             image =
-                await compressImage(
+                await fileToDataURL(
                     file
                 );
 
@@ -4136,26 +4278,23 @@ async function saveMemory() {
 
         /* =============================================
            INSERT
-           ============================================= */
 
-        /*
-         * THIS FIXES YOUR RLS ERROR.
-         *
-         * Your policy checks:
-         *
-         * auth.uid() = user_id
-         *
-         * Therefore the insert MUST contain
-         * the logged-in user's UUID.
-         */
+           THIS IS THE IMPORTANT RLS FIX.
+
+           Your policy expects:
+
+           auth.uid() = user_id
+
+           So we explicitly send:
+
+           user_id: user.id
+        ============================================= */
 
         const {
             error
         } =
             await supabaseClient
-
                 .from(TABLE)
-
                 .insert({
 
                     user_id:
@@ -4176,12 +4315,9 @@ async function saveMemory() {
                 });
 
 
-        if (error) {
-
-            console.error(
-                "Supabase insert error:",
-                error
-            );
+        if (
+            error
+        ) {
 
             throw error;
 
@@ -4190,14 +4326,14 @@ async function saveMemory() {
 
         /* =============================================
            SUCCESS
-           ============================================= */
+        ============================================= */
 
         status.className =
             "status success";
 
 
         status.textContent =
-            "Memory saved... ❤️";
+            "Saved. Another little piece of us is safe. ❤️";
 
 
         document
@@ -4233,12 +4369,15 @@ async function saveMemory() {
 
         await loadMemories();
 
+
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
-            "Save memory error:",
+            "SAVE MEMORY ERROR:",
             error
         );
 
@@ -4259,7 +4398,7 @@ async function saveMemory() {
             false;
 
         saveButton.textContent =
-            "Save Memory ❤️";
+            "🧸 Save This Little Moment ♡";
 
     }
 
@@ -4272,76 +4411,92 @@ async function saveMemory() {
 
 function createCelebration() {
 
+
     const symbols = [
+
         "❤️",
         "💕",
         "💗",
-        "✨",
         "💖",
+        "✨",
+        "🌸",
         "🧸"
+
     ];
 
 
     for (
         let i = 0;
-        i < 15;
+        i < 18;
         i++
     ) {
 
-        const element =
+
+        const item =
             document.createElement(
                 "div"
             );
 
 
-        element.className =
+        item.className =
             "celebration";
 
 
-        element.textContent =
+        item.textContent =
             symbols[
                 Math.floor(
-                    Math.random() *
+                    Math.random()
+                    *
                     symbols.length
                 )
             ];
 
 
-        element.style.left =
+        item.style.left =
             "50%";
 
 
-        element.style.top =
-            "50%";
+        item.style.top =
+            "55%";
 
 
-        element.style.setProperty(
+        item.style.setProperty(
             "--x",
             (
-                Math.random() * 320
-                - 160
-            ) + "px"
+                Math.random()
+                *
+                360
+                -
+                180
+            )
+            +
+            "px"
         );
 
 
-        element.style.setProperty(
+        item.style.setProperty(
             "--y",
             (
-                Math.random() * 330
-                - 230
-            ) + "px"
+                Math.random()
+                *
+                350
+                -
+                250
+            )
+            +
+            "px"
         );
 
 
         document.body.appendChild(
-            element
+            item
         );
 
 
         setTimeout(
-            function() {
+            () => {
 
-                element.remove();
+                item.remove();
 
             },
             1600
@@ -4382,7 +4537,8 @@ const musicCard =
 
 musicButton.addEventListener(
     "click",
-    async function() {
+    async () => {
+
 
         if (
             ourSong.paused
@@ -4394,16 +4550,17 @@ musicButton.addEventListener(
 
             }
 
-            catch (error) {
+            catch (
+                error
+            ) {
 
                 console.error(
-                    "Audio error:",
+                    "MUSIC ERROR:",
                     error
                 );
 
-
                 musicStatus.textContent =
-                    "Couldn't play the song. Check Until_I_Found_You.mp3 ❤️";
+                    "Couldn't play it. Make sure Until_I_Found_You.mp3 is in the repository. ❤️";
 
             }
 
@@ -4421,7 +4578,7 @@ musicButton.addEventListener(
 
 ourSong.addEventListener(
     "play",
-    function() {
+    () => {
 
         musicCard.classList.add(
             "playing"
@@ -4433,7 +4590,7 @@ ourSong.addEventListener(
 
 
         musicStatus.textContent =
-            "Playing Until I Found You ❤️";
+            "Playing our little soundtrack... ❤️";
 
     }
 );
@@ -4441,7 +4598,7 @@ ourSong.addEventListener(
 
 ourSong.addEventListener(
     "pause",
-    function() {
+    () => {
 
         musicCard.classList.remove(
             "playing"
@@ -4467,7 +4624,7 @@ ourSong.addEventListener(
 
 ourSong.addEventListener(
     "ended",
-    function() {
+    () => {
 
         musicCard.classList.remove(
             "playing"
@@ -4487,7 +4644,7 @@ ourSong.addEventListener(
 
 ourSong.addEventListener(
     "error",
-    function() {
+    () => {
 
         musicCard.classList.remove(
             "playing"
@@ -4495,7 +4652,7 @@ ourSong.addEventListener(
 
 
         musicStatus.textContent =
-            "Song couldn't be loaded. Check that Until_I_Found_You.mp3 is in the repository.";
+            "Song not found. Check Until_I_Found_You.mp3.";
 
     }
 );
@@ -4524,7 +4681,7 @@ saveButton.addEventListener(
 
 
 /* =========================================================
-   ENTER TO LOGIN
+   LOGIN ENTER KEY
    ========================================================= */
 
 document
@@ -4533,7 +4690,7 @@ document
     )
     .addEventListener(
         "keydown",
-        function(event) {
+        event => {
 
             if (
                 event.key ===
@@ -4548,13 +4705,17 @@ document
     );
 
 
+/* =========================================================
+   EMAIL ENTER KEY
+   ========================================================= */
+
 document
     .getElementById(
         "loginEmail"
     )
     .addEventListener(
         "keydown",
-        function(event) {
+        event => {
 
             if (
                 event.key ===
