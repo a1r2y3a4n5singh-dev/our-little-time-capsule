@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#c05f82">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#c05f82">
+
+<meta name="description"
+      content="Our private little time capsule ❤️">
+
 <title>Our Little Time Capsule ❤️</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -14,153 +24,244 @@
    ROOT
    ========================================================= */
 
-:root{
-    --rose:#c05f82;
-    --rose2:#e48eaa;
-    --deep:#91445f;
-    --soft:#e9b5c5;
-    --pink:#fff0f5;
-    --cream:#fffaf8;
-    --paper:rgba(255,253,251,.96);
-    --text:#593c45;
-    --muted:#80616a;
-    --gold:#e9b75f;
-    --shadow:rgba(90,45,65,.15);
+:root {
+
+    --rose: #c05f82;
+    --rose-dark: #91445f;
+    --rose-light: #e9b0c1;
+    --pink: #fff0f5;
+    --pink-2: #ffe2eb;
+
+    --cream: #fffaf8;
+    --paper: rgba(255,253,251,.965);
+
+    --brown: #593c45;
+    --muted: #80616a;
+
+    --gold: #e7b65f;
+
+    --shadow:
+        0 18px 50px
+        rgba(90,45,65,.14);
+
+    --soft-shadow:
+        0 10px 28px
+        rgba(90,45,65,.10);
+
 }
 
-*{
-    box-sizing:border-box;
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    margin:0;
-    min-height:100vh;
-    font-family:Georgia,"Times New Roman",serif;
-    color:var(--text);
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--brown);
 
     background:
         linear-gradient(
-            rgba(255,241,246,.70),
-            rgba(255,248,243,.82)
+            rgba(255,241,246,.76),
+            rgba(255,248,243,.86)
         ),
         url("./IMG-20260804-WA0035.jpg");
 
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    background-size: cover;
 
-    overflow-x:hidden;
+    background-position: center;
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+
 }
 
 
 /* =========================================================
-   BACKGROUND LIGHT
+   GLOBAL GLOW
    ========================================================= */
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
 
     background:
+
         radial-gradient(
             circle at 10% 10%,
-            rgba(255,255,255,.65),
+            rgba(255,255,255,.7),
             transparent 25%
         ),
+
         radial-gradient(
             circle at 90% 30%,
-            rgba(255,205,225,.35),
+            rgba(255,210,225,.32),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 50% 90%,
-            rgba(255,225,210,.35),
+            rgba(255,230,215,.3),
             transparent 32%
         );
+
 }
 
 
 /* =========================================================
-   FLOATING DECOR
+   DECORATION LAYER
    ========================================================= */
 
-.decorations{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:1;
+.decorations {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+
 }
 
-.float-heart{
-    position:absolute;
-    bottom:-60px;
-    opacity:0;
-    animation:floatUp 11s linear infinite;
+
+/* =========================================================
+   FLOATING HEARTS
+   ========================================================= */
+
+.float-heart {
+
+    position: absolute;
+
+    bottom: -70px;
+
+    opacity: 0;
+
+    animation:
+        floatingHeart
+        11s linear infinite;
+
 }
 
-.float-heart:nth-child(1){
-    left:7%;
-    animation-delay:0s;
+.float-heart:nth-child(1) {
+
+    left: 7%;
+
+    animation-delay: 0s;
+
+    font-size: 18px;
+
 }
 
-.float-heart:nth-child(2){
-    left:22%;
-    animation-delay:3s;
+.float-heart:nth-child(2) {
+
+    left: 22%;
+
+    animation-delay: 3s;
+
+    font-size: 13px;
+
 }
 
-.float-heart:nth-child(3){
-    left:43%;
-    animation-delay:6s;
+.float-heart:nth-child(3) {
+
+    left: 43%;
+
+    animation-delay: 6s;
+
+    font-size: 21px;
+
 }
 
-.float-heart:nth-child(4){
-    left:68%;
-    animation-delay:2s;
+.float-heart:nth-child(4) {
+
+    left: 67%;
+
+    animation-delay: 2s;
+
+    font-size: 15px;
+
 }
 
-.float-heart:nth-child(5){
-    left:89%;
-    animation-delay:5s;
+.float-heart:nth-child(5) {
+
+    left: 89%;
+
+    animation-delay: 5s;
+
+    font-size: 19px;
+
 }
 
-@keyframes floatUp{
-    0%{
+@keyframes floatingHeart {
+
+    0% {
+
         transform:
             translateY(0)
             translateX(0)
             rotate(0)
             scale(.6);
-        opacity:0;
+
+        opacity: 0;
+
     }
 
-    12%{
-        opacity:.65;
+    12% {
+
+        opacity: .65;
+
     }
 
-    50%{
+    50% {
+
         transform:
             translateY(-55vh)
             translateX(25px)
             rotate(18deg)
             scale(1);
+
     }
 
-    100%{
+    100% {
+
         transform:
             translateY(-115vh)
             translateX(-25px)
-            rotate(-18deg)
+            rotate(-20deg)
             scale(1.15);
-        opacity:0;
+
+        opacity: 0;
+
     }
+
 }
 
 
@@ -168,59 +269,101 @@ body::before{
    SPARKLES
    ========================================================= */
 
-.sparkle{
-    position:absolute;
-    color:rgba(192,95,130,.6);
-    animation:sparkle 3s ease-in-out infinite;
+.sparkle {
+
+    position: absolute;
+
+    color:
+        rgba(192,95,130,.58);
+
+    animation:
+        sparkleAnim
+        3s ease-in-out infinite;
+
 }
 
-.sparkle:nth-child(6){
-    top:14%;
-    left:9%;
+.sparkle:nth-child(6) {
+
+    top: 13%;
+
+    left: 9%;
+
 }
 
-.sparkle:nth-child(7){
-    top:31%;
-    right:8%;
-    animation-delay:.8s;
+.sparkle:nth-child(7) {
+
+    top: 31%;
+
+    right: 8%;
+
+    animation-delay: .8s;
+
 }
 
-.sparkle:nth-child(8){
-    top:62%;
-    left:6%;
-    animation-delay:1.5s;
+.sparkle:nth-child(8) {
+
+    top: 61%;
+
+    left: 6%;
+
+    animation-delay: 1.5s;
+
 }
 
-.sparkle:nth-child(9){
-    top:78%;
-    right:9%;
-    animation-delay:2s;
+.sparkle:nth-child(9) {
+
+    top: 79%;
+
+    right: 9%;
+
+    animation-delay: 2s;
+
 }
 
-@keyframes sparkle{
-    0%,100%{
-        transform:scale(.5) rotate(0);
-        opacity:.2;
+@keyframes sparkleAnim {
+
+    0%,100% {
+
+        transform:
+            scale(.5)
+            rotate(0);
+
+        opacity: .2;
+
     }
 
-    50%{
-        transform:scale(1.5) rotate(35deg);
-        opacity:.95;
+    50% {
+
+        transform:
+            scale(1.5)
+            rotate(35deg);
+
+        opacity: .95;
+
     }
+
 }
 
 
 /* =========================================================
-   MAIN
+   MAIN CONTAINER
    ========================================================= */
 
-.container{
-    position:relative;
-    z-index:5;
-    width:92%;
-    max-width:850px;
-    margin:auto;
-    padding:20px 0 80px;
+.container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 92%;
+
+    max-width: 860px;
+
+    margin: auto;
+
+    padding:
+        20px 0 90px;
+
 }
 
 
@@ -228,9 +371,13 @@ body::before{
    HEADER
    ========================================================= */
 
-header{
-    text-align:center;
-    padding:25px 8px 10px;
+header {
+
+    text-align: center;
+
+    padding:
+        25px 8px 10px;
+
 }
 
 
@@ -238,271 +385,578 @@ header{
    TEDDY COUPLE
    ========================================================= */
 
-.teddy-couple{
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap:15px;
-    height:150px;
-    margin-bottom:5px;
+.teddy-couple {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    gap: 14px;
+
+    height: 150px;
+
+    margin-bottom: 2px;
+
 }
 
-.teddy{
-    position:relative;
-    width:92px;
-    height:128px;
-    animation:teddyFloat 3.2s ease-in-out infinite;
-    filter:drop-shadow(0 8px 8px rgba(80,40,30,.13));
+.teddy {
+
+    position: relative;
+
+    width: 95px;
+
+    height: 128px;
+
+    animation:
+        teddyFloat
+        3.2s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 9px 9px
+            rgba(80,40,30,.13)
+        );
+
 }
 
-.teddy:nth-child(2){
-    animation-delay:.45s;
+.teddy:nth-child(2) {
+
+    animation-delay:
+        .45s;
+
 }
 
-.teddy-head{
-    position:absolute;
-    left:10px;
-    top:8px;
-    width:72px;
-    height:66px;
-    border-radius:48% 48% 45% 45%;
+
+/* =========================================================
+   TEDDY EARS
+   ========================================================= */
+
+.teddy-ear {
+
+    position: absolute;
+
+    width: 30px;
+
+    height: 30px;
+
+    top: -8px;
+
+    border-radius: 50%;
+
+    background:
+        #bd7651;
+
+    z-index: 1;
+
+}
+
+.teddy-ear.left {
+
+    left: 0;
+
+}
+
+.teddy-ear.right {
+
+    right: 0;
+
+}
+
+.teddy-ear::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 6px;
+
+    border-radius: 50%;
+
+    background:
+        #f1b7a1;
+
+}
+
+
+/* =========================================================
+   TEDDY HEAD
+   ========================================================= */
+
+.teddy-head {
+
+    position: absolute;
+
+    left: 11px;
+
+    top: 8px;
+
+    width: 73px;
+
+    height: 67px;
+
+    border-radius:
+        48%
+        48%
+        45%
+        45%;
 
     background:
         linear-gradient(
             145deg,
-            #d99a6c,
+            #dc9b6d,
             #ad694b
         );
 
     box-shadow:
-        inset -6px -7px rgba(90,45,30,.08);
+        inset -6px -7px
+        rgba(90,45,30,.08);
+
 }
+
+
+/* =========================================================
+   GIRL TEDDY
+   ========================================================= */
 
 .teddy.girl .teddy-head,
-.teddy.girl .teddy-body{
+.teddy.girl .teddy-body {
+
     background:
         linear-gradient(
             145deg,
-            #e3a08d,
+            #e3a18e,
             #b96f65
         );
+
 }
 
-.teddy-ear{
-    position:absolute;
-    top:-7px;
-    width:29px;
-    height:29px;
-    border-radius:50%;
-    background:#bc754f;
-    z-index:1;
+.teddy.girl .teddy-ear {
+
+    background:
+        #c98276;
+
 }
 
-.teddy-ear.left{
-    left:1px;
+
+/* =========================================================
+   TEDDY EYES
+   ========================================================= */
+
+.eye {
+
+    position: absolute;
+
+    top: 27px;
+
+    width: 7px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        #493036;
+
 }
 
-.teddy-ear.right{
-    right:1px;
+.eye.left {
+
+    left: 19px;
+
 }
 
-.teddy.girl .teddy-ear{
-    background:#c98276;
+.eye.right {
+
+    right: 19px;
+
 }
 
-.teddy-ear::after{
-    content:"";
-    position:absolute;
-    inset:6px;
-    border-radius:50%;
-    background:#f0b5a0;
+.eye::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 2px;
+
+    top: 1px;
+
+    left: 1px;
+
+    border-radius: 50%;
+
+    background: white;
+
 }
 
-.eye{
-    position:absolute;
-    top:27px;
-    width:7px;
-    height:8px;
-    border-radius:50%;
-    background:#493036;
+
+/* =========================================================
+   CHEEKS
+   ========================================================= */
+
+.cheek {
+
+    position: absolute;
+
+    top: 39px;
+
+    width: 10px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        #ee9e9e;
+
+    opacity: .65;
+
 }
 
-.eye.left{
-    left:19px;
+.cheek.left {
+
+    left: 10px;
+
 }
 
-.eye.right{
-    right:19px;
+.cheek.right {
+
+    right: 10px;
+
 }
 
-.eye::after{
-    content:"";
-    position:absolute;
-    width:2px;
-    height:2px;
-    top:1px;
-    left:1px;
-    border-radius:50%;
-    background:white;
+
+/* =========================================================
+   MUZZLE
+   ========================================================= */
+
+.muzzle {
+
+    position: absolute;
+
+    left: 22px;
+
+    top: 34px;
+
+    width: 29px;
+
+    height: 22px;
+
+    border-radius: 50%;
+
+    background:
+        #f0c4a8;
+
 }
 
-.cheek{
-    position:absolute;
-    top:38px;
-    width:10px;
-    height:6px;
-    border-radius:50%;
-    background:#ee9e9e;
-    opacity:.65;
+.nose {
+
+    position: absolute;
+
+    left: 10px;
+
+    top: 5px;
+
+    width: 9px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #553037;
+
 }
 
-.cheek.left{
-    left:10px;
+.mouth {
+
+    position: absolute;
+
+    left: 12px;
+
+    top: 11px;
+
+    width: 6px;
+
+    height: 5px;
+
+    border-bottom:
+        2px solid #553037;
+
+    border-radius: 50%;
+
 }
 
-.cheek.right{
-    right:10px;
-}
 
-.muzzle{
-    position:absolute;
-    left:22px;
-    top:34px;
-    width:28px;
-    height:21px;
-    border-radius:50%;
-    background:#f0c4a8;
-}
+/* =========================================================
+   TEDDY BODY
+   ========================================================= */
 
-.nose{
-    position:absolute;
-    left:10px;
-    top:5px;
-    width:9px;
-    height:7px;
-    border-radius:50%;
-    background:#553037;
-}
+.teddy-body {
 
-.mouth{
-    position:absolute;
-    left:12px;
-    top:11px;
-    width:6px;
-    height:5px;
-    border-bottom:2px solid #553037;
-    border-radius:50%;
-}
+    position: absolute;
 
-.teddy-body{
-    position:absolute;
-    left:20px;
-    top:68px;
-    width:54px;
-    height:48px;
-    border-radius:48% 48% 40% 40%;
+    left: 20px;
+
+    top: 69px;
+
+    width: 55px;
+
+    height: 48px;
+
+    border-radius:
+        48%
+        48%
+        40%
+        40%;
+
     background:
         linear-gradient(
             145deg,
-            #d99a6c,
+            #dc9b6d,
             #ad694b
         );
+
 }
 
-.belly{
-    position:absolute;
-    left:14px;
-    top:9px;
-    width:27px;
-    height:25px;
-    border-radius:50%;
-    background:#edc09e;
+.belly {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 9px;
+
+    width: 27px;
+
+    height: 25px;
+
+    border-radius: 50%;
+
+    background:
+        #edc09e;
+
 }
 
-.arm{
-    position:absolute;
-    top:73px;
-    width:19px;
-    height:36px;
-    border-radius:50%;
-    background:#c27b56;
-    z-index:2;
+
+/* =========================================================
+   TEDDY ARMS
+   ========================================================= */
+
+.arm {
+
+    position: absolute;
+
+    top: 73px;
+
+    width: 19px;
+
+    height: 36px;
+
+    border-radius: 50%;
+
+    background:
+        #c27b56;
+
+    z-index: 2;
+
 }
 
-.arm.left{
-    left:5px;
-    transform:rotate(27deg);
+.arm.left {
+
+    left: 5px;
+
+    transform:
+        rotate(27deg);
+
 }
 
-.arm.right{
-    right:5px;
-    transform:rotate(-27deg);
+.arm.right {
+
+    right: 5px;
+
+    transform:
+        rotate(-27deg);
+
 }
 
-.leg{
-    position:absolute;
-    top:102px;
-    width:23px;
-    height:18px;
-    border-radius:50%;
-    background:#ae684b;
+
+/* =========================================================
+   TEDDY LEGS
+   ========================================================= */
+
+.leg {
+
+    position: absolute;
+
+    top: 103px;
+
+    width: 23px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background:
+        #ae684b;
+
 }
 
-.leg.left{
-    left:18px;
+.leg.left {
+
+    left: 18px;
+
 }
 
-.leg.right{
-    right:18px;
+.leg.right {
+
+    right: 18px;
+
 }
 
-.teddy-heart{
-    position:absolute;
-    left:34px;
-    top:66px;
-    z-index:10;
-    font-size:27px;
-    animation:teddyHeart 1.5s ease-in-out infinite;
+
+/* =========================================================
+   TEDDY HEART
+   ========================================================= */
+
+.teddy-heart {
+
+    position: absolute;
+
+    left: 34px;
+
+    top: 66px;
+
+    z-index: 10;
+
+    font-size: 28px;
+
+    animation:
+        teddyHeart
+        1.5s ease-in-out infinite;
+
 }
 
-.bow{
-    position:absolute;
-    right:-3px;
-    top:-2px;
-    z-index:15;
-    font-size:25px;
-    transform:rotate(10deg);
-    animation:bowWiggle 2s ease-in-out infinite;
+
+/* =========================================================
+   TEDDY BOW
+   ========================================================= */
+
+.bow {
+
+    position: absolute;
+
+    right: -4px;
+
+    top: -3px;
+
+    z-index: 15;
+
+    font-size: 26px;
+
+    transform:
+        rotate(10deg);
+
+    animation:
+        bowWiggle
+        2s ease-in-out infinite;
+
 }
 
-@keyframes teddyFloat{
-    0%,100%{
-        transform:translateY(0) rotate(-2deg);
+@keyframes bowWiggle {
+
+    0%,100% {
+
+        transform:
+            rotate(10deg);
+
     }
 
-    50%{
-        transform:translateY(-10px) rotate(2deg);
+    50% {
+
+        transform:
+            rotate(-8deg)
+            scale(1.06);
+
     }
+
 }
 
-@keyframes teddyHeart{
-    0%,100%{
-        transform:scale(1) rotate(-3deg);
+@keyframes teddyFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-2deg);
+
     }
 
-    50%{
-        transform:scale(1.2) rotate(4deg);
+    50% {
+
+        transform:
+            translateY(-10px)
+            rotate(2deg);
+
     }
+
 }
 
-@keyframes bowWiggle{
-    0%,100%{
-        transform:rotate(10deg);
+@keyframes teddyHeart {
+
+    0%,100% {
+
+        transform:
+            scale(1)
+            rotate(-3deg);
+
     }
 
-    50%{
-        transform:rotate(-8deg) scale(1.06);
+    50% {
+
+        transform:
+            scale(1.2)
+            rotate(4deg);
+
     }
+
+}
+
+
+/* =========================================================
+   HEADER HEART
+   ========================================================= */
+
+.header-heart {
+
+    font-size: 38px;
+
+    animation:
+        heartbeat
+        1.5s ease-in-out infinite;
+
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.18);
+
+    }
+
 }
 
 
@@ -510,67 +964,90 @@ header{
    TITLE
    ========================================================= */
 
-.header-heart{
-    font-size:38px;
-    animation:heartbeat 1.5s ease-in-out infinite;
+h1 {
+
+    font-size:
+        clamp(38px,9vw,70px);
+
+    margin:
+        10px 0;
+
+    line-height: 1;
+
+    color:
+        var(--rose-dark);
+
+    text-shadow:
+        0 4px 15px
+        rgba(145,76,101,.13);
+
 }
 
-@keyframes heartbeat{
-    0%,100%{
-        transform:scale(1);
-    }
+.subtitle {
 
-    50%{
-        transform:scale(1.18);
-    }
+    color:
+        var(--muted);
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
 }
 
-h1{
-    font-size:clamp(38px,9vw,70px);
-    margin:10px 0;
-    line-height:1;
-    color:var(--deep);
-    text-shadow:0 4px 15px rgba(145,76,101,.13);
-}
 
-.subtitle{
-    color:var(--muted);
-    font-size:20px;
-    line-height:1.6;
-}
+/* =========================================================
+   DIVIDER
+   ========================================================= */
 
-.divider{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    margin:22px auto;
+.divider {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin:
+        22px auto;
+
 }
 
 .divider::before,
-.divider::after{
-    content:"";
-    width:70px;
-    height:1px;
+.divider::after {
+
+    content: "";
+
+    width: 70px;
+
+    height: 1px;
+
     background:
         linear-gradient(
             to right,
             transparent,
-            var(--soft)
+            var(--rose-light)
         );
+
 }
 
-.divider::after{
+.divider::after {
+
     background:
         linear-gradient(
             to left,
             transparent,
-            var(--soft)
+            var(--rose-light)
         );
+
 }
 
-.divider span{
-    color:var(--rose);
+.divider span {
+
+    color:
+        var(--rose);
+
 }
 
 
@@ -578,75 +1055,145 @@ h1{
    LOVE COUNTER
    ========================================================= */
 
-.love-counter{
-    position:relative;
-    margin:25px 0 35px;
-    padding:32px 20px;
-    text-align:center;
-    overflow:hidden;
+.love-counter {
 
-    background:rgba(255,252,250,.95);
-    border:1px solid rgba(160,91,111,.18);
-    border-radius:32px;
+    position: relative;
 
-    box-shadow:0 18px 50px var(--shadow);
-    backdrop-filter:blur(9px);
+    margin:
+        25px 0 35px;
+
+    padding:
+        32px 20px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,252,250,.95);
+
+    border:
+        1px solid
+        rgba(160,91,111,.18);
+
+    border-radius: 32px;
+
+    box-shadow:
+        var(--shadow);
+
+    backdrop-filter:
+        blur(9px);
+
 }
 
-.love-counter::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px dashed rgba(192,95,130,.3);
-    border-radius:25px;
-    pointer-events:none;
+.love-counter::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border:
+        1px dashed
+        rgba(192,95,130,.3);
+
+    border-radius: 25px;
+
+    pointer-events: none;
+
 }
 
-.counter-heart{
-    position:relative;
-    display:inline-block;
-    font-size:40px;
-    animation:counterPulse 1.5s ease-in-out infinite;
+.counter-heart {
+
+    position: relative;
+
+    display: inline-block;
+
+    font-size: 40px;
+
+    animation:
+        counterPulse
+        1.5s ease-in-out infinite;
+
 }
 
-@keyframes counterPulse{
-    0%,100%{
-        transform:scale(1);
+@keyframes counterPulse {
+
+    0%,100% {
+
+        transform:
+            scale(1);
+
     }
 
-    50%{
-        transform:scale(1.18);
-        filter:drop-shadow(0 0 12px rgba(255,90,130,.4));
+    50% {
+
+        transform:
+            scale(1.18);
+
+        filter:
+            drop-shadow(
+                0 0 12px
+                rgba(255,90,130,.4)
+            );
+
     }
+
 }
 
-.counter-title{
-    position:relative;
-    margin-top:5px;
-    color:var(--deep);
-    font-size:25px;
-    font-weight:bold;
+.counter-title {
+
+    position: relative;
+
+    margin-top: 5px;
+
+    color:
+        var(--rose-dark);
+
+    font-size: 25px;
+
+    font-weight: bold;
+
 }
 
-.counter-date{
-    position:relative;
-    margin:8px 0 20px;
-    color:var(--muted);
-    font-size:15px;
+.counter-date {
+
+    position: relative;
+
+    margin:
+        8px 0 20px;
+
+    color:
+        var(--muted);
+
+    font-size: 15px;
+
 }
 
-.counter-grid{
-    position:relative;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    max-width:620px;
-    margin:auto;
+.counter-grid {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 10px;
+
+    max-width: 620px;
+
+    margin: auto;
+
 }
 
-.counter-box{
-    padding:15px 5px;
-    border-radius:19px;
+.counter-box {
+
+    padding:
+        15px 5px;
+
+    border-radius: 19px;
 
     background:
         linear-gradient(
@@ -655,55 +1202,108 @@ h1{
             #fffdfb
         );
 
-    border:1px solid rgba(192,95,130,.14);
-    box-shadow:0 7px 18px rgba(90,50,60,.07);
-    transition:transform .25s ease;
+    border:
+        1px solid
+        rgba(192,95,130,.14);
+
+    box-shadow:
+        0 7px 18px
+        rgba(90,50,60,.07);
+
+    transition:
+        transform .25s ease;
+
 }
 
-.counter-box:hover{
-    transform:translateY(-4px);
+.counter-box:hover {
+
+    transform:
+        translateY(-4px);
+
 }
 
-.counter-number{
-    color:var(--deep);
-    font-size:clamp(22px,5vw,36px);
-    font-weight:bold;
-    font-variant-numeric:tabular-nums;
+.counter-number {
+
+    color:
+        var(--rose-dark);
+
+    font-size:
+        clamp(22px,5vw,36px);
+
+    font-weight: bold;
+
+    font-variant-numeric:
+        tabular-nums;
+
 }
 
-.counter-label{
-    margin-top:4px;
-    color:#a27682;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:.8px;
+.counter-label {
+
+    margin-top: 4px;
+
+    color:
+        #a27682;
+
+    font-size: 11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing: .8px;
+
 }
 
-.counter-line{
-    position:relative;
-    width:140px;
-    height:3px;
-    margin:22px auto 0;
-    overflow:hidden;
-    border-radius:10px;
-    background:#f3dce3;
+.counter-line {
+
+    position: relative;
+
+    width: 140px;
+
+    height: 3px;
+
+    margin:
+        22px auto 0;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background:
+        #f3dce3;
+
 }
 
-.counter-line::after{
-    content:"";
-    position:absolute;
-    left:-60px;
-    width:55px;
-    height:100%;
-    border-radius:10px;
-    background:var(--rose);
-    animation:lineMove 2s linear infinite;
+.counter-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -60px;
+
+    width: 55px;
+
+    height: 100%;
+
+    border-radius: 10px;
+
+    background:
+        var(--rose);
+
+    animation:
+        lineMove
+        2s linear infinite;
+
 }
 
-@keyframes lineMove{
-    to{
-        left:150px;
+@keyframes lineMove {
+
+    to {
+
+        left: 150px;
+
     }
+
 }
 
 
@@ -712,50 +1312,89 @@ h1{
    ========================================================= */
 
 .card,
-.music-card{
-    position:relative;
-    margin:30px 0;
-    padding:30px;
+.music-card {
 
-    background:var(--paper);
+    position: relative;
 
-    border:1px solid rgba(160,91,111,.18);
-    border-radius:30px;
+    margin:
+        30px 0;
 
-    box-shadow:0 18px 50px var(--shadow);
-    backdrop-filter:blur(8px);
+    padding: 30px;
+
+    background:
+        var(--paper);
+
+    border:
+        1px solid
+        rgba(160,91,111,.18);
+
+    border-radius: 30px;
+
+    box-shadow:
+        var(--shadow);
+
+    backdrop-filter:
+        blur(8px);
+
 }
 
 .card::before,
-.music-card::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px dashed rgba(182,107,131,.28);
-    border-radius:23px;
-    pointer-events:none;
+.music-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border:
+        1px dashed
+        rgba(182,107,131,.28);
+
+    border-radius: 23px;
+
+    pointer-events: none;
+
 }
 
-.card::after{
-    content:"♡";
-    position:absolute;
-    right:18px;
-    top:12px;
-    color:rgba(166,90,115,.28);
-    font-size:27px;
+.card::after {
+
+    content: "♡";
+
+    position: absolute;
+
+    right: 18px;
+
+    top: 12px;
+
+    color:
+        rgba(166,90,115,.28);
+
+    font-size: 27px;
+
 }
 
-.card h2{
-    position:relative;
-    margin-top:0;
-    color:var(--deep);
-    font-size:30px;
+.card h2 {
+
+    position: relative;
+
+    margin-top: 0;
+
+    color:
+        var(--rose-dark);
+
+    font-size: 30px;
+
 }
 
-.card p{
-    position:relative;
-    font-size:19px;
-    line-height:1.7;
+.card p {
+
+    position: relative;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
 }
 
 
@@ -763,22 +1402,38 @@ h1{
    LOGIN
    ========================================================= */
 
-#loginSection{
-    max-width:450px;
-    margin:25px auto 40px;
-    text-align:center;
+#loginSection {
+
+    max-width: 450px;
+
+    margin:
+        25px auto 40px;
+
+    text-align: center;
+
 }
 
-.login-title{
-    color:var(--deep);
-    font-size:29px;
-    font-weight:bold;
+.login-title {
+
+    color:
+        var(--rose-dark);
+
+    font-size: 29px;
+
+    font-weight: bold;
+
 }
 
-.login-subtitle{
-    margin:10px 0 25px;
-    color:var(--muted);
-    font-size:17px;
+.login-subtitle {
+
+    margin:
+        10px 0 25px;
+
+    color:
+        var(--muted);
+
+    font-size: 17px;
+
 }
 
 
@@ -786,33 +1441,60 @@ h1{
    DIARY
    ========================================================= */
 
-#diarySection{
-    display:none;
+#diarySection {
+
+    display: none;
+
 }
 
-.diary-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
+.diary-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
 }
 
-.diary-welcome{
-    color:var(--deep);
-    font-size:17px;
-    overflow-wrap:anywhere;
+.diary-welcome {
+
+    color:
+        var(--rose-dark);
+
+    font-size: 17px;
+
+    overflow-wrap:
+        anywhere;
+
 }
 
-.logout-button{
-    flex-shrink:0;
-    padding:8px 15px;
-    border:1px solid #c88ca0;
-    border-radius:20px;
-    background:rgba(255,255,255,.8);
-    color:var(--deep);
-    font-family:inherit;
-    cursor:pointer;
+.logout-button {
+
+    flex-shrink: 0;
+
+    padding:
+        8px 15px;
+
+    border:
+        1px solid #c88ca0;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.8);
+
+    color:
+        var(--rose-dark);
+
+    font-family: inherit;
+
+    cursor: pointer;
+
 }
 
 
@@ -820,48 +1502,78 @@ h1{
    INPUTS
    ========================================================= */
 
-label{
-    display:block;
-    margin:10px 0 6px;
-    font-size:17px;
+label {
+
+    display: block;
+
+    margin:
+        10px 0 6px;
+
+    font-size: 17px;
+
 }
 
 input,
-textarea{
-    width:100%;
-    padding:14px;
-    margin:7px 0 14px;
+textarea {
 
-    border:1px solid #d6aeba;
-    border-radius:16px;
+    width: 100%;
 
-    background:rgba(255,255,255,.95);
-    color:var(--text);
+    padding: 14px;
 
-    font-family:inherit;
-    font-size:17px;
-    outline:none;
+    margin:
+        7px 0 14px;
+
+    border:
+        1px solid #d6aeba;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,.95);
+
+    color:
+        var(--brown);
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    outline: none;
 
     transition:
         border-color .2s,
         box-shadow .2s,
         transform .2s;
+
 }
 
 input:focus,
-textarea:focus{
-    border-color:#b66b83;
-    box-shadow:0 0 0 3px rgba(182,107,131,.11);
-    transform:translateY(-1px);
+textarea:focus {
+
+    border-color:
+        #b66b83;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(182,107,131,.11);
+
+    transform:
+        translateY(-1px);
+
 }
 
-textarea{
-    min-height:150px;
-    resize:vertical;
+textarea {
+
+    min-height: 150px;
+
+    resize: vertical;
+
 }
 
-input[type=file]{
-    padding:11px;
+input[type="file"] {
+
+    padding: 11px;
+
 }
 
 
@@ -869,17 +1581,23 @@ input[type=file]{
    BUTTONS
    ========================================================= */
 
-button{
-    font-family:inherit;
+button {
+
+    font-family: inherit;
+
 }
 
 .login-button,
 .save-button,
 .music-button,
-.game-button{
-    border:none;
-    border-radius:30px;
-    padding:14px 24px;
+.game-button {
+
+    border: none;
+
+    border-radius: 30px;
+
+    padding:
+        14px 24px;
 
     background:
         linear-gradient(
@@ -888,9 +1606,11 @@ button{
             #ae5577
         );
 
-    color:white;
-    font-size:17px;
-    cursor:pointer;
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
 
     box-shadow:
         0 9px 24px
@@ -900,24 +1620,38 @@ button{
         transform .2s ease,
         box-shadow .2s ease,
         opacity .2s ease;
+
 }
 
-.login-button{
-    width:100%;
+.login-button {
+
+    width: 100%;
+
 }
 
 .login-button:hover,
 .save-button:hover,
 .music-button:hover,
-.game-button:hover{
-    transform:translateY(-3px);
-    box-shadow:0 14px 28px rgba(150,70,100,.25);
+.game-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 14px 28px
+        rgba(150,70,100,.25);
+
 }
 
-button:disabled{
-    opacity:.6;
-    cursor:not-allowed;
-    transform:none!important;
+button:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    transform:
+        none !important;
+
 }
 
 
@@ -925,20 +1659,32 @@ button:disabled{
    STATUS
    ========================================================= */
 
-.status{
-    min-height:25px;
-    margin-top:14px;
-    text-align:center;
-    font-size:16px;
-    line-height:1.5;
+.status {
+
+    min-height: 25px;
+
+    margin-top: 14px;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
 }
 
-.success{
-    color:#5d8a65;
+.success {
+
+    color:
+        #5d8a65;
+
 }
 
-.error{
-    color:#b04b5b;
+.error {
+
+    color:
+        #b04b5b;
+
 }
 
 
@@ -946,162 +1692,99 @@ button:disabled{
    MUSIC
    ========================================================= */
 
-.music-card{
-    text-align:center;
-    overflow:visible;
+.music-card {
+
+    text-align: center;
+
+    overflow: visible;
+
 }
 
-.music-icon{
-    display:inline-block;
-    font-size:45px;
-    position:relative;
+.music-icon {
+
+    display: inline-block;
+
+    font-size: 45px;
+
 }
 
-.music-card.playing .music-icon{
-    animation:musicPulse 1.2s ease-in-out infinite;
+.music-card.playing .music-icon {
+
+    animation:
+        musicPulse
+        1.2s ease-in-out infinite;
+
 }
 
-@keyframes musicPulse{
-    0%,100%{
-        transform:scale(1) rotate(0);
+@keyframes musicPulse {
+
+    0%,100% {
+
+        transform:
+            scale(1)
+            rotate(0);
+
     }
 
-    50%{
-        transform:scale(1.2) rotate(5deg);
-    }
-}
+    50% {
 
-.music-title{
-    color:var(--deep);
-    font-size:30px;
-    font-weight:bold;
-}
+        transform:
+            scale(1.2)
+            rotate(5deg);
 
-.music-subtitle{
-    margin:8px 0 18px;
-    color:var(--muted);
-    font-size:17px;
-    font-style:italic;
-}
-
-#ourSong{
-    display:block;
-    width:100%;
-    max-width:500px;
-    margin:10px auto 18px;
-}
-
-.music-status{
-    min-height:24px;
-    margin-top:12px;
-    color:#8a6872;
-    font-size:15px;
-}
-
-
-/* =========================================================
-   MISSING ME GAME
-   ========================================================= */
-
-.game-card{
-    position:relative;
-    overflow:hidden;
-}
-
-.game-card::after{
-    content:"🧸";
-    position:absolute;
-    right:24px;
-    bottom:20px;
-    font-size:55px;
-    opacity:.16;
-    transform:rotate(-10deg);
-    animation:gameBear 3s ease-in-out infinite;
-}
-
-@keyframes gameBear{
-    0%,100%{
-        transform:translateY(0) rotate(-10deg);
     }
 
-    50%{
-        transform:translateY(-8px) rotate(8deg);
-    }
 }
 
-.game-intro{
-    color:var(--muted);
-    font-size:18px;
-    line-height:1.6;
+.music-title {
+
+    color:
+        var(--rose-dark);
+
+    font-size: 30px;
+
+    font-weight: bold;
+
 }
 
-.game-box{
-    position:relative;
-    margin-top:20px;
-    padding:25px 20px;
-    border-radius:24px;
+.music-subtitle {
 
-    background:
-        linear-gradient(
-            145deg,
-            #fff1f6,
-            #fffaf7
-        );
+    margin:
+        8px 0 18px;
 
-    border:1px solid rgba(192,95,130,.18);
-    text-align:center;
+    color:
+        var(--muted);
+
+    font-size: 17px;
+
+    font-style: italic;
+
 }
 
-.game-question{
-    color:var(--deep);
-    font-size:23px;
-    font-weight:bold;
-    line-height:1.5;
-    min-height:70px;
+#ourSong {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin:
+        10px auto 18px;
+
 }
 
-.game-result{
-    min-height:32px;
-    margin:15px 0;
-    color:#9a5b70;
-    font-size:17px;
-    line-height:1.5;
-}
+.music-status {
 
-.game-buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-}
+    min-height: 24px;
 
-.game-button{
-    min-width:130px;
-}
+    margin-top: 12px;
 
-.game-button.secondary{
-    background:
-        linear-gradient(
-            135deg,
-            #e7a1b7,
-            #ca7794
-        );
-}
+    color:
+        #8a6872;
 
-.game-progress{
-    height:5px;
-    margin-top:20px;
-    overflow:hidden;
-    border-radius:10px;
-    background:#f0d6df;
-}
+    font-size: 15px;
 
-.game-progress-bar{
-    width:0%;
-    height:100%;
-    border-radius:10px;
-    background:var(--rose);
-    transition:width .5s ease;
 }
 
 
@@ -1109,45 +1792,75 @@ button:disabled{
    MEMORY WALL
    ========================================================= */
 
-.memories{
-    margin-top:25px;
+.memories {
+
+    margin-top: 25px;
+
 }
 
-.loading{
-    padding:35px 10px;
-    text-align:center;
-    color:#98737d;
-    font-size:18px;
+.loading {
+
+    padding:
+        35px 10px;
+
+    text-align: center;
+
+    color:
+        #98737d;
+
+    font-size: 18px;
+
 }
 
-.loading-stickers{
-    font-size:38px;
-    letter-spacing:8px;
-    animation:loadingBears 1.3s ease-in-out infinite;
+.loading-stickers {
+
+    font-size: 38px;
+
+    letter-spacing: 8px;
+
+    animation:
+        loadingBears
+        1.3s ease-in-out infinite;
+
 }
 
-@keyframes loadingBears{
-    0%,100%{
-        transform:translateY(0);
+@keyframes loadingBears {
+
+    0%,100% {
+
+        transform:
+            translateY(0);
+
     }
 
-    50%{
-        transform:translateY(-8px);
+    50% {
+
+        transform:
+            translateY(-8px);
+
     }
+
 }
 
 
 /* =========================================================
-   MEMORY
+   MEMORY CARD
    ========================================================= */
 
-.memory{
-    position:relative;
-    margin:26px 0;
-    padding:25px;
+.memory {
 
-    border:1px solid rgba(160,91,111,.15);
-    border-radius:23px;
+    position: relative;
+
+    margin:
+        26px 0;
+
+    padding: 25px;
+
+    border:
+        1px solid
+        rgba(160,91,111,.15);
+
+    border-radius: 23px;
 
     background:
         linear-gradient(
@@ -1156,178 +1869,996 @@ button:disabled{
             #fff7f4
         );
 
-    box-shadow:0 13px 32px rgba(90,50,60,.09);
+    box-shadow:
+        0 13px 32px
+        rgba(90,50,60,.09);
 
-    transform:rotate(-.35deg);
+    transform:
+        rotate(-.35deg);
 
     transition:
         transform .3s ease,
         box-shadow .3s ease;
+
 }
 
-.memory:nth-child(even){
-    transform:rotate(.45deg);
+.memory:nth-child(even) {
+
+    transform:
+        rotate(.45deg);
+
 }
 
-.memory:hover{
-    transform:translateY(-5px) rotate(0);
-    box-shadow:0 20px 40px rgba(90,50,60,.15);
+.memory:hover {
+
+    transform:
+        translateY(-5px)
+        rotate(0);
+
+    box-shadow:
+        0 20px 40px
+        rgba(90,50,60,.15);
+
 }
 
-.memory::before{
-    content:"♡";
-    position:absolute;
-    top:13px;
-    right:17px;
-    color:#ed91b1;
-    font-size:25px;
+.memory::before {
+
+    content:
+        "♡";
+
+    position: absolute;
+
+    top: 13px;
+
+    right: 17px;
+
+    color:
+        #ed91b1;
+
+    font-size: 25px;
+
 }
 
-.memory h3{
-    margin-top:0;
-    padding-right:35px;
-    color:var(--deep);
-    font-size:26px;
+.memory h3 {
+
+    margin-top: 0;
+
+    padding-right: 35px;
+
+    color:
+        var(--rose-dark);
+
+    font-size: 26px;
+
 }
 
-.memory .date{
-    display:inline-block;
-    margin-bottom:12px;
-    padding:5px 11px;
-    border-radius:16px;
-    background:#fff0f4;
-    color:#a27682;
-    font-size:14px;
+.memory .date {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    padding:
+        5px 11px;
+
+    border-radius: 16px;
+
+    background:
+        #fff0f4;
+
+    color:
+        #a27682;
+
+    font-size: 14px;
+
 }
 
-.memory p{
-    font-size:17px;
-    line-height:1.65;
-    white-space:pre-wrap;
-    overflow-wrap:anywhere;
+.memory p {
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+    white-space:
+        pre-wrap;
+
+    overflow-wrap:
+        anywhere;
+
 }
 
-.memory img{
-    display:block;
-    width:100%;
-    max-height:520px;
-    object-fit:cover;
-    margin-top:16px;
-    padding:9px 9px 28px;
-    border-radius:6px;
-    background:white;
+.memory img {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 520px;
+
+    object-fit: cover;
+
+    margin-top: 16px;
+
+    padding:
+        9px 9px 28px;
+
+    border-radius: 6px;
+
+    background: white;
 
     box-shadow:
         0 8px 20px
         rgba(50,30,35,.14);
 
-    transform:rotate(-1deg);
+    transform:
+        rotate(-1deg);
 
     transition:
         transform .3s ease;
+
 }
 
-.memory img:hover{
-    transform:rotate(0) scale(1.01);
-}
+.memory img:hover {
 
+    transform:
+        rotate(0)
+        scale(1.01);
 
-/* =========================================================
-   EMPTY
-   ========================================================= */
-
-.empty{
-    padding:35px 15px;
-    text-align:center;
-    color:#98737d;
-    line-height:1.7;
-}
-
-.empty-bear{
-    font-size:48px;
-    margin-bottom:8px;
-    animation:teddyFloat 2.5s ease-in-out infinite;
-}
-
-.memory-decoration{
-    margin-top:35px;
-    text-align:center;
-    color:#b66b83;
-    font-size:20px;
-    letter-spacing:5px;
 }
 
 
 /* =========================================================
-   FLOATING TEDDY STICKER
+   EMPTY STATE
    ========================================================= */
 
-.sticker-corner{
-    position:fixed;
-    right:14px;
-    bottom:14px;
-    z-index:20;
+.empty {
 
-    width:72px;
-    height:72px;
+    padding:
+        35px 15px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    text-align: center;
 
-    border-radius:50%;
-    background:rgba(255,255,255,.9);
-    border:3px solid white;
+    color:
+        #98737d;
+
+    line-height: 1.7;
+
+}
+
+.empty-bear {
+
+    font-size: 48px;
+
+    margin-bottom: 8px;
+
+    animation:
+        teddyFloat
+        2.5s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   MEMORY DECORATION
+   ========================================================= */
+
+.memory-decoration {
+
+    margin-top: 35px;
+
+    text-align: center;
+
+    color:
+        #b66b83;
+
+    font-size: 20px;
+
+    letter-spacing: 5px;
+
+}
+
+
+/* =========================================================
+   =========================================================
+   GAME SECTION
+   MISSING ME? LET'S LOOK BACK TOGETHER
+   =========================================================
+   ========================================================= */
+
+.game-card {
+
+    position: relative;
+
+    margin:
+        30px 0;
+
+    padding:
+        30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,252,250,.98),
+            rgba(255,244,248,.97)
+        );
+
+    border:
+        1px solid
+        rgba(192,95,130,.2);
+
+    border-radius:
+        32px;
+
+    box-shadow:
+        var(--shadow);
+
+    overflow: hidden;
+
+}
+
+.game-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border:
+        1px dashed
+        rgba(192,95,130,.3);
+
+    border-radius:
+        25px;
+
+    pointer-events: none;
+
+}
+
+.game-header {
+
+    position: relative;
+
+    text-align: center;
+
+    margin-bottom: 24px;
+
+}
+
+.game-sticker-row {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+
+    font-size: 28px;
+
+}
+
+.game-sticker {
+
+    display: inline-block;
+
+    animation:
+        stickerDance
+        2.5s ease-in-out infinite;
+
+}
+
+.game-sticker:nth-child(2) {
+
+    animation-delay:
+        .2s;
+
+}
+
+.game-sticker:nth-child(3) {
+
+    animation-delay:
+        .4s;
+
+}
+
+@keyframes stickerDance {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-4deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-7px)
+            rotate(5deg);
+
+    }
+
+}
+
+.game-title {
+
+    position: relative;
+
+    margin: 0;
+
+    color:
+        var(--rose-dark);
+
+    font-size:
+        clamp(28px,7vw,40px);
+
+}
+
+.game-subtitle {
+
+    position: relative;
+
+    margin:
+        10px auto 0;
+
+    max-width: 600px;
+
+    color:
+        var(--muted);
+
+    line-height: 1.6;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================================
+   GAME HUD
+   ========================================================= */
+
+.game-hud {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 10px;
+
+    max-width: 600px;
+
+    margin:
+        0 auto 22px;
+
+}
+
+.hud-box {
+
+    text-align: center;
+
+    padding:
+        12px 8px;
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255,255,255,.82);
+
+    border:
+        1px solid
+        rgba(192,95,130,.12);
+
+}
+
+.hud-value {
+
+    color:
+        var(--rose-dark);
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+.hud-label {
+
+    color:
+        #9a7480;
+
+    font-size: 11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .7px;
+
+}
+
+
+/* =========================================================
+   GAME PROGRESS
+   ========================================================= */
+
+.game-progress {
+
+    position: relative;
+
+    max-width: 600px;
+
+    height: 9px;
+
+    margin:
+        0 auto 25px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        #f5dfe6;
+
+}
+
+.game-progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d06d90,
+            #f1a6bd
+        );
+
+    transition:
+        width .45s ease;
+
+}
+
+
+/* =========================================================
+   GAME BOARD
+   ========================================================= */
+
+.game-board {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 12px;
+
+    max-width: 650px;
+
+    margin:
+        0 auto 24px;
+
+    perspective:
+        1000px;
+
+}
+
+
+/* =========================================================
+   GAME CARD
+   ========================================================= */
+
+.memory-game-card {
+
+    position: relative;
+
+    min-height: 150px;
+
+    border: none;
+
+    padding: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    perspective:
+        900px;
+
+}
+
+.memory-game-inner {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 150px;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform .6s
+        cubic-bezier(.2,.7,.2,1);
+
+}
+
+.memory-game-card.flipped
+.memory-game-inner,
+.memory-game-card.matched
+.memory-game-inner {
+
+    transform:
+        rotateY(180deg);
+
+}
+
+.memory-game-front,
+.memory-game-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius:
+        22px;
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+    box-shadow:
+        0 10px 25px
+        rgba(90,45,65,.1);
+
+}
+
+.memory-game-front {
+
+    border:
+        1px solid
+        rgba(192,95,130,.18);
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff4f7,
+            #ffe7ee
+        );
+
+    font-size: 42px;
+
+}
+
+.memory-game-front::after {
+
+    content:
+        "♡";
+
+    position: absolute;
+
+    bottom: 8px;
+
+    right: 12px;
+
+    color:
+        rgba(192,95,130,.3);
+
+    font-size: 18px;
+
+}
+
+.memory-game-back {
+
+    padding:
+        15px;
+
+    text-align: center;
+
+    transform:
+        rotateY(180deg);
+
+    border:
+        1px solid
+        rgba(192,95,130,.2);
+
+    background:
+        white;
+
+    color:
+        var(--rose-dark);
+
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    overflow:
+        hidden;
+
+}
+
+.memory-game-back .game-card-icon {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 26px;
+
+}
+
+
+/* =========================================================
+   MATCHED
+   ========================================================= */
+
+.memory-game-card.matched {
+
+    cursor: default;
+
+}
+
+.memory-game-card.matched
+.memory-game-back {
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff4f8,
+            #fffdfb
+        );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(192,95,130,.14),
+        0 12px 30px
+        rgba(192,95,130,.12);
+
+}
+
+.memory-game-card.matched
+.memory-game-inner {
+
+    animation:
+        matchedPop
+        .55s ease;
+
+}
+
+@keyframes matchedPop {
+
+    0% {
+
+        transform:
+            rotateY(180deg)
+            scale(1);
+
+    }
+
+    45% {
+
+        transform:
+            rotateY(180deg)
+            scale(1.06);
+
+    }
+
+    100% {
+
+        transform:
+            rotateY(180deg)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   GAME MESSAGE
+   ========================================================= */
+
+.game-message {
+
+    position: relative;
+
+    min-height: 28px;
+
+    margin:
+        10px auto 18px;
+
+    text-align: center;
+
+    color:
+        var(--muted);
+
+    font-size: 16px;
+
+}
+
+.game-message.good {
+
+    color:
+        #6d906f;
+
+}
+
+.game-message.special {
+
+    color:
+        var(--rose-dark);
+
+    font-weight:
+        bold;
+
+}
+
+
+/* =========================================================
+   GAME BUTTON ROW
+   ========================================================= */
+
+.game-actions {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+.game-button.secondary {
+
+    background:
+        white;
+
+    color:
+        var(--rose-dark);
+
+    border:
+        1px solid
+        #d79bae;
+
+    box-shadow:
+        none;
+
+}
+
+.game-button.secondary:hover {
+
+    background:
+        #fff3f7;
+
+}
+
+
+/* =========================================================
+   GAME END PANEL
+   ========================================================= */
+
+.game-result {
+
+    position: relative;
+
+    display: none;
+
+    margin:
+        22px auto 0;
+
+    padding:
+        22px;
+
+    max-width:
+        600px;
+
+    text-align: center;
+
+    border-radius:
+        24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff3f7,
+            #fffdfb
+        );
+
+    border:
+        1px solid
+        rgba(192,95,130,.18);
+
+}
+
+.game-result.show {
+
+    display:
+        block;
+
+    animation:
+        resultAppear
+        .6s ease;
+
+}
+
+@keyframes resultAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+.result-teddy {
+
+    font-size: 48px;
+
+    animation:
+        teddyFloat
+        2.4s ease-in-out infinite;
+
+}
+
+.result-title {
+
+    color:
+        var(--rose-dark);
+
+    font-size:
+        25px;
+
+    font-weight:
+        bold;
+
+    margin:
+        7px 0;
+
+}
+
+.result-text {
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   CUTE STICKER CORNER
+   ========================================================= */
+
+.sticker-corner {
+
+    position: fixed;
+
+    right: 14px;
+
+    bottom: 14px;
+
+    z-index: 20;
+
+    width: 74px;
+
+    height: 74px;
+
+    border-radius:
+        50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(255,255,255,.92);
+
+    border:
+        3px solid white;
 
     box-shadow:
         0 8px 25px
         rgba(90,40,60,.18);
 
-    animation:stickerFloat 3s ease-in-out infinite;
+    animation:
+        stickerFloat
+        3s ease-in-out infinite;
 
-    pointer-events:none;
+    pointer-events:
+        none;
+
 }
 
-.sticker-corner::before{
-    content:"🧸";
-    font-size:40px;
+.sticker-corner::before {
+
+    content:
+        "🧸";
+
+    font-size:
+        42px;
+
 }
 
-.sticker-heart{
-    position:absolute;
-    top:-11px;
-    right:-5px;
-    font-size:20px;
-    animation:heartbeat 1.5s infinite;
+.sticker-heart {
+
+    position: absolute;
+
+    top:
+        -11px;
+
+    right:
+        -5px;
+
+    font-size:
+        21px;
+
+    animation:
+        heartbeat
+        1.5s infinite;
+
 }
 
-@keyframes stickerFloat{
-    0%,100%{
-        transform:translateY(0) rotate(-4deg);
+@keyframes stickerFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-4deg);
+
     }
 
-    50%{
-        transform:translateY(-8px) rotate(4deg);
+    50% {
+
+        transform:
+            translateY(-8px)
+            rotate(4deg);
+
     }
-}
 
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer{
-    margin-top:55px;
-    padding-bottom:20px;
-    text-align:center;
-    color:#86636d;
-    font-size:16px;
-}
-
-.footer-bears{
-    font-size:35px;
-    margin-bottom:8px;
-    animation:teddyFloat 2.5s ease-in-out infinite;
 }
 
 
@@ -1335,31 +2866,97 @@ footer{
    CELEBRATION
    ========================================================= */
 
-.celebration{
-    position:fixed;
-    z-index:100;
-    pointer-events:none;
-    font-size:25px;
-    animation:celebrationFly 1.5s ease-out forwards;
+.celebration {
+
+    position: fixed;
+
+    z-index: 100;
+
+    pointer-events:
+        none;
+
+    font-size:
+        25px;
+
+    animation:
+        celebrationFly
+        1.5s ease-out forwards;
+
 }
 
-@keyframes celebrationFly{
-    0%{
-        transform:translate(0,0) scale(.3);
-        opacity:0;
-    }
+@keyframes celebrationFly {
 
-    20%{
-        opacity:1;
-    }
+    0% {
 
-    100%{
         transform:
-            translate(var(--x),var(--y))
+            translate(0,0)
+            scale(.3);
+
+        opacity:
+            0;
+
+    }
+
+    20% {
+
+        opacity:
+            1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
             scale(1.2)
             rotate(25deg);
-        opacity:0;
+
+        opacity:
+            0;
+
     }
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    margin-top:
+        55px;
+
+    padding-bottom:
+        20px;
+
+    text-align:
+        center;
+
+    color:
+        #86636d;
+
+    font-size:
+        16px;
+
+}
+
+.footer-bears {
+
+    font-size:
+        35px;
+
+    margin-bottom:
+        8px;
+
+    animation:
+        teddyFloat
+        2.5s ease-in-out infinite;
+
 }
 
 
@@ -1367,72 +2964,190 @@ footer{
    MOBILE
    ========================================================= */
 
-@media(max-width:600px){
+@media (max-width:600px) {
 
-    .container{
-        width:94%;
-        padding-top:12px;
+    .container {
+
+        width:
+            94%;
+
+        padding-top:
+            12px;
+
     }
 
     .card,
     .music-card,
-    .love-counter{
-        padding:24px 19px;
-        border-radius:24px;
+    .love-counter,
+    .game-card {
+
+        padding:
+            24px 19px;
+
+        border-radius:
+            24px;
+
     }
 
-    h1{
-        font-size:43px;
+    h1 {
+
+        font-size:
+            43px;
+
     }
 
-    .subtitle{
-        font-size:18px;
+    .subtitle {
+
+        font-size:
+            18px;
+
     }
 
-    .teddy-couple{
-        transform:scale(.82);
-        margin-bottom:-8px;
+    .teddy-couple {
+
+        transform:
+            scale(.82);
+
+        margin-bottom:
+            -8px;
+
     }
 
-    .counter-grid{
-        gap:6px;
+    .counter-grid {
+
+        gap:
+            6px;
+
     }
 
-    .counter-box{
-        padding:12px 3px;
+    .counter-box {
+
+        padding:
+            12px 3px;
+
     }
 
-    .counter-number{
-        font-size:22px;
+    .counter-number {
+
+        font-size:
+            22px;
+
     }
 
-    .counter-label{
-        font-size:9px;
+    .counter-label {
+
+        font-size:
+            9px;
+
     }
 
-    .diary-top{
-        flex-direction:column;
-        align-items:flex-start;
+    .diary-top {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
     }
 
-    .logout-button{
-        align-self:flex-end;
+    .logout-button {
+
+        align-self:
+            flex-end;
+
     }
 
-    .sticker-corner{
-        right:8px;
-        bottom:8px;
-        width:60px;
-        height:60px;
+    .game-board {
+
+        gap:
+            8px;
+
     }
 
-    .sticker-corner::before{
-        font-size:32px;
+    .memory-game-card {
+
+        min-height:
+            105px;
+
     }
 
-    .game-button{
-        width:100%;
+    .memory-game-inner {
+
+        height:
+            105px;
+
     }
+
+    .memory-game-front {
+
+        font-size:
+            30px;
+
+    }
+
+    .memory-game-back {
+
+        padding:
+            8px;
+
+        font-size:
+            12px;
+
+    }
+
+    .memory-game-back
+    .game-card-icon {
+
+        font-size:
+            20px;
+
+    }
+
+    .game-hud {
+
+        gap:
+            6px;
+
+    }
+
+    .hud-value {
+
+        font-size:
+            20px;
+
+    }
+
+    .hud-label {
+
+        font-size:
+            9px;
+
+    }
+
+    .sticker-corner {
+
+        right:
+            8px;
+
+        bottom:
+            8px;
+
+        width:
+            60px;
+
+        height:
+            60px;
+
+    }
+
+    .sticker-corner::before {
+
+        font-size:
+            32px;
+
+    }
+
 }
 
 
@@ -1440,18 +3155,27 @@ footer{
    REDUCED MOTION
    ========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) {
 
     *,
     *::before,
-    *::after{
-        animation-duration:.001ms!important;
-        animation-iteration-count:1!important;
-        scroll-behavior:auto!important;
+    *::after {
+
+        animation-duration:
+            .001ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
     }
+
 }
 
 </style>
+
 </head>
 
 
@@ -1478,6 +3202,10 @@ footer{
 </div>
 
 
+<!-- =======================================================
+     MAIN
+     ======================================================= -->
+
 <div class="container">
 
 
@@ -1486,6 +3214,7 @@ footer{
      ======================================================= -->
 
 <header>
+
 
     <div class="teddy-couple">
 
@@ -1506,15 +3235,21 @@ footer{
                 <div class="cheek right"></div>
 
                 <div class="muzzle">
+
                     <div class="nose"></div>
                     <div class="mouth"></div>
+
                 </div>
 
             </div>
 
+
             <div class="teddy-body">
+
                 <div class="belly"></div>
+
             </div>
+
 
             <div class="arm left"></div>
             <div class="arm right"></div>
@@ -1549,15 +3284,21 @@ footer{
                 <div class="cheek right"></div>
 
                 <div class="muzzle">
+
                     <div class="nose"></div>
                     <div class="mouth"></div>
+
                 </div>
 
             </div>
 
+
             <div class="teddy-body">
+
                 <div class="belly"></div>
+
             </div>
+
 
             <div class="arm left"></div>
             <div class="arm right"></div>
@@ -1570,6 +3311,7 @@ footer{
             </div>
 
         </div>
+
 
     </div>
 
@@ -1585,15 +3327,21 @@ footer{
 
 
     <div class="divider">
+
         <span>♡</span>
+
     </div>
 
 
     <p class="subtitle">
+
         A tiny corner of the internet
         <br>
+
         that belongs only to our story. 🧸❤️
+
     </p>
+
 
 </header>
 
@@ -1604,43 +3352,101 @@ footer{
 
 <div class="love-counter">
 
+
     <div class="counter-heart">
         ❤️
     </div>
+
 
     <div class="counter-title">
         Our Time Together
     </div>
 
+
     <div class="counter-date">
-        Since 6 December 2025 · every second counts · forever ♾️
+
+        Since 6 December 2025 ·
+        every second counts · forever ♾️
+
     </div>
+
 
     <div class="counter-grid">
 
-        <div class="counter-box">
-            <div id="days" class="counter-number">0</div>
-            <div class="counter-label">Days</div>
-        </div>
 
         <div class="counter-box">
-            <div id="hours" class="counter-number">00</div>
-            <div class="counter-label">Hours</div>
+
+            <div
+                id="days"
+                class="counter-number">
+
+                0
+
+            </div>
+
+            <div class="counter-label">
+                Days
+            </div>
+
         </div>
 
-        <div class="counter-box">
-            <div id="minutes" class="counter-number">00</div>
-            <div class="counter-label">Minutes</div>
-        </div>
 
         <div class="counter-box">
-            <div id="seconds" class="counter-number">00</div>
-            <div class="counter-label">Seconds</div>
+
+            <div
+                id="hours"
+                class="counter-number">
+
+                00
+
+            </div>
+
+            <div class="counter-label">
+                Hours
+            </div>
+
         </div>
+
+
+        <div class="counter-box">
+
+            <div
+                id="minutes"
+                class="counter-number">
+
+                00
+
+            </div>
+
+            <div class="counter-label">
+                Minutes
+            </div>
+
+        </div>
+
+
+        <div class="counter-box">
+
+            <div
+                id="seconds"
+                class="counter-number">
+
+                00
+
+            </div>
+
+            <div class="counter-label">
+                Seconds
+            </div>
+
+        </div>
+
 
     </div>
 
+
     <div class="counter-line"></div>
+
 
 </div>
 
@@ -1649,20 +3455,30 @@ footer{
      LOGIN
      ======================================================= -->
 
-<div id="loginSection" class="card">
+<div
+    id="loginSection"
+    class="card">
+
 
     <div class="login-title">
+
         🔐 Our Private Diary
+
     </div>
 
+
     <div class="login-subtitle">
+
         Just you, me, and our little collection
         of memories. 🧸❤️
+
     </div>
+
 
     <label for="loginEmail">
         Email
     </label>
+
 
     <input
         id="loginEmail"
@@ -1671,9 +3487,11 @@ footer{
         autocomplete="email"
     >
 
+
     <label for="loginPassword">
         Password
     </label>
+
 
     <input
         id="loginPassword"
@@ -1681,6 +3499,7 @@ footer{
         placeholder="Enter your password"
         autocomplete="current-password"
     >
+
 
     <button
         id="loginButton"
@@ -1691,10 +3510,12 @@ footer{
 
     </button>
 
+
     <div
         id="loginStatus"
         class="status">
     </div>
+
 
 </div>
 
@@ -1706,317 +3527,88 @@ footer{
 <div id="diarySection">
 
 
-    <!-- TOP -->
+<!-- =======================================================
+     TOP BAR
+     ======================================================= -->
 
-    <div class="diary-top">
+<div class="diary-top">
 
-        <div
-            id="diaryWelcome"
-            class="diary-welcome">
+    <div
+        id="diaryWelcome"
+        class="diary-welcome">
 
-            Welcome back ❤️
-
-        </div>
-
-        <button
-            id="logoutButton"
-            class="logout-button"
-            type="button">
-
-            Logout
-
-        </button>
+        Welcome back ❤️
 
     </div>
 
 
-    <!-- ===================================================
-         MUSIC
-         =================================================== -->
+    <button
+        id="logoutButton"
+        class="logout-button"
+        type="button">
 
-    <div id="musicCard" class="music-card">
+        Logout
 
-        <div class="music-icon">
-            🎵
-        </div>
+    </button>
 
-        <div class="music-title">
-            Our Song ❤️
-        </div>
+</div>
 
-        <div class="music-subtitle">
-            A little soundtrack for our little world...
-        </div>
 
-        <audio
-            id="ourSong"
-            preload="metadata"
-            controls
-            playsinline>
+<!-- =======================================================
+     MUSIC
+     ======================================================= -->
 
-            <source
-                src="./Until_I_Found_You.mp3"
-                type="audio/mpeg">
+<div
+    id="musicCard"
+    class="music-card">
 
-        </audio>
 
-        <button
-            id="musicButton"
-            class="music-button"
-            type="button">
+    <div class="music-icon">
+        🎵
+    </div>
 
-            ▶ Play Our Song
 
-        </button>
+    <div class="music-title">
+        Our Song ❤️
+    </div>
 
-        <div
-            id="musicStatus"
-            class="music-status">
 
-            Until I Found You ❤️
+    <div class="music-subtitle">
 
-        </div>
+        A little soundtrack
+        for our little world...
 
     </div>
 
 
-    <!-- ===================================================
-         TO US
-         =================================================== -->
+    <audio
+        id="ourSong"
+        preload="metadata"
+        controls
+        playsinline>
 
-    <div class="card">
+        <source
+            src="./Until_I_Found_You.mp3"
+            type="audio/mpeg">
 
-        <h2>
-            🌷 To Us
-        </h2>
+    </audio>
 
-        <p>
 
-            Some moments are too beautiful
-            to let them disappear into a phone gallery.
+    <button
+        id="musicButton"
+        class="music-button"
+        type="button">
 
-            So here we are.
+        ▶ Play Our Song
 
-            A little place where we can keep
-            our photos, our silly moments,
-            our conversations, our milestones,
-            and all those tiny things that
-            somehow become the biggest memories.
+    </button>
 
-            <br><br>
 
-            One day we'll scroll through all of this
-            and realize how much life we built together. ❤️
+    <div
+        id="musicStatus"
+        class="music-status">
 
-        </p>
-
-    </div>
-
-
-    <!-- ===================================================
-         GAME
-         =================================================== -->
-
-    <div class="card game-card">
-
-        <h2>
-            🥺 Missing me? Let's look back together
-        </h2>
-
-        <p class="game-intro">
-
-            Feeling a little lonely?
-
-            Come on... let's open a tiny
-            memory window together. 💕
-
-            I'll give you little moments,
-            and you tell me what your heart remembers.
-
-        </p>
-
-
-        <div class="game-box">
-
-            <div
-                id="gameQuestion"
-                class="game-question">
-
-                Ready for a little trip
-                through our memories? 🧸❤️
-
-            </div>
-
-
-            <div
-                id="gameResult"
-                class="game-result">
-
-                Press the button and let's begin.
-
-            </div>
-
-
-            <div class="game-buttons">
-
-                <button
-                    id="gameStart"
-                    class="game-button"
-                    type="button">
-
-                    💕 Start
-
-                </button>
-
-
-                <button
-                    id="gameYes"
-                    class="game-button"
-                    type="button"
-                    style="display:none;">
-
-                    ❤️ I remember
-
-                </button>
-
-
-                <button
-                    id="gameNext"
-                    class="game-button secondary"
-                    type="button"
-                    style="display:none;">
-
-                    ✨ Next
-
-                </button>
-
-            </div>
-
-
-            <div class="game-progress">
-
-                <div
-                    id="gameProgressBar"
-                    class="game-progress-bar">
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ===================================================
-         ADD MEMORY
-         =================================================== -->
-
-    <div class="card">
-
-        <h2>
-            ✨ Save A Little Moment
-        </h2>
-
-        <label for="title">
-            Memory title
-        </label>
-
-        <input
-            id="title"
-            type="text"
-            placeholder="Our first date..."
-        >
-
-        <label for="date">
-            Date
-        </label>
-
-        <input
-            id="date"
-            type="date"
-        >
-
-        <label for="message">
-            What happened?
-        </label>
-
-        <textarea
-            id="message"
-            placeholder="Write everything you want us to remember..."
-        ></textarea>
-
-        <label for="photo">
-            Add the photo 📷
-        </label>
-
-        <input
-            id="photo"
-            type="file"
-            accept="image/png,image/jpeg,image/webp,image/*"
-        >
-
-        <button
-            id="saveButton"
-            class="save-button"
-            type="button">
-
-            🧸 Save This Little Moment ♡
-
-        </button>
-
-        <div
-            id="status"
-            class="status">
-        </div>
-
-    </div>
-
-
-    <!-- ===================================================
-         MEMORY WALL
-         =================================================== -->
-
-    <div class="card">
-
-        <h2>
-            📖 Our Memory Wall
-        </h2>
-
-        <p
-            style="
-                color:#80616a;
-                margin-top:-5px;
-                margin-bottom:25px;
-            ">
-
-            Little pieces of us,
-            kept safe in one place. ♡
-
-        </p>
-
-
-        <div
-            id="memories"
-            class="memories">
-
-            <div class="loading">
-
-                <div class="loading-stickers">
-                    🧸 💕 🧸
-                </div>
-
-                <br>
-
-                Bringing our memories...
-
-            </div>
-
-        </div>
-
-
-        <div class="memory-decoration">
-            🧸 · ♡ · 💕 · ♡ · 🧸
-        </div>
+        Until I Found You ❤️
 
     </div>
 
@@ -2024,7 +3616,370 @@ footer{
 </div>
 
 
-<!-- FLOATING TEDDY -->
+<!-- =======================================================
+     TO US
+     ======================================================= -->
+
+<div class="card">
+
+
+    <h2>
+        🌷 To Us
+    </h2>
+
+
+    <p>
+
+        Some moments are too beautiful
+        to let them disappear into a phone gallery.
+
+        So here we are.
+
+        A little place where we can keep
+        our photos, our silly moments,
+        our conversations, our milestones,
+        and all those tiny things that
+        somehow become the biggest memories.
+
+        <br><br>
+
+        One day we'll scroll through all of this
+        and realize how much life we built together. ❤️
+
+    </p>
+
+
+</div>
+
+
+<!-- =======================================================
+     GAME
+     ======================================================= -->
+
+<div class="game-card">
+
+
+    <div class="game-header">
+
+
+        <div class="game-sticker-row">
+
+            <span class="game-sticker">
+                🧸
+            </span>
+
+            <span class="game-sticker">
+                💕
+            </span>
+
+            <span class="game-sticker">
+                🧸
+            </span>
+
+        </div>
+
+
+        <h2 class="game-title">
+
+            Missing me?
+            <br>
+
+            Let's look back together 💗
+
+        </h2>
+
+
+        <p class="game-subtitle">
+
+            Flip the little cards and find
+            the matching pieces of our story.
+            <br>
+
+            A tiny game for when you miss us. 🧸
+
+        </p>
+
+
+    </div>
+
+
+    <div class="game-hud">
+
+
+        <div class="hud-box">
+
+            <div
+                id="gameScore"
+                class="hud-value">
+
+                0
+
+            </div>
+
+            <div class="hud-label">
+                Hearts
+            </div>
+
+        </div>
+
+
+        <div class="hud-box">
+
+            <div
+                id="gameMoves"
+                class="hud-value">
+
+                0
+
+            </div>
+
+            <div class="hud-label">
+                Moves
+            </div>
+
+        </div>
+
+
+        <div class="hud-box">
+
+            <div
+                id="gamePairs"
+                class="hud-value">
+
+                0 / 6
+
+            </div>
+
+            <div class="hud-label">
+                Found
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="game-progress">
+
+        <div
+            id="gameProgress"
+            class="game-progress-fill">
+        </div>
+
+    </div>
+
+
+    <div
+        id="gameMessage"
+        class="game-message">
+
+        Find all six pairs. Take your time. ❤️
+
+    </div>
+
+
+    <div
+        id="gameBoard"
+        class="game-board">
+    </div>
+
+
+    <div class="game-actions">
+
+
+        <button
+            id="newGameButton"
+            class="game-button"
+            type="button">
+
+            🧸 Start Again
+
+        </button>
+
+
+        <button
+            id="peekButton"
+            class="game-button secondary"
+            type="button">
+
+            👀 Tiny Peek
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        id="gameResult"
+        class="game-result">
+
+
+        <div class="result-teddy">
+            🧸💕🧸
+        </div>
+
+
+        <div class="result-title">
+            You found all our little pieces. ❤️
+        </div>
+
+
+        <div
+            id="resultText"
+            class="result-text">
+
+            You made it!
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =======================================================
+     ADD MEMORY
+     ======================================================= -->
+
+<div class="card">
+
+
+    <h2>
+        ✨ Save A Little Moment
+    </h2>
+
+
+    <label for="title">
+        Memory title
+    </label>
+
+
+    <input
+        id="title"
+        type="text"
+        placeholder="Our first date..."
+    >
+
+
+    <label for="date">
+        Date
+    </label>
+
+
+    <input
+        id="date"
+        type="date"
+    >
+
+
+    <label for="message">
+        What happened?
+    </label>
+
+
+    <textarea
+        id="message"
+        placeholder="Write everything you want us to remember..."
+    ></textarea>
+
+
+    <label for="photo">
+        Add the photo 📷
+    </label>
+
+
+    <input
+        id="photo"
+        type="file"
+        accept="image/png,image/jpeg,image/webp,image/*"
+    >
+
+
+    <button
+        id="saveButton"
+        class="save-button"
+        type="button">
+
+        🧸 Save This Little Moment ♡
+
+    </button>
+
+
+    <div
+        id="status"
+        class="status">
+    </div>
+
+
+</div>
+
+
+<!-- =======================================================
+     MEMORY WALL
+     ======================================================= -->
+
+<div class="card">
+
+
+    <h2>
+        📖 Our Memory Wall
+    </h2>
+
+
+    <p
+        style="
+            color:#80616a;
+            margin-top:-5px;
+            margin-bottom:25px;
+        ">
+
+        Little pieces of us,
+        kept safe in one place. ♡
+
+    </p>
+
+
+    <div
+        id="memories"
+        class="memories">
+
+
+        <div class="loading">
+
+            <div class="loading-stickers">
+                🧸 💕 🧸
+            </div>
+
+            <br>
+
+            Bringing our memories...
+
+        </div>
+
+
+    </div>
+
+
+    <div class="memory-decoration">
+
+        🧸 · ♡ · 💕 · ♡ · 🧸
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =======================================================
+     FLOATING TEDDY
+     ======================================================= -->
 
 <div class="sticker-corner">
 
@@ -2034,6 +3989,10 @@ footer{
 
 </div>
 
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
 
 <footer>
 
@@ -2054,17 +4013,20 @@ footer{
 <script>
 
 /* =========================================================
-   SUPABASE
+   SUPABASE CONFIG
    ========================================================= */
 
 const SUPABASE_URL =
     "https://yvemsrkuwbrnzdbgflcu.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable_3spcyR5MKfTopABgbPVHXw_0ZVVmoES";
 
+
 const TABLE =
     "memories";
+
 
 const supabaseClient =
     window.supabase.createClient(
@@ -2075,7 +4037,7 @@ const supabaseClient =
 
 /* =========================================================
    LOVE COUNTER
-   START = 6 DECEMBER 2025
+   6 DECEMBER 2025 → FOREVER
    ========================================================= */
 
 const relationshipStart =
@@ -2083,41 +4045,53 @@ const relationshipStart =
         "2025-12-06T00:00:00"
     );
 
-function updateLoveCounter(){
+
+function updateLoveCounter() {
 
     const now =
         new Date();
+
 
     let difference =
         now.getTime()
         -
         relationshipStart.getTime();
 
-    if(difference < 0){
+
+    if (
+        difference < 0
+    ) {
+
         difference = 0;
+
     }
+
 
     const totalSeconds =
         Math.floor(
             difference / 1000
         );
 
+
     const days =
         Math.floor(
             totalSeconds / 86400
         );
 
+
     const hours =
         Math.floor(
-            (totalSeconds % 86400) /
-            3600
+            (totalSeconds % 86400)
+            / 3600
         );
+
 
     const minutes =
         Math.floor(
-            (totalSeconds % 3600) /
-            60
+            (totalSeconds % 3600)
+            / 60
         );
+
 
     const seconds =
         totalSeconds % 60;
@@ -2128,23 +4102,32 @@ function updateLoveCounter(){
     ).textContent =
         days.toLocaleString();
 
+
     document.getElementById(
         "hours"
     ).textContent =
-        String(hours).padStart(2,"0");
+        String(hours)
+            .padStart(2,"0");
+
 
     document.getElementById(
         "minutes"
     ).textContent =
-        String(minutes).padStart(2,"0");
+        String(minutes)
+            .padStart(2,"0");
+
 
     document.getElementById(
         "seconds"
     ).textContent =
-        String(seconds).padStart(2,"0");
+        String(seconds)
+            .padStart(2,"0");
+
 }
 
+
 updateLoveCounter();
+
 
 setInterval(
     updateLoveCounter,
@@ -2161,93 +4144,136 @@ const loginSection =
         "loginSection"
     );
 
+
 const diarySection =
     document.getElementById(
         "diarySection"
     );
+
 
 const loginButton =
     document.getElementById(
         "loginButton"
     );
 
+
 const logoutButton =
     document.getElementById(
         "logoutButton"
     );
+
 
 const loginStatus =
     document.getElementById(
         "loginStatus"
     );
 
+
 const diaryWelcome =
     document.getElementById(
         "diaryWelcome"
     );
+
 
 const saveButton =
     document.getElementById(
         "saveButton"
     );
 
+
 const status =
     document.getElementById(
         "status"
     );
+
 
 const memoriesContainer =
     document.getElementById(
         "memories"
     );
 
-let memoriesLoadedForUser = null;
+
+let memoriesLoadedForUser =
+    null;
 
 
 /* =========================================================
-   LOGIN / DIARY DISPLAY
+   SHOW LOGIN
    ========================================================= */
 
-function showLogin(){
+function showLogin() {
 
     loginSection.style.display =
         "block";
 
+
     diarySection.style.display =
         "none";
+
 
     memoriesLoadedForUser =
         null;
+
 }
 
 
-async function showDiary(user){
+/* =========================================================
+   SHOW DIARY
+   ========================================================= */
+
+async function showDiary(
+    user
+) {
 
     loginSection.style.display =
         "none";
 
+
     diarySection.style.display =
         "block";
 
-    diaryWelcome.textContent =
-        user && user.email
-            ? "Welcome back ❤️ " + user.email
-            : "Welcome back ❤️";
 
-    if(
+    if (
+        user &&
+        user.email
+    ) {
+
+        diaryWelcome.textContent =
+            "Welcome back ❤️ " +
+            user.email;
+
+    }
+
+    else {
+
+        diaryWelcome.textContent =
+            "Welcome back ❤️";
+
+    }
+
+
+    if (
         user &&
         user.id &&
-        memoriesLoadedForUser === user.id
-    ){
+        memoriesLoadedForUser ===
+        user.id
+    ) {
+
         return;
+
     }
+
 
     memoriesLoadedForUser =
         user && user.id
             ? user.id
             : null;
 
-    await loadMemories(user);
+
+    await loadMemories(
+        user
+    );
+
 }
 
 
@@ -2255,7 +4281,7 @@ async function showDiary(user){
    LOGIN
    ========================================================= */
 
-async function login(){
+async function login() {
 
     const email =
         document
@@ -2265,6 +4291,7 @@ async function login(){
             .value
             .trim();
 
+
     const password =
         document
             .getElementById(
@@ -2272,30 +4299,42 @@ async function login(){
             )
             .value;
 
-    if(!email || !password){
+
+    if (
+        !email ||
+        !password
+    ) {
 
         loginStatus.className =
             "status error";
 
+
         loginStatus.textContent =
             "Please enter both email and password ❤️";
 
+
         return;
+
     }
+
 
     loginButton.disabled =
         true;
 
+
     loginButton.textContent =
         "Opening our diary... ❤️";
+
 
     loginStatus.className =
         "status";
 
+
     loginStatus.textContent =
         "Checking your private diary...";
 
-    try{
+
+    try {
 
         const {
             data,
@@ -2304,53 +4343,77 @@ async function login(){
             await supabaseClient
                 .auth
                 .signInWithPassword({
-                    email,
-                    password
+
+                    email:
+                        email,
+
+                    password:
+                        password
+
                 });
 
-        if(error){
+
+        if (error) {
+
             throw error;
+
         }
 
-        if(
+
+        if (
             !data ||
             !data.session ||
             !data.user
-        ){
+        ) {
+
             throw new Error(
                 "Login session could not be created."
             );
+
         }
+
 
         loginStatus.textContent =
             "";
+
 
         await showDiary(
             data.user
         );
 
-    }catch(error){
+    }
+
+
+    catch (error) {
 
         console.error(
             "LOGIN ERROR:",
             error
         );
 
+
         loginStatus.className =
             "status error";
+
 
         loginStatus.textContent =
             error.message ||
             "Couldn't log in. Please check your details.";
 
-    }finally{
+    }
+
+
+    finally {
 
         loginButton.disabled =
             false;
 
+
         loginButton.textContent =
             "Enter Our Diary ❤️";
+
     }
+
 }
 
 
@@ -2358,29 +4421,36 @@ async function login(){
    LOGOUT
    ========================================================= */
 
-async function logout(){
+async function logout() {
 
-    try{
+    try {
 
         await supabaseClient
             .auth
             .signOut();
 
-    }catch(error){
+    }
+
+    catch (error) {
 
         console.error(
             "LOGOUT ERROR:",
             error
         );
+
     }
 
+
     showLogin();
+
 
     loginStatus.className =
         "status";
 
+
     loginStatus.textContent =
         "Logged out ❤️";
+
 }
 
 
@@ -2394,22 +4464,25 @@ supabaseClient
         async function(
             event,
             session
-        ){
+        ) {
 
-            if(
+            if (
                 session &&
                 session.user
-            ){
+            ) {
 
                 await showDiary(
                     session.user
                 );
 
-            }else{
+            }
+
+            else {
 
                 showLogin();
 
             }
+
         }
     );
 
@@ -2418,9 +4491,9 @@ supabaseClient
    INITIAL SESSION
    ========================================================= */
 
-async function checkSession(){
+async function checkSession() {
 
-    try{
+    try {
 
         const {
             data,
@@ -2430,36 +4503,48 @@ async function checkSession(){
                 .auth
                 .getSession();
 
-        if(error){
+
+        if (error) {
+
             throw error;
+
         }
 
-        if(
+
+        if (
             data &&
             data.session &&
             data.session.user
-        ){
+        ) {
 
             await showDiary(
                 data.session.user
             );
 
-        }else{
+        }
+
+        else {
 
             showLogin();
 
         }
 
-    }catch(error){
+    }
+
+    catch (error) {
 
         console.error(
             "SESSION ERROR:",
             error
         );
 
+
         showLogin();
+
     }
+
 }
+
 
 checkSession();
 
@@ -2468,21 +4553,47 @@ checkSession();
    ESCAPE HTML
    ========================================================= */
 
-function escapeHTML(value){
+function escapeHTML(
+    value
+) {
 
-    if(
+    if (
         value === null ||
         value === undefined
-    ){
+    ) {
+
         return "";
+
     }
 
+
     return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
 }
 
 
@@ -2490,7 +4601,9 @@ function escapeHTML(value){
    LOAD MEMORIES
    ========================================================= */
 
-async function loadMemories(user){
+async function loadMemories(
+    user
+) {
 
     memoriesContainer.innerHTML = `
 
@@ -2505,13 +4618,14 @@ async function loadMemories(user){
             Bringing our memories...
 
         </div>
+
     `;
 
 
-    if(
+    if (
         !user ||
         !user.id
-    ){
+    ) {
 
         memoriesContainer.innerHTML = `
 
@@ -2525,24 +4639,29 @@ async function loadMemories(user){
                 our memories. ❤️
 
             </div>
+
         `;
 
+
         return;
+
     }
 
 
-    try{
+    try {
 
         /*
-         * IMPORTANT RLS FIX:
-         *
-         * The query explicitly filters by
-         * the currently authenticated user's id.
-         *
-         * Your RLS policy should use:
-         *
-         * auth.uid() = user_id
-         */
+         IMPORTANT:
+
+         The query is restricted to the
+         currently authenticated user's ID.
+
+         This matches:
+
+         auth.uid() = user_id
+
+         in the RLS policies.
+        */
 
         const {
             data,
@@ -2560,27 +4679,37 @@ async function loadMemories(user){
                 .order(
                     "created_at",
                     {
-                        ascending:false
+                        ascending:
+                            false
                     }
                 );
 
-        if(error){
+
+        if (error) {
+
             throw error;
+
         }
+
 
         displayMemories(
             data || []
         );
 
-    }catch(error){
+    }
+
+
+    catch (error) {
 
         console.error(
             "LOAD MEMORIES ERROR:",
             error
         );
 
+
         memoriesLoadedForUser =
             null;
+
 
         memoriesContainer.innerHTML = `
 
@@ -2615,8 +4744,11 @@ async function loadMemories(user){
                 </button>
 
             </div>
+
         `;
+
     }
+
 }
 
 
@@ -2624,12 +4756,13 @@ async function loadMemories(user){
    RETRY
    ========================================================= */
 
-async function retryMemories(){
+async function retryMemories() {
 
     memoriesLoadedForUser =
         null;
 
-    try{
+
+    try {
 
         const {
             data,
@@ -2639,27 +4772,36 @@ async function retryMemories(){
                 .auth
                 .getUser();
 
-        if(error){
+
+        if (error) {
+
             throw error;
+
         }
 
-        if(
+
+        if (
             data &&
             data.user
-        ){
+        ) {
 
             await showDiary(
                 data.user
             );
+
         }
 
-    }catch(error){
+    }
+
+    catch (error) {
 
         console.error(
             "RETRY ERROR:",
             error
         );
+
     }
+
 }
 
 
@@ -2667,12 +4809,14 @@ async function retryMemories(){
    DISPLAY MEMORIES
    ========================================================= */
 
-function displayMemories(memories){
+function displayMemories(
+    memories
+) {
 
-    if(
+    if (
         !memories ||
         memories.length === 0
-    ){
+    ) {
 
         memoriesContainer.innerHTML = `
 
@@ -2690,20 +4834,27 @@ function displayMemories(memories){
                 little moment. ❤️
 
             </div>
+
         `;
 
+
         return;
+
     }
 
-    memoriesContainer.innerHTML = "";
+
+    memoriesContainer.innerHTML =
+        "";
+
 
     memories.forEach(
-        function(memory){
+        function(memory) {
 
             const article =
                 document.createElement(
                     "article"
                 );
+
 
             article.className =
                 "memory";
@@ -2714,16 +4865,20 @@ function displayMemories(memories){
                     memory.title
                 );
 
+
             const message =
                 escapeHTML(
                     memory.message
                 );
 
 
-            let dateHTML = "";
+            let dateHTML =
+                "";
 
 
-            if(memory.date){
+            if (
+                memory.date
+            ) {
 
                 const dateObject =
                     new Date(
@@ -2731,31 +4886,46 @@ function displayMemories(memories){
                         "T00:00:00"
                     );
 
+
                 const formattedDate =
                     dateObject.toLocaleDateString(
                         undefined,
                         {
-                            day:"numeric",
-                            month:"long",
-                            year:"numeric"
+                            day:
+                                "numeric",
+
+                            month:
+                                "long",
+
+                            year:
+                                "numeric"
+
                         }
                     );
+
 
                 dateHTML = `
 
                     <div class="date">
+
                         ${escapeHTML(
                             formattedDate
                         )}
+
                     </div>
+
                 `;
+
             }
 
 
-            let imageHTML = "";
+            let imageHTML =
+                "";
 
 
-            if(memory.image){
+            if (
+                memory.image
+            ) {
 
                 imageHTML = `
 
@@ -2766,7 +4936,9 @@ function displayMemories(memories){
                         alt="Our memory"
                         loading="lazy"
                     >
+
                 `;
+
             }
 
 
@@ -2786,11 +4958,14 @@ function displayMemories(memories){
 
             `;
 
+
             memoriesContainer.appendChild(
                 article
             );
+
         }
     );
+
 }
 
 
@@ -2798,44 +4973,53 @@ function displayMemories(memories){
    IMAGE COMPRESSION
    ========================================================= */
 
-function compressImage(file){
+function compressImage(
+    file
+) {
 
     return new Promise(
-        function(resolve,reject){
+        function(
+            resolve,
+            reject
+        ) {
 
             const reader =
                 new FileReader();
 
+
             reader.onload =
-                function(event){
+                function(event) {
 
                     const image =
                         new Image();
 
+
                     image.onload =
-                        function(){
+                        function() {
 
                             const MAX_SIZE =
                                 1600;
 
+
                             let width =
                                 image.width;
+
 
                             let height =
                                 image.height;
 
 
-                            if(
+                            if (
                                 width >
                                 MAX_SIZE ||
                                 height >
                                 MAX_SIZE
-                            ){
+                            ) {
 
-                                if(
+                                if (
                                     width >
                                     height
-                                ){
+                                ) {
 
                                     height =
                                         Math.round(
@@ -2844,10 +5028,13 @@ function compressImage(file){
                                             width
                                         );
 
+
                                     width =
                                         MAX_SIZE;
 
-                                }else{
+                                }
+
+                                else {
 
                                     width =
                                         Math.round(
@@ -2856,9 +5043,12 @@ function compressImage(file){
                                             height
                                         );
 
+
                                     height =
                                         MAX_SIZE;
+
                                 }
+
                             }
 
 
@@ -2867,8 +5057,10 @@ function compressImage(file){
                                     "canvas"
                                 );
 
+
                             canvas.width =
                                 width;
+
 
                             canvas.height =
                                 height;
@@ -2878,6 +5070,7 @@ function compressImage(file){
                                 canvas.getContext(
                                     "2d"
                                 );
+
 
                             context.drawImage(
                                 image,
@@ -2894,44 +5087,51 @@ function compressImage(file){
                                     .82
                                 );
 
+
                             resolve(
                                 compressed
                             );
+
                         };
 
 
                     image.onerror =
-                        function(){
+                        function() {
 
                             reject(
                                 new Error(
                                     "This image could not be processed."
                                 )
                             );
+
                         };
 
 
                     image.src =
                         event.target.result;
+
                 };
 
 
             reader.onerror =
-                function(){
+                function() {
 
                     reject(
                         new Error(
                             "Could not read the photo."
                         )
                     );
+
                 };
 
 
             reader.readAsDataURL(
                 file
             );
+
         }
     );
+
 }
 
 
@@ -2939,7 +5139,7 @@ function compressImage(file){
    SAVE MEMORY
    ========================================================= */
 
-async function saveMemory(){
+async function saveMemory() {
 
     const title =
         document
@@ -2949,12 +5149,14 @@ async function saveMemory(){
             .value
             .trim();
 
+
     const date =
         document
             .getElementById(
                 "date"
             )
             .value;
+
 
     const message =
         document
@@ -2964,6 +5166,7 @@ async function saveMemory(){
             .value
             .trim();
 
+
     const photoInput =
         document
             .getElementById(
@@ -2971,96 +5174,115 @@ async function saveMemory(){
             );
 
 
-    if(
+    if (
         !title ||
         !message
-    ){
+    ) {
 
         status.className =
             "status error";
 
+
         status.textContent =
             "Please add a title and message ❤️";
 
+
         return;
+
     }
 
 
     saveButton.disabled =
         true;
 
+
     saveButton.textContent =
         "Saving our little moment... 🧸";
 
+
     status.className =
         "status";
+
 
     status.textContent =
         "Saving...";
 
 
-    try{
+    try {
 
-        /* CURRENT USER */
+        /* =================================================
+           CURRENT USER
+           ================================================= */
 
         const {
-            data:userData,
-            error:userError
+            data: userData,
+            error: userError
         } =
             await supabaseClient
                 .auth
                 .getUser();
 
-        if(userError){
+
+        if (userError) {
+
             throw userError;
+
         }
+
 
         const user =
             userData &&
             userData.user;
 
-        if(!user){
+
+        if (!user) {
 
             throw new Error(
                 "Your login session has expired. Please log in again."
             );
+
         }
 
 
-        /* PHOTO */
+        /* =================================================
+           PHOTO
+           ================================================= */
 
-        let image = null;
+        let image =
+            null;
 
 
-        if(
+        if (
             photoInput.files &&
             photoInput.files.length > 0
-        ){
+        ) {
 
             const file =
                 photoInput.files[0];
 
 
-            if(
+            if (
                 !file.type.startsWith(
                     "image/"
                 )
-            ){
+            ) {
 
                 throw new Error(
                     "Please choose an image file."
                 );
+
             }
 
 
-            if(
+            if (
                 file.size >
                 15 * 1024 * 1024
-            ){
+            ) {
 
                 throw new Error(
                     "That photo is over 15 MB. Please choose a smaller photo."
                 );
+
             }
 
 
@@ -3068,27 +5290,24 @@ async function saveMemory(){
                 "Making the photo diary-friendly... 📷";
 
 
-            /*
-             * PNG/JPG/WEBP all work.
-             *
-             * The browser converts them to a
-             * compressed JPEG before saving.
-             */
-
             image =
                 await compressImage(
                     file
                 );
+
         }
 
 
-        /* INSERT */
+        /* =================================================
+           INSERT
+
+           IMPORTANT RLS FIX:
+
+           user_id is explicitly supplied.
+        ================================================= */
 
         const memoryToInsert = {
 
-            /*
-             * CRITICAL RLS FIELD
-             */
             user_id:
                 user.id,
 
@@ -3103,48 +5322,65 @@ async function saveMemory(){
 
             image:
                 image
+
         };
 
 
         const {
-            data,
             error
         } =
             await supabaseClient
                 .from(TABLE)
                 .insert(
                     memoryToInsert
-                )
-                .select();
+                );
 
 
-        if(error){
+        if (error) {
+
             throw error;
+
         }
 
 
-        /* SUCCESS */
+        /* =================================================
+           SUCCESS
+        ================================================= */
 
         status.className =
             "status success";
+
 
         status.textContent =
             "Our little moment is safely saved. ❤️";
 
 
-        document.getElementById(
-            "title"
-        ).value = "";
+        document
+            .getElementById(
+                "title"
+            )
+            .value =
+                "";
 
-        document.getElementById(
-            "date"
-        ).value = "";
 
-        document.getElementById(
-            "message"
-        ).value = "";
+        document
+            .getElementById(
+                "date"
+            )
+            .value =
+                "";
 
-        photoInput.value = "";
+
+        document
+            .getElementById(
+                "message"
+            )
+            .value =
+                "";
+
+
+        photoInput.value =
+            "";
 
 
         createCelebration();
@@ -3158,29 +5394,39 @@ async function saveMemory(){
             user
         );
 
+    }
 
-    }catch(error){
+
+    catch (error) {
 
         console.error(
             "SAVE MEMORY ERROR:",
             error
         );
 
+
         status.className =
             "status error";
+
 
         status.textContent =
             error.message ||
             "Couldn't save this memory.";
 
-    }finally{
+    }
+
+
+    finally {
 
         saveButton.disabled =
             false;
 
+
         saveButton.textContent =
             "🧸 Save This Little Moment ♡";
+
     }
+
 }
 
 
@@ -3188,31 +5434,35 @@ async function saveMemory(){
    CELEBRATION
    ========================================================= */
 
-function createCelebration(){
+function createCelebration() {
 
     const symbols = [
+
         "❤️",
         "💕",
         "💗",
         "💖",
         "✨",
         "🧸"
+
     ];
 
 
-    for(
-        let i=0;
-        i<15;
+    for (
+        let i = 0;
+        i < 15;
         i++
-    ){
+    ) {
 
         const element =
             document.createElement(
                 "div"
             );
 
+
         element.className =
             "celebration";
+
 
         element.textContent =
             symbols[
@@ -3222,38 +5472,813 @@ function createCelebration(){
                 )
             ];
 
+
         element.style.left =
             "50%";
+
 
         element.style.top =
             "50%";
 
+
         element.style.setProperty(
             "--x",
             (
-                Math.random()*340-170
-            )+"px"
+                Math.random() *
+                340 -
+                170
+            ) + "px"
         );
+
 
         element.style.setProperty(
             "--y",
             (
-                Math.random()*340-240
-            )+"px"
+                Math.random() *
+                340 -
+                240
+            ) + "px"
         );
+
 
         document.body.appendChild(
             element
         );
 
+
         setTimeout(
-            function(){
+            function() {
+
                 element.remove();
+
             },
             1700
         );
+
     }
+
 }
+
+
+/* =========================================================
+   =========================================================
+   MEMORY GAME
+   =========================================================
+   ========================================================= */
+
+
+/*
+   These are the six permanent matching themes.
+
+   The game doesn't depend on the database,
+   so it still works if the memory wall is empty.
+*/
+
+const gamePairs = [
+
+    {
+        id: "heart",
+        icon: "❤️",
+        text: "A little piece of love."
+    },
+
+    {
+        id: "teddy",
+        icon: "🧸",
+        text: "Two little bears keeping us company."
+    },
+
+    {
+        id: "photo",
+        icon: "📸",
+        text: "A moment worth remembering."
+    },
+
+    {
+        id: "letter",
+        icon: "💌",
+        text: "Something we'd never want to forget."
+    },
+
+    {
+        id: "flower",
+        icon: "🌷",
+        text: "A soft little moment from our story."
+    },
+
+    {
+        id: "sparkle",
+        icon: "✨",
+        text: "One of those tiny moments that feels magical."
+    }
+
+];
+
+
+let gameCards =
+    [];
+
+let flippedCards =
+    [];
+
+let matchedPairs =
+    0;
+
+let gameScore =
+    0;
+
+let gameMoves =
+    0;
+
+let gameLocked =
+    false;
+
+let gameStarted =
+    false;
+
+
+/* =========================================================
+   GAME ELEMENTS
+   ========================================================= */
+
+const gameBoard =
+    document.getElementById(
+        "gameBoard"
+    );
+
+
+const gameScoreElement =
+    document.getElementById(
+        "gameScore"
+    );
+
+
+const gameMovesElement =
+    document.getElementById(
+        "gameMoves"
+    );
+
+
+const gamePairsElement =
+    document.getElementById(
+        "gamePairs"
+    );
+
+
+const gameProgress =
+    document.getElementById(
+        "gameProgress"
+    );
+
+
+const gameMessage =
+    document.getElementById(
+        "gameMessage"
+    );
+
+
+const newGameButton =
+    document.getElementById(
+        "newGameButton"
+    );
+
+
+const peekButton =
+    document.getElementById(
+        "peekButton"
+    );
+
+
+const gameResult =
+    document.getElementById(
+        "gameResult"
+    );
+
+
+const resultText =
+    document.getElementById(
+        "resultText"
+    );
+
+
+/* =========================================================
+   SHUFFLE
+   ========================================================= */
+
+function shuffle(
+    array
+) {
+
+    const copy =
+        [...array];
+
+
+    for (
+        let i =
+            copy.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
+
+
+        [
+            copy[i],
+            copy[j]
+        ] =
+        [
+            copy[j],
+            copy[i]
+        ];
+
+    }
+
+
+    return copy;
+
+}
+
+
+/* =========================================================
+   START GAME
+   ========================================================= */
+
+function startMemoryGame() {
+
+    gameCards =
+        shuffle(
+            [
+                ...gamePairs,
+                ...gamePairs
+            ]
+        );
+
+
+    flippedCards =
+        [];
+
+
+    matchedPairs =
+        0;
+
+
+    gameScore =
+        0;
+
+
+    gameMoves =
+        0;
+
+
+    gameLocked =
+        false;
+
+
+    gameStarted =
+        true;
+
+
+    gameResult.classList.remove(
+        "show"
+    );
+
+
+    gameMessage.className =
+        "game-message";
+
+
+    gameMessage.textContent =
+        "Find all six pairs. Take your time. ❤️";
+
+
+    updateGameHUD();
+
+
+    gameBoard.innerHTML =
+        "";
+
+
+    gameCards.forEach(
+        function(cardData,index) {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "memory-game-card";
+
+
+            button.dataset.index =
+                index;
+
+
+            button.dataset.pair =
+                cardData.id;
+
+
+            button.innerHTML = `
+
+                <div class="memory-game-inner">
+
+                    <div class="memory-game-front">
+                        💕
+                    </div>
+
+                    <div class="memory-game-back">
+
+                        <div>
+
+                            <span class="game-card-icon">
+                                ${cardData.icon}
+                            </span>
+
+                            ${escapeHTML(
+                                cardData.text
+                            )}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    flipGameCard(
+                        button
+                    );
+
+                }
+            );
+
+
+            gameBoard.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FLIP CARD
+   ========================================================= */
+
+function flipGameCard(
+    cardElement
+) {
+
+    if (
+        gameLocked ||
+        cardElement.classList.contains(
+            "flipped"
+        ) ||
+        cardElement.classList.contains(
+            "matched"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    if (!gameStarted) {
+
+        return;
+
+    }
+
+
+    cardElement.classList.add(
+        "flipped"
+    );
+
+
+    flippedCards.push(
+        cardElement
+    );
+
+
+    if (
+        flippedCards.length <
+        2
+    ) {
+
+        return;
+
+    }
+
+
+    gameMoves++;
+
+
+    const first =
+        flippedCards[0];
+
+
+    const second =
+        flippedCards[1];
+
+
+    const firstPair =
+        first.dataset.pair;
+
+
+    const secondPair =
+        second.dataset.pair;
+
+
+    gameLocked =
+        true;
+
+
+    if (
+        firstPair ===
+        secondPair
+    ) {
+
+        setTimeout(
+            function() {
+
+                first.classList.add(
+                    "matched"
+                );
+
+
+                second.classList.add(
+                    "matched"
+                );
+
+
+                matchedPairs++;
+
+
+                gameScore +=
+                    Math.max(
+                        60 -
+                        (
+                            gameMoves *
+                            2
+                        ),
+                        20
+                    );
+
+
+                flippedCards =
+                    [];
+
+
+                gameLocked =
+                    false;
+
+
+                updateGameHUD();
+
+
+                gameMessage.className =
+                    "game-message good";
+
+
+                const messages = [
+
+                    "A match! 💕",
+
+                    "You remembered us! 🧸",
+
+                    "Another little piece found. ✨",
+
+                    "Hehe, you know our story. 💗"
+
+                ];
+
+
+                gameMessage.textContent =
+                    messages[
+                        Math.floor(
+                            Math.random() *
+                            messages.length
+                        )
+                    ];
+
+
+                if (
+                    matchedPairs ===
+                    gamePairs.length
+                ) {
+
+                    finishMemoryGame();
+
+                }
+
+
+            },
+            500
+        );
+
+    }
+
+    else {
+
+        gameScore =
+            Math.max(
+                0,
+                gameScore - 5
+            );
+
+
+        setTimeout(
+            function() {
+
+                first.classList.remove(
+                    "flipped"
+                );
+
+
+                second.classList.remove(
+                    "flipped"
+                );
+
+
+                flippedCards =
+                    [];
+
+
+                gameLocked =
+                    false;
+
+
+                updateGameHUD();
+
+
+                gameMessage.className =
+                    "game-message";
+
+
+                gameMessage.textContent =
+                    "Not quite... but that's okay. Try again. ❤️";
+
+            },
+            850
+        );
+
+    }
+
+
+    updateGameHUD();
+
+}
+
+
+/* =========================================================
+   GAME HUD
+   ========================================================= */
+
+function updateGameHUD() {
+
+    gameScoreElement.textContent =
+        gameScore;
+
+
+    gameMovesElement.textContent =
+        gameMoves;
+
+
+    gamePairsElement.textContent =
+        matchedPairs +
+        " / " +
+        gamePairs.length;
+
+
+    const percentage =
+        (
+            matchedPairs /
+            gamePairs.length
+        ) * 100;
+
+
+    gameProgress.style.width =
+        percentage +
+        "%";
+
+}
+
+
+/* =========================================================
+   FINISH GAME
+   ========================================================= */
+
+function finishMemoryGame() {
+
+    gameLocked =
+        true;
+
+
+    gameStarted =
+        false;
+
+
+    const finalScore =
+        gameScore;
+
+
+    let ending =
+        "You found all the little pieces of us.";
+
+
+    if (
+        gameMoves <= 12
+    ) {
+
+        ending =
+            "Okay memory champion 😭❤️ You absolutely know our little world.";
+
+    }
+
+    else if (
+        gameMoves <= 18
+    ) {
+
+        ending =
+            "You found them all. See? Our memories are still right here. 💕";
+
+    }
+
+    else {
+
+        ending =
+            "It took a few tries, but you found every little piece. That's what matters. 🧸❤️";
+
+    }
+
+
+    resultText.innerHTML = `
+
+        ${ending}
+
+        <br><br>
+
+        <strong>
+            ${gameMoves}
+            moves ·
+            ${finalScore}
+            hearts
+        </strong>
+
+    `;
+
+
+    gameResult.classList.add(
+        "show"
+    );
+
+
+    gameMessage.className =
+        "game-message special";
+
+
+    gameMessage.textContent =
+        "You found all six pairs! 💗";
+
+
+    createCelebration();
+
+}
+
+
+/* =========================================================
+   TINY PEEK
+   ========================================================= */
+
+let peekAvailable =
+    true;
+
+
+peekButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            !gameStarted ||
+            gameLocked ||
+            !peekAvailable
+        ) {
+
+            return;
+
+        }
+
+
+        peekAvailable =
+            false;
+
+
+        const cards =
+            Array.from(
+                document.querySelectorAll(
+                    ".memory-game-card:not(.matched)"
+                )
+            );
+
+
+        cards.forEach(
+            function(card) {
+
+                card.classList.add(
+                    "flipped"
+                );
+
+            }
+        );
+
+
+        gameMessage.className =
+            "game-message special";
+
+
+        gameMessage.textContent =
+            "Tiny peek! 👀 Remember where they are...";
+
+
+        setTimeout(
+            function() {
+
+                cards.forEach(
+                    function(card) {
+
+                        if (
+                            !card.classList.contains(
+                                "matched"
+                            )
+                        ) {
+
+                            card.classList.remove(
+                                "flipped"
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                gameMessage.className =
+                    "game-message";
+
+
+                gameMessage.textContent =
+                    "Okayyy, no more cheating. 😭💕";
+
+
+            },
+            1100
+        );
+
+    }
+);
+
+
+/* =========================================================
+   NEW GAME
+   ========================================================= */
+
+newGameButton.addEventListener(
+    "click",
+    function() {
+
+        peekAvailable =
+            true;
+
+        startMemoryGame();
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL GAME
+   ========================================================= */
+
+startMemoryGame();
 
 
 /* =========================================================
@@ -3265,15 +6290,18 @@ const ourSong =
         "ourSong"
     );
 
+
 const musicButton =
     document.getElementById(
         "musicButton"
     );
 
+
 const musicStatus =
     document.getElementById(
         "musicStatus"
     );
+
 
 const musicCard =
     document.getElementById(
@@ -3283,364 +6311,122 @@ const musicCard =
 
 musicButton.addEventListener(
     "click",
-    async function(){
+    async function() {
 
-        if(
+        if (
             ourSong.paused
-        ){
+        ) {
 
-            try{
+            try {
 
                 await ourSong.play();
 
-            }catch(error){
+            }
+
+            catch (error) {
 
                 console.error(
                     "AUDIO ERROR:",
                     error
                 );
 
+
                 musicStatus.textContent =
                     "Couldn't play the song. Make sure Until_I_Found_You.mp3 is in the repository. ❤️";
+
             }
 
-        }else{
+        }
+
+        else {
 
             ourSong.pause();
+
         }
+
     }
 );
 
 
 ourSong.addEventListener(
     "play",
-    function(){
+    function() {
 
         musicCard.classList.add(
             "playing"
         );
 
+
         musicButton.textContent =
             "⏸ Pause Our Song";
 
+
         musicStatus.textContent =
             "Playing Until I Found You ❤️";
+
     }
 );
 
 
 ourSong.addEventListener(
     "pause",
-    function(){
+    function() {
 
         musicCard.classList.remove(
             "playing"
         );
 
-        if(!ourSong.ended){
+
+        if (
+            !ourSong.ended
+        ) {
 
             musicButton.textContent =
                 "▶ Play Our Song";
 
+
             musicStatus.textContent =
                 "Paused ❤️";
+
         }
+
     }
 );
 
 
 ourSong.addEventListener(
     "ended",
-    function(){
+    function() {
 
         musicCard.classList.remove(
             "playing"
         );
 
+
         musicButton.textContent =
             "▶ Play Our Song";
 
+
         musicStatus.textContent =
             "Until I Found You ❤️";
+
     }
 );
 
 
 ourSong.addEventListener(
     "error",
-    function(){
+    function() {
 
         musicCard.classList.remove(
             "playing"
         );
 
+
         musicStatus.textContent =
             "Song couldn't be loaded. Check that Until_I_Found_You.mp3 is in the repository.";
+
     }
-);
-
-
-/* =========================================================
-   MEMORY LOOK-BACK GAME
-   ========================================================= */
-
-const gameQuestions = [
-
-    {
-        question:
-            "Do you remember the little moments that made you smile for no reason? 🥺❤️",
-
-        result:
-            "I hope you do... because those tiny moments are exactly what this diary is here to keep. 🧸💕"
-    },
-
-    {
-        question:
-            "If you could relive one random day with me right now, would you? 🌷",
-
-        result:
-            "Then let's keep collecting days worth reliving. One memory at a time. ❤️"
-    },
-
-    {
-        question:
-            "Do you remember how something small somehow became one of our favourite memories? 💗",
-
-        result:
-            "That's the funny thing about us — the little things become the big things. 🧸"
-    },
-
-    {
-        question:
-            "If you are missing me right now... can you feel a tiny smile coming? 🥺",
-
-        result:
-            "Good. That's the whole point of this little place. You never have to feel completely far away. ❤️"
-    },
-
-    {
-        question:
-            "One day we'll look at this diary years from now. Can you imagine that? ♾️",
-
-        result:
-            "We'll have a ridiculous amount of memories by then. And this is only the beginning. 🧸💕"
-    }
-
-];
-
-
-let currentGameQuestion = 0;
-
-
-const gameQuestion =
-    document.getElementById(
-        "gameQuestion"
-    );
-
-const gameResult =
-    document.getElementById(
-        "gameResult"
-    );
-
-const gameStart =
-    document.getElementById(
-        "gameStart"
-    );
-
-const gameYes =
-    document.getElementById(
-        "gameYes"
-    );
-
-const gameNext =
-    document.getElementById(
-        "gameNext"
-    );
-
-const gameProgressBar =
-    document.getElementById(
-        "gameProgressBar"
-    );
-
-
-function startGame(){
-
-    currentGameQuestion = 0;
-
-    showGameQuestion();
-
-    gameStart.style.display =
-        "none";
-
-    gameYes.style.display =
-        "inline-block";
-
-    gameNext.style.display =
-        "inline-block";
-}
-
-
-function showGameQuestion(){
-
-    const item =
-        gameQuestions[
-            currentGameQuestion
-        ];
-
-    gameQuestion.textContent =
-        item.question;
-
-    gameResult.textContent =
-        "Do you remember? 🥺";
-
-    const progress =
-        (
-            currentGameQuestion /
-            gameQuestions.length
-        ) * 100;
-
-    gameProgressBar.style.width =
-        progress + "%";
-}
-
-
-function answerGame(){
-
-    const item =
-        gameQuestions[
-            currentGameQuestion
-        ];
-
-    gameResult.textContent =
-        item.result;
-
-    createMiniGameHearts();
-
-    gameProgressBar.style.width =
-        (
-            (
-                currentGameQuestion + 1
-            ) /
-            gameQuestions.length
-        ) * 100 + "%";
-}
-
-
-function nextGameQuestion(){
-
-    currentGameQuestion++;
-
-    if(
-        currentGameQuestion >=
-        gameQuestions.length
-    ){
-
-        gameQuestion.textContent =
-            "That's enough looking back for now... ❤️";
-
-        gameResult.textContent =
-            "Go make another memory. Future-you will thank you. 🧸✨";
-
-        gameYes.style.display =
-            "none";
-
-        gameNext.style.display =
-            "none";
-
-        gameStart.style.display =
-            "inline-block";
-
-        gameStart.textContent =
-            "💕 Play Again";
-
-        gameProgressBar.style.width =
-            "100%";
-
-        return;
-    }
-
-    showGameQuestion();
-}
-
-
-function createMiniGameHearts(){
-
-    const symbols = [
-        "💕",
-        "❤️",
-        "💗",
-        "✨"
-    ];
-
-    for(
-        let i=0;
-        i<5;
-        i++
-    ){
-
-        const heart =
-            document.createElement(
-                "div"
-            );
-
-        heart.className =
-            "celebration";
-
-        heart.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-        heart.style.left =
-            "50%";
-
-        heart.style.top =
-            "55%";
-
-        heart.style.setProperty(
-            "--x",
-            (
-                Math.random()*180-90
-            )+"px"
-        );
-
-        heart.style.setProperty(
-            "--y",
-            (
-                Math.random()*160-120
-            )+"px"
-        );
-
-        document.body.appendChild(
-            heart
-        );
-
-        setTimeout(
-            function(){
-                heart.remove();
-            },
-            1700
-        );
-    }
-}
-
-
-gameStart.addEventListener(
-    "click",
-    startGame
-);
-
-gameYes.addEventListener(
-    "click",
-    answerGame
-);
-
-gameNext.addEventListener(
-    "click",
-    nextGameQuestion
 );
 
 
@@ -3653,10 +6439,12 @@ loginButton.addEventListener(
     login
 );
 
+
 logoutButton.addEventListener(
     "click",
     logout
 );
+
 
 saveButton.addEventListener(
     "click",
@@ -3665,7 +6453,7 @@ saveButton.addEventListener(
 
 
 /* =========================================================
-   ENTER LOGIN
+   ENTER KEY LOGIN
    ========================================================= */
 
 document
@@ -3674,15 +6462,17 @@ document
     )
     .addEventListener(
         "keydown",
-        function(event){
+        function(event) {
 
-            if(
+            if (
                 event.key ===
                 "Enter"
-            ){
+            ) {
 
                 login();
+
             }
+
         }
     );
 
@@ -3693,23 +6483,27 @@ document
     )
     .addEventListener(
         "keydown",
-        function(event){
+        function(event) {
 
-            if(
+            if (
                 event.key ===
                 "Enter"
-            ){
+            ) {
 
                 document
                     .getElementById(
                         "loginPassword"
                     )
                     .focus();
+
             }
+
         }
     );
+
 
 </script>
 
 </body>
+
 </html>
