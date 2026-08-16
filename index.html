@@ -2,18 +2,28 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-               maximum-scale=1.0,
-               user-scalable=no">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
 
-<meta name="theme-color" content="#c05f82">
+<meta
+    name="theme-color"
+    content="#c05f82"
+>
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
 
 <title>Our Little Time Capsule ❤️</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <style>
 
@@ -21,19 +31,24 @@
    ROOT
    ========================================================= */
 
-:root{
-    --rose:#c05f82;
-    --deep-rose:#91445f;
-    --soft-rose:#e5aabd;
-    --pink:#fff0f5;
-    --cream:#fffaf8;
-    --paper:rgba(255,253,251,.96);
-    --text:#593c45;
-    --muted:#80616a;
-    --gold:#e9b75f;
-    --green:#668b6b;
-    --red:#b04b5b;
-    --shadow:rgba(90,45,65,.14);
+:root {
+
+    --rose: #c05f82;
+    --deep-rose: #91445f;
+    --soft-rose: #e5aabd;
+
+    --pale-pink: #fff0f5;
+    --cream: #fffaf8;
+    --paper: rgba(255,253,251,.96);
+
+    --text: #593c45;
+    --muted: #80616a;
+
+    --gold: #e9b75f;
+
+    --shadow:
+        rgba(90,45,65,.14);
+
 }
 
 
@@ -41,38 +56,56 @@
    RESET
    ========================================================= */
 
-*{
-    box-sizing:border-box;
+* {
+
+    box-sizing: border-box;
+
 }
 
-html{
-    scroll-behavior:smooth;
+
+html {
+
+    scroll-behavior:
+        smooth;
+
 }
 
-body{
-    margin:0;
-    min-height:100vh;
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    color:var(--text);
+    color:
+        var(--text);
 
     background:
+
         linear-gradient(
             rgba(255,241,246,.76),
             rgba(255,248,243,.86)
         ),
-        url("./IMG-20260804-WA0035.jpg"),
-        url("./IMG-20260804-WA0035.png");
 
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+        url("./IMG-20260804-WA0035.jpg");
 
-    overflow-x:hidden;
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    background-attachment:
+        fixed;
+
+    overflow-x:
+        hidden;
+
 }
 
 
@@ -80,32 +113,40 @@ body{
    BACKGROUND GLOW
    ========================================================= */
 
-body::before{
-    content:"";
+body::before {
 
-    position:fixed;
-    inset:0;
+    content: "";
 
-    pointer-events:none;
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events:
+        none;
 
     background:
+
         radial-gradient(
             circle at 10% 15%,
             rgba(255,255,255,.65),
             transparent 25%
         ),
+
         radial-gradient(
             circle at 90% 30%,
             rgba(255,210,225,.35),
             transparent 28%
         ),
+
         radial-gradient(
             circle at 50% 85%,
             rgba(255,230,215,.38),
             transparent 30%
         );
 
-    z-index:0;
+    z-index:
+        0;
+
 }
 
 
@@ -113,153 +154,241 @@ body::before{
    DECORATIONS
    ========================================================= */
 
-.decorations{
-    position:fixed;
-    inset:0;
+.decorations {
 
-    overflow:hidden;
-    pointer-events:none;
+    position: fixed;
 
-    z-index:1;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events:
+        none;
+
+    z-index:
+        1;
+
 }
 
-.float-heart{
-    position:absolute;
-    bottom:-60px;
 
-    opacity:0;
+.float-heart {
+
+    position: absolute;
+
+    bottom: -60px;
+
+    opacity: 0;
 
     animation:
         floatHeart 11s linear infinite;
+
 }
 
-.float-heart:nth-child(1){
-    left:7%;
-    animation-delay:0s;
+
+.float-heart:nth-child(1) {
+
+    left: 7%;
+
+    animation-delay:
+        0s;
+
 }
 
-.float-heart:nth-child(2){
-    left:22%;
-    animation-delay:3s;
+
+.float-heart:nth-child(2) {
+
+    left: 22%;
+
+    animation-delay:
+        3s;
+
 }
 
-.float-heart:nth-child(3){
-    left:42%;
-    animation-delay:7s;
+
+.float-heart:nth-child(3) {
+
+    left: 42%;
+
+    animation-delay:
+        7s;
+
 }
 
-.float-heart:nth-child(4){
-    left:67%;
-    animation-delay:2s;
+
+.float-heart:nth-child(4) {
+
+    left: 67%;
+
+    animation-delay:
+        2s;
+
 }
 
-.float-heart:nth-child(5){
-    left:88%;
-    animation-delay:5s;
+
+.float-heart:nth-child(5) {
+
+    left: 88%;
+
+    animation-delay:
+        5s;
+
 }
 
-@keyframes floatHeart{
 
-    0%{
+@keyframes floatHeart {
+
+    0% {
+
         transform:
             translateY(0)
             translateX(0)
             rotate(0deg)
             scale(.6);
 
-        opacity:0;
+        opacity: 0;
+
     }
 
-    12%{
-        opacity:.65;
+    12% {
+
+        opacity: .65;
+
     }
 
-    50%{
+    50% {
+
         transform:
             translateY(-55vh)
             translateX(25px)
             rotate(18deg)
             scale(1);
+
     }
 
-    100%{
+    100% {
+
         transform:
             translateY(-115vh)
             translateX(-25px)
             rotate(-20deg)
             scale(1.15);
 
-        opacity:0;
-    }
-}
+        opacity: 0;
 
-.sparkle{
-    position:absolute;
-
-    color:rgba(192,95,130,.55);
-
-    animation:
-        sparkle 3s ease-in-out infinite;
-}
-
-.sparkle:nth-child(6){
-    top:14%;
-    left:9%;
-}
-
-.sparkle:nth-child(7){
-    top:31%;
-    right:8%;
-    animation-delay:.8s;
-}
-
-.sparkle:nth-child(8){
-    top:62%;
-    left:6%;
-    animation-delay:1.5s;
-}
-
-.sparkle:nth-child(9){
-    top:78%;
-    right:9%;
-    animation-delay:2s;
-}
-
-@keyframes sparkle{
-
-    0%,100%{
-        transform:
-            scale(.5)
-            rotate(0deg);
-
-        opacity:.2;
     }
 
-    50%{
-        transform:
-            scale(1.5)
-            rotate(35deg);
-
-        opacity:.95;
-    }
 }
 
 
 /* =========================================================
-   MAIN
+   SPARKLES
    ========================================================= */
 
-.container{
-    position:relative;
-    z-index:5;
+.sparkle {
 
-    width:92%;
-    max-width:850px;
+    position: absolute;
 
-    margin:auto;
+    color:
+        rgba(192,95,130,.55);
+
+    animation:
+        sparkle 3s ease-in-out infinite;
+
+}
+
+
+.sparkle:nth-child(6) {
+
+    top: 14%;
+    left: 9%;
+
+}
+
+
+.sparkle:nth-child(7) {
+
+    top: 31%;
+    right: 8%;
+
+    animation-delay:
+        .8s;
+
+}
+
+
+.sparkle:nth-child(8) {
+
+    top: 62%;
+    left: 6%;
+
+    animation-delay:
+        1.5s;
+
+}
+
+
+.sparkle:nth-child(9) {
+
+    top: 78%;
+    right: 9%;
+
+    animation-delay:
+        2s;
+
+}
+
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+
+        transform:
+            scale(.5)
+            rotate(0deg);
+
+        opacity:
+            .2;
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.5)
+            rotate(35deg);
+
+        opacity:
+            .95;
+
+    }
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+
+    position: relative;
+
+    z-index:
+        5;
+
+    width:
+        92%;
+
+    max-width:
+        850px;
+
+    margin:
+        auto;
 
     padding:
         20px 0 80px;
+
 }
 
 
@@ -267,11 +396,14 @@ body::before{
    HEADER
    ========================================================= */
 
-header{
-    text-align:center;
+header {
+
+    text-align:
+        center;
 
     padding:
         25px 8px 10px;
+
 }
 
 
@@ -279,24 +411,39 @@ header{
    TEDDY COUPLE
    ========================================================= */
 
-.teddy-couple{
-    display:flex;
+.teddy-couple {
 
-    justify-content:center;
-    align-items:flex-end;
+    display:
+        flex;
 
-    gap:14px;
+    justify-content:
+        center;
 
-    height:145px;
+    align-items:
+        flex-end;
 
-    margin-bottom:4px;
+    gap:
+        14px;
+
+    height:
+        145px;
+
+    margin-bottom:
+        4px;
+
 }
 
-.teddy{
-    position:relative;
 
-    width:92px;
-    height:125px;
+.teddy {
+
+    position:
+        relative;
+
+    width:
+        92px;
+
+    height:
+        125px;
 
     animation:
         teddyFloat 3.2s ease-in-out infinite;
@@ -306,10 +453,15 @@ header{
             0 8px 8px
             rgba(80,40,30,.12)
         );
+
 }
 
-.teddy:nth-child(2){
-    animation-delay:.45s;
+
+.teddy:nth-child(2) {
+
+    animation-delay:
+        .45s;
+
 }
 
 
@@ -317,38 +469,65 @@ header{
    TEDDY EARS
    ========================================================= */
 
-.teddy-ear{
-    position:absolute;
+.teddy-ear {
 
-    width:29px;
-    height:29px;
+    position:
+        absolute;
 
-    top:-7px;
+    width:
+        29px;
 
-    border-radius:50%;
+    height:
+        29px;
 
-    background:#bc754f;
+    top:
+        -7px;
 
-    z-index:1;
+    border-radius:
+        50%;
+
+    background:
+        #bc754f;
+
+    z-index:
+        1;
+
 }
 
-.teddy-ear.left{
-    left:1px;
+
+.teddy-ear.left {
+
+    left:
+        1px;
+
 }
 
-.teddy-ear.right{
-    right:1px;
+
+.teddy-ear.right {
+
+    right:
+        1px;
+
 }
 
-.teddy-ear::after{
-    content:"";
 
-    position:absolute;
-    inset:6px;
+.teddy-ear::after {
 
-    border-radius:50%;
+    content:
+        "";
 
-    background:#f0b5a0;
+    position:
+        absolute;
+
+    inset:
+        6px;
+
+    border-radius:
+        50%;
+
+    background:
+        #f0b5a0;
+
 }
 
 
@@ -356,14 +535,22 @@ header{
    TEDDY HEAD
    ========================================================= */
 
-.teddy-head{
-    position:absolute;
+.teddy-head {
 
-    left:10px;
-    top:8px;
+    position:
+        absolute;
 
-    width:72px;
-    height:66px;
+    left:
+        10px;
+
+    top:
+        8px;
+
+    width:
+        72px;
+
+    height:
+        66px;
 
     border-radius:
         48%
@@ -381,128 +568,228 @@ header{
     box-shadow:
         inset -6px -7px
         rgba(90,45,30,.08);
+
 }
 
+
 .teddy.girl .teddy-head,
-.teddy.girl .teddy-body{
+.teddy.girl .teddy-body {
+
     background:
         linear-gradient(
             145deg,
             #e3a08d,
             #b96f65
         );
+
 }
 
-.teddy.girl .teddy-ear{
-    background:#c98276;
+
+.teddy.girl .teddy-ear {
+
+    background:
+        #c98276;
+
 }
 
 
 /* =========================================================
-   TEDDY FACE
+   TEDDY EYES
    ========================================================= */
 
-.eye{
-    position:absolute;
+.eye {
 
-    top:27px;
+    position:
+        absolute;
 
-    width:7px;
-    height:8px;
+    top:
+        27px;
 
-    border-radius:50%;
+    width:
+        7px;
 
-    background:#493036;
+    height:
+        8px;
+
+    border-radius:
+        50%;
+
+    background:
+        #493036;
+
 }
 
-.eye.left{
-    left:19px;
+
+.eye.left {
+
+    left:
+        19px;
+
 }
 
-.eye.right{
-    right:19px;
+
+.eye.right {
+
+    right:
+        19px;
+
 }
 
-.eye::after{
-    content:"";
 
-    position:absolute;
+.eye::after {
 
-    width:2px;
-    height:2px;
+    content:
+        "";
 
-    top:1px;
-    left:1px;
+    position:
+        absolute;
 
-    border-radius:50%;
+    width:
+        2px;
 
-    background:white;
+    height:
+        2px;
+
+    top:
+        1px;
+
+    left:
+        1px;
+
+    border-radius:
+        50%;
+
+    background:
+        white;
+
 }
 
-.cheek{
-    position:absolute;
 
-    top:38px;
+/* =========================================================
+   TEDDY CHEEKS
+   ========================================================= */
 
-    width:10px;
-    height:6px;
+.cheek {
 
-    border-radius:50%;
+    position:
+        absolute;
 
-    background:#ee9e9e;
+    top:
+        38px;
 
-    opacity:.65;
+    width:
+        10px;
+
+    height:
+        6px;
+
+    border-radius:
+        50%;
+
+    background:
+        #ee9e9e;
+
+    opacity:
+        .65;
+
 }
 
-.cheek.left{
-    left:10px;
+
+.cheek.left {
+
+    left:
+        10px;
+
 }
 
-.cheek.right{
-    right:10px;
+
+.cheek.right {
+
+    right:
+        10px;
+
 }
 
-.muzzle{
-    position:absolute;
 
-    left:22px;
-    top:34px;
+/* =========================================================
+   TEDDY MUZZLE
+   ========================================================= */
 
-    width:28px;
-    height:21px;
+.muzzle {
 
-    border-radius:50%;
+    position:
+        absolute;
 
-    background:#f0c4a8;
+    left:
+        22px;
+
+    top:
+        34px;
+
+    width:
+        28px;
+
+    height:
+        21px;
+
+    border-radius:
+        50%;
+
+    background:
+        #f0c4a8;
+
 }
 
-.nose{
-    position:absolute;
 
-    left:10px;
-    top:5px;
+.nose {
 
-    width:9px;
-    height:7px;
+    position:
+        absolute;
 
-    border-radius:50%;
+    left:
+        10px;
 
-    background:#553037;
+    top:
+        5px;
+
+    width:
+        9px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #553037;
+
 }
 
-.mouth{
-    position:absolute;
 
-    left:12px;
-    top:11px;
+.mouth {
 
-    width:6px;
-    height:5px;
+    position:
+        absolute;
+
+    left:
+        12px;
+
+    top:
+        11px;
+
+    width:
+        6px;
+
+    height:
+        5px;
 
     border-bottom:
         2px solid #553037;
 
-    border-radius:50%;
+    border-radius:
+        50%;
+
 }
 
 
@@ -510,14 +797,22 @@ header{
    TEDDY BODY
    ========================================================= */
 
-.teddy-body{
-    position:absolute;
+.teddy-body {
 
-    left:20px;
-    top:68px;
+    position:
+        absolute;
 
-    width:54px;
-    height:48px;
+    left:
+        20px;
+
+    top:
+        68px;
+
+    width:
+        54px;
+
+    height:
+        48px;
 
     border-radius:
         48%
@@ -531,139 +826,285 @@ header{
             #d99a6c,
             #ad694b
         );
+
 }
 
-.belly{
-    position:absolute;
 
-    left:14px;
-    top:9px;
+.belly {
 
-    width:27px;
-    height:25px;
+    position:
+        absolute;
 
-    border-radius:50%;
+    left:
+        14px;
 
-    background:#edc09e;
+    top:
+        9px;
+
+    width:
+        27px;
+
+    height:
+        25px;
+
+    border-radius:
+        50%;
+
+    background:
+        #edc09e;
+
 }
 
-.arm{
-    position:absolute;
 
-    top:73px;
+/* =========================================================
+   TEDDY ARMS
+   ========================================================= */
 
-    width:19px;
-    height:36px;
+.arm {
 
-    border-radius:50%;
+    position:
+        absolute;
 
-    background:#c27b56;
+    top:
+        73px;
 
-    z-index:2;
+    width:
+        19px;
+
+    height:
+        36px;
+
+    border-radius:
+        50%;
+
+    background:
+        #c27b56;
+
+    z-index:
+        2;
+
 }
 
-.arm.left{
-    left:5px;
-    transform:rotate(27deg);
+
+.arm.left {
+
+    left:
+        5px;
+
+    transform:
+        rotate(27deg);
+
 }
 
-.arm.right{
-    right:5px;
-    transform:rotate(-27deg);
+
+.arm.right {
+
+    right:
+        5px;
+
+    transform:
+        rotate(-27deg);
+
 }
 
-.leg{
-    position:absolute;
 
-    top:102px;
+/* =========================================================
+   TEDDY LEGS
+   ========================================================= */
 
-    width:23px;
-    height:18px;
+.leg {
 
-    border-radius:50%;
+    position:
+        absolute;
 
-    background:#ae684b;
+    top:
+        102px;
+
+    width:
+        23px;
+
+    height:
+        18px;
+
+    border-radius:
+        50%;
+
+    background:
+        #ae684b;
+
 }
 
-.leg.left{
-    left:18px;
+
+.leg.left {
+
+    left:
+        18px;
+
 }
 
-.leg.right{
-    right:18px;
+
+.leg.right {
+
+    right:
+        18px;
+
 }
 
-.teddy-heart{
-    position:absolute;
 
-    left:34px;
-    top:66px;
+/* =========================================================
+   TEDDY HEART
+   ========================================================= */
 
-    z-index:10;
+.teddy-heart {
 
-    font-size:27px;
+    position:
+        absolute;
+
+    left:
+        34px;
+
+    top:
+        66px;
+
+    z-index:
+        10;
+
+    font-size:
+        27px;
 
     animation:
         teddyHeart 1.5s ease-in-out infinite;
+
 }
 
-.bow{
-    position:absolute;
 
-    right:-3px;
-    top:-2px;
+/* =========================================================
+   BOW
+   ========================================================= */
 
-    z-index:15;
+.bow {
 
-    font-size:25px;
+    position:
+        absolute;
 
-    transform:rotate(10deg);
+    right:
+        -3px;
+
+    top:
+        -2px;
+
+    z-index:
+        15;
+
+    font-size:
+        25px;
+
+    transform:
+        rotate(10deg);
 
     animation:
         bowWiggle 2s ease-in-out infinite;
+
 }
 
-@keyframes bowWiggle{
 
-    0%,100%{
-        transform:rotate(10deg);
+@keyframes bowWiggle {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(10deg);
+
     }
 
-    50%{
+    50% {
+
         transform:
             rotate(-8deg)
             scale(1.06);
+
     }
+
 }
 
-@keyframes teddyFloat{
 
-    0%,100%{
+@keyframes teddyFloat {
+
+    0%,
+    100% {
+
         transform:
             translateY(0)
             rotate(-2deg);
+
     }
 
-    50%{
+    50% {
+
         transform:
             translateY(-10px)
             rotate(2deg);
+
     }
+
 }
 
-@keyframes teddyHeart{
 
-    0%,100%{
+@keyframes teddyHeart {
+
+    0%,
+    100% {
+
         transform:
             scale(1)
             rotate(-3deg);
+
     }
 
-    50%{
+    50% {
+
         transform:
             scale(1.2)
             rotate(4deg);
+
     }
+
+}
+
+
+/* =========================================================
+   HEADER HEART
+   ========================================================= */
+
+.header-heart {
+
+    font-size:
+        38px;
+
+    animation:
+        heartbeat 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.18);
+
+    }
+
 }
 
 
@@ -671,65 +1112,76 @@ header{
    TITLE
    ========================================================= */
 
-.header-heart{
-    font-size:38px;
+h1 {
 
-    animation:
-        heartbeat 1.5s ease-in-out infinite;
-}
-
-@keyframes heartbeat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.18);
-    }
-}
-
-h1{
     font-size:
         clamp(38px,9vw,70px);
 
     margin:
         10px 0;
 
-    line-height:1;
+    line-height:
+        1;
 
-    color:var(--deep-rose);
+    color:
+        var(--deep-rose);
 
     text-shadow:
         0 4px 15px
         rgba(145,76,101,.13);
+
 }
 
-.subtitle{
-    color:var(--muted);
 
-    font-size:20px;
+.subtitle {
 
-    line-height:1.6;
+    color:
+        var(--muted);
+
+    font-size:
+        20px;
+
+    line-height:
+        1.6;
+
 }
 
-.divider{
-    display:flex;
 
-    justify-content:center;
-    align-items:center;
+/* =========================================================
+   DIVIDER
+   ========================================================= */
 
-    gap:12px;
+.divider {
 
-    margin:22px auto;
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin:
+        22px auto;
+
 }
+
 
 .divider::before,
-.divider::after{
-    content:"";
+.divider::after {
 
-    width:70px;
-    height:1px;
+    content:
+        "";
+
+    width:
+        70px;
+
+    height:
+        1px;
 
     background:
         linear-gradient(
@@ -737,19 +1189,27 @@ h1{
             transparent,
             var(--soft-rose)
         );
+
 }
 
-.divider::after{
+
+.divider::after {
+
     background:
         linear-gradient(
             to left,
             transparent,
             var(--soft-rose)
         );
+
 }
 
-.divider span{
-    color:var(--rose);
+
+.divider span {
+
+    color:
+        var(--rose);
+
 }
 
 
@@ -757,8 +1217,10 @@ h1{
    LOVE COUNTER
    ========================================================= */
 
-.love-counter{
-    position:relative;
+.love-counter {
+
+    position:
+        relative;
 
     margin:
         25px 0 35px;
@@ -766,9 +1228,11 @@ h1{
     padding:
         32px 20px;
 
-    text-align:center;
+    text-align:
+        center;
 
-    overflow:hidden;
+    overflow:
+        hidden;
 
     background:
         rgba(255,252,250,.95);
@@ -777,102 +1241,153 @@ h1{
         1px solid
         rgba(160,91,111,.18);
 
-    border-radius:32px;
+    border-radius:
+        32px;
 
     box-shadow:
         0 18px 50px
         var(--shadow);
 
-    backdrop-filter:blur(9px);
+    backdrop-filter:
+        blur(9px);
+
 }
 
-.love-counter::before{
-    content:"";
 
-    position:absolute;
+.love-counter::before {
 
-    inset:8px;
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        8px;
 
     border:
         1px dashed
         rgba(192,95,130,.3);
 
-    border-radius:25px;
+    border-radius:
+        25px;
 
-    pointer-events:none;
+    pointer-events:
+        none;
+
 }
 
-.counter-heart{
-    position:relative;
 
-    display:inline-block;
+.counter-heart {
 
-    font-size:40px;
+    position:
+        relative;
+
+    display:
+        inline-block;
+
+    font-size:
+        40px;
 
     animation:
         counterPulse 1.5s ease-in-out infinite;
+
 }
 
-@keyframes counterPulse{
 
-    0%,100%{
-        transform:scale(1);
+@keyframes counterPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
     }
 
-    50%{
-        transform:scale(1.18);
+    50% {
+
+        transform:
+            scale(1.18);
 
         filter:
             drop-shadow(
                 0 0 12px
                 rgba(255,90,130,.4)
             );
+
     }
+
 }
 
-.counter-title{
-    position:relative;
 
-    margin-top:5px;
+.counter-title {
 
-    color:var(--deep-rose);
+    position:
+        relative;
 
-    font-size:25px;
+    margin-top:
+        5px;
 
-    font-weight:bold;
+    color:
+        var(--deep-rose);
+
+    font-size:
+        25px;
+
+    font-weight:
+        bold;
+
 }
 
-.counter-date{
-    position:relative;
+
+.counter-date {
+
+    position:
+        relative;
 
     margin:
         8px 0 20px;
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
-    font-size:15px;
+    font-size:
+        15px;
+
 }
 
-.counter-grid{
-    position:relative;
 
-    display:grid;
+.counter-grid {
+
+    position:
+        relative;
+
+    display:
+        grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:10px;
+    gap:
+        10px;
 
-    max-width:620px;
+    max-width:
+        620px;
 
-    margin:auto;
+    margin:
+        auto;
+
 }
 
-.counter-box{
+
+.counter-box {
+
     padding:
         15px 5px;
 
-    border-radius:19px;
+    border-radius:
+        19px;
 
     background:
         linear-gradient(
@@ -891,93 +1406,137 @@ h1{
 
     transition:
         transform .25s ease;
+
 }
 
-.counter-box:hover{
+
+.counter-box:hover {
+
     transform:
         translateY(-4px);
+
 }
 
-.counter-number{
-    color:var(--deep-rose);
+
+.counter-number {
+
+    color:
+        var(--deep-rose);
 
     font-size:
         clamp(22px,5vw,36px);
 
-    font-weight:bold;
+    font-weight:
+        bold;
 
     font-variant-numeric:
         tabular-nums;
+
 }
 
-.counter-label{
-    margin-top:4px;
 
-    color:#a27682;
+.counter-label {
 
-    font-size:11px;
+    margin-top:
+        4px;
 
-    text-transform:uppercase;
+    color:
+        #a27682;
 
-    letter-spacing:.8px;
+    font-size:
+        11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .8px;
+
 }
 
-.counter-line{
-    position:relative;
 
-    width:140px;
-    height:3px;
+.counter-line {
+
+    position:
+        relative;
+
+    width:
+        140px;
+
+    height:
+        3px;
 
     margin:
         22px auto 0;
 
-    overflow:hidden;
+    overflow:
+        hidden;
 
-    border-radius:10px;
+    border-radius:
+        10px;
 
-    background:#f3dce3;
+    background:
+        #f3dce3;
+
 }
 
-.counter-line::after{
-    content:"";
 
-    position:absolute;
+.counter-line::after {
 
-    left:-60px;
+    content:
+        "";
 
-    width:55px;
-    height:100%;
+    position:
+        absolute;
 
-    border-radius:10px;
+    left:
+        -60px;
 
-    background:var(--rose);
+    width:
+        55px;
+
+    height:
+        100%;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--rose);
 
     animation:
         lineMove 2s linear infinite;
+
 }
 
-@keyframes lineMove{
 
-    to{
-        left:150px;
+@keyframes lineMove {
+
+    to {
+
+        left:
+            150px;
+
     }
+
 }
 
 
 /* =========================================================
-   CARDS
+   COMMON CARDS
    ========================================================= */
 
 .card,
-.music-card,
-.game-card{
+.music-card {
 
-    position:relative;
+    position:
+        relative;
 
     margin:
         30px 0;
 
-    padding:30px;
+    padding:
+        30px;
 
     background:
         var(--paper);
@@ -986,7 +1545,8 @@ h1{
         1px solid
         rgba(160,91,111,.18);
 
-    border-radius:30px;
+    border-radius:
+        30px;
 
     box-shadow:
         0 18px 50px
@@ -994,63 +1554,90 @@ h1{
 
     backdrop-filter:
         blur(8px);
+
 }
 
+
 .card::before,
-.music-card::before,
-.game-card::before{
+.music-card::before {
 
-    content:"";
+    content:
+        "";
 
-    position:absolute;
+    position:
+        absolute;
 
-    inset:8px;
+    inset:
+        8px;
 
     border:
         1px dashed
         rgba(182,107,131,.28);
 
-    border-radius:23px;
+    border-radius:
+        23px;
 
-    pointer-events:none;
+    pointer-events:
+        none;
+
 }
 
-.card::after,
-.game-card::after{
 
-    content:"♡";
+.card::after {
 
-    position:absolute;
+    content:
+        "♡";
 
-    right:18px;
-    top:12px;
+    position:
+        absolute;
+
+    right:
+        18px;
+
+    top:
+        12px;
 
     color:
         rgba(166,90,115,.28);
 
-    font-size:27px;
+    font-size:
+        27px;
+
 }
 
-.card h2,
-.game-card h2{
 
-    position:relative;
+/* =========================================================
+   CARD TEXT
+   ========================================================= */
 
-    margin-top:0;
+.card h2 {
 
-    color:var(--deep-rose);
+    position:
+        relative;
 
-    font-size:30px;
+    margin-top:
+        0;
+
+    color:
+        var(--deep-rose);
+
+    font-size:
+        30px;
+
 }
 
-.card p,
-.game-card p{
 
-    position:relative;
+.card p {
 
-    font-size:19px;
+    position:
+        relative;
 
-    line-height:1.7;
+    font-size:
+        19px;
+
+    line-height:
+        1.7;
+
 }
 
 
@@ -1058,30 +1645,45 @@ h1{
    LOGIN
    ========================================================= */
 
-#loginSection{
-    max-width:450px;
+#loginSection {
+
+    max-width:
+        450px;
 
     margin:
         25px auto 40px;
 
-    text-align:center;
+    text-align:
+        center;
+
 }
 
-.login-title{
-    color:var(--deep-rose);
 
-    font-size:29px;
+.login-title {
 
-    font-weight:bold;
+    color:
+        var(--deep-rose);
+
+    font-size:
+        29px;
+
+    font-weight:
+        bold;
+
 }
 
-.login-subtitle{
+
+.login-subtitle {
+
     margin:
         10px 0 25px;
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
-    font-size:17px;
+    font-size:
+        17px;
+
 }
 
 
@@ -1089,31 +1691,52 @@ h1{
    DIARY
    ========================================================= */
 
-#diarySection{
-    display:none;
+#diarySection {
+
+    display:
+        none;
+
 }
 
-.diary-top{
-    display:flex;
 
-    justify-content:space-between;
-    align-items:center;
+.diary-top {
 
-    gap:15px;
+    display:
+        flex;
 
-    margin-bottom:20px;
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        20px;
+
 }
 
-.diary-welcome{
-    color:var(--deep-rose);
 
-    font-size:17px;
+.diary-welcome {
 
-    overflow-wrap:anywhere;
+    color:
+        var(--deep-rose);
+
+    font-size:
+        17px;
+
+    overflow-wrap:
+        anywhere;
+
 }
 
-.logout-button{
-    flex-shrink:0;
+
+.logout-button {
+
+    flex-shrink:
+        0;
 
     padding:
         8px 15px;
@@ -1121,16 +1744,21 @@ h1{
     border:
         1px solid #c88ca0;
 
-    border-radius:20px;
+    border-radius:
+        20px;
 
     background:
         rgba(255,255,255,.8);
 
-    color:var(--deep-rose);
+    color:
+        var(--deep-rose);
 
-    font-family:inherit;
+    font-family:
+        inherit;
 
-    cursor:pointer;
+    cursor:
+        pointer;
+
 }
 
 
@@ -1138,21 +1766,28 @@ h1{
    INPUTS
    ========================================================= */
 
-label{
-    display:block;
+label {
+
+    display:
+        block;
 
     margin:
         10px 0 6px;
 
-    font-size:17px;
+    font-size:
+        17px;
+
 }
 
+
 input,
-textarea{
+textarea {
 
-    width:100%;
+    width:
+        100%;
 
-    padding:14px;
+    padding:
+        14px;
 
     margin:
         7px 0 14px;
@@ -1160,29 +1795,37 @@ textarea{
     border:
         1px solid #d6aeba;
 
-    border-radius:16px;
+    border-radius:
+        16px;
 
     background:
         rgba(255,255,255,.95);
 
-    color:var(--text);
+    color:
+        var(--text);
 
-    font-family:inherit;
+    font-family:
+        inherit;
 
-    font-size:17px;
+    font-size:
+        17px;
 
-    outline:none;
+    outline:
+        none;
 
     transition:
         border-color .2s,
         box-shadow .2s,
         transform .2s;
+
 }
 
-input:focus,
-textarea:focus{
 
-    border-color:#b66b83;
+input:focus,
+textarea:focus {
+
+    border-color:
+        #b66b83;
 
     box-shadow:
         0 0 0 3px
@@ -1190,16 +1833,26 @@ textarea:focus{
 
     transform:
         translateY(-1px);
+
 }
 
-textarea{
-    min-height:150px;
 
-    resize:vertical;
+textarea {
+
+    min-height:
+        150px;
+
+    resize:
+        vertical;
+
 }
 
-input[type="file"]{
-    padding:11px;
+
+input[type="file"] {
+
+    padding:
+        11px;
+
 }
 
 
@@ -1207,17 +1860,23 @@ input[type="file"]{
    BUTTONS
    ========================================================= */
 
-button{
-    font-family:inherit;
+button {
+
+    font-family:
+        inherit;
+
 }
+
 
 .login-button,
 .save-button,
-.music-button{
+.music-button {
 
-    border:none;
+    border:
+        none;
 
-    border-radius:30px;
+    border-radius:
+        30px;
 
     padding:
         14px 24px;
@@ -1229,11 +1888,14 @@ button{
             #ae5577
         );
 
-    color:white;
+    color:
+        white;
 
-    font-size:17px;
+    font-size:
+        17px;
 
-    cursor:pointer;
+    cursor:
+        pointer;
 
     box-shadow:
         0 9px 24px
@@ -1243,15 +1905,21 @@ button{
         transform .2s ease,
         box-shadow .2s ease,
         opacity .2s ease;
+
 }
 
-.login-button{
-    width:100%;
+
+.login-button {
+
+    width:
+        100%;
+
 }
+
 
 .login-button:hover,
 .save-button:hover,
-.music-button:hover{
+.music-button:hover {
 
     transform:
         translateY(-3px);
@@ -1259,15 +1927,21 @@ button{
     box-shadow:
         0 14px 28px
         rgba(150,70,100,.25);
+
 }
 
-button:disabled{
 
-    opacity:.6;
+button:disabled {
 
-    cursor:not-allowed;
+    opacity:
+        .6;
 
-    transform:none !important;
+    cursor:
+        not-allowed;
+
+    transform:
+        none !important;
+
 }
 
 
@@ -1275,25 +1949,39 @@ button:disabled{
    STATUS
    ========================================================= */
 
-.status{
+.status {
 
-    min-height:25px;
+    min-height:
+        25px;
 
-    margin-top:14px;
+    margin-top:
+        14px;
 
-    text-align:center;
+    text-align:
+        center;
 
-    font-size:16px;
+    font-size:
+        16px;
 
-    line-height:1.5;
+    line-height:
+        1.5;
+
 }
 
-.success{
-    color:var(--green);
+
+.success {
+
+    color:
+        #5d8a65;
+
 }
 
-.error{
-    color:var(--red);
+
+.error {
+
+    color:
+        #b04b5b;
+
 }
 
 
@@ -1301,420 +1989,120 @@ button:disabled{
    MUSIC
    ========================================================= */
 
-.music-card{
-    text-align:center;
+.music-card {
 
-    overflow:visible;
+    text-align:
+        center;
+
+    overflow:
+        visible;
+
 }
 
-.music-icon{
-    display:inline-block;
 
-    font-size:45px;
+.music-icon {
 
-    position:relative;
+    display:
+        inline-block;
+
+    font-size:
+        45px;
+
 }
 
-.music-card.playing .music-icon{
+
+.music-card.playing .music-icon {
 
     animation:
         musicPulse 1.2s ease-in-out infinite;
+
 }
 
-@keyframes musicPulse{
 
-    0%,100%{
+@keyframes musicPulse {
+
+    0%,
+    100% {
+
         transform:
             scale(1)
             rotate(0deg);
+
     }
 
-    50%{
+    50% {
+
         transform:
             scale(1.2)
             rotate(5deg);
+
     }
+
 }
 
-.music-title{
 
-    color:var(--deep-rose);
+.music-title {
 
-    font-size:30px;
+    color:
+        var(--deep-rose);
 
-    font-weight:bold;
+    font-size:
+        30px;
+
+    font-weight:
+        bold;
+
 }
 
-.music-subtitle{
+
+.music-subtitle {
 
     margin:
         8px 0 18px;
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
-    font-size:17px;
+    font-size:
+        17px;
 
-    font-style:italic;
+    font-style:
+        italic;
+
 }
 
-#ourSong{
 
-    display:block;
+#ourSong {
 
-    width:100%;
+    display:
+        block;
 
-    max-width:500px;
+    width:
+        100%;
+
+    max-width:
+        500px;
 
     margin:
         10px auto 18px;
-}
 
-.music-status{
-
-    min-height:24px;
-
-    margin-top:12px;
-
-    color:#8a6872;
-
-    font-size:15px;
 }
 
 
-/* =========================================================
-   GAME SECTION
-   ========================================================= */
+.music-status {
 
-.game-card{
-    overflow:hidden;
-}
+    min-height:
+        24px;
 
-.game-intro{
-    text-align:center;
+    margin-top:
+        12px;
 
-    color:var(--muted);
+    color:
+        #8a6872;
 
-    margin-top:-5px;
-}
+    font-size:
+        15px;
 
-.game-title-heart{
-    display:inline-block;
-
-    animation:
-        heartbeat 1.5s ease-in-out infinite;
-}
-
-
-/* =========================================================
-   GAME HUD
-   ========================================================= */
-
-.game-hud{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin:
-        15px auto 10px;
-
-    max-width:760px;
-}
-
-.game-stat{
-
-    padding:
-        8px 13px;
-
-    border-radius:18px;
-
-    background:
-        #fff0f5;
-
-    border:
-        1px solid
-        rgba(192,95,130,.15);
-
-    color:var(--deep-rose);
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    font-variant-numeric:
-        tabular-nums;
-}
-
-
-/* =========================================================
-   GAME WRAPPER
-   ========================================================= */
-
-.game-wrap{
-
-    position:relative;
-
-    width:100%;
-
-    max-width:760px;
-
-    margin:
-        10px auto 0;
-
-    overflow:hidden;
-
-    border-radius:22px;
-
-    border:
-        2px solid
-        rgba(192,95,130,.17);
-
-    background:
-        linear-gradient(
-            180deg,
-            #fff9fb 0%,
-            #fff4f7 67%,
-            #fffaf6 67%,
-            #fffaf6 100%
-        );
-
-    box-shadow:
-        inset 0 0 30px
-        rgba(192,95,130,.06),
-        0 12px 30px
-        rgba(90,45,65,.10);
-
-    touch-action:none;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    -webkit-touch-callout:none;
-
-    -webkit-tap-highlight-color:transparent;
-}
-
-#runnerGame{
-
-    display:block;
-
-    width:100%;
-
-    height:auto;
-
-    min-height:180px;
-
-    touch-action:none;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    -webkit-tap-highlight-color:transparent;
-}
-
-
-/* =========================================================
-   GAME OVER OVERLAY
-   ========================================================= */
-
-.game-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:20px;
-
-    background:
-        rgba(255,245,248,.82);
-
-    backdrop-filter:
-        blur(3px);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    pointer-events:none;
-
-    transition:
-        opacity .25s ease;
-}
-
-.game-overlay.show{
-
-    opacity:1;
-
-    visibility:visible;
-
-    pointer-events:auto;
-}
-
-.game-over-box{
-
-    padding:
-        20px 24px;
-
-    border-radius:24px;
-
-    background:
-        rgba(255,255,255,.95);
-
-    border:
-        1px solid
-        rgba(192,95,130,.18);
-
-    box-shadow:
-        0 15px 35px
-        rgba(90,45,65,.16);
-}
-
-.game-over-emoji{
-
-    font-size:42px;
-
-    animation:
-        teddyFloat 2s ease-in-out infinite;
-}
-
-.game-over-title{
-
-    color:var(--deep-rose);
-
-    font-size:25px;
-
-    font-weight:bold;
-
-    margin:
-        5px 0 6px;
-}
-
-.game-over-text{
-
-    color:var(--muted);
-
-    font-size:15px;
-
-    margin-bottom:14px;
-}
-
-.restart-button{
-
-    border:none;
-
-    border-radius:25px;
-
-    padding:
-        12px 22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #c7678a,
-            #ae5577
-        );
-
-    color:white;
-
-    font-family:inherit;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 8px 18px
-        rgba(150,70,100,.2);
-}
-
-
-/* =========================================================
-   MOBILE JUMP BUTTON
-   ========================================================= */
-
-.mobile-jump-button{
-
-    display:none;
-
-    width:100%;
-
-    margin:
-        12px auto 0;
-
-    padding:
-        16px 20px;
-
-    border:none;
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #c7678a,
-            #ae5577
-        );
-
-    color:white;
-
-    font-family:inherit;
-
-    font-size:20px;
-
-    font-weight:bold;
-
-    box-shadow:
-        0 8px 20px
-        rgba(150,70,100,.22);
-
-    -webkit-tap-highlight-color:transparent;
-
-    touch-action:manipulation;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    transition:
-        transform .08s ease,
-        box-shadow .08s ease;
-}
-
-.mobile-jump-button:active{
-
-    transform:
-        translateY(4px)
-        scale(.98);
-
-    box-shadow:
-        0 3px 9px
-        rgba(150,70,100,.2);
-}
-
-.game-hint{
-
-    text-align:center;
-
-    margin:
-        12px 0 0;
-
-    color:#96717b;
-
-    font-size:14px;
 }
 
 
@@ -1722,45 +2110,62 @@ button:disabled{
    MEMORY WALL
    ========================================================= */
 
-.memories{
-    margin-top:25px;
+.memories {
+
+    margin-top:
+        25px;
+
 }
 
-.loading{
+
+.loading {
 
     padding:
         35px 10px;
 
-    text-align:center;
+    text-align:
+        center;
 
-    color:#98737d;
+    color:
+        #98737d;
 
-    font-size:18px;
+    font-size:
+        18px;
+
 }
 
-.loading-stickers{
 
-    display:inline-block;
+.loading-stickers {
 
-    font-size:38px;
+    font-size:
+        38px;
 
-    letter-spacing:8px;
+    letter-spacing:
+        8px;
 
     animation:
         loadingBears 1.3s ease-in-out infinite;
+
 }
 
-@keyframes loadingBears{
 
-    0%,100%{
+@keyframes loadingBears {
+
+    0%,
+    100% {
+
         transform:
             translateY(0);
+
     }
 
-    50%{
+    50% {
+
         transform:
             translateY(-8px);
+
     }
+
 }
 
 
@@ -1768,20 +2173,23 @@ button:disabled{
    MEMORY
    ========================================================= */
 
-.memory{
+.memory {
 
-    position:relative;
+    position:
+        relative;
 
     margin:
         26px 0;
 
-    padding:25px;
+    padding:
+        25px;
 
     border:
         1px solid
         rgba(160,91,111,.15);
 
-    border-radius:23px;
+    border-radius:
+        23px;
 
     background:
         linear-gradient(
@@ -1800,15 +2208,19 @@ button:disabled{
     transition:
         transform .3s ease,
         box-shadow .3s ease;
+
 }
 
-.memory:nth-child(even){
+
+.memory:nth-child(even) {
 
     transform:
         rotate(.45deg);
+
 }
 
-.memory:hover{
+
+.memory:hover {
 
     transform:
         translateY(-5px)
@@ -1817,80 +2229,118 @@ button:disabled{
     box-shadow:
         0 20px 40px
         rgba(90,50,60,.15);
+
 }
 
-.memory::before{
 
-    content:"♡";
+.memory::before {
 
-    position:absolute;
+    content:
+        "♡";
 
-    top:13px;
-    right:17px;
+    position:
+        absolute;
 
-    color:#ed91b1;
+    top:
+        13px;
 
-    font-size:25px;
+    right:
+        17px;
+
+    color:
+        #ed91b1;
+
+    font-size:
+        25px;
+
 }
 
-.memory h3{
 
-    margin-top:0;
+.memory h3 {
 
-    padding-right:35px;
+    margin-top:
+        0;
 
-    color:var(--deep-rose);
+    padding-right:
+        35px;
 
-    font-size:26px;
+    color:
+        var(--deep-rose);
+
+    font-size:
+        26px;
+
 }
 
-.memory .date{
 
-    display:inline-block;
+.memory .date {
 
-    margin-bottom:12px;
+    display:
+        inline-block;
+
+    margin-bottom:
+        12px;
 
     padding:
         5px 11px;
 
-    border-radius:16px;
+    border-radius:
+        16px;
 
-    background:#fff0f4;
+    background:
+        #fff0f4;
 
-    color:#a27682;
+    color:
+        #a27682;
 
-    font-size:14px;
+    font-size:
+        14px;
+
 }
 
-.memory p{
 
-    font-size:17px;
+.memory p {
 
-    line-height:1.65;
+    font-size:
+        17px;
 
-    white-space:pre-wrap;
+    line-height:
+        1.65;
 
-    overflow-wrap:anywhere;
+    white-space:
+        pre-wrap;
+
+    overflow-wrap:
+        anywhere;
+
 }
 
-.memory img{
 
-    display:block;
+.memory img {
 
-    width:100%;
+    display:
+        block;
 
-    max-height:520px;
+    width:
+        100%;
 
-    object-fit:cover;
+    max-height:
+        520px;
 
-    margin-top:16px;
+    object-fit:
+        cover;
+
+    margin-top:
+        16px;
 
     padding:
         9px 9px 28px;
 
-    border-radius:6px;
+    border-radius:
+        6px;
 
-    background:white;
+    background:
+        white;
 
     box-shadow:
         0 8px 20px
@@ -1899,15 +2349,6 @@ button:disabled{
     transform:
         rotate(-1deg);
 
-    transition:
-        transform .3s ease;
-}
-
-.memory img:hover{
-
-    transform:
-        rotate(0deg)
-        scale(1.01);
 }
 
 
@@ -1915,39 +2356,635 @@ button:disabled{
    EMPTY
    ========================================================= */
 
-.empty{
+.empty {
 
     padding:
         35px 15px;
 
-    text-align:center;
+    text-align:
+        center;
 
-    color:#98737d;
+    color:
+        #98737d;
 
-    line-height:1.7;
+    line-height:
+        1.7;
+
 }
 
-.empty-bear{
 
-    font-size:48px;
+.empty-bear {
 
-    margin-bottom:8px;
+    font-size:
+        48px;
+
+    margin-bottom:
+        8px;
 
     animation:
         teddyFloat 2.5s ease-in-out infinite;
+
 }
 
-.memory-decoration{
 
-    margin-top:35px;
+/* =========================================================
+   MEMORY DECORATION
+   ========================================================= */
 
-    text-align:center;
+.memory-decoration {
 
-    color:#b66b83;
+    margin-top:
+        35px;
 
-    font-size:20px;
+    text-align:
+        center;
 
-    letter-spacing:5px;
+    color:
+        #b66b83;
+
+    font-size:
+        20px;
+
+    letter-spacing:
+        5px;
+
+}
+
+
+/* =========================================================
+   =========================================================
+   GAME SECTION
+   =========================================================
+   ========================================================= */
+
+.game-card {
+
+    position:
+        relative;
+
+    margin:
+        30px 0;
+
+    padding:
+        30px;
+
+    background:
+        rgba(255,252,250,.96);
+
+    border:
+        1px solid
+        rgba(160,91,111,.18);
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        0 18px 50px
+        var(--shadow);
+
+    backdrop-filter:
+        blur(8px);
+
+    overflow:
+        hidden;
+
+}
+
+
+.game-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        8px;
+
+    border:
+        1px dashed
+        rgba(182,107,131,.28);
+
+    border-radius:
+        23px;
+
+    pointer-events:
+        none;
+
+}
+
+
+.game-heading {
+
+    position:
+        relative;
+
+    text-align:
+        center;
+
+}
+
+
+.game-heading h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--deep-rose);
+
+    font-size:
+        30px;
+
+}
+
+
+.game-heading p {
+
+    margin:
+        8px auto 20px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        17px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   GAME SHELL
+   ========================================================= */
+
+.runner-shell {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    max-width:
+        720px;
+
+    margin:
+        auto;
+
+    border-radius:
+        22px;
+
+    overflow:
+        hidden;
+
+    border:
+        2px solid
+        rgba(192,95,130,.18);
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff7fa 0%,
+            #fffdfb 65%,
+            #f9eee9 100%
+        );
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(192,95,130,.05),
+        0 10px 28px
+        rgba(90,50,60,.08);
+
+    touch-action:
+        none;
+
+    user-select:
+        none;
+
+    -webkit-user-select:
+        none;
+
+}
+
+
+/* =========================================================
+   GAME CANVAS
+   ========================================================= */
+
+#runnerCanvas {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    aspect-ratio:
+        720 / 250;
+
+    touch-action:
+        none;
+
+}
+
+
+/* =========================================================
+   GAME HUD
+   ========================================================= */
+
+.game-hud {
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    left:
+        14px;
+
+    right:
+        14px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    pointer-events:
+        none;
+
+    z-index:
+        4;
+
+}
+
+
+.game-score {
+
+    padding:
+        7px 12px;
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    color:
+        var(--deep-rose);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        .6px;
+
+    backdrop-filter:
+        blur(4px);
+
+}
+
+
+.game-best {
+
+    padding:
+        7px 12px;
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    color:
+        #9a7280;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        12px;
+
+    backdrop-filter:
+        blur(4px);
+
+}
+
+
+/* =========================================================
+   GAME OVERLAY
+   ========================================================= */
+
+.game-overlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(255,247,250,.38);
+
+    backdrop-filter:
+        blur(2px);
+
+    z-index:
+        5;
+
+    transition:
+        opacity .25s ease;
+
+}
+
+
+.game-overlay.hidden {
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+}
+
+
+.game-message {
+
+    width:
+        min(88%,360px);
+
+    padding:
+        20px;
+
+    text-align:
+        center;
+
+    border-radius:
+        22px;
+
+    background:
+        rgba(255,253,251,.94);
+
+    border:
+        1px solid
+        rgba(192,95,130,.18);
+
+    box-shadow:
+        0 12px 35px
+        rgba(90,50,60,.14);
+
+}
+
+
+.game-message .game-bear {
+
+    font-size:
+        42px;
+
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+}
+
+
+.game-message h3 {
+
+    margin:
+        0 0 5px;
+
+    color:
+        var(--deep-rose);
+
+    font-size:
+        23px;
+
+}
+
+
+.game-message p {
+
+    margin:
+        0 0 14px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.5;
+
+}
+
+
+.game-start-button {
+
+    border:
+        none;
+
+    padding:
+        11px 22px;
+
+    border-radius:
+        24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c7678a,
+            #ae5577
+        );
+
+    color:
+        white;
+
+    font-size:
+        16px;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(150,70,100,.2);
+
+}
+
+
+.game-start-button:active {
+
+    transform:
+        scale(.97);
+
+}
+
+
+/* =========================================================
+   GAME CONTROLS
+   ========================================================= */
+
+.game-controls {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        14px;
+
+}
+
+
+.game-jump-button {
+
+    width:
+        100%;
+
+    max-width:
+        260px;
+
+    min-height:
+        50px;
+
+    border:
+        1px solid
+        rgba(192,95,130,.2);
+
+    border-radius:
+        25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff2f6,
+            #fffaf8
+        );
+
+    color:
+        var(--deep-rose);
+
+    font-size:
+        17px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 7px 18px
+        rgba(90,50,60,.08);
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+    touch-action:
+        manipulation;
+
+}
+
+
+.game-jump-button:active {
+
+    transform:
+        translateY(2px)
+        scale(.98);
+
+}
+
+
+.game-help {
+
+    margin:
+        12px 0 0;
+
+    text-align:
+        center;
+
+    color:
+        #a47b86;
+
+    font-size:
+        13px;
+
+}
+
+
+.game-love-line {
+
+    margin:
+        18px auto 0;
+
+    text-align:
+        center;
+
+    color:
+        #b66b83;
+
+    font-size:
+        15px;
+
+}
+
+
+/* =========================================================
+   GAME RUNNING STATE
+   ========================================================= */
+
+.runner-shell.running {
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(192,95,130,.08),
+        0 14px 32px
+        rgba(90,50,60,.1);
+
 }
 
 
@@ -1955,24 +2992,37 @@ button:disabled{
    FLOATING STICKER
    ========================================================= */
 
-.sticker-corner{
+.sticker-corner {
 
-    position:fixed;
+    position:
+        fixed;
 
-    right:14px;
-    bottom:14px;
+    right:
+        14px;
 
-    z-index:20;
+    bottom:
+        14px;
 
-    width:72px;
-    height:72px;
+    z-index:
+        20;
 
-    border-radius:50%;
+    width:
+        72px;
 
-    display:flex;
+    height:
+        72px;
 
-    justify-content:center;
-    align-items:center;
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
 
     background:
         rgba(255,255,255,.9);
@@ -1987,42 +3037,62 @@ button:disabled{
     animation:
         stickerFloat 3s ease-in-out infinite;
 
-    pointer-events:none;
+    pointer-events:
+        none;
+
 }
 
-.sticker-corner::before{
 
-    content:"🧸";
+.sticker-corner::before {
 
-    font-size:40px;
+    content:
+        "🧸";
+
+    font-size:
+        40px;
+
 }
 
-.sticker-heart{
 
-    position:absolute;
+.sticker-heart {
 
-    top:-11px;
-    right:-5px;
+    position:
+        absolute;
 
-    font-size:20px;
+    top:
+        -11px;
+
+    right:
+        -5px;
+
+    font-size:
+        20px;
 
     animation:
         heartbeat 1.5s infinite;
+
 }
 
-@keyframes stickerFloat{
 
-    0%,100%{
+@keyframes stickerFloat {
+
+    0%,
+    100% {
+
         transform:
             translateY(0)
             rotate(-4deg);
+
     }
 
-    50%{
+    50% {
+
         transform:
             translateY(-8px)
             rotate(4deg);
+
     }
+
 }
 
 
@@ -2030,27 +3100,37 @@ button:disabled{
    FOOTER
    ========================================================= */
 
-footer{
+footer {
 
-    margin-top:55px;
+    margin-top:
+        55px;
 
-    padding-bottom:20px;
+    padding-bottom:
+        20px;
 
-    text-align:center;
+    text-align:
+        center;
 
-    color:#86636d;
+    color:
+        #86636d;
 
-    font-size:16px;
+    font-size:
+        16px;
+
 }
 
-.footer-bears{
 
-    font-size:35px;
+.footer-bears {
 
-    margin-bottom:8px;
+    font-size:
+        35px;
+
+    margin-bottom:
+        8px;
 
     animation:
         teddyFloat 2.5s ease-in-out infinite;
+
 }
 
 
@@ -2058,35 +3138,48 @@ footer{
    CELEBRATION
    ========================================================= */
 
-.celebration{
+.celebration {
 
-    position:fixed;
+    position:
+        fixed;
 
-    z-index:100;
+    z-index:
+        100;
 
-    pointer-events:none;
+    pointer-events:
+        none;
 
-    font-size:25px;
+    font-size:
+        25px;
 
     animation:
         celebrationFly 1.5s ease-out forwards;
+
 }
 
-@keyframes celebrationFly{
 
-    0%{
+@keyframes celebrationFly {
+
+    0% {
+
         transform:
             translate(0,0)
             scale(.3);
 
-        opacity:0;
+        opacity:
+            0;
+
     }
 
-    20%{
-        opacity:1;
+    20% {
+
+        opacity:
+            1;
+
     }
 
-    100%{
+    100% {
+
         transform:
             translate(
                 var(--x),
@@ -2095,8 +3188,11 @@ footer{
             scale(1.2)
             rotate(25deg);
 
-        opacity:0;
+        opacity:
+            0;
+
     }
+
 }
 
 
@@ -2104,108 +3200,170 @@ footer{
    MOBILE
    ========================================================= */
 
-@media(max-width:600px){
+@media (max-width:600px) {
 
-    body{
-        background-attachment:scroll;
+    .container {
+
+        width:
+            94%;
+
+        padding-top:
+            12px;
+
     }
 
-    .container{
-        width:94%;
-
-        padding-top:12px;
-    }
 
     .card,
     .music-card,
-    .game-card,
-    .love-counter{
+    .love-counter,
+    .game-card {
 
         padding:
-            24px 18px;
+            24px 19px;
 
-        border-radius:24px;
+        border-radius:
+            24px;
+
     }
 
-    h1{
-        font-size:43px;
+
+    h1 {
+
+        font-size:
+            43px;
+
     }
 
-    .subtitle{
-        font-size:18px;
+
+    .subtitle {
+
+        font-size:
+            18px;
+
     }
 
-    .teddy-couple{
+
+    .teddy-couple {
 
         transform:
             scale(.82);
 
-        margin-bottom:-8px;
+        margin-bottom:
+            -8px;
+
     }
 
-    .counter-grid{
-        gap:6px;
+
+    .counter-grid {
+
+        gap:
+            6px;
+
     }
 
-    .counter-box{
+
+    .counter-box {
+
         padding:
             12px 3px;
+
     }
 
-    .counter-number{
-        font-size:22px;
+
+    .counter-number {
+
+        font-size:
+            22px;
+
     }
 
-    .counter-label{
-        font-size:9px;
+
+    .counter-label {
+
+        font-size:
+            9px;
+
     }
 
-    .diary-top{
 
-        flex-direction:column;
+    .diary-top {
 
-        align-items:flex-start;
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
     }
 
-    .logout-button{
-        align-self:flex-end;
+
+    .logout-button {
+
+        align-self:
+            flex-end;
+
     }
 
-    .sticker-corner{
 
-        right:8px;
-        bottom:8px;
+    .sticker-corner {
 
-        width:60px;
-        height:60px;
+        right:
+            8px;
+
+        bottom:
+            8px;
+
+        width:
+            60px;
+
+        height:
+            60px;
+
     }
 
-    .sticker-corner::before{
-        font-size:32px;
+
+    .sticker-corner::before {
+
+        font-size:
+            32px;
+
     }
 
-    .game-hud{
-        margin-top:12px;
+
+    .game-heading h2 {
+
+        font-size:
+            26px;
+
     }
 
-    .game-stat{
-        font-size:12px;
 
-        padding:
-            7px 10px;
+    .game-heading p {
+
+        font-size:
+            16px;
+
     }
 
-    #runnerGame{
-        min-height:165px;
+
+    .game-controls {
+
+        margin-top:
+            10px;
+
     }
 
-    .mobile-jump-button{
-        display:block;
+
+    .game-jump-button {
+
+        min-height:
+            54px;
+
+        font-size:
+            16px;
+
     }
 
-    .game-hint{
-        display:none;
-    }
 }
 
 
@@ -2213,11 +3371,11 @@ footer{
    REDUCED MOTION
    ========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) {
 
     *,
     *::before,
-    *::after{
+    *::after {
 
         animation-duration:
             .001ms !important;
@@ -2227,10 +3385,13 @@ footer{
 
         scroll-behavior:
             auto !important;
+
     }
+
 }
 
 </style>
+
 </head>
 
 
@@ -2238,7 +3399,7 @@ footer{
 
 
 <!-- =======================================================
-     BACKGROUND
+     BACKGROUND DECORATIONS
      ======================================================= -->
 
 <div class="decorations">
@@ -2266,6 +3427,10 @@ footer{
 
 <header>
 
+
+    <!-- ===================================================
+         TEDDY COUPLE
+         =================================================== -->
 
     <div class="teddy-couple">
 
@@ -2378,7 +3543,9 @@ footer{
 
 
     <div class="divider">
+
         <span>♡</span>
+
     </div>
 
 
@@ -2576,7 +3743,9 @@ footer{
 <div id="diarySection">
 
 
-    <!-- TOP -->
+    <!-- ===================================================
+         TOP
+         =================================================== -->
 
     <div class="diary-top">
 
@@ -2637,8 +3806,6 @@ footer{
             <source
                 src="./Until_I_Found_You.mp3"
                 type="audio/mpeg">
-
-            Your browser does not support audio.
 
         </audio>
 
@@ -2708,58 +3875,58 @@ footer{
     <div class="game-card">
 
 
-        <h2>
+        <div class="game-heading">
 
-            🧸
-            <span class="game-title-heart">
-                Missing me?
-            </span>
-
-            Let's look back together ❤️
-
-        </h2>
+            <h2>
+                🧸 Missing me? Let's look back together
+            </h2>
 
 
-        <p class="game-intro">
+            <p>
 
-            Feeling a little lonely?
-            Run with our tiny teddy and see
-            how far you can go. ♡
+                Feeling a little lonely?
+                Come run with our tiny teddy. 💕
+                <br>
 
-        </p>
+                Just don't let him bump into the hearts!
 
-
-        <div class="game-hud">
-
-            <div
-                id="gameScore"
-                class="game-stat">
-
-                Score: 0
-
-            </div>
-
-
-            <div
-                id="gameBest"
-                class="game-stat">
-
-                Best: 0
-
-            </div>
+            </p>
 
         </div>
 
 
-        <div class="game-wrap">
+        <div
+            id="runnerShell"
+            class="runner-shell">
 
 
             <canvas
-                id="runnerGame"
-                width="760"
-                height="260">
-
+                id="runnerCanvas"
+                width="720"
+                height="250">
             </canvas>
+
+
+            <div class="game-hud">
+
+                <div
+                    id="gameScore"
+                    class="game-score">
+
+                    SCORE 00000
+
+                </div>
+
+
+                <div
+                    id="gameBest"
+                    class="game-best">
+
+                    BEST 00000
+
+                </div>
+
+            </div>
 
 
             <div
@@ -2767,37 +3934,34 @@ footer{
                 class="game-overlay">
 
 
-                <div class="game-over-box">
+                <div class="game-message">
+
+                    <span class="game-bear">
+                        🧸💕
+                    </span>
 
 
-                    <div class="game-over-emoji">
-                        🧸💔
-                    </div>
+                    <h3 id="gameMessageTitle">
+                        Run to me ❤️
+                    </h3>
 
 
-                    <div class="game-over-title">
-                        Aww, you tripped!
-                    </div>
+                    <p id="gameMessageText">
 
+                        Tap the button below
+                        or tap the game to jump.
 
-                    <div
-                        id="gameOverText"
-                        class="game-over-text">
-
-                        Let's try again.
-
-                    </div>
+                    </p>
 
 
                     <button
-                        id="restartGameButton"
-                        class="restart-button"
+                        id="gameStartButton"
+                        class="game-start-button"
                         type="button">
 
-                        🧸 Run Again ❤️
+                        Start Running 🧸
 
                     </button>
-
 
                 </div>
 
@@ -2808,22 +3972,33 @@ footer{
         </div>
 
 
-        <!-- IMPORTANT MOBILE CONTROL -->
-
-        <button
-            id="mobileJumpButton"
-            class="mobile-jump-button"
-            type="button">
-
-            🧸 JUMP ❤️
-
-        </button>
+        <div class="game-controls">
 
 
-        <div class="game-hint">
+            <button
+                id="gameJumpButton"
+                class="game-jump-button"
+                type="button">
 
-            Tap the game or press
-            Space / ↑ to jump.
+                🧸 JUMP
+
+            </button>
+
+
+        </div>
+
+
+        <div class="game-help">
+
+            📱 Tap the game or JUMP on phone ·
+            ⌨️ Space / ↑ on computer
+
+        </div>
+
+
+        <div class="game-love-line">
+
+            Every run is another little memory. ♡
 
         </div>
 
@@ -2937,7 +4112,6 @@ footer{
             id="memories"
             class="memories">
 
-
             <div class="loading">
 
                 <div class="loading-stickers">
@@ -2949,7 +4123,6 @@ footer{
                 Bringing our memories...
 
             </div>
-
 
         </div>
 
@@ -2967,7 +4140,9 @@ footer{
 </div>
 
 
-<!-- FLOATING STICKER -->
+<!-- =======================================================
+     FLOATING STICKER
+     ======================================================= -->
 
 <div class="sticker-corner">
 
@@ -2978,7 +4153,9 @@ footer{
 </div>
 
 
-<!-- FOOTER -->
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
 
 <footer>
 
@@ -3005,8 +4182,10 @@ footer{
 const SUPABASE_URL =
     "https://yvemsrkuwbrnzdbgflcu.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable_3spcyR5MKfTopABgbPVHXw_0ZVVmoES";
+
 
 const TABLE =
     "memories";
@@ -3021,7 +4200,6 @@ const supabaseClient =
 
 /* =========================================================
    LOVE COUNTER
-   START: 6 DECEMBER 2025
    ========================================================= */
 
 const relationshipStart =
@@ -3030,41 +4208,52 @@ const relationshipStart =
     );
 
 
-function updateLoveCounter(){
+function updateLoveCounter() {
 
     const now =
         new Date();
+
 
     let difference =
         now.getTime()
         -
         relationshipStart.getTime();
 
-    if(difference < 0){
+
+    if (
+        difference < 0
+    ) {
+
         difference = 0;
+
     }
+
 
     const totalSeconds =
         Math.floor(
             difference / 1000
         );
 
+
     const days =
         Math.floor(
             totalSeconds / 86400
         );
 
+
     const hours =
         Math.floor(
-            (totalSeconds % 86400)
-            / 3600
+            (totalSeconds % 86400) /
+            3600
         );
+
 
     const minutes =
         Math.floor(
-            (totalSeconds % 3600)
-            / 60
+            (totalSeconds % 3600) /
+            60
         );
+
 
     const seconds =
         totalSeconds % 60;
@@ -3101,6 +4290,7 @@ function updateLoveCounter(){
 
 updateLoveCounter();
 
+
 setInterval(
     updateLoveCounter,
     1000
@@ -3116,40 +4306,48 @@ const loginSection =
         "loginSection"
     );
 
+
 const diarySection =
     document.getElementById(
         "diarySection"
     );
+
 
 const loginButton =
     document.getElementById(
         "loginButton"
     );
 
+
 const logoutButton =
     document.getElementById(
         "logoutButton"
     );
+
 
 const loginStatus =
     document.getElementById(
         "loginStatus"
     );
 
+
 const diaryWelcome =
     document.getElementById(
         "diaryWelcome"
     );
+
 
 const saveButton =
     document.getElementById(
         "saveButton"
     );
 
+
 const status =
     document.getElementById(
         "status"
     );
+
 
 const memoriesContainer =
     document.getElementById(
@@ -3161,46 +4359,56 @@ const memoriesContainer =
    MEMORY LOAD CONTROL
    ========================================================= */
 
-let memoriesLoadedForUser = null;
+let memoriesLoadedForUser =
+    null;
 
 
 /* =========================================================
-   LOGIN / DIARY DISPLAY
+   SHOW LOGIN
    ========================================================= */
 
-function showLogin(){
+function showLogin() {
 
     loginSection.style.display =
         "block";
 
+
     diarySection.style.display =
         "none";
+
 
     memoriesLoadedForUser =
         null;
+
 }
 
 
-async function showDiary(user){
+/* =========================================================
+   SHOW DIARY
+   ========================================================= */
+
+async function showDiary(user) {
 
     loginSection.style.display =
         "none";
+
 
     diarySection.style.display =
         "block";
 
 
-    if(
+    if (
         user &&
         user.email
-    ){
+    ) {
 
         diaryWelcome.textContent =
             "Welcome back ❤️ " +
             user.email;
 
     }
-    else{
+
+    else {
 
         diaryWelcome.textContent =
             "Welcome back ❤️";
@@ -3208,11 +4416,12 @@ async function showDiary(user){
     }
 
 
-    if(
+    if (
         user &&
         user.id &&
-        memoriesLoadedForUser === user.id
-    ){
+        memoriesLoadedForUser ===
+        user.id
+    ) {
 
         return;
 
@@ -3225,7 +4434,9 @@ async function showDiary(user){
             : null;
 
 
-    await loadMemories(user);
+    await loadMemories(
+        user
+    );
 
 }
 
@@ -3234,7 +4445,7 @@ async function showDiary(user){
    LOGIN
    ========================================================= */
 
-async function login(){
+async function login() {
 
     const email =
         document
@@ -3244,6 +4455,7 @@ async function login(){
             .value
             .trim();
 
+
     const password =
         document
             .getElementById(
@@ -3252,35 +4464,41 @@ async function login(){
             .value;
 
 
-    if(
+    if (
         !email ||
         !password
-    ){
+    ) {
 
         loginStatus.className =
             "status error";
 
+
         loginStatus.textContent =
             "Please enter both email and password ❤️";
 
+
         return;
+
     }
 
 
     loginButton.disabled =
         true;
 
+
     loginButton.textContent =
         "Opening our diary... ❤️";
 
+
     loginStatus.className =
         "status";
+
 
     loginStatus.textContent =
         "Checking your private diary...";
 
 
-    try{
+    try {
 
         const {
             data,
@@ -3299,16 +4517,20 @@ async function login(){
                 });
 
 
-        if(error){
+        if (
+            error
+        ) {
+
             throw error;
+
         }
 
 
-        if(
+        if (
             !data ||
             !data.session ||
             !data.user
-        ){
+        ) {
 
             throw new Error(
                 "Login session could not be created."
@@ -3320,6 +4542,7 @@ async function login(){
         loginStatus.textContent =
             "";
 
+
         await showDiary(
             data.user
         );
@@ -3327,15 +4550,17 @@ async function login(){
     }
 
 
-    catch(error){
+    catch (error) {
 
         console.error(
             "LOGIN ERROR:",
             error
         );
 
+
         loginStatus.className =
             "status error";
+
 
         loginStatus.textContent =
             error.message ||
@@ -3344,10 +4569,11 @@ async function login(){
     }
 
 
-    finally{
+    finally {
 
         loginButton.disabled =
             false;
+
 
         loginButton.textContent =
             "Enter Our Diary ❤️";
@@ -3361,9 +4587,9 @@ async function login(){
    LOGOUT
    ========================================================= */
 
-async function logout(){
+async function logout() {
 
-    try{
+    try {
 
         await supabaseClient
             .auth
@@ -3371,7 +4597,7 @@ async function logout(){
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(
             "LOGOUT ERROR:",
@@ -3383,8 +4609,10 @@ async function logout(){
 
     showLogin();
 
+
     loginStatus.className =
         "status";
+
 
     loginStatus.textContent =
         "Logged out ❤️";
@@ -3402,19 +4630,20 @@ supabaseClient
         async function(
             event,
             session
-        ){
+        ) {
 
-            if(
+            if (
                 session &&
                 session.user
-            ){
+            ) {
 
                 await showDiary(
                     session.user
                 );
 
             }
-            else{
+
+            else {
 
                 showLogin();
 
@@ -3428,9 +4657,9 @@ supabaseClient
    INITIAL SESSION
    ========================================================= */
 
-async function checkSession(){
+async function checkSession() {
 
-    try{
+    try {
 
         const {
             data,
@@ -3441,23 +4670,28 @@ async function checkSession(){
                 .getSession();
 
 
-        if(error){
+        if (
+            error
+        ) {
+
             throw error;
+
         }
 
 
-        if(
+        if (
             data &&
             data.session &&
             data.session.user
-        ){
+        ) {
 
             await showDiary(
                 data.session.user
             );
 
         }
-        else{
+
+        else {
 
             showLogin();
 
@@ -3465,12 +4699,14 @@ async function checkSession(){
 
     }
 
-    catch(error){
+
+    catch (error) {
 
         console.error(
             "SESSION ERROR:",
             error
         );
+
 
         showLogin();
 
@@ -3486,12 +4722,14 @@ checkSession();
    ESCAPE HTML
    ========================================================= */
 
-function escapeHTML(value){
+function escapeHTML(
+    value
+) {
 
-    if(
+    if (
         value === null ||
         value === undefined
-    ){
+    ) {
 
         return "";
 
@@ -3499,22 +4737,27 @@ function escapeHTML(value){
 
 
     return String(value)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
@@ -3527,7 +4770,9 @@ function escapeHTML(value){
    LOAD MEMORIES
    ========================================================= */
 
-async function loadMemories(user){
+async function loadMemories(
+    user
+) {
 
     memoriesContainer.innerHTML = `
 
@@ -3546,10 +4791,10 @@ async function loadMemories(user){
     `;
 
 
-    if(
+    if (
         !user ||
         !user.id
-    ){
+    ) {
 
         memoriesContainer.innerHTML = `
 
@@ -3567,16 +4812,17 @@ async function loadMemories(user){
         `;
 
         return;
+
     }
 
 
-    try{
+    try {
 
         /*
-         * IMPORTANT RLS FIX:
+         * RLS FIX:
          *
-         * Only request rows belonging
-         * to the currently authenticated user.
+         * We explicitly filter by the
+         * logged-in user's UUID.
          */
 
         const {
@@ -3595,13 +4841,18 @@ async function loadMemories(user){
                 .order(
                     "created_at",
                     {
-                        ascending:false
+                        ascending:
+                            false
                     }
                 );
 
 
-        if(error){
+        if (
+            error
+        ) {
+
             throw error;
+
         }
 
 
@@ -3612,7 +4863,7 @@ async function loadMemories(user){
     }
 
 
-    catch(error){
+    catch (error) {
 
         console.error(
             "LOAD MEMORIES ERROR:",
@@ -3669,13 +4920,13 @@ async function loadMemories(user){
    RETRY
    ========================================================= */
 
-async function retryMemories(){
+async function retryMemories() {
 
     memoriesLoadedForUser =
         null;
 
 
-    try{
+    try {
 
         const {
             data,
@@ -3686,15 +4937,19 @@ async function retryMemories(){
                 .getUser();
 
 
-        if(error){
+        if (
+            error
+        ) {
+
             throw error;
+
         }
 
 
-        if(
+        if (
             data &&
             data.user
-        ){
+        ) {
 
             await showDiary(
                 data.user
@@ -3704,7 +4959,8 @@ async function retryMemories(){
 
     }
 
-    catch(error){
+
+    catch (error) {
 
         console.error(
             "RETRY ERROR:",
@@ -3720,12 +4976,14 @@ async function retryMemories(){
    DISPLAY MEMORIES
    ========================================================= */
 
-function displayMemories(memories){
+function displayMemories(
+    memories
+) {
 
-    if(
+    if (
         !memories ||
         memories.length === 0
-    ){
+    ) {
 
         memoriesContainer.innerHTML = `
 
@@ -3747,6 +5005,7 @@ function displayMemories(memories){
         `;
 
         return;
+
     }
 
 
@@ -3755,12 +5014,13 @@ function displayMemories(memories){
 
 
     memories.forEach(
-        function(memory){
+        function(memory) {
 
             const article =
                 document.createElement(
                     "article"
                 );
+
 
             article.className =
                 "memory";
@@ -3770,6 +5030,7 @@ function displayMemories(memories){
                 escapeHTML(
                     memory.title
                 );
+
 
             const message =
                 escapeHTML(
@@ -3781,7 +5042,9 @@ function displayMemories(memories){
                 "";
 
 
-            if(memory.date){
+            if (
+                memory.date
+            ) {
 
                 const dateObject =
                     new Date(
@@ -3794,9 +5057,14 @@ function displayMemories(memories){
                     dateObject.toLocaleDateString(
                         undefined,
                         {
-                            day:"numeric",
-                            month:"long",
-                            year:"numeric"
+                            day:
+                                "numeric",
+
+                            month:
+                                "long",
+
+                            year:
+                                "numeric"
                         }
                     );
 
@@ -3820,7 +5088,9 @@ function displayMemories(memories){
                 "";
 
 
-            if(memory.image){
+            if (
+                memory.image
+            ) {
 
                 imageHTML = `
 
@@ -3868,24 +5138,29 @@ function displayMemories(memories){
    IMAGE COMPRESSION
    ========================================================= */
 
-function compressImage(file){
+function compressImage(
+    file
+) {
 
     return new Promise(
-        function(resolve,reject){
+        function(
+            resolve,
+            reject
+        ) {
 
             const reader =
                 new FileReader();
 
 
             reader.onload =
-                function(event){
+                function(event) {
 
                     const image =
                         new Image();
 
 
                     image.onload =
-                        function(){
+                        function() {
 
                             const MAX_SIZE =
                                 1600;
@@ -3894,21 +5169,22 @@ function compressImage(file){
                             let width =
                                 image.width;
 
+
                             let height =
                                 image.height;
 
 
-                            if(
+                            if (
                                 width >
-                                MAX_SIZE ||
+                                    MAX_SIZE ||
                                 height >
-                                MAX_SIZE
-                            ){
+                                    MAX_SIZE
+                            ) {
 
-                                if(
+                                if (
                                     width >
                                     height
-                                ){
+                                ) {
 
                                     height =
                                         Math.round(
@@ -3917,11 +5193,13 @@ function compressImage(file){
                                             width
                                         );
 
+
                                     width =
                                         MAX_SIZE;
 
                                 }
-                                else{
+
+                                else {
 
                                     width =
                                         Math.round(
@@ -3929,6 +5207,7 @@ function compressImage(file){
                                             MAX_SIZE /
                                             height
                                         );
+
 
                                     height =
                                         MAX_SIZE;
@@ -3946,6 +5225,7 @@ function compressImage(file){
 
                             canvas.width =
                                 width;
+
 
                             canvas.height =
                                 height;
@@ -3981,11 +5261,11 @@ function compressImage(file){
 
 
                     image.onerror =
-                        function(){
+                        function() {
 
                             reject(
                                 new Error(
-                                    "This image could not be processed."
+                                    "This image could not be processed by the browser."
                                 )
                             );
 
@@ -3999,7 +5279,7 @@ function compressImage(file){
 
 
             reader.onerror =
-                function(){
+                function() {
 
                     reject(
                         new Error(
@@ -4024,7 +5304,7 @@ function compressImage(file){
    SAVE MEMORY
    ========================================================= */
 
-async function saveMemory(){
+async function saveMemory() {
 
     const title =
         document
@@ -4059,47 +5339,57 @@ async function saveMemory(){
             );
 
 
-    if(
+    if (
         !title ||
         !message
-    ){
+    ) {
 
         status.className =
             "status error";
 
+
         status.textContent =
             "Please add a title and message ❤️";
 
+
         return;
+
     }
 
 
     saveButton.disabled =
         true;
 
+
     saveButton.textContent =
         "Saving our little moment... 🧸";
 
+
     status.className =
         "status";
+
 
     status.textContent =
         "Saving...";
 
 
-    try{
+    try {
 
         const {
-            data:userData,
-            error:userError
+            data: userData,
+            error: userError
         } =
             await supabaseClient
                 .auth
                 .getUser();
 
 
-        if(userError){
+        if (
+            userError
+        ) {
+
             throw userError;
+
         }
 
 
@@ -4108,7 +5398,9 @@ async function saveMemory(){
             userData.user;
 
 
-        if(!user){
+        if (
+            !user
+        ) {
 
             throw new Error(
                 "Your login session has expired. Please log in again."
@@ -4121,20 +5413,20 @@ async function saveMemory(){
             null;
 
 
-        if(
+        if (
             photoInput.files &&
             photoInput.files.length > 0
-        ){
+        ) {
 
             const file =
                 photoInput.files[0];
 
 
-            if(
+            if (
                 !file.type.startsWith(
                     "image/"
                 )
-            ){
+            ) {
 
                 throw new Error(
                     "Please choose an image file."
@@ -4143,10 +5435,10 @@ async function saveMemory(){
             }
 
 
-            if(
+            if (
                 file.size >
                 15 * 1024 * 1024
-            ){
+            ) {
 
                 throw new Error(
                     "That photo is over 15 MB. Please choose a smaller photo."
@@ -4168,13 +5460,13 @@ async function saveMemory(){
 
 
         /*
-         * RLS FIX:
+         * IMPORTANT RLS FIX
          *
-         * Your INSERT policy should use:
+         * Your INSERT policy should compare:
          *
          * auth.uid() = user_id
          *
-         * Therefore user_id MUST be supplied.
+         * So user_id MUST be inserted.
          */
 
         const memoryToInsert = {
@@ -4209,32 +5501,46 @@ async function saveMemory(){
                 .select();
 
 
-        if(error){
+        if (
+            error
+        ) {
+
             throw error;
+
         }
 
 
         status.className =
             "status success";
 
+
         status.textContent =
             "Our little moment is safely saved. ❤️";
 
 
-        document.getElementById(
-            "title"
-        ).value =
-            "";
+        document
+            .getElementById(
+                "title"
+            )
+            .value =
+                "";
 
-        document.getElementById(
-            "date"
-        ).value =
-            "";
 
-        document.getElementById(
-            "message"
-        ).value =
-            "";
+        document
+            .getElementById(
+                "date"
+            )
+            .value =
+                "";
+
+
+        document
+            .getElementById(
+                "message"
+            )
+            .value =
+                "";
+
 
         photoInput.value =
             "";
@@ -4254,7 +5560,7 @@ async function saveMemory(){
     }
 
 
-    catch(error){
+    catch (error) {
 
         console.error(
             "SAVE MEMORY ERROR:",
@@ -4265,6 +5571,7 @@ async function saveMemory(){
         status.className =
             "status error";
 
+
         status.textContent =
             error.message ||
             "Couldn't save this memory.";
@@ -4272,10 +5579,11 @@ async function saveMemory(){
     }
 
 
-    finally{
+    finally {
 
         saveButton.disabled =
             false;
+
 
         saveButton.textContent =
             "🧸 Save This Little Moment ♡";
@@ -4289,23 +5597,25 @@ async function saveMemory(){
    CELEBRATION
    ========================================================= */
 
-function createCelebration(){
+function createCelebration() {
 
     const symbols = [
+
         "❤️",
         "💕",
         "💗",
         "💖",
         "✨",
         "🧸"
+
     ];
 
 
-    for(
-        let i=0;
-        i<15;
+    for (
+        let i = 0;
+        i < 15;
         i++
-    ){
+    ) {
 
         const element =
             document.createElement(
@@ -4328,6 +5638,7 @@ function createCelebration(){
 
         element.style.left =
             "50%";
+
 
         element.style.top =
             "50%";
@@ -4361,7 +5672,7 @@ function createCelebration(){
 
 
         setTimeout(
-            function(){
+            function() {
 
                 element.remove();
 
@@ -4383,15 +5694,18 @@ const ourSong =
         "ourSong"
     );
 
+
 const musicButton =
     document.getElementById(
         "musicButton"
     );
 
+
 const musicStatus =
     document.getElementById(
         "musicStatus"
     );
+
 
 const musicCard =
     document.getElementById(
@@ -4401,24 +5715,25 @@ const musicCard =
 
 musicButton.addEventListener(
     "click",
-    async function(){
+    async function() {
 
-        if(
+        if (
             ourSong.paused
-        ){
+        ) {
 
-            try{
+            try {
 
                 await ourSong.play();
 
             }
 
-            catch(error){
+            catch (error) {
 
                 console.error(
                     "AUDIO ERROR:",
                     error
                 );
+
 
                 musicStatus.textContent =
                     "Couldn't play the song. Make sure Until_I_Found_You.mp3 is in the repository. ❤️";
@@ -4426,7 +5741,8 @@ musicButton.addEventListener(
             }
 
         }
-        else{
+
+        else {
 
             ourSong.pause();
 
@@ -4438,14 +5754,16 @@ musicButton.addEventListener(
 
 ourSong.addEventListener(
     "play",
-    function(){
+    function() {
 
         musicCard.classList.add(
             "playing"
         );
 
+
         musicButton.textContent =
             "⏸ Pause Our Song";
+
 
         musicStatus.textContent =
             "Playing Until I Found You ❤️";
@@ -4456,18 +5774,20 @@ ourSong.addEventListener(
 
 ourSong.addEventListener(
     "pause",
-    function(){
+    function() {
 
         musicCard.classList.remove(
             "playing"
         );
 
-        if(
+
+        if (
             !ourSong.ended
-        ){
+        ) {
 
             musicButton.textContent =
                 "▶ Play Our Song";
+
 
             musicStatus.textContent =
                 "Paused ❤️";
@@ -4480,14 +5800,16 @@ ourSong.addEventListener(
 
 ourSong.addEventListener(
     "ended",
-    function(){
+    function() {
 
         musicCard.classList.remove(
             "playing"
         );
 
+
         musicButton.textContent =
             "▶ Play Our Song";
+
 
         musicStatus.textContent =
             "Until I Found You ❤️";
@@ -4498,11 +5820,12 @@ ourSong.addEventListener(
 
 ourSong.addEventListener(
     "error",
-    function(){
+    function() {
 
         musicCard.classList.remove(
             "playing"
         );
+
 
         musicStatus.textContent =
             "Song couldn't be loaded. Check that Until_I_Found_You.mp3 is in the repository.";
@@ -4513,54 +5836,100 @@ ourSong.addEventListener(
 
 /* =========================================================
    =========================================================
-   ENDLESS TEDDY RUNNER
+   TEDDY RUNNER GAME
    =========================================================
    ========================================================= */
 
-const canvas =
+const runnerCanvas =
     document.getElementById(
-        "runnerGame"
+        "runnerCanvas"
     );
 
-const ctx =
-    canvas.getContext(
+
+const runnerContext =
+    runnerCanvas.getContext(
         "2d"
     );
 
-const gameWrap =
-    document.querySelector(
-        ".game-wrap"
+
+const runnerShell =
+    document.getElementById(
+        "runnerShell"
     );
 
-const mobileJumpButton =
-    document.getElementById(
-        "mobileJumpButton"
-    );
 
 const gameScoreElement =
     document.getElementById(
         "gameScore"
     );
 
+
 const gameBestElement =
     document.getElementById(
         "gameBest"
     );
+
 
 const gameOverlay =
     document.getElementById(
         "gameOverlay"
     );
 
-const gameOverText =
+
+const gameMessageTitle =
     document.getElementById(
-        "gameOverText"
+        "gameMessageTitle"
     );
 
-const restartGameButton =
+
+const gameMessageText =
     document.getElementById(
-        "restartGameButton"
+        "gameMessageText"
     );
+
+
+const gameStartButton =
+    document.getElementById(
+        "gameStartButton"
+    );
+
+
+const gameJumpButton =
+    document.getElementById(
+        "gameJumpButton"
+    );
+
+
+/* =========================================================
+   GAME CONSTANTS
+   ========================================================= */
+
+const GAME_WIDTH =
+    720;
+
+
+const GAME_HEIGHT =
+    250;
+
+
+const GROUND_Y =
+    205;
+
+
+const GRAVITY =
+    0.72;
+
+
+const JUMP_POWER =
+    -13.2;
+
+
+const INITIAL_SPEED =
+    5.2;
+
+
+const MAX_SPEED =
+    10.5;
 
 
 /* =========================================================
@@ -4568,69 +5937,93 @@ const restartGameButton =
    ========================================================= */
 
 let gameRunning =
-    true;
+    false;
+
 
 let gameOver =
     false;
 
-let gameStarted =
-    false;
 
-let gameAnimation =
+let animationFrame =
     null;
 
-let lastFrame =
+
+let lastFrameTime =
     0;
 
-let gameTime =
-    0;
+
+let gameSpeed =
+    INITIAL_SPEED;
+
 
 let score =
     0;
 
+
 let bestScore =
     Number(
         localStorage.getItem(
-            "ourDiaryRunnerBest"
+            "ourLittleDiaryBestScore"
         ) || 0
     );
 
-let speed =
-    6;
 
-let spawnTimer =
+let distance =
     0;
 
-let nextSpawn =
-    1000;
+
+let obstacleTimer =
+    0;
+
+
+let nextObstacle =
+    90;
+
+
+let cloudOffset =
+    0;
+
 
 let groundOffset =
     0;
 
 
+let gameTime =
+    0;
+
+
 /* =========================================================
-   PLAYER
+   TEDDY PLAYER
    ========================================================= */
 
 const player = {
 
-    x:90,
+    x:
+        85,
 
-    y:0,
+    y:
+        GROUND_Y - 48,
 
-    width:52,
+    width:
+        44,
 
-    height:62,
+    height:
+        48,
 
-    velocityY:0,
+    velocityY:
+        0,
 
-    gravity:.78,
+    grounded:
+        true,
 
-    jumpPower:-15.5,
+    blinkTimer:
+        0,
 
-    grounded:true,
+    runFrame:
+        0,
 
-    squash:1
+    squash:
+        1
 
 };
 
@@ -4639,7 +6032,7 @@ const player = {
    OBSTACLES
    ========================================================= */
 
-const obstacles =
+let obstacles =
     [];
 
 
@@ -4650,89 +6043,30 @@ const obstacles =
 const clouds = [
 
     {
-        x:120,
-        y:45,
-        size:1,
-        speed:.15
+        x: 120,
+        y: 48,
+        size: 1
     },
 
     {
-        x:410,
-        y:75,
-        size:.7,
-        speed:.10
+        x: 390,
+        y: 75,
+        size: .72
     },
 
     {
-        x:650,
-        y:38,
-        size:.85,
-        speed:.13
+        x: 620,
+        y: 38,
+        size: .85
+    },
+
+    {
+        x: 850,
+        y: 62,
+        size: .65
     }
 
 ];
-
-
-/* =========================================================
-   GAME RESIZE
-   ========================================================= */
-
-function resizeGame(){
-
-    const rect =
-        canvas.getBoundingClientRect();
-
-    const width =
-        Math.max(
-            300,
-            Math.floor(rect.width)
-        );
-
-
-    /*
-     * Keep the logical coordinate system
-     * stable. The canvas scales visually.
-     */
-
-    canvas.width =
-        width;
-
-    canvas.height =
-        Math.max(
-            210,
-            Math.min(
-                270,
-                Math.floor(
-                    width * .34
-                )
-            )
-        );
-
-
-    resetPlayerPosition();
-
-}
-
-
-function resetPlayerPosition(){
-
-    const ground =
-        canvas.height -
-        52;
-
-    player.y =
-        ground -
-        player.height;
-
-}
-
-
-window.addEventListener(
-    "resize",
-    resizeGame
-);
-
-resizeGame();
 
 
 /* =========================================================
@@ -4740,22 +6074,68 @@ resizeGame();
    ========================================================= */
 
 gameBestElement.textContent =
-    "Best: " +
-    bestScore;
+    "BEST " +
+    String(bestScore)
+        .padStart(5,"0");
+
+
+/* =========================================================
+   CANVAS SCALE
+   ========================================================= */
+
+function resizeRunnerCanvas() {
+
+    const rect =
+        runnerCanvas.getBoundingClientRect();
+
+
+    if (
+        rect.width <= 0
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * The canvas itself stays at
+     * 720 × 250 internally.
+     *
+     * CSS scales it cleanly for phones.
+     */
+
+    runnerCanvas.width =
+        GAME_WIDTH;
+
+
+    runnerCanvas.height =
+        GAME_HEIGHT;
+
+}
+
+
+resizeRunnerCanvas();
+
+
+window.addEventListener(
+    "resize",
+    resizeRunnerCanvas
+);
 
 
 /* =========================================================
    DRAW HELPERS
    ========================================================= */
 
-function roundRect(
+function roundedRect(
     context,
     x,
     y,
     width,
     height,
     radius
-){
+) {
 
     const r =
         Math.min(
@@ -4768,38 +6148,38 @@ function roundRect(
     context.beginPath();
 
     context.moveTo(
-        x+r,
+        x + r,
         y
     );
 
     context.arcTo(
-        x+width,
+        x + width,
         y,
-        x+width,
-        y+height,
+        x + width,
+        y + height,
         r
     );
 
     context.arcTo(
-        x+width,
-        y+height,
+        x + width,
+        y + height,
         x,
-        y+height,
-        r
-    );
-
-    context.arcTo(
-        x,
-        y+height,
-        x,
-        y,
+        y + height,
         r
     );
 
     context.arcTo(
         x,
+        y + height,
+        x,
         y,
-        x+width,
+        r
+    );
+
+    context.arcTo(
+        x,
+        y,
+        x + width,
         y,
         r
     );
@@ -4810,476 +6190,807 @@ function roundRect(
 
 
 /* =========================================================
-   DRAW CLOUD
+   DRAW BACKGROUND
    ========================================================= */
 
-function drawCloud(
-    x,
-    y,
-    scale
-){
+function drawGameBackground() {
 
-    ctx.save();
-
-    ctx.globalAlpha =
-        .48;
-
-    ctx.fillStyle =
-        "#ffffff";
+    const context =
+        runnerContext;
 
 
-    ctx.beginPath();
+    const gradient =
+        context.createLinearGradient(
+            0,
+            0,
+            0,
+            GAME_HEIGHT
+        );
 
-    ctx.arc(
-        x,
-        y,
-        17*scale,
+
+    gradient.addColorStop(
         0,
-        Math.PI*2
+        "#fff7fa"
     );
 
-    ctx.arc(
-        x+20*scale,
-        y-7*scale,
-        22*scale,
-        0,
-        Math.PI*2
+
+    gradient.addColorStop(
+        .7,
+        "#fffdfb"
     );
 
-    ctx.arc(
-        x+45*scale,
-        y,
-        16*scale,
-        0,
-        Math.PI*2
+
+    gradient.addColorStop(
+        1,
+        "#f9eee9"
     );
 
-    ctx.fill();
+
+    context.fillStyle =
+        gradient;
 
 
-    ctx.restore();
+    context.fillRect(
+        0,
+        0,
+        GAME_WIDTH,
+        GAME_HEIGHT
+    );
+
+
+    /* soft sun */
+
+    context.beginPath();
+
+    context.arc(
+        610,
+        62,
+        25,
+        0,
+        Math.PI * 2
+    );
+
+    context.fillStyle =
+        "rgba(245,193,112,.20)";
+
+    context.fill();
+
+
+    /* clouds */
+
+    clouds.forEach(
+        function(cloud) {
+
+            let x =
+                (
+                    cloud.x -
+                    cloudOffset *
+                    .12
+                ) %
+                (GAME_WIDTH + 180);
+
+
+            if (
+                x < -100
+            ) {
+
+                x +=
+                    GAME_WIDTH +
+                    180;
+
+            }
+
+
+            drawCloud(
+                context,
+                x,
+                cloud.y,
+                cloud.size
+            );
+
+        }
+    );
+
+
+    /* distant hills */
+
+    context.fillStyle =
+        "rgba(214,174,186,.14)";
+
+
+    context.beginPath();
+
+    context.moveTo(
+        0,
+        GROUND_Y
+    );
+
+
+    for (
+        let x = 0;
+        x <= GAME_WIDTH;
+        x += 60
+    ) {
+
+        const y =
+            GROUND_Y -
+            12 -
+            Math.sin(
+                (x + groundOffset * .08) /
+                70
+            ) *
+            7;
+
+
+        context.lineTo(
+            x,
+            y
+        );
+
+    }
+
+
+    context.lineTo(
+        GAME_WIDTH,
+        GROUND_Y
+    );
+
+
+    context.closePath();
+
+    context.fill();
+
+
+    /* ground */
+
+    context.fillStyle =
+        "#ead7d4";
+
+
+    context.fillRect(
+        0,
+        GROUND_Y,
+        GAME_WIDTH,
+        GAME_HEIGHT - GROUND_Y
+    );
+
+
+    /* ground highlight */
+
+    context.fillStyle =
+        "rgba(255,255,255,.65)";
+
+
+    context.fillRect(
+        0,
+        GROUND_Y,
+        GAME_WIDTH,
+        3
+    );
+
+
+    /* moving tiny ground marks */
+
+    context.strokeStyle =
+        "rgba(150,111,122,.20)";
+
+
+    context.lineWidth =
+        2;
+
+
+    const spacing =
+        38;
+
+
+    for (
+        let x = -spacing;
+        x < GAME_WIDTH + spacing;
+        x += spacing
+    ) {
+
+        const markX =
+            x -
+            (
+                groundOffset %
+                spacing
+            );
+
+
+        context.beginPath();
+
+        context.moveTo(
+            markX,
+            GROUND_Y + 22
+        );
+
+        context.lineTo(
+            markX + 13,
+            GROUND_Y + 22
+        );
+
+        context.stroke();
+
+    }
 
 }
 
 
 /* =========================================================
-   DRAW TEDDY
+   DRAW CLOUD
    ========================================================= */
 
-function drawRunnerTeddy(){
+function drawCloud(
+    context,
+    x,
+    y,
+    scale
+) {
 
-    const x =
-        player.x;
-
-    const y =
-        player.y;
-
-    const w =
-        player.width;
-
-    const h =
-        player.height;
+    context.save();
 
 
-    const bounce =
+    context.translate(
+        x,
+        y
+    );
+
+
+    context.scale(
+        scale,
+        scale
+    );
+
+
+    context.fillStyle =
+        "rgba(255,255,255,.72)";
+
+
+    context.beginPath();
+
+
+    context.arc(
+        0,
+        9,
+        14,
+        0,
+        Math.PI * 2
+    );
+
+
+    context.arc(
+        17,
+        3,
+        19,
+        0,
+        Math.PI * 2
+    );
+
+
+    context.arc(
+        38,
+        10,
+        13,
+        0,
+        Math.PI * 2
+    );
+
+
+    context.fillRect(
+        -2,
+        9,
+        43,
+        13
+    );
+
+
+    context.fill();
+
+
+    context.restore();
+
+}
+
+
+/* =========================================================
+   DRAW RUNNER TEDDY
+   ========================================================= */
+
+function drawPlayer() {
+
+    const context =
+        runnerContext;
+
+
+    context.save();
+
+
+    const bob =
         player.grounded
             ? Math.sin(
-                gameTime / 80
-              ) * 1.5
+                player.runFrame
+            ) *
+            1.5
             : 0;
 
 
-    ctx.save();
+    const squash =
+        player.squash;
 
-    ctx.translate(
-        x,
-        y + bounce
+
+    context.translate(
+        player.x,
+        player.y + bob
     );
 
 
-    /*
-     * Shadow
-     */
-
-    ctx.globalAlpha =
-        .18;
-
-    ctx.fillStyle =
-        "#8c5c6d";
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-        w/2,
-        h+5,
-        25,
-        5,
-        0,
-        0,
-        Math.PI*2
+    context.scale(
+        squash,
+        1 / squash
     );
 
-    ctx.fill();
 
-    ctx.globalAlpha =
-        1;
+    /* shadow */
+
+    context.save();
+
+    context.translate(
+        player.width / 2,
+        player.height + 4
+    );
+
+    context.scale(
+        player.grounded ? 1 : .7,
+        .25
+    );
+
+    context.beginPath();
+
+    context.arc(
+        0,
+        0,
+        19,
+        0,
+        Math.PI * 2
+    );
+
+    context.fillStyle =
+        "rgba(90,50,60,.13)";
+
+    context.fill();
+
+    context.restore();
 
 
-    /*
-     * Ears
-     */
+    /* ears */
 
-    ctx.fillStyle =
+    context.fillStyle =
         "#b87550";
 
-    ctx.beginPath();
 
-    ctx.arc(
-        13,
-        16,
-        10,
-        0,
-        Math.PI*2
-    );
+    context.beginPath();
 
-    ctx.arc(
-        39,
-        16,
-        10,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Inner ears
-     */
-
-    ctx.fillStyle =
-        "#f0b5a0";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        13,
-        16,
-        5,
-        0,
-        Math.PI*2
-    );
-
-    ctx.arc(
-        39,
-        16,
-        5,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Head
-     */
-
-    ctx.fillStyle =
-        "#d99a6c";
-
-    roundRect(
-        ctx,
-        5,
-        10,
-        43,
-        38,
-        16
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Eyes
-     */
-
-    ctx.fillStyle =
-        "#493036";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        17,
-        27,
-        2.7,
-        0,
-        Math.PI*2
-    );
-
-    ctx.arc(
-        36,
-        27,
-        2.7,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Eye shine
-     */
-
-    ctx.fillStyle =
-        "#ffffff";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        18,
-        26,
-        .9,
-        0,
-        Math.PI*2
-    );
-
-    ctx.arc(
-        37,
-        26,
-        .9,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Cheeks
-     */
-
-    ctx.fillStyle =
-        "#ed9e9e";
-
-    ctx.globalAlpha =
-        .55;
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-        11,
-        34,
-        5,
-        3,
-        0,
-        0,
-        Math.PI*2
-    );
-
-    ctx.ellipse(
-        42,
-        34,
-        5,
-        3,
-        0,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-    ctx.globalAlpha =
-        1;
-
-
-    /*
-     * Muzzle
-     */
-
-    ctx.fillStyle =
-        "#efc2a5";
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-        27,
-        35,
-        10,
-        8,
-        0,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Nose
-     */
-
-    ctx.fillStyle =
-        "#553037";
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-        27,
-        33,
-        3.2,
-        2.4,
-        0,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Body
-     */
-
-    ctx.fillStyle =
-        "#d99a6c";
-
-    roundRect(
-        ctx,
+    context.arc(
         9,
-        45,
+        9,
+        9,
+        0,
+        Math.PI * 2
+    );
+
+    context.arc(
         35,
-        30,
+        9,
+        9,
+        0,
+        Math.PI * 2
+    );
+
+    context.fill();
+
+
+    /* inner ears */
+
+    context.fillStyle =
+        "#efb39e";
+
+
+    context.beginPath();
+
+    context.arc(
+        9,
+        9,
+        4,
+        0,
+        Math.PI * 2
+    );
+
+    context.arc(
+        35,
+        9,
+        4,
+        0,
+        Math.PI * 2
+    );
+
+    context.fill();
+
+
+    /* head */
+
+    const headGradient =
+        context.createLinearGradient(
+            0,
+            0,
+            42,
+            40
+        );
+
+
+    headGradient.addColorStop(
+        0,
+        "#dfa071"
+    );
+
+
+    headGradient.addColorStop(
+        1,
+        "#b86f4e"
+    );
+
+
+    context.fillStyle =
+        headGradient;
+
+
+    roundedRect(
+        context,
+        3,
+        4,
+        39,
+        38,
         14
     );
 
-    ctx.fill();
+
+    context.fill();
 
 
-    /*
-     * Belly
-     */
+    /* muzzle */
 
-    ctx.fillStyle =
+    context.fillStyle =
+        "#efc5a8";
+
+
+    context.beginPath();
+
+    context.ellipse(
+        22,
+        28,
+        12,
+        9,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    context.fill();
+
+
+    /* eyes */
+
+    context.fillStyle =
+        "#4a3035";
+
+
+    const blink =
+        player.blinkTimer <
+        0.08;
+
+
+    if (
+        blink
+    ) {
+
+        context.fillRect(
+            12,
+            20,
+            5,
+            1.5
+        );
+
+        context.fillRect(
+            29,
+            20,
+            5,
+            1.5
+        );
+
+    }
+
+    else {
+
+        context.beginPath();
+
+        context.arc(
+            14.5,
+            21,
+            2.7,
+            0,
+            Math.PI * 2
+        );
+
+        context.arc(
+            31.5,
+            21,
+            2.7,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+
+
+        /* eye shine */
+
+        context.fillStyle =
+            "white";
+
+
+        context.beginPath();
+
+        context.arc(
+            13.6,
+            20.1,
+            .9,
+            0,
+            Math.PI * 2
+        );
+
+        context.arc(
+            30.6,
+            20.1,
+            .9,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+
+    }
+
+
+    /* nose */
+
+    context.fillStyle =
+        "#553037";
+
+
+    context.beginPath();
+
+    context.ellipse(
+        22,
+        27,
+        4,
+        2.8,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    context.fill();
+
+
+    /* smile */
+
+    context.strokeStyle =
+        "#553037";
+
+
+    context.lineWidth =
+        1.5;
+
+
+    context.beginPath();
+
+    context.arc(
+        22,
+        28,
+        4,
+        0.1,
+        Math.PI - .1
+    );
+
+    context.stroke();
+
+
+    /* cheeks */
+
+    context.fillStyle =
+        "rgba(239,142,153,.55)";
+
+
+    context.beginPath();
+
+    context.ellipse(
+        8,
+        28,
+        5,
+        2.5,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    context.ellipse(
+        36,
+        28,
+        5,
+        2.5,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    context.fill();
+
+
+    /* body */
+
+    context.fillStyle =
+        "#c9825b";
+
+
+    context.beginPath();
+
+    context.ellipse(
+        22,
+        48,
+        17,
+        15,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    context.fill();
+
+
+    /* belly */
+
+    context.fillStyle =
         "#edc09e";
 
-    ctx.beginPath();
 
-    ctx.ellipse(
-        27,
-        60,
-        10,
-        11,
-        0,
-        0,
-        Math.PI*2
-    );
+    context.beginPath();
 
-    ctx.fill();
-
-
-    /*
-     * Arms
-     */
-
-    ctx.fillStyle =
-        "#c27b56";
-
-    ctx.save();
-
-    ctx.translate(
-        9,
-        49
-    );
-
-    ctx.rotate(
-        .4
-    );
-
-    roundRect(
-        ctx,
-        -5,
-        0,
-        9,
+    context.ellipse(
         22,
-        5
-    );
-
-    ctx.fill();
-
-    ctx.restore();
-
-
-    ctx.save();
-
-    ctx.translate(
-        43,
-        49
-    );
-
-    ctx.rotate(
-        -.4
-    );
-
-    roundRect(
-        ctx,
-        -4,
-        0,
+        49,
         9,
+        8,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    context.fill();
+
+
+    /* heart */
+
+    drawTinyHeart(
+        context,
         22,
-        5
+        49,
+        4.5,
+        "#e66f91"
     );
 
-    ctx.fill();
 
-    ctx.restore();
+    /* arms */
+
+    context.strokeStyle =
+        "#b87350";
 
 
-    /*
-     * Legs
-     */
+    context.lineWidth =
+        7;
 
-    ctx.beginPath();
 
-    ctx.ellipse(
-        16,
-        76,
+    context.lineCap =
+        "round";
+
+
+    const armSwing =
+        player.grounded
+            ? Math.sin(
+                player.runFrame
+            ) *
+            5
+            : -2;
+
+
+    context.beginPath();
+
+    context.moveTo(
         9,
-        6,
-        0,
-        0,
-        Math.PI*2
+        43
     );
 
-    ctx.ellipse(
-        38,
-        76,
-        9,
-        6,
-        0,
-        0,
-        Math.PI*2
+    context.lineTo(
+        3,
+        52 + armSwing
     );
 
-    ctx.fill();
+    context.stroke();
 
 
-    /*
-     * Tiny heart
-     */
+    context.beginPath();
 
-    ctx.fillStyle =
-        "#e86b8d";
-
-    drawHeart(
-        27,
-        57,
-        5
+    context.moveTo(
+        35,
+        43
     );
 
+    context.lineTo(
+        41,
+        52 - armSwing
+    );
 
-    ctx.restore();
+    context.stroke();
+
+
+    /* legs */
+
+    context.strokeStyle =
+        "#a9654b";
+
+
+    context.lineWidth =
+        7;
+
+
+    const legSwing =
+        player.grounded
+            ? Math.sin(
+                player.runFrame
+            ) *
+            6
+            : 0;
+
+
+    context.beginPath();
+
+    context.moveTo(
+        15,
+        58
+    );
+
+    context.lineTo(
+        11 - legSwing,
+        66
+    );
+
+    context.stroke();
+
+
+    context.beginPath();
+
+    context.moveTo(
+        29,
+        58
+    );
+
+    context.lineTo(
+        33 + legSwing,
+        66
+    );
+
+    context.stroke();
+
+
+    context.restore();
 
 }
 
@@ -5288,38 +6999,62 @@ function drawRunnerTeddy(){
    DRAW HEART
    ========================================================= */
 
-function drawHeart(
+function drawTinyHeart(
+    context,
     x,
     y,
-    size
-){
+    size,
+    color
+) {
 
-    ctx.beginPath();
+    context.save();
 
-    ctx.moveTo(
+    context.translate(
         x,
-        y+size
+        y
     );
 
-    ctx.bezierCurveTo(
-        x-size*1.7,
-        y-size*.2,
-        x-size*.8,
-        y-size*1.6,
-        x,
-        y-size*.6
+
+    context.scale(
+        size / 5,
+        size / 5
     );
 
-    ctx.bezierCurveTo(
-        x+size*.8,
-        y-size*1.6,
-        x+size*1.7,
-        y-size*.2,
-        x,
-        y+size
+
+    context.beginPath();
+
+    context.moveTo(
+        0,
+        4
     );
 
-    ctx.fill();
+    context.bezierCurveTo(
+        -8,
+        -1,
+        -4,
+        -7,
+        0,
+        -4
+    );
+
+    context.bezierCurveTo(
+        4,
+        -7,
+        8,
+        -1,
+        0,
+        4
+    );
+
+
+    context.fillStyle =
+        color;
+
+
+    context.fill();
+
+
+    context.restore();
 
 }
 
@@ -5330,242 +7065,318 @@ function drawHeart(
 
 function drawObstacle(
     obstacle
-){
+) {
 
-    const x =
-        obstacle.x;
-
-    const y =
-        obstacle.y;
-
-    const w =
-        obstacle.width;
-
-    const h =
-        obstacle.height;
+    const context =
+        runnerContext;
 
 
-    /*
-     * Pink flower/cactus style obstacle.
-     */
-
-    ctx.save();
+    context.save();
 
 
-    ctx.fillStyle =
-        "#a85e76";
-
-
-    roundRect(
-        ctx,
-        x+8,
-        y+8,
-        w-16,
-        h-8,
-        8
-    );
-
-    ctx.fill();
-
-
-    ctx.fillStyle =
-        "#c97895";
-
-
-    roundRect(
-        ctx,
-        x,
-        y+18,
-        13,
-        20,
-        6
-    );
-
-    ctx.fill();
-
-
-    roundRect(
-        ctx,
-        x+w-13,
-        y+28,
-        13,
-        20,
-        6
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Cute flower on top.
-     */
-
-    ctx.fillStyle =
-        "#ef91ad";
-
-
-    ctx.beginPath();
-
-    ctx.arc(
-        x+w/2,
-        y+4,
-        8,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    ctx.fillStyle =
-        "#ffd37a";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        x+w/2,
-        y+4,
-        3,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    ctx.restore();
-
-}
-
-
-/* =========================================================
-   DRAW GROUND
-   ========================================================= */
-
-function drawGround(){
-
-    const groundY =
-        canvas.height - 50;
-
-
-    ctx.fillStyle =
-        "#f3d5de";
-
-    ctx.fillRect(
-        0,
-        groundY,
-        canvas.width,
-        2
+    context.translate(
+        obstacle.x,
+        obstacle.y
     );
 
 
-    /*
-     * Moving little dashes.
-     */
+    if (
+        obstacle.type ===
+        "heart"
+    ) {
 
-    ctx.fillStyle =
-        "#dba8b8";
-
-
-    for(
-        let x=-50;
-        x<canvas.width+50;
-        x+=42
-    ){
-
-        const actualX =
-            x -
-            (groundOffset % 42);
-
-
-        ctx.fillRect(
-            actualX,
-            groundY+14,
-            20,
-            2
+        drawTinyHeart(
+            context,
+            obstacle.width / 2,
+            obstacle.height / 2,
+            obstacle.width * .65,
+            "#c86688"
         );
 
     }
 
 
-    /*
-     * Tiny flowers.
-     */
+    else if (
+        obstacle.type ===
+        "rose"
+    ) {
 
-    for(
-        let x=20;
-        x<canvas.width;
-        x+=110
-    ){
+        /* stem */
 
-        const actualX =
-            x -
-            (groundOffset % 110);
+        context.strokeStyle =
+            "#78a06f";
+
+        context.lineWidth =
+            3;
+
+        context.beginPath();
+
+        context.moveTo(
+            9,
+            obstacle.height
+        );
+
+        context.lineTo(
+            12,
+            8
+        );
+
+        context.stroke();
 
 
-        ctx.fillStyle =
-            "#e5aabd";
+        /* leaves */
 
-        ctx.beginPath();
+        context.fillStyle =
+            "#78a06f";
 
-        ctx.arc(
-            actualX,
-            groundY+30,
+
+        context.beginPath();
+
+        context.ellipse(
+            6,
+            18,
+            6,
+            3,
+            -.4,
+            0,
+            Math.PI * 2
+        );
+
+        context.ellipse(
+            15,
+            25,
+            6,
+            3,
+            .4,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+
+
+        /* flower */
+
+        context.fillStyle =
+            "#d97596";
+
+
+        for (
+            let i = 0;
+            i < 5;
+            i++
+        ) {
+
+            const angle =
+                i *
+                Math.PI *
+                2 /
+                5;
+
+
+            context.beginPath();
+
+            context.arc(
+                12 +
+                Math.cos(angle) *
+                7,
+
+                8 +
+                Math.sin(angle) *
+                7,
+
+                5,
+
+                0,
+                Math.PI * 2
+            );
+
+            context.fill();
+
+        }
+
+
+        context.fillStyle =
+            "#efbd65";
+
+
+        context.beginPath();
+
+        context.arc(
+            12,
+            8,
             3,
             0,
-            Math.PI*2
+            Math.PI * 2
         );
 
-        ctx.fill();
-
-
-        ctx.fillStyle =
-            "#e9b75f";
-
-        ctx.beginPath();
-
-        ctx.arc(
-            actualX,
-            groundY+30,
-            1,
-            0,
-            Math.PI*2
-        );
-
-        ctx.fill();
+        context.fill();
 
     }
+
+
+    else {
+
+        /* little gift box obstacle */
+
+        context.fillStyle =
+            "#d98ba5";
+
+
+        roundedRect(
+            context,
+            0,
+            9,
+            obstacle.width,
+            obstacle.height - 9,
+            5
+        );
+
+
+        context.fill();
+
+
+        context.fillStyle =
+            "#f3c4d2";
+
+
+        context.fillRect(
+            obstacle.width / 2 - 2,
+            9,
+            4,
+            obstacle.height - 9
+        );
+
+
+        context.fillRect(
+            0,
+            18,
+            obstacle.width,
+            4
+        );
+
+
+        context.fillStyle =
+            "#c86688";
+
+
+        context.beginPath();
+
+        context.arc(
+            obstacle.width / 2,
+            8,
+            6,
+            0,
+            Math.PI * 2
+        );
+
+        context.fill();
+
+    }
+
+
+    context.restore();
 
 }
 
 
 /* =========================================================
-   SPAWN OBSTACLE
+   CREATE OBSTACLE
    ========================================================= */
 
-function spawnObstacle(){
+function createObstacle() {
 
-    const ground =
-        canvas.height - 50;
-
-
-    const height =
-        32 +
-        Math.random() * 18;
+    const random =
+        Math.random();
 
 
-    const width =
-        28 +
-        Math.random() * 12;
+    let type;
+
+
+    if (
+        random < .38
+    ) {
+
+        type =
+            "heart";
+
+    }
+
+    else if (
+        random < .72
+    ) {
+
+        type =
+            "rose";
+
+    }
+
+    else {
+
+        type =
+            "gift";
+
+    }
+
+
+    let width =
+        25;
+
+
+    let height =
+        34;
+
+
+    if (
+        type ===
+        "heart"
+    ) {
+
+        width =
+            30;
+
+        height =
+            30;
+
+    }
+
+
+    if (
+        type ===
+        "rose"
+    ) {
+
+        width =
+            25;
+
+        height =
+            39;
+
+    }
+
+
+    if (
+        type ===
+        "gift"
+    ) {
+
+        width =
+            31;
+
+        height =
+            36;
+
+    }
 
 
     obstacles.push({
 
         x:
-            canvas.width + 20,
+            GAME_WIDTH + 20,
 
         y:
-            ground - height,
+            GROUND_Y -
+            height,
 
         width:
             width,
@@ -5573,9 +7384,113 @@ function spawnObstacle(){
         height:
             height,
 
-        counted:false
+        type:
+            type
 
     });
+
+
+    /*
+     * The faster the game gets,
+     * the spacing remains fair.
+     */
+
+    const minimum =
+        Math.max(
+            72,
+            125 -
+            gameSpeed *
+            4
+        );
+
+
+    const maximum =
+        Math.max(
+            120,
+            205 -
+            gameSpeed *
+            4
+        );
+
+
+    nextObstacle =
+        minimum +
+        Math.random() *
+        (
+            maximum -
+            minimum
+        );
+
+}
+
+
+/* =========================================================
+   COLLISION
+   ========================================================= */
+
+function checkCollision(
+    obstacle
+) {
+
+    const playerBox = {
+
+        x:
+            player.x + 8,
+
+        y:
+            player.y + 7,
+
+        width:
+            player.width - 15,
+
+        height:
+            player.height - 9
+
+    };
+
+
+    const obstacleBox = {
+
+        x:
+            obstacle.x + 4,
+
+        y:
+            obstacle.y + 4,
+
+        width:
+            obstacle.width - 8,
+
+        height:
+            obstacle.height - 7
+
+    };
+
+
+    return (
+
+        playerBox.x <
+            obstacleBox.x +
+            obstacleBox.width
+
+        &&
+
+        playerBox.x +
+            playerBox.width >
+            obstacleBox.x
+
+        &&
+
+        playerBox.y <
+            obstacleBox.y +
+            obstacleBox.height
+
+        &&
+
+        playerBox.y +
+            playerBox.height >
+            obstacleBox.y
+
+    );
 
 }
 
@@ -5584,35 +7499,25 @@ function spawnObstacle(){
    JUMP
    ========================================================= */
 
-function jump(){
+function gameJump() {
 
-    if(
-        gameOver
-    ){
+    if (
+        !gameRunning
+    ) {
 
-        restartGame();
+        startGame();
 
         return;
 
     }
 
 
-    if(
-        !gameStarted
-    ){
-
-        gameStarted =
-            true;
-
-    }
-
-
-    if(
+    if (
         player.grounded
-    ){
+    ) {
 
         player.velocityY =
-            player.jumpPower;
+            JUMP_POWER;
 
         player.grounded =
             false;
@@ -5626,519 +7531,98 @@ function jump(){
 
 
 /* =========================================================
-   COLLISION
+   START GAME
    ========================================================= */
 
-function collision(){
+function startGame() {
 
-    const padding =
-        8;
+    gameRunning =
+        true;
 
 
-    const playerLeft =
-        player.x +
-        padding;
+    gameOver =
+        false;
 
-    const playerRight =
-        player.x +
-        player.width -
-        padding;
 
-    const playerTop =
-        player.y +
-        8;
+    score =
+        0;
 
-    const playerBottom =
-        player.y +
-        player.height -
-        4;
 
+    distance =
+        0;
 
-    for(
-        const obstacle of obstacles
-    ){
 
-        const obstacleLeft =
-            obstacle.x +
-            5;
+    obstacleTimer =
+        0;
 
-        const obstacleRight =
-            obstacle.x +
-            obstacle.width -
-            5;
 
-        const obstacleTop =
-            obstacle.y +
-            3;
+    nextObstacle =
+        95;
 
-        const obstacleBottom =
-            obstacle.y +
-            obstacle.height;
 
+    gameSpeed =
+        INITIAL_SPEED;
 
-        if(
 
-            playerRight >
-            obstacleLeft &&
+    obstacles =
+        [];
 
-            playerLeft <
-            obstacleRight &&
 
-            playerBottom >
-            obstacleTop &&
+    player.y =
+        GROUND_Y -
+        player.height;
 
-            playerTop <
-            obstacleBottom
 
-        ){
+    player.velocityY =
+        0;
 
-            return true;
 
-        }
+    player.grounded =
+        true;
 
-    }
 
+    player.runFrame =
+        0;
 
-    return false;
 
-}
+    player.squash =
+        1;
 
 
-/* =========================================================
-   GAME UPDATE
-   ========================================================= */
+    gameTime =
+        0;
 
-function updateGame(
-    delta
-){
 
-    if(
-        !gameRunning ||
-        gameOver
-    ){
-
-        return;
-
-    }
-
-
-    gameTime +=
-        delta;
-
-
-    /*
-     * Speed gradually increases.
-     */
-
-    speed =
-        Math.min(
-            12,
-            6 +
-            gameTime / 18000
-        );
-
-
-    /*
-     * Player physics.
-     */
-
-    player.velocityY +=
-        player.gravity *
-        (delta / 16.67);
-
-
-    player.y +=
-        player.velocityY *
-        (delta / 16.67);
-
-
-    const ground =
-        canvas.height -
-        50;
-
-
-    if(
-        player.y +
-        player.height >=
-        ground
-    ){
-
-        player.y =
-            ground -
-            player.height;
-
-        player.velocityY =
-            0;
-
-        player.grounded =
-            true;
-
-    }
-    else{
-
-        player.grounded =
-            false;
-
-    }
-
-
-    player.squash +=
-        (.95 -
-        player.squash) *
-        .15;
-
-
-    /*
-     * Ground.
-     */
-
-    groundOffset +=
-        speed *
-        delta /
-        16.67;
-
-
-    /*
-     * Clouds.
-     */
-
-    clouds.forEach(
-        function(cloud){
-
-            cloud.x -=
-                cloud.speed *
-                speed *
-                delta /
-                16.67;
-
-
-            if(
-                cloud.x <
-                -100
-            ){
-
-                cloud.x =
-                    canvas.width +
-                    100;
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Spawn.
-     */
-
-    spawnTimer +=
-        delta;
-
-
-    if(
-        spawnTimer >=
-        nextSpawn
-    ){
-
-        spawnObstacle();
-
-        spawnTimer =
-            0;
-
-
-        /*
-         * Random but fair spacing.
-         */
-
-        nextSpawn =
-            950 +
-            Math.random() *
-            850 -
-            Math.min(
-                gameTime / 80,
-                300
-            );
-
-    }
-
-
-    /*
-     * Move obstacles.
-     */
-
-    obstacles.forEach(
-        function(obstacle){
-
-            obstacle.x -=
-                speed *
-                delta /
-                16.67;
-
-
-            if(
-                !obstacle.counted &&
-                obstacle.x +
-                obstacle.width <
-                player.x
-            ){
-
-                obstacle.counted =
-                    true;
-
-                score +=
-                    10;
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Remove old obstacles.
-     */
-
-    while(
-        obstacles.length &&
-        obstacles[0].x +
-        obstacles[0].width <
-        -30
-    ){
-
-        obstacles.shift();
-
-    }
-
-
-    /*
-     * Score from time.
-     */
-
-    const timeScore =
-        Math.floor(
-            gameTime /
-            100
-        );
-
-
-    const combinedScore =
-        Math.max(
-            score,
-            timeScore
-        );
+    lastFrameTime =
+        performance.now();
 
 
     gameScoreElement.textContent =
-        "Score: " +
-        combinedScore;
+        "SCORE 00000";
 
 
-    if(
-        collision()
-    ){
+    gameOverlay.classList.add(
+        "hidden"
+    );
 
-        endGame(
-            combinedScore
+
+    runnerShell.classList.add(
+        "running"
+    );
+
+
+    if (
+        animationFrame
+    ) {
+
+        cancelAnimationFrame(
+            animationFrame
         );
 
     }
 
-}
 
-
-/* =========================================================
-   GAME DRAW
-   ========================================================= */
-
-function drawGame(){
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    /*
-     * Sky.
-     */
-
-    const gradient =
-        ctx.createLinearGradient(
-            0,
-            0,
-            0,
-            canvas.height
-        );
-
-
-    gradient.addColorStop(
-        0,
-        "#fff8fb"
-    );
-
-    gradient.addColorStop(
-        .65,
-        "#fff2f6"
-    );
-
-    gradient.addColorStop(
-        .66,
-        "#fff9f6"
-    );
-
-    gradient.addColorStop(
-        1,
-        "#fff9f6"
-    );
-
-
-    ctx.fillStyle =
-        gradient;
-
-    ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    /*
-     * Little sun.
-     */
-
-    ctx.fillStyle =
-        "rgba(244,191,116,.35)";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        canvas.width-65,
-        45,
-        24,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /*
-     * Clouds.
-     */
-
-    clouds.forEach(
-        function(cloud){
-
-            drawCloud(
-                cloud.x,
-                cloud.y,
-                cloud.size
-            );
-
-        }
-    );
-
-
-    /*
-     * Ground.
-     */
-
-    drawGround();
-
-
-    /*
-     * Obstacles.
-     */
-
-    obstacles.forEach(
-        function(obstacle){
-
-            drawObstacle(
-                obstacle
-            );
-
-        }
-    );
-
-
-    /*
-     * Teddy.
-     */
-
-    drawRunnerTeddy();
-
-
-    /*
-     * Start hint inside canvas.
-     */
-
-    if(
-        !gameStarted &&
-        !gameOver
-    ){
-
-        ctx.fillStyle =
-            "rgba(145,68,95,.62)";
-
-        ctx.font =
-            "bold 16px Georgia";
-
-        ctx.textAlign =
-            "center";
-
-        ctx.fillText(
-            "Tap to start running ❤️",
-            canvas.width/2,
-            35
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   GAME LOOP
-   ========================================================= */
-
-function gameLoop(
-    timestamp
-){
-
-    if(
-        !lastFrame
-    ){
-
-        lastFrame =
-            timestamp;
-
-    }
-
-
-    const delta =
-        Math.min(
-            40,
-            timestamp -
-            lastFrame
-        );
-
-
-    lastFrame =
-        timestamp;
-
-
-    updateGame(
-        delta
-    );
-
-
-    drawGame();
-
-
-    gameAnimation =
+    animationFrame =
         requestAnimationFrame(
             gameLoop
         );
@@ -6150,157 +7634,450 @@ function gameLoop(
    END GAME
    ========================================================= */
 
-function endGame(
-    finalScore
-){
-
-    if(
-        gameOver
-    ){
-
-        return;
-
-    }
-
-
-    gameOver =
-        true;
+function endGame() {
 
     gameRunning =
         false;
 
 
-    const roundedScore =
-        Math.max(
-            finalScore,
-            score
-        );
+    gameOver =
+        true;
 
 
-    if(
-        roundedScore >
+    runnerShell.classList.remove(
+        "running"
+    );
+
+
+    if (
+        score >
         bestScore
-    ){
+    ) {
 
         bestScore =
-            roundedScore;
+            score;
+
 
         localStorage.setItem(
-            "ourDiaryRunnerBest",
+            "ourLittleDiaryBestScore",
             String(bestScore)
         );
 
     }
 
 
-    gameScoreElement.textContent =
-        "Score: " +
-        roundedScore;
-
     gameBestElement.textContent =
-        "Best: " +
-        bestScore;
+        "BEST " +
+        String(bestScore)
+            .padStart(5,"0");
 
 
-    gameOverText.textContent =
+    gameMessageTitle.textContent =
+        "Aww, teddy bumped into love 💕";
+
+
+    gameMessageText.textContent =
         "You made it " +
-        roundedScore +
-        " points. One more run? ❤️";
+        score +
+        " points! Ready for another little run?";
 
 
-    gameOverlay.classList.add(
-        "show"
+    gameStartButton.textContent =
+        "Run Again 🧸";
+
+
+    gameOverlay.classList.remove(
+        "hidden"
     );
 
 }
 
 
 /* =========================================================
-   RESTART
+   UPDATE GAME
    ========================================================= */
 
-function restartGame(){
+function updateGame(
+    delta
+) {
 
-    gameOver =
-        false;
+    /*
+     * Convert elapsed milliseconds
+     * into a stable frame multiplier.
+     */
 
-    gameRunning =
-        true;
+    const dt =
+        Math.min(
+            delta / 16.67,
+            2
+        );
 
-    gameStarted =
-        false;
 
-    gameTime =
-        0;
+    gameTime +=
+        delta;
 
-    score =
-        0;
 
-    speed =
-        6;
+    /* speed gradually increases */
 
-    spawnTimer =
-        0;
+    gameSpeed =
+        Math.min(
+            MAX_SPEED,
+            INITIAL_SPEED +
+            gameTime /
+            10000
+        );
 
-    nextSpawn =
+
+    /* player */
+
+    player.velocityY +=
+        GRAVITY *
+        dt;
+
+
+    player.y +=
+        player.velocityY *
+        dt;
+
+
+    if (
+        player.y >=
+        GROUND_Y -
+        player.height
+    ) {
+
+        player.y =
+            GROUND_Y -
+            player.height;
+
+
+        player.velocityY =
+            0;
+
+
+        if (
+            !player.grounded
+        ) {
+
+            player.squash =
+                1.13;
+
+        }
+
+
+        player.grounded =
+            true;
+
+    }
+
+
+    else {
+
+        player.grounded =
+            false;
+
+    }
+
+
+    player.squash +=
+        (
+            1 -
+            player.squash
+        ) *
+        .18;
+
+
+    player.runFrame +=
+        .22 *
+        dt *
+        (
+            gameSpeed /
+            INITIAL_SPEED
+        );
+
+
+    player.blinkTimer +=
+        delta /
         1000;
 
-    lastFrame =
-        0;
 
-    obstacles.length =
-        0;
+    if (
+        player.blinkTimer >
+        3.2 +
+        Math.random() *
+        2
+    ) {
+
+        player.blinkTimer =
+            0;
+
+    }
 
 
-    resetPlayerPosition();
+    /* world */
+
+    groundOffset +=
+        gameSpeed *
+        dt;
 
 
-    player.velocityY =
-        0;
+    cloudOffset +=
+        gameSpeed *
+        dt;
 
-    player.grounded =
-        true;
+
+    /* obstacles */
+
+    obstacleTimer +=
+        gameSpeed *
+        dt;
+
+
+    if (
+        obstacleTimer >=
+        nextObstacle
+    ) {
+
+        createObstacle();
+
+        obstacleTimer =
+            0;
+
+    }
+
+
+    obstacles.forEach(
+        function(obstacle) {
+
+            obstacle.x -=
+                gameSpeed *
+                dt;
+
+        }
+    );
+
+
+    obstacles =
+        obstacles.filter(
+            function(obstacle) {
+
+                return (
+                    obstacle.x +
+                    obstacle.width >
+                    -30
+                );
+
+            }
+        );
+
+
+    /* collision */
+
+    for (
+        let i = 0;
+        i < obstacles.length;
+        i++
+    ) {
+
+        if (
+            checkCollision(
+                obstacles[i]
+            )
+        ) {
+
+            endGame();
+
+            return;
+
+        }
+
+    }
+
+
+    /* score */
+
+    distance +=
+        gameSpeed *
+        dt;
+
+
+    score =
+        Math.floor(
+            distance /
+            8
+        );
 
 
     gameScoreElement.textContent =
-        "Score: 0";
+        "SCORE " +
+        String(score)
+            .padStart(5,"0");
 
-    gameBestElement.textContent =
-        "Best: " +
-        bestScore;
+}
 
 
-    gameOverlay.classList.remove(
-        "show"
+/* =========================================================
+   DRAW GAME
+   ========================================================= */
+
+function drawGame() {
+
+    drawGameBackground();
+
+
+    obstacles.forEach(
+        function(obstacle) {
+
+            drawObstacle(
+                obstacle
+            );
+
+        }
+    );
+
+
+    drawPlayer();
+
+}
+
+
+/* =========================================================
+   GAME LOOP
+   ========================================================= */
+
+function gameLoop(
+    timestamp
+) {
+
+    if (
+        !gameRunning
+    ) {
+
+        drawGame();
+
+        return;
+
+    }
+
+
+    const delta =
+        timestamp -
+        lastFrameTime;
+
+
+    lastFrameTime =
+        timestamp;
+
+
+    updateGame(
+        delta
     );
 
 
     drawGame();
 
+
+    if (
+        gameRunning
+    ) {
+
+        animationFrame =
+            requestAnimationFrame(
+                gameLoop
+            );
+
+    }
+
 }
 
 
 /* =========================================================
-   GAME INPUT
+   INITIAL GAME DRAW
    ========================================================= */
 
+drawGame();
 
-/*
- * Desktop keyboard.
- */
 
-window.addEventListener(
+/* =========================================================
+   GAME START BUTTON
+   ========================================================= */
+
+gameStartButton.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        startGame();
+
+    }
+);
+
+
+/* =========================================================
+   PHONE JUMP BUTTON
+   ========================================================= */
+
+gameJumpButton.addEventListener(
+    "pointerdown",
+    function(event) {
+
+        event.preventDefault();
+
+        gameJump();
+
+    }
+);
+
+
+/* =========================================================
+   TAP GAME TO JUMP
+   ========================================================= */
+
+runnerCanvas.addEventListener(
+    "pointerdown",
+    function(event) {
+
+        event.preventDefault();
+
+        gameJump();
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD
+   ========================================================= */
+
+document.addEventListener(
     "keydown",
-    function(event){
+    function(event) {
 
-        if(
-            event.code === "Space" ||
-            event.code === "ArrowUp"
-        ){
+        if (
+            event.code ===
+                "Space" ||
+            event.code ===
+                "ArrowUp"
+        ) {
 
-            event.preventDefault();
+            /*
+             * Don't allow Space to
+             * scroll the page while playing.
+             */
 
-            jump();
+            if (
+                gameRunning ||
+                document.activeElement ===
+                gameStartButton
+            ) {
+
+                event.preventDefault();
+
+            }
+
+
+            gameJump();
 
         }
 
@@ -6308,86 +8085,36 @@ window.addEventListener(
 );
 
 
-/*
- * Canvas pointer.
- *
- * This works on phones and desktop.
- * The important part is preventDefault()
- * so the browser doesn't interpret the
- * gesture as page scrolling.
- */
+/* =========================================================
+   PREVENT TOUCH SCROLL INSIDE GAME
+   ========================================================= */
 
-canvas.addEventListener(
-    "pointerdown",
-    function(event){
-
-        event.preventDefault();
-
-        jump();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-/*
- * Big mobile jump button.
- */
-
-mobileJumpButton.addEventListener(
-    "pointerdown",
-    function(event){
-
-        event.preventDefault();
-
-        jump();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-/*
- * Prevent accidental touch scrolling
- * while touching the actual game area.
- */
-
-gameWrap.addEventListener(
+runnerShell.addEventListener(
     "touchstart",
-    function(event){
+    function(event) {
 
         event.preventDefault();
 
     },
     {
-        passive:false
+        passive:
+            false
     }
 );
 
 
-/*
- * Restart button.
- */
+runnerShell.addEventListener(
+    "touchmove",
+    function(event) {
 
-restartGameButton.addEventListener(
-    "click",
-    function(){
+        event.preventDefault();
 
-        restartGame();
-
+    },
+    {
+        passive:
+            false
     }
 );
-
-
-/*
- * Initial drawing.
- */
-
-drawGame();
 
 
 /* =========================================================
@@ -6413,7 +8140,7 @@ saveButton.addEventListener(
 
 
 /* =========================================================
-   LOGIN ENTER KEY
+   LOGIN ENTER
    ========================================================= */
 
 document
@@ -6422,12 +8149,12 @@ document
     )
     .addEventListener(
         "keydown",
-        function(event){
+        function(event) {
 
-            if(
+            if (
                 event.key ===
                 "Enter"
-            ){
+            ) {
 
                 login();
 
@@ -6437,18 +8164,22 @@ document
     );
 
 
+/* =========================================================
+   EMAIL ENTER
+   ========================================================= */
+
 document
     .getElementById(
         "loginEmail"
     )
     .addEventListener(
         "keydown",
-        function(event){
+        function(event) {
 
-            if(
+            if (
                 event.key ===
                 "Enter"
-            ){
+            ) {
 
                 document
                     .getElementById(
@@ -6462,17 +8193,8 @@ document
     );
 
 
-/* =========================================================
-   START GAME LOOP
-   ========================================================= */
-
-gameAnimation =
-    requestAnimationFrame(
-        gameLoop
-    );
-
-
 </script>
 
 </body>
+
 </html>
